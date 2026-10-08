@@ -32,13 +32,24 @@
 
 ---
 
+## 🗺️ MapNest
+
+ชื่อผลิตภัณฑ์: **MapNest** — ค้นหาอสังหาฯ แบบแผนที่ 3 มุมมอง (รายการ · รูปภาพ · แผนที่) เริ่มต้นที่ **อุดรธานี** ขยายได้ทั้ง 77 จังหวัด
+
+- สเปกหลัก (Blueprint / Excel / Draw.io) อยู่ใน Google Drive โฟลเดอร์ `MapNest_Project`
+- Design system: [`docs/DESIGN.md`](docs/DESIGN.md) · กฎสำหรับ AI agent: [`.agents/rules/mapnest.md`](.agents/rules/mapnest.md)
+- Tech stack: Next.js (App Router) + TypeScript + Tailwind · PostgreSQL 16 + PostGIS · Drizzle · MapLibre GL
+
 ## 📁 โครงสร้างโปรเจกต์ (Project Structure)
 
 ```text
 real-estate-platform/
-├── .gitignore
-├── README.md
-└── ... (Source code)
+├── .agents/rules/     # กฎโปรเจกต์ (โหลดอัตโนมัติใน Antigravity)
+├── db/                # schema + seed SQL (PostGIS)
+├── docs/              # DESIGN.md, Stitch prompts, UI exports
+├── public/
+├── src/app/           # Next.js App Router
+└── package.json
 ```
 
 ---
@@ -49,6 +60,11 @@ real-estate-platform/
    ```bash
    git clone <repository-url>
    cd real-estate-platform
+   ```
+2. **ติดตั้งและรัน:**
+   ```bash
+   npm install
+   npm run dev   # http://localhost:3000
    ```
 
 ## 🗺️ แผนการพัฒนา (Development Roadmap)
