@@ -102,6 +102,26 @@ export function Navbar({ onSearch }: NavbarProps) {
             </button>
           </div>
 
+          {/* Saved & Favorites Link */}
+          <Link
+            href="/saved"
+            aria-label="ทรัพย์ที่บันทึกไว้"
+            className="w-9 h-9 rounded-xl flex items-center justify-center text-muted hover:text-foreground hover:bg-background transition-colors cursor-pointer"
+            title="ทรัพย์ที่บันทึกไว้ & คิวจอง"
+          >
+            <span className="material-symbols-outlined text-[20px]">favorite_border</span>
+          </Link>
+
+          {/* Appointments Calendar Link */}
+          <Link
+            href="/appointments"
+            aria-label="นัดหมายชมทรัพย์"
+            className="w-9 h-9 rounded-xl flex items-center justify-center text-muted hover:text-foreground hover:bg-background transition-colors cursor-pointer"
+            title="ตารางนัดหมายชมทรัพย์"
+          >
+            <span className="material-symbols-outlined text-[20px]">calendar_month</span>
+          </Link>
+
           {/* Messages Link */}
           <Link
             href="/messages"
@@ -127,8 +147,8 @@ export function Navbar({ onSearch }: NavbarProps) {
           <div className="flex items-center pl-1 border-l border-border">
             {isLoggedIn && user ? (
               <Link
-                href="/my-listings"
-                title={`${user.name} (${user.role === 'owner' ? 'เจ้าของ' : user.role === 'agent' ? 'นายหน้า' : 'ผู้ซื้อ'})`}
+                href="/account"
+                title={`บัญชี: ${user.name} (${user.role === 'owner' ? 'เจ้าของ' : user.role === 'agent' ? 'นายหน้า' : 'ผู้ซื้อ'})`}
                 className="w-9 h-9 rounded-full overflow-hidden border border-primary/20 flex items-center justify-center text-primary font-bold text-sm hover:ring-2 hover:ring-primary/30 transition-all shrink-0 bg-primary/10"
               >
                 {user.avatarUrl ? (
@@ -182,6 +202,42 @@ export function Navbar({ onSearch }: NavbarProps) {
               </Link>
             );
           })}
+
+          <div className="pt-2 border-t border-border space-y-1">
+            <Link
+              href="/saved"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-semibold text-foreground hover:bg-slate-100"
+            >
+              <span className="material-symbols-outlined text-[18px] text-primary">favorite</span>
+              <span>ทรัพย์ที่บันทึกไว้ & คิวจอง</span>
+            </Link>
+            <Link
+              href="/appointments"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-semibold text-foreground hover:bg-slate-100"
+            >
+              <span className="material-symbols-outlined text-[18px] text-primary">calendar_month</span>
+              <span>นัดหมายชมทรัพย์</span>
+            </Link>
+            <Link
+              href="/account"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-semibold text-foreground hover:bg-slate-100"
+            >
+              <span className="material-symbols-outlined text-[18px] text-primary">badge</span>
+              <span>ตั้งค่าบัญชี & ยืนยันตัวตน KYC</span>
+            </Link>
+            <Link
+              href="/agent/somying"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-semibold text-foreground hover:bg-slate-100"
+            >
+              <span className="material-symbols-outlined text-[18px] text-primary">account_box</span>
+              <span>โปรไฟล์เอเจนต์ (Agent Microsite)</span>
+            </Link>
+          </div>
+
           <div className="pt-2 border-t border-border flex flex-col gap-2">
             <Link
               href="/post"
