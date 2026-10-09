@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useAuth, ROLE_META, UserRole } from '@/context/AuthContext';
 import { canAccessPath } from '@/lib/access';
+import { NotificationDropdown } from '@/components/notifications/NotificationDropdown';
 
 interface NavbarProps {
   onSearch?: (query: string) => void;
@@ -135,6 +136,7 @@ export function Navbar({ onSearch }: NavbarProps) {
               >
                 <span className="material-symbols-outlined text-[20px]">favorite_border</span>
               </Link>
+              <NotificationDropdown />
               <Link
                 href="/messages"
                 aria-label="ข้อความแชท"
