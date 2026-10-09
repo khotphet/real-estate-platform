@@ -1,0 +1,126 @@
+{
+  "passedScenarios": 20,
+  "failedScenarios": 0,
+  "results": [
+    {
+      "role": "Buyer",
+      "scenario": "1.1 Home & Search Load",
+      "status": "PASS",
+      "detail": "Found 3 listings loaded"
+    },
+    {
+      "role": "Buyer",
+      "scenario": "1.2 Listing Detail & Mortgage Calculator",
+      "status": "PASS",
+      "detail": "UD-00101 specs & PMT calculation active"
+    },
+    {
+      "role": "Buyer",
+      "scenario": "1.3 Waitlist Queue on Reserved Listing",
+      "status": "PASS",
+      "detail": "Waitlist modal opened with auto-filled credentials"
+    },
+    {
+      "role": "Buyer",
+      "scenario": "1.4 Appointments Schedule Page",
+      "status": "PASS",
+      "detail": "Appointments schedule board verified"
+    },
+    {
+      "role": "Buyer",
+      "scenario": "1.5 Direct Chat Messaging",
+      "status": "PASS",
+      "detail": "Chat inbox loaded and interactive"
+    },
+    {
+      "role": "Buyer",
+      "scenario": "1.6 Multi-Property Comparison (4 slots)",
+      "status": "PASS",
+      "detail": "Comparison matrix loaded with 4 references"
+    },
+    {
+      "role": "Buyer",
+      "scenario": "1.7 Saved Favorites & Waitlist Tabs",
+      "status": "PASS",
+      "detail": "Saved listings page verified"
+    },
+    {
+      "role": "Buyer",
+      "scenario": "1.8 Create Spatial Demand Pin",
+      "status": "PASS",
+      "detail": "Demand pin successfully created"
+    },
+    {
+      "role": "Owner",
+      "scenario": "2.1 Owner Authentication & Role Header",
+      "status": "PASS",
+      "detail": "Logged in as คุณสมชาย ยิ่งเจริญ (Owner)"
+    },
+    {
+      "role": "Owner",
+      "scenario": "2.2 Owner Listings Management & Analytics",
+      "status": "PASS",
+      "detail": "Loaded 4 managed listings"
+    },
+    {
+      "role": "Owner",
+      "scenario": "2.3 5-Step Property Posting Wizard",
+      "status": "PASS",
+      "detail": "Traversed all 5 steps with duplicate detection checks"
+    },
+    {
+      "role": "Owner",
+      "scenario": "2.4 Boost Packages & PromptPay Checkout",
+      "status": "PASS",
+      "detail": "PromptPay QR payment modal displayed"
+    },
+    {
+      "role": "Agent",
+      "scenario": "3.1 Agent Profile & KYC Verification Badge",
+      "status": "PASS",
+      "detail": "KYC Level 3 Verified Agent profile active"
+    },
+    {
+      "role": "Agent",
+      "scenario": "3.2 Co-Broker B2B Hub & Digital MOU Signing",
+      "status": "PASS",
+      "detail": "Co-Broker listings board loaded"
+    },
+    {
+      "role": "Agent",
+      "scenario": "3.3 Reverse Marketplace Demand Board",
+      "status": "PASS",
+      "detail": "Demand pins displayed"
+    },
+    {
+      "role": "Agent",
+      "scenario": "3.4 Public Agent Microsite & Portfolio",
+      "status": "PASS",
+      "detail": "Loaded microsite with stats, rating 4.9, and listings"
+    },
+    {
+      "role": "Admin",
+      "scenario": "4.1 Admin Ops Authentication & Dashboard",
+      "status": "PASS",
+      "detail": "Dashboard and KPI metric cards loaded"
+    },
+    {
+      "role": "Admin",
+      "scenario": "4.2 KYC Queue Moderation & Approval",
+      "status": "PASS",
+      "detail": "Approved KYC submission with verification stamp"
+    },
+    {
+      "role": "Admin",
+      "scenario": "4.3 Listing Moderation Queue (Approve / Reject)",
+      "status": "PASS",
+      "detail": "Approved pending property listing"
+    },
+    {
+      "role": "Admin",
+      "scenario": "4.4 Defect & Scam Reports Queue",
+      "status": "PASS",
+      "detail": "Reports queue active"
+    }
+  ]
+}
