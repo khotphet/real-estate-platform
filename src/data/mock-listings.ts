@@ -1,5 +1,38 @@
 import { Listing } from '@/types/listing';
 
+export const POSTER_SOMYING = {
+  name: 'คุณสมหญิง บุญรักษา',
+  role: 'agent' as const,
+  verified: true,
+  phone: '081-882-9901',
+  avatarUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&auto=format&fit=crop&q=80',
+  rating: 4.9,
+  reviewCount: 28,
+  responseTime: 'ตอบกลับใน 15 นาที',
+};
+
+export const POSTER_SOMCHAI = {
+  name: 'คุณสมชาย ยิ่งเจริญ',
+  role: 'owner' as const,
+  verified: true,
+  phone: '081-111-2222',
+  avatarUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDLG8GjFLGTr4aP_WHHb2s4C2whuNsmS1TRDYDxlYltAXE9cKqwM5Lb-F7cWZG-kUIJ2zKAOzRMGd2k3tWuMVm2r-6-xfV94e1FLurx-GFJm8WBYlfISMOE5Vsas5zL4x0vq5WwYtIocdpKdr8NV8eidcERgpj36ppZfAHI6wZWiW543dSiDzTZYlSg4YCKex-nK3nD8Twxqg3_YWXF-zLh5kBBchCBT7n8tAHJJ5g',
+  rating: 4.8,
+  reviewCount: 15,
+  responseTime: 'ตอบกลับใน 1 ชม.',
+};
+
+export const POSTER_THANAKRIT = {
+  name: 'ธนกฤต วรวิทย์คุณากร',
+  role: 'agent' as const,
+  verified: true,
+  phone: '081-445-8899',
+  avatarUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&auto=format&fit=crop&q=80',
+  rating: 4.9,
+  reviewCount: 31,
+  responseTime: 'ตอบกลับใน 10 นาที',
+};
+
 export const MOCK_LISTINGS: Listing[] = [
   {
     id: '30000000-0000-0000-0000-000000000001',
@@ -65,16 +98,7 @@ export const MOCK_LISTINGS: Listing[] = [
     description: 'ห้องสวยสภาพมือหนึ่ง เจ้าของเดิมดูแลอย่างดี ตกแต่งครบสไตล์โมเดิร์นพร้อมลากกระเป๋าเข้าอยู่ทันที อยู่ชั้น 8 อาคาร B ทิศเหนือแดดไม่ส่องตอนบ่าย ลมโกรกโปร่งสบายตลอดวัน มองเห็นวิวสระว่ายน้ำส่วนกลางชัดเจน เงียบสงบไม่มีเสียงรบกวนจากถนนใหญ่ ทำเลใจกลางเมืองอุดรธานี ใกล้ UD Town และเซ็นทรัลพลาซา',
     isVerified: true,
     updatedAt: 'อัปเดตเมื่อ 2 วันที่แล้ว',
-    poster: {
-      name: 'ธนกฤต วรวิทย์คุณากร',
-      role: 'agent',
-      verified: true,
-      phone: '081-445-8899',
-      avatarUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCYwILPVniQr0OJxcX-nLxnJkZ8yr4QmddEn-yev-RfXVFAISqRzLBtiVXD9SDEJQ10QUtCuCsyLWavJRWT6OEBaIbgZTaFyMg1fxQXzHKzdV3yksXmPNGOprxkSujVbCDaA8WOMNfPSN0Iwf5q3xw-dwDvbX_U6DmSyJhYhjq1mFbYz_ULRx-T9nF_lKUTbvYiHdB2Eumb8opLNKJkJvaU6WMvsIR8maBQ1a3GUTQ',
-      rating: 4.9,
-      reviewCount: 28,
-      responseTime: 'ตอบกลับใน 15 นาที',
-    },
+    poster: POSTER_THANAKRIT,
   },
   {
     id: '30000000-0000-0000-0000-000000000002',
@@ -114,11 +138,7 @@ export const MOCK_LISTINGS: Listing[] = [
     description: 'ห้องสวย วิวเมืองโล่ง โปร่งสบาย เฟอร์นิเจอร์และเครื่องใช้ไฟฟ้าครบ แอร์ 2 เครื่อง สมาร์ททีวี ตู้เย็น เครื่องซักผ้า พร้อมเข้าอยู่ได้ทันที',
     isVerified: true,
     updatedAt: 'อัปเดตเมื่อ 3 วันที่แล้ว',
-    poster: {
-      name: 'คุณสมหญิง บุญรักษา',
-      role: 'agent',
-      verified: true,
-    },
+    poster: POSTER_SOMYING,
   },
   {
     id: '30000000-0000-0000-0000-000000000003',
@@ -157,11 +177,7 @@ export const MOCK_LISTINGS: Listing[] = [
     description: 'บ้านเดี่ยว 2 ชั้น แปลงมุม สวนกว้าง บรรยากาศร่มรื่น สภาพใหม่เหมือนมือหนึ่ง ระบบรักษาความปลอดภัย 24 ชม. ใกล้ รร.อุดรพิทยานุกูล',
     isVerified: true,
     updatedAt: 'อัปเดตเมื่อ 5 วันที่แล้ว',
-    poster: {
-      name: 'คุณสมชาย ยิ่งเจริญ',
-      role: 'owner',
-      verified: true,
-    },
+    poster: POSTER_SOMCHAI,
   },
   {
     id: '30000000-0000-0000-0000-000000000004',
@@ -196,11 +212,7 @@ export const MOCK_LISTINGS: Listing[] = [
     description: 'ที่ดินรูปแปลงสี่เหลี่ยมสวย ถมแล้ว พร้อมสร้างบ้านพักอาศัยหรือหอพักนักศึกษา ถนนคอนกรีตสาธารณะ น้ำประปา-ไฟฟ้าเข้าถึง',
     isVerified: true,
     updatedAt: 'อัปเดตเมื่อ 1 สัปดาห์ที่แล้ว',
-    poster: {
-      name: 'ธนกฤต วรวิทย์คุณากร',
-      role: 'agent',
-      verified: true,
-    },
+    poster: POSTER_THANAKRIT,
   },
   {
     id: '30000000-0000-0000-0000-000000000005',
@@ -238,11 +250,7 @@ export const MOCK_LISTINGS: Listing[] = [
     description: 'ทาวน์โฮมโมเดิร์น 2 ชั้น ต่อเติมครัวหลังบ้านและโรงจอดรถเรียบร้อย เดินทางเข้าเมืองสะดวก ใกล้ห้างบิ๊กซี และตลาดสดโบ๊เบ๊',
     isVerified: true,
     updatedAt: 'อัปเดตเมื่อ 4 วันที่แล้ว',
-    poster: {
-      name: 'คุณสมหญิง บุญรักษา',
-      role: 'agent',
-      verified: true,
-    },
+    poster: POSTER_SOMYING,
   },
   {
     id: '30000000-0000-0000-0000-000000000006',
@@ -280,11 +288,7 @@ export const MOCK_LISTINGS: Listing[] = [
     description: 'บ้านเดี่ยว 2 ชั้น เนื้อที่กว้างขวาง รั้วรอบขอบชิด เลี้ยงสัตว์ได้ เหมาะอยู่อาศัยหรือทำโฮมออฟฟิศ อยู่ในแหล่งชุมชนเงียบสงบ',
     isVerified: true,
     updatedAt: 'อัปเดตเมื่อ 6 วันที่แล้ว',
-    poster: {
-      name: 'คุณสมชาย ยิ่งเจริญ',
-      role: 'owner',
-      verified: true,
-    },
+    poster: POSTER_SOMCHAI,
   },
   {
     id: '30000000-0000-0000-0000-000000000007',
@@ -323,11 +327,7 @@ export const MOCK_LISTINGS: Listing[] = [
     description: 'คอนโดทำเลพักผ่อนใกล้สวนหนองประจักษ์ ปิดการขายเรียบร้อยแล้ว',
     isVerified: true,
     updatedAt: 'ขายแล้วเมื่อสัปดาห์ที่แล้ว',
-    poster: {
-      name: 'คุณสมหญิง บุญรักษา',
-      role: 'agent',
-      verified: true,
-    },
+    poster: POSTER_SOMYING,
   },
   {
     id: '30000000-0000-0000-0000-000000000008',
@@ -365,11 +365,7 @@ export const MOCK_LISTINGS: Listing[] = [
     description: 'ทำเลทองย่านการค้า เหมาะสำหรับเปิดหน้าร้าน คลินิก หรือโฮมออฟฟิศพร้อมอยู่อาศัย ติดถนนสายหลัก ที่จอดรถสะดวกสบาย',
     isVerified: true,
     updatedAt: 'อัปเดตเมื่อ 1 สัปดาห์ที่แล้ว',
-    poster: {
-      name: 'ธนกฤต วรวิทย์คุณากร',
-      role: 'agent',
-      verified: true,
-    },
+    poster: POSTER_THANAKRIT,
   },
   {
     id: '30000000-0000-0000-0000-000000000009',
@@ -404,11 +400,7 @@ export const MOCK_LISTINGS: Listing[] = [
     description: 'ที่ดินแปลงย่อยจัดสรร เหมาะสร้างบ้านเดี่ยว บรรยากาศสงบ ไม่ไกลตัวเมือง ไฟฟ้า น้ำประปาครบครัน การเดินทางสะดวกสบาย',
     isVerified: true,
     updatedAt: 'อัปเดตเมื่อ 1 สัปดาห์ที่แล้ว',
-    poster: {
-      name: 'คุณสมชาย ยิ่งเจริญ',
-      role: 'owner',
-      verified: true,
-    },
+    poster: POSTER_SOMCHAI,
   },
   {
     id: '30000000-0000-0000-0000-000000000010',
@@ -447,11 +439,7 @@ export const MOCK_LISTINGS: Listing[] = [
     description: 'บ้านเดี่ยวชั้นเดียว ดีไซน์อบอุ่น พร้อมพื้นที่จัดสวนข้างบ้าน ใกล้สวนสาธารณะหนองประจักษ์ เดินทางเข้าเมืองเพียง 10 นาที',
     isVerified: true,
     updatedAt: 'อัปเดตเมื่อ 1 สัปดาห์ที่แล้ว',
-    poster: {
-      name: 'คุณสมหญิง บุญรักษา',
-      role: 'agent',
-      verified: true,
-    },
+    poster: POSTER_SOMYING,
   },
   {
     id: '30000000-0000-0000-0000-000000000011',
@@ -490,11 +478,7 @@ export const MOCK_LISTINGS: Listing[] = [
     description: 'ห้องสตูดิโอขนาดกะทัดรัด ตกแต่งครบพร้อมอยู่ ใกล้สถาบันการศึกษา ร้านอาหาร และร้านสะดวกซื้อ เหมาะสำหรับนักศึกษาหรือคนทำงาน',
     isVerified: true,
     updatedAt: 'อัปเดตเมื่อ 2 สัปดาห์ที่แล้ว',
-    poster: {
-      name: 'ธนกฤต วรวิทย์คุณากร',
-      role: 'agent',
-      verified: true,
-    },
+    poster: POSTER_THANAKRIT,
   },
   {
     id: '30000000-0000-0000-0000-000000000012',
@@ -533,11 +517,7 @@ export const MOCK_LISTINGS: Listing[] = [
     description: 'บ้านเดี่ยวสไตล์โมเดิร์น พื้นที่ใช้สอยกว้างขวาง เหมาะสำหรับครอบครัวใหญ่ วัสดุเกรดพรีเมียม เดินทางไปสนามบินเพียง 5 นาที',
     isVerified: true,
     updatedAt: 'อัปเดตเมื่อ 2 สัปดาห์ที่แล้ว',
-    poster: {
-      name: 'คุณสมชาย ยิ่งเจริญ',
-      role: 'owner',
-      verified: true,
-    },
+    poster: POSTER_SOMCHAI,
   },
 ];
 

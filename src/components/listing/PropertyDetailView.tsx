@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import {
   ChevronRight,
@@ -33,6 +33,7 @@ import { PhotoGalleryModal } from './PhotoGalleryModal';
 import { AppointmentModal } from './AppointmentModal';
 import { WaitlistModal } from './WaitlistModal';
 import { FavoriteButton } from './FavoriteButton';
+import { calculateMortgage } from '@/lib/mortgage';
 
 interface PropertyDetailViewProps {
   listing: Listing;
@@ -77,8 +78,11 @@ export function PropertyDetailView({ listing }: PropertyDetailViewProps) {
     commercial: 'อาคารพาณิชย์',
   }[listing.propertyType];
 
-  // Rough estimate for monthly payment
-  const estMonthly = Math.round((listing.price * 0.95 * 0.045) / 12);
+  // Standard mortgage calculation synchronized with LoanCalculatorModal
+  const mortgageEst = useMemo(
+    () => calculateMortgage({ price: listing.price }),
+    [listing.price]
+  );
 
   return (
     <div className="w-full bg-canvas-background">
@@ -288,7 +292,7 @@ export function PropertyDetailView({ listing }: PropertyDetailViewProps) {
                     className="inline-flex items-center gap-1.5 px-4 py-2 bg-surface-card hover:bg-primary-light text-primary border border-border-subtle rounded-full text-xs font-semibold shadow-sm transition-colors self-start sm:self-center"
                   >
                     <Sparkles className="w-3.5 h-3.5 text-primary" />
-                    <span>ผ่อนเริ่มต้น ~฿{estMonthly.toLocaleString()}/เดือน · คำนวณสินเชื่อ &gt;</span>
+                    <span>ผ่อนเริ่มต้น ~฿{mortgageEst.monthlyPayment.toLocaleString()}/เดือน · คำนวณสินเชื่อ &gt;</span>
                   </button>
                 )}
               </div>
@@ -500,21 +504,21 @@ export function PropertyDetailView({ listing }: PropertyDetailViewProps) {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                   <div className="p-4 bg-canvas-background rounded-xl border border-border-subtle">
-                    <span className="text-xs text-text-muted">ยอดกู้โดยประมาณ (95%)</span>
+                    <span className="text-xs text-text-muted">ยอดกู้โดยประมาณ ({100 - mortgageEst.downPaymentPct}%)</span>
                     <div className="text-lg font-bold text-on-surface mt-1">
-                      ฿{Math.round(listing.price * 0.95).toLocaleString()}
+                      ฿{mortgageEst.loanAmount.toLocaleString()}
                     </div>
                   </div>
                   <div className="p-4 bg-canvas-background rounded-xl border border-border-subtle">
-                    <span className="text-xs text-text-muted">เงินดาวน์ (5%)</span>
+                    <span className="text-xs text-text-muted">เงินดาวน์ ({mortgageEst.downPaymentPct}%)</span>
                     <div className="text-lg font-bold text-on-surface mt-1">
-                      ฿{Math.round(listing.price * 0.05).toLocaleString()}
+                      ฿{mortgageEst.downPaymentAmount.toLocaleString()}
                     </div>
                   </div>
                   <div className="p-4 bg-primary-light rounded-xl border border-primary/20">
-                    <span className="text-xs text-primary font-semibold">ยอดผ่อนชำระ (30 ปี)</span>
+                    <span className="text-xs text-primary font-semibold">ยอดผ่อนชำระ ({mortgageEst.loanTermYears} ปี)</span>
                     <div className="text-lg font-bold text-primary mt-1">
-                      ฿{estMonthly.toLocaleString()} / เดือน
+                      ฿{mortgageEst.monthlyPayment.toLocaleString()} / เดือน
                     </div>
                   </div>
                 </div>
@@ -536,7 +540,7 @@ export function PropertyDetailView({ listing }: PropertyDetailViewProps) {
                         cy="18"
                         fill="none"
                         r="15.9155"
-                        strokeDasharray="68, 100"
+                        strokeDasharray={`${mortgageEst.principalPct}, 100`}
                         strokeLinecap="round"
                         strokeWidth="3.5"
                       ></circle>
@@ -546,8 +550,8 @@ export function PropertyDetailView({ listing }: PropertyDetailViewProps) {
                         cy="18"
                         fill="none"
                         r="15.9155"
-                        strokeDasharray="32, 100"
-                        strokeDashoffset="-68"
+                        strokeDasharray={`${mortgageEst.interestPct}, 100`}
+                        strokeDashoffset={`-${mortgageEst.principalPct}`}
                         strokeLinecap="round"
                         strokeWidth="3.5"
                       ></circle>
@@ -559,11 +563,11 @@ export function PropertyDetailView({ listing }: PropertyDetailViewProps) {
                       <div className="flex items-center gap-4 mt-1 text-xs text-text-muted">
                         <span className="flex items-center gap-1.5">
                           <span className="w-2 h-2 rounded-full bg-primary"></span>
-                          เงินต้น 68%
+                          เงินต้น {mortgageEst.principalPct}%
                         </span>
                         <span className="flex items-center gap-1.5">
                           <span className="w-2 h-2 rounded-full bg-amber-500"></span>
-                          ดอกเบี้ย 32%
+                          ดอกเบี้ย {mortgageEst.interestPct}%
                         </span>
                       </div>
                     </div>
@@ -622,7 +626,9 @@ export function PropertyDetailView({ listing }: PropertyDetailViewProps) {
                   <img
                     src={
                       listing.poster.avatarUrl ||
-                      'https://lh3.googleusercontent.com/aida-public/AB6AXuCYwILPVniQr0OJxcX-nLxnJkZ8yr4QmddEn-yev-RfXVFAISqRzLBtiVXD9SDEJQ10QUtCuCsyLWavJRWT6OEBaIbgZTaFyMg1fxQXzHKzdV3yksXmPNGOprxkSujVbCDaA8WOMNfPSN0Iwf5q3xw-dwDvbX_U6DmSyJhYhjq1mFbYz_ULRx-T9nF_lKUTbvYiHdB2Eumb8opLNKJkJvaU6WMvsIR8maBQ1a3GUTQ'
+                      (listing.poster.name.includes('สมหญิง') || listing.poster.role === 'agent'
+                        ? 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&auto=format&fit=crop&q=80'
+                        : 'https://lh3.googleusercontent.com/aida-public/AB6AXuDLG8GjFLGTr4aP_WHHb2s4C2whuNsmS1TRDYDxlYltAXE9cKqwM5Lb-F7cWZG-kUIJ2zKAOzRMGd2k3tWuMVm2r-6-xfV94e1FLurx-GFJm8WBYlfISMOE5Vsas5zL4x0vq5WwYtIocdpKdr8NV8eidcERgpj36ppZfAHI6wZWiW543dSiDzTZYlSg4YCKex-nK3nD8Twxqg3_YWXF-zLh5kBBchCBT7n8tAHJJ5g')
                     }
                     alt={listing.poster.name}
                     className="w-14 h-14 rounded-full object-cover shadow-xs border border-border-subtle"
@@ -797,6 +803,7 @@ export function PropertyDetailView({ listing }: PropertyDetailViewProps) {
 
       {/* Modals */}
       <LoanCalculatorModal
+        key={listing.code}
         listing={listing}
         isOpen={isLoanModalOpen}
         onClose={() => setIsLoanModalOpen(false)}
