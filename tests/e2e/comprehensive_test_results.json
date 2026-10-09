@@ -1,0 +1,245 @@
+{
+  "total": 34,
+  "passed": 34,
+  "failed": 0,
+  "results": [
+    {
+      "suiteId": "Suite 01",
+      "testId": "TC-AUTH-01",
+      "title": "OTP Login Valid (คุณวิชัย - Buyer)",
+      "status": "PASS",
+      "details": "User profile and role authenticated"
+    },
+    {
+      "suiteId": "Suite 01",
+      "testId": "TC-AUTH-02",
+      "title": "Quick Role Switch (to Agent Pro)",
+      "status": "PASS",
+      "details": "Switched session to คุณสมหญิง successfully"
+    },
+    {
+      "suiteId": "Suite 01",
+      "testId": "TC-AUTH-03",
+      "title": "User Profile & KYC Level Check",
+      "status": "PASS",
+      "details": "KYC Level 3 Verified Agent badge verified"
+    },
+    {
+      "suiteId": "Suite 02",
+      "testId": "TC-MAP-01",
+      "title": "Map & Price Pins Load",
+      "status": "PASS",
+      "details": "Rendered 3 listings in Udon Thani"
+    },
+    {
+      "suiteId": "Suite 02",
+      "testId": "TC-MAP-02",
+      "title": "Property Type & Price Filtering",
+      "status": "PASS",
+      "details": "Filtered listings by property category"
+    },
+    {
+      "suiteId": "Suite 02",
+      "testId": "TC-MAP-03",
+      "title": "Landmark Proximity Filter",
+      "status": "PASS",
+      "details": "Search box active for landmark and zone filtering"
+    },
+    {
+      "suiteId": "Suite 02",
+      "testId": "TC-MAP-04",
+      "title": "View Mode Switcher",
+      "status": "PASS",
+      "details": "Switched view mode smoothly"
+    },
+    {
+      "suiteId": "Suite 03",
+      "testId": "TC-PROP-01",
+      "title": "Property Detail Rendering",
+      "status": "PASS",
+      "details": "Full listing specifications and photos rendered"
+    },
+    {
+      "suiteId": "Suite 03",
+      "testId": "TC-PROP-02",
+      "title": "Mortgage PMT Calculator",
+      "status": "PASS",
+      "details": "Thai bank PMT formula calculated monthly installment"
+    },
+    {
+      "suiteId": "Suite 03",
+      "testId": "TC-PROP-03",
+      "title": "4-Slot Property Comparison",
+      "status": "PASS",
+      "details": "Comparison matrix rendered with 4 items"
+    },
+    {
+      "suiteId": "Suite 03",
+      "testId": "TC-PROP-04",
+      "title": "Favorites & Saved Items",
+      "status": "PASS",
+      "details": "Saved listings tab active"
+    },
+    {
+      "suiteId": "Suite 03",
+      "testId": "TC-PROP-05",
+      "title": "Report Listing Modal",
+      "status": "PASS",
+      "details": "Report modal opened with reason options"
+    },
+    {
+      "suiteId": "Suite 04",
+      "testId": "TC-WAIT-01",
+      "title": "Reserved Property Status",
+      "status": "PASS",
+      "details": "Listing shows orange Reserved badge"
+    },
+    {
+      "suiteId": "Suite 04",
+      "testId": "TC-WAIT-02",
+      "title": "Join Waitlist Modal Auto-fill",
+      "status": "PASS",
+      "details": "Waitlist modal displayed Queue #2 and rule charter"
+    },
+    {
+      "suiteId": "Suite 04",
+      "testId": "TC-WAIT-03",
+      "title": "View & Manage Waitlist in Saved",
+      "status": "PASS",
+      "details": "Waitlist queue card verified with status and cancel option"
+    },
+    {
+      "suiteId": "Suite 05",
+      "testId": "TC-COMM-01",
+      "title": "Contextual Chat Initiation",
+      "status": "PASS",
+      "details": "Navigated into chat with listing context"
+    },
+    {
+      "suiteId": "Suite 05",
+      "testId": "TC-COMM-02",
+      "title": "Send Message & Timeline",
+      "status": "PASS",
+      "details": "Message sent and timeline interactive"
+    },
+    {
+      "suiteId": "Suite 05",
+      "testId": "TC-COMM-03",
+      "title": "Viewing Appointment Booking Modal",
+      "status": "PASS",
+      "details": "Appointment booking modal auto-filled"
+    },
+    {
+      "suiteId": "Suite 05",
+      "testId": "TC-COMM-04",
+      "title": "Appointments Schedule Board",
+      "status": "PASS",
+      "details": "Viewing appointments calendar schedule loaded"
+    },
+    {
+      "suiteId": "Suite 06",
+      "testId": "TC-POST-01",
+      "title": "5-Step Posting Wizard Flow",
+      "status": "PASS",
+      "details": "Navigated through all 5 wizard steps"
+    },
+    {
+      "suiteId": "Suite 06",
+      "testId": "TC-POST-02",
+      "title": "Duplicate Listing Detection",
+      "status": "PASS",
+      "details": "Review step reached"
+    },
+    {
+      "suiteId": "Suite 06",
+      "testId": "TC-POST-03",
+      "title": "Owner Listings Management",
+      "status": "PASS",
+      "details": "Loaded 4 managed listings with status toggles"
+    },
+    {
+      "suiteId": "Suite 06",
+      "testId": "TC-POST-04",
+      "title": "Boost Packages & PromptPay QR",
+      "status": "PASS",
+      "details": "PromptPay QR payment modal displayed"
+    },
+    {
+      "suiteId": "Suite 07",
+      "testId": "TC-COB-01",
+      "title": "Co-Broker Hub Catalog",
+      "status": "PASS",
+      "details": "Co-Broker listings board loaded with 5 properties"
+    },
+    {
+      "suiteId": "Suite 07",
+      "testId": "TC-COB-02",
+      "title": "Digital Co-Broker Contract MOU",
+      "status": "PASS",
+      "details": "Co-Broker modal verified"
+    },
+    {
+      "suiteId": "Suite 07",
+      "testId": "TC-COB-03",
+      "title": "Public Agent Microsite",
+      "status": "PASS",
+      "details": "Agent microsite loaded with 4.9★ rating and listings"
+    },
+    {
+      "suiteId": "Suite 08",
+      "testId": "TC-DEM-01",
+      "title": "Create Spatial Demand Pin",
+      "status": "PASS",
+      "details": "Demand pin successfully created"
+    },
+    {
+      "suiteId": "Suite 08",
+      "testId": "TC-DEM-02",
+      "title": "Browse Demand Board",
+      "status": "PASS",
+      "details": "Loaded 0 demand pins on board"
+    },
+    {
+      "suiteId": "Suite 08",
+      "testId": "TC-DEM-03",
+      "title": "Send Property Offer to Demand",
+      "status": "PASS",
+      "details": "Demand offer dialog verified"
+    },
+    {
+      "suiteId": "Suite 09",
+      "testId": "TC-ADM-01",
+      "title": "Admin Dashboard & KPI Cards",
+      "status": "PASS",
+      "details": "Operations portal & health status loaded"
+    },
+    {
+      "suiteId": "Suite 09",
+      "testId": "TC-ADM-02",
+      "title": "KYC Queue Review & Approval",
+      "status": "PASS",
+      "details": "KYC submission reviewed and approved"
+    },
+    {
+      "suiteId": "Suite 09",
+      "testId": "TC-ADM-03",
+      "title": "Listing Moderation Queue",
+      "status": "PASS",
+      "details": "Moderated pending listing and approved for publication"
+    },
+    {
+      "suiteId": "Suite 09",
+      "testId": "TC-ADM-04",
+      "title": "Scam & Defect Reports Resolution",
+      "status": "PASS",
+      "details": "Complaint ticket investigated and marked resolved"
+    },
+    {
+      "suiteId": "Suite 09",
+      "testId": "TC-ADM-05",
+      "title": "Stale Listing Cleanup (Rule O9)",
+      "status": "PASS",
+      "details": "Operations metrics verified"
+    }
+  ]
+}
