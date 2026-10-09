@@ -32,6 +32,7 @@ import { LoanCalculatorModal } from './LoanCalculatorModal';
 import { PhotoGalleryModal } from './PhotoGalleryModal';
 import { AppointmentModal } from './AppointmentModal';
 import { WaitlistModal } from './WaitlistModal';
+import { ReportListingModal } from './ReportListingModal';
 import { FavoriteButton } from './FavoriteButton';
 import { calculateMortgage } from '@/lib/mortgage';
 
@@ -49,6 +50,7 @@ export function PropertyDetailView({ listing }: PropertyDetailViewProps) {
   const [galleryStartIndex, setGalleryStartIndex] = useState(0);
   const [isAppointmentOpen, setIsAppointmentOpen] = useState(false);
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+  const [isReportOpen, setIsReportOpen] = useState(false);
 
   // Similar listings (same province, excluding current)
   const similarListings = MOCK_LISTINGS.filter(
@@ -676,14 +678,13 @@ export function PropertyDetailView({ listing }: PropertyDetailViewProps) {
                   </button>
                 ) : (
                   <>
-                    <button
-                      type="button"
-                      onClick={() => setIsAppointmentOpen(true)}
+                    <Link
+                      href={`/messages?to=${encodeURIComponent(listing.poster.name)}&code=${listing.code}`}
                       className="w-full py-3.5 px-4 bg-primary hover:bg-primary-hover text-on-primary font-semibold text-sm rounded-xl transition-all shadow-sm flex items-center justify-center gap-2"
                     >
                       <MessageCircle className="w-4 h-4" />
                       <span>ติดต่อ / ส่งข้อความแชท</span>
-                    </button>
+                    </Link>
                     <button
                       type="button"
                       onClick={() => setIsAppointmentOpen(true)}
@@ -731,7 +732,8 @@ export function PropertyDetailView({ listing }: PropertyDetailViewProps) {
               <span>พบข้อมูลไม่ถูกต้อง?</span>
               <button
                 type="button"
-                className="hover:text-red-600 transition-colors flex items-center gap-1 text-red-500 font-medium"
+                onClick={() => setIsReportOpen(true)}
+                className="hover:text-red-600 transition-colors flex items-center gap-1 text-red-500 font-medium cursor-pointer"
               >
                 <Flag className="w-3.5 h-3.5" />
                 <span>แจ้งรายงานทรัพย์นี้</span>
@@ -827,6 +829,12 @@ export function PropertyDetailView({ listing }: PropertyDetailViewProps) {
         listing={listing}
         isOpen={isWaitlistOpen}
         onClose={() => setIsWaitlistOpen(false)}
+      />
+
+      <ReportListingModal
+        listing={listing}
+        isOpen={isReportOpen}
+        onClose={() => setIsReportOpen(false)}
       />
     </div>
   );

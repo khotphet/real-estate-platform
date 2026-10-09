@@ -34,7 +34,7 @@ function CompareContent() {
   };
 
   const handleAdd = (code: string) => {
-    if (selectedCodes.length >= 3) return;
+    if (selectedCodes.length >= 4) return;
     setSelectedCodes((prev) => [...prev, code]);
     setShowAddModal(false);
   };
@@ -64,7 +64,7 @@ function CompareContent() {
               <span className="text-foreground font-semibold">เปรียบเทียบทรัพย์</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
-              เปรียบเทียบรายละเอียดทรัพย์ ({selectedListings.length}/3)
+              เปรียบเทียบรายละเอียดทรัพย์ ({selectedListings.length}/4)
             </h1>
             <p className="text-sm text-muted mt-1">
               วิเคราะห์ราคา สเปกพื้นที่ และทำเลเทียบเคียงในจังหวัดอุดรธานี
@@ -72,7 +72,7 @@ function CompareContent() {
           </div>
 
           <div className="flex items-center gap-2">
-            {selectedCodes.length < 3 && (
+            {selectedCodes.length < 4 && (
               <button
                 type="button"
                 onClick={() => setShowAddModal(true)}
@@ -109,15 +109,15 @@ function CompareContent() {
         ) : (
           <div className="bg-surface rounded-2xl border border-border shadow-xs overflow-hidden">
             <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse min-w-[760px]">
+              <table className="w-full text-left border-collapse min-w-[920px]">
                 {/* Property Card Header Row */}
                 <thead>
                   <tr className="border-b border-border bg-slate-50/60">
-                    <th className="w-1/4 p-4 text-xs font-bold text-muted uppercase tracking-wider align-top">
+                    <th className="w-[18%] min-w-[150px] p-4 text-xs font-bold text-muted uppercase tracking-wider align-top">
                       คุณสมบัติ / ทรัพย์
                     </th>
                     {selectedListings.map((item) => (
-                      <th key={item.id} className="w-1/4 p-4 align-top">
+                      <th key={item.id} className="min-w-[200px] p-4 align-top">
                         <div className="relative group">
                           {/* Remove Button */}
                           <button
@@ -169,7 +169,7 @@ function CompareContent() {
                               ดูประกาศ
                             </Link>
                             <Link
-                              href={`/messages`}
+                              href={`/messages?to=${encodeURIComponent(item.poster.name)}&code=${item.code}`}
                               className="px-2.5 py-1.5 border border-border hover:bg-slate-50 text-foreground rounded-lg text-xs font-bold flex items-center justify-center"
                               title="แชทติดต่อ"
                             >
@@ -179,8 +179,8 @@ function CompareContent() {
                         </div>
                       </th>
                     ))}
-                    {selectedListings.length < 3 && (
-                      <th className="w-1/4 p-4 align-middle text-center bg-slate-50/30">
+                    {selectedListings.length < 4 && (
+                      <th className="min-w-[200px] p-4 align-middle text-center bg-slate-50/30">
                         <button
                           type="button"
                           onClick={() => setShowAddModal(true)}
@@ -199,7 +199,7 @@ function CompareContent() {
                 <tbody className="divide-y divide-border text-sm">
                   {/* Category: ข้อมูลพื้นฐาน */}
                   <tr className="bg-slate-100/70">
-                    <td colSpan={selectedListings.length + (selectedListings.length < 3 ? 2 : 1)} className="px-4 py-2 text-xs font-extrabold text-foreground uppercase tracking-wider">
+                    <td colSpan={selectedListings.length + (selectedListings.length < 4 ? 2 : 1)} className="px-4 py-2 text-xs font-extrabold text-foreground uppercase tracking-wider">
                       1. ข้อมูลพื้นฐานและราคา
                     </td>
                   </tr>
@@ -210,7 +210,7 @@ function CompareContent() {
                         {item.propertyType}
                       </td>
                     ))}
-                    {selectedListings.length < 3 && <td></td>}
+                    {selectedListings.length < 4 && <td></td>}
                   </tr>
                   <tr>
                     <td className="p-4 font-semibold text-muted text-xs">ราคาต่อ ตร.ม. / ตร.ว.</td>
@@ -219,7 +219,7 @@ function CompareContent() {
                         {item.pricePerSqm ? `฿${item.pricePerSqm.toLocaleString()} / ตร.ม.` : '—'}
                       </td>
                     ))}
-                    {selectedListings.length < 3 && <td></td>}
+                    {selectedListings.length < 4 && <td></td>}
                   </tr>
                   <tr>
                     <td className="p-4 font-semibold text-muted text-xs">สถานะ</td>
@@ -236,12 +236,12 @@ function CompareContent() {
                         </span>
                       </td>
                     ))}
-                    {selectedListings.length < 3 && <td></td>}
+                    {selectedListings.length < 4 && <td></td>}
                   </tr>
 
                   {/* Category: สเปกและพื้นที่ */}
                   <tr className="bg-slate-100/70">
-                    <td colSpan={selectedListings.length + (selectedListings.length < 3 ? 2 : 1)} className="px-4 py-2 text-xs font-extrabold text-foreground uppercase tracking-wider">
+                    <td colSpan={selectedListings.length + (selectedListings.length < 4 ? 2 : 1)} className="px-4 py-2 text-xs font-extrabold text-foreground uppercase tracking-wider">
                       2. สเปกพื้นที่และฟังก์ชัน
                     </td>
                   </tr>
@@ -252,7 +252,7 @@ function CompareContent() {
                         {item.specs.usableAreaSqm ? `${item.specs.usableAreaSqm} ตร.ม.` : '—'}
                       </td>
                     ))}
-                    {selectedListings.length < 3 && <td></td>}
+                    {selectedListings.length < 4 && <td></td>}
                   </tr>
                   <tr>
                     <td className="p-4 font-semibold text-muted text-xs">ขนาดที่ดิน</td>
@@ -261,7 +261,7 @@ function CompareContent() {
                         {item.specs.landAreaSqwa ? `${item.specs.landAreaSqwa} ตร.ว.` : '—'}
                       </td>
                     ))}
-                    {selectedListings.length < 3 && <td></td>}
+                    {selectedListings.length < 4 && <td></td>}
                   </tr>
                   <tr>
                     <td className="p-4 font-semibold text-muted text-xs">ห้องนอน / ห้องน้ำ</td>
@@ -270,7 +270,7 @@ function CompareContent() {
                         {item.specs.bedrooms ?? '—'} นอน / {item.specs.bathrooms ?? '—'} น้ำ
                       </td>
                     ))}
-                    {selectedListings.length < 3 && <td></td>}
+                    {selectedListings.length < 4 && <td></td>}
                   </tr>
                   <tr>
                     <td className="p-4 font-semibold text-muted text-xs">ที่จอดรถ</td>
@@ -279,7 +279,7 @@ function CompareContent() {
                         {item.specs.parking ? `${item.specs.parking} คัน` : '—'}
                       </td>
                     ))}
-                    {selectedListings.length < 3 && <td></td>}
+                    {selectedListings.length < 4 && <td></td>}
                   </tr>
                   <tr>
                     <td className="p-4 font-semibold text-muted text-xs">ทิศระเบียง / หน้าบ้าน</td>
@@ -288,7 +288,7 @@ function CompareContent() {
                         {item.specs.direction || 'ไม่ระบุ'}
                       </td>
                     ))}
-                    {selectedListings.length < 3 && <td></td>}
+                    {selectedListings.length < 4 && <td></td>}
                   </tr>
                   <tr>
                     <td className="p-4 font-semibold text-muted text-xs">สภาพเฟอร์นิเจอร์</td>
@@ -297,12 +297,12 @@ function CompareContent() {
                         {item.specs.furnishedStatus || 'ไม่มี'}
                       </td>
                     ))}
-                    {selectedListings.length < 3 && <td></td>}
+                    {selectedListings.length < 4 && <td></td>}
                   </tr>
 
                   {/* Category: ทำเลและสถานที่ใกล้เคียง */}
                   <tr className="bg-slate-100/70">
-                    <td colSpan={selectedListings.length + (selectedListings.length < 3 ? 2 : 1)} className="px-4 py-2 text-xs font-extrabold text-foreground uppercase tracking-wider">
+                    <td colSpan={selectedListings.length + (selectedListings.length < 4 ? 2 : 1)} className="px-4 py-2 text-xs font-extrabold text-foreground uppercase tracking-wider">
                       3. ทำเลและระยะทาง
                     </td>
                   </tr>
@@ -313,7 +313,7 @@ function CompareContent() {
                         ต.{item.location.subdistrict} อ.{item.location.district}
                       </td>
                     ))}
-                    {selectedListings.length < 3 && <td></td>}
+                    {selectedListings.length < 4 && <td></td>}
                   </tr>
                   <tr>
                     <td className="p-4 font-semibold text-muted text-xs">แลนด์มาร์กสำคัญ</td>
@@ -322,12 +322,12 @@ function CompareContent() {
                         {item.location.nearLandmark || 'ใจกลางเมืองอุดรฯ'}
                       </td>
                     ))}
-                    {selectedListings.length < 3 && <td></td>}
+                    {selectedListings.length < 4 && <td></td>}
                   </tr>
 
                   {/* Category: สิ่งอำนวยความสะดวก */}
                   <tr className="bg-slate-100/70">
-                    <td colSpan={selectedListings.length + (selectedListings.length < 3 ? 2 : 1)} className="px-4 py-2 text-xs font-extrabold text-foreground uppercase tracking-wider">
+                    <td colSpan={selectedListings.length + (selectedListings.length < 4 ? 2 : 1)} className="px-4 py-2 text-xs font-extrabold text-foreground uppercase tracking-wider">
                       4. สิ่งอำนวยความสะดวกส่วนกลาง
                     </td>
                   </tr>
@@ -350,7 +350,7 @@ function CompareContent() {
                           </td>
                         );
                       })}
-                      {selectedListings.length < 3 && <td></td>}
+                      {selectedListings.length < 4 && <td></td>}
                     </tr>
                   ))}
                 </tbody>

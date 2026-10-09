@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Calendar, Clock, CheckCircle2, User, Phone, FileText } from 'lucide-react';
 import { Listing } from '@/types/listing';
+import { useAuth } from '@/context/AuthContext';
 
 interface AppointmentModalProps {
   listing: Listing;
@@ -11,12 +12,20 @@ interface AppointmentModalProps {
 }
 
 export function AppointmentModal({ listing, isOpen, onClose }: AppointmentModalProps) {
+  const { user } = useAuth();
   const [date, setDate] = useState('');
   const [timeSlot, setTimeSlot] = useState('14:00 - 15:00');
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [name, setName] = useState(user?.name ?? '');
+  const [phone, setPhone] = useState(user?.phone ?? '');
   const [note, setNote] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
+
+  useEffect(() => {
+    if (user) {
+      if (!name) setName(user.name);
+      if (!phone) setPhone(user.phone);
+    }
+  }, [user]);
 
   if (!isOpen) return null;
 

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   Store,
@@ -20,13 +20,22 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { MOCK_LISTINGS } from '@/data/mock-listings';
 import { ListingStatus } from '@/types/listing';
+import { useAuth } from '@/context/AuthContext';
 
 export default function MyListingsPage() {
+  const { user } = useAuth();
   const [filterTab, setFilterTab] = useState<'all' | 'active' | 'reserved' | 'sold'>('all');
-  const [listings, setListings] = useState(
-    // Owner somchai listings (subset of mock listings)
-    MOCK_LISTINGS.filter((item, idx) => [0, 1, 2, 6, 7].includes(idx))
+  const [listings, setListings] = useState(() =>
+    MOCK_LISTINGS.filter((item) => item.poster.name.includes('สมชาย') || item.poster.name.includes('สมหญิง'))
   );
+
+  useEffect(() => {
+    if (user?.role === 'agent') {
+      setListings(MOCK_LISTINGS.filter((item) => item.poster.name.includes('สมหญิง') || item.poster.role === 'agent'));
+    } else if (user?.role === 'owner') {
+      setListings(MOCK_LISTINGS.filter((item) => item.poster.name.includes('สมชาย') || item.poster.role === 'owner'));
+    }
+  }, [user]);
 
   const filteredItems = listings.filter((item) => {
     if (filterTab === 'all') return true;

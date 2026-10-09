@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Navbar } from '@/components/layout/Navbar';
 import { useAuth, ROLE_META } from '@/context/AuthContext';
@@ -15,6 +15,14 @@ export default function AccountPage() {
   const [phone, setPhone] = useState(user?.phone ?? '');
   const [email, setEmail] = useState(user?.email ?? '');
   const [profileSaved, setProfileSaved] = useState(false);
+
+  useEffect(() => {
+    if (user) {
+      setName(user.name);
+      setPhone(user.phone);
+      setEmail(user.email ?? '');
+    }
+  }, [user]);
 
   // KYC Form State (S31 KYC Upload)
   const [idNumber, setIdNumber] = useState('1-4199-00123-45-6');

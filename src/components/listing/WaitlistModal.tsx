@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Clock, CheckCircle2, ShieldCheck, User, Phone, MessageSquare } from 'lucide-react';
 import { Listing } from '@/types/listing';
+import { useAuth } from '@/context/AuthContext';
 
 interface WaitlistModalProps {
   listing: Listing;
@@ -11,10 +12,18 @@ interface WaitlistModalProps {
 }
 
 export function WaitlistModal({ listing, isOpen, onClose }: WaitlistModalProps) {
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const { user } = useAuth();
+  const [name, setName] = useState(user?.name ?? '');
+  const [phone, setPhone] = useState(user?.phone ?? '');
   const [lineId, setLineId] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
+
+  useEffect(() => {
+    if (user) {
+      if (!name) setName(user.name);
+      if (!phone) setPhone(user.phone);
+    }
+  }, [user]);
 
   if (!isOpen) return null;
 

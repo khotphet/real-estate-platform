@@ -92,8 +92,8 @@ export function AgentClientView({ agent }: AgentClientViewProps) {
                   <span>โทร {agent.phone}</span>
                 </a>
                 <Link
-                  href="/messages"
-                  className="px-4 py-2.5 border border-border hover:bg-slate-50 text-foreground rounded-xl text-xs font-bold flex items-center gap-1.5 transition-colors"
+                  href={`/messages?to=${encodeURIComponent(agent.name)}`}
+                  className="px-4 py-2.5 border border-border hover:bg-slate-50 text-foreground rounded-xl text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
                 >
                   <span className="material-symbols-outlined text-[18px]">chat</span>
                   <span>แชทในระบบ</span>

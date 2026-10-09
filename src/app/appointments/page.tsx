@@ -219,7 +219,7 @@ export default function AppointmentsPage() {
                     <span className="material-symbols-outlined text-[18px] text-primary">directions</span>
                   </a>
                   <Link
-                    href="/messages"
+                    href={`/messages?to=${encodeURIComponent(item.hostName)}&code=${item.listingCode}`}
                     className="p-2 border border-border hover:bg-slate-50 text-foreground rounded-xl text-xs font-semibold flex items-center justify-center transition-colors"
                     title="แชทติดต่อ"
                   >

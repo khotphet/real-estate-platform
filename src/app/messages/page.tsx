@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import {
   Search,
   Send,
@@ -18,6 +19,7 @@ import {
 } from 'lucide-react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
+import { MOCK_LISTINGS } from '@/data/mock-listings';
 
 interface Message {
   id: string;
@@ -46,7 +48,7 @@ interface Conversation {
   messages: Message[];
 }
 
-export default function MessagesPage() {
+function MessagesContent() {
   const [conversations, setConversations] = useState<Conversation[]>([
     {
       id: 'conv-1',
@@ -99,7 +101,7 @@ export default function MessagesPage() {
       partnerName: 'คุณสมหญิง บุญรักษา',
       partnerRole: 'agent',
       partnerAvatar:
-        'https://lh3.googleusercontent.com/aida-public/AB6AXuCYwILPVniQr0OJxcX-nLxnJkZ8yr4QmddEn-yev-RfXVFAISqRzLBtiVXD9SDEJQ10QUtCuCsyLWavJRWT6OEBaIbgZTaFyMg1fxQXzHKzdV3yksXmPNGOprxkSujVbCDaA8WOMNfPSN0Iwf5q3xw-dwDvbX_U6DmSyJhYhjq1mFbYz_ULRx-T9nF_lKUTbvYiHdB2Eumb8opLNKJkJvaU6WMvsIR8maBQ1a3GUTQ',
+        'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&auto=format&fit=crop&q=80',
       isVerified: true,
       property: {
         code: 'UD-00102',
@@ -162,8 +164,78 @@ export default function MessagesPage() {
     },
   ]);
 
+  const searchParams = useSearchParams();
   const [activeConvId, setActiveConvId] = useState<string>('conv-1');
   const [inputText, setInputText] = useState<string>('');
+
+  // Handle incoming query params (?to=... &code=...)
+  useEffect(() => {
+    const toParam = searchParams.get('to');
+    const codeParam = searchParams.get('code');
+    if (!toParam && !codeParam) return;
+
+    // Check if conversation already exists
+    const existing = conversations.find((c) => {
+      const matchCode = codeParam ? c.property.code === codeParam : false;
+      const matchTo = toParam
+        ? c.partnerName.includes(toParam) || toParam.includes(c.partnerName)
+        : false;
+      return matchCode || matchTo;
+    });
+
+    if (existing) {
+      setActiveConvId(existing.id);
+    } else {
+      // Find listing or fallback
+      const targetListing = codeParam ? MOCK_LISTINGS.find((l) => l.code === codeParam) : null;
+      const partnerName = toParam || (targetListing ? targetListing.poster.name : 'เจ้าของทรัพย์');
+      const partnerAvatar =
+        targetListing?.poster.avatarUrl ||
+        (partnerName.includes('สมหญิง')
+          ? 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&auto=format&fit=crop&q=80'
+          : 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&auto=format&fit=crop&q=80');
+
+      const newConv: Conversation = {
+        id: `conv-dynamic-${Date.now()}`,
+        partnerName,
+        partnerRole: targetListing?.poster.role || 'agent',
+        partnerAvatar,
+        isVerified: true,
+        property: targetListing
+          ? {
+              code: targetListing.code,
+              title: targetListing.title,
+              price: targetListing.priceFormatted,
+              dealType: targetListing.dealType,
+              image: targetListing.images[0],
+            }
+          : {
+              code: codeParam || 'UD-INQ',
+              title: 'สอบถามข้อมูลอสังหาริมทรัพย์',
+              price: 'ติดต่อสอบถาม',
+              dealType: 'sale',
+              image:
+                'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&auto=format&fit=crop&q=80',
+            },
+        lastMessage: 'เริ่มการสนทนาใหม่',
+        lastTime: 'เมื่อสักครู่',
+        unreadCount: 0,
+        messages: [
+          {
+            id: `init-${Date.now()}`,
+            sender: 'them',
+            text: `สวัสดีครับ/ค่ะ ยินดีให้ข้อมูลเพิ่มเติมเกี่ยวกับ ${
+              targetListing?.title || 'ทรัพย์ที่คุณสนใจ'
+            } สามารถสอบถามรายละเอียด นัดดูห้อง หรือสอบถามเงื่อนไขได้เลยค่ะ`,
+            time: 'เมื่อสักครู่',
+          },
+        ],
+      };
+
+      setConversations((prev) => [newConv, ...prev]);
+      setActiveConvId(newConv.id);
+    }
+  }, [searchParams]);
 
   const activeConv = conversations.find((c) => c.id === activeConvId) || conversations[0];
 
@@ -460,5 +532,22 @@ export default function MessagesPage() {
 
       <Footer />
     </div>
+  );
+}
+
+export default function MessagesPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-canvas-background flex items-center justify-center">
+          <div className="text-center space-y-2">
+            <div className="w-8 h-8 border-3 border-primary border-t-transparent rounded-full animate-spin mx-auto" />
+            <p className="text-xs text-text-muted">กำลังโหลดข้อความสนทนา...</p>
+          </div>
+        </div>
+      }
+    >
+      <MessagesContent />
+    </Suspense>
   );
 }
