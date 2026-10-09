@@ -55,10 +55,16 @@ body {
 /* Leaflet custom map markers */
 .leaflet-container {
   font-family: inherit;
-  z-index: 10;
 }
-.leaflet-pane {
-  z-index: 10 !important;
+.leaflet-div-icon,
+.leaflet-custom-marker,
+.leaflet-landmark-marker {
+  background: transparent !important;
+  border: none !important;
+  overflow: visible !important;
+}
+.leaflet-marker-pane {
+  z-index: 600 !important;
 }
 .map-price-pill {
   display: inline-flex;

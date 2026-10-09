@@ -33,6 +33,7 @@ export default function LeafletMap({
   const markersGroupRef = useRef<any>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const activeTileLayerRef = useRef<any>(null);
+  const [mapReady, setMapReady] = useState(false);
   const [mapStyle, setMapStyle] = useState<'street' | 'satellite'>('street');
   const [isMoved, setIsMoved] = useState(false);
 
@@ -46,6 +47,13 @@ export default function LeafletMap({
       const L = (await import('leaflet')).default;
       if (!isMounted || !containerRef.current) return;
 
+      // Clean container if re-initializing
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      if ((containerRef.current as any)._leaflet_id) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        delete (containerRef.current as any)._leaflet_id;
+      }
+
       const map = L.map(containerRef.current, {
         center: [UDON_CENTER.lat, UDON_CENTER.lng],
         zoom: 13,
@@ -53,18 +61,19 @@ export default function LeafletMap({
         attributionControl: false,
       });
 
-      // CartoDB Voyager clean streets
+      // Humanitarian OpenStreetMap tiles (Clean, modern, NO API KEY required, NO watermark)
       const streetLayer = L.tileLayer(
-        'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+        'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
         {
           maxZoom: 19,
-          subdomains: 'abcd',
+          subdomains: ['a', 'b', 'c'],
         }
       );
 
       streetLayer.addTo(map);
       activeTileLayerRef.current = streetLayer;
 
+      // Layer group for property pins
       const markersGroup = L.layerGroup().addTo(map);
       markersGroupRef.current = markersGroup;
 
@@ -99,6 +108,7 @@ export default function LeafletMap({
       });
 
       mapRef.current = map;
+      setMapReady(true);
     }
 
     initMap();
@@ -108,13 +118,14 @@ export default function LeafletMap({
       if (mapRef.current) {
         mapRef.current.remove();
         mapRef.current = null;
+        setMapReady(false);
       }
     };
   }, [onBoundsChange]);
 
   // Handle Tile Style Change
   useEffect(() => {
-    if (!mapRef.current) return;
+    if (!mapReady || !mapRef.current) return;
 
     async function updateTile() {
       const L = (await import('leaflet')).default;
@@ -130,8 +141,8 @@ export default function LeafletMap({
         );
       } else {
         newLayer = L.tileLayer(
-          'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
-          { maxZoom: 19, subdomains: 'abcd' }
+          'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+          { maxZoom: 19, subdomains: ['a', 'b', 'c'] }
         );
       }
 
@@ -140,11 +151,11 @@ export default function LeafletMap({
     }
 
     updateTile();
-  }, [mapStyle]);
+  }, [mapStyle, mapReady]);
 
-  // Update Markers when listings or selectedListing changes
+  // Update Markers when map is ready or when listings or selectedListing changes
   useEffect(() => {
-    if (!mapRef.current || !markersGroupRef.current) return;
+    if (!mapReady || !mapRef.current || !markersGroupRef.current) return;
 
     async function updateMarkers() {
       const L = (await import('leaflet')).default;
@@ -164,20 +175,20 @@ export default function LeafletMap({
               ${isReserved ? '<span class="pill-dot"></span>' : ''}
             </div>
           `,
-          iconSize: [85, 30],
-          iconAnchor: [42, 15],
+          iconSize: [90, 32],
+          iconAnchor: [45, 16],
         });
 
         const marker = L.marker([item.location.lat, item.location.lng], {
           icon: customIcon,
-          zIndexOffset: isSelected ? 1000 : 1,
+          zIndexOffset: isSelected ? 1000 : 10,
         });
 
         marker.on('click', () => {
           onSelectListing?.(item);
           mapRef.current?.panTo([item.location.lat, item.location.lng], {
             animate: true,
-            duration: 0.5,
+            duration: 0.4,
           });
         });
 
@@ -186,7 +197,7 @@ export default function LeafletMap({
     }
 
     updateMarkers();
-  }, [listings, selectedListing, onSelectListing]);
+  }, [mapReady, listings, selectedListing, onSelectListing]);
 
   // Zoom controls
   const handleZoomIn = () => mapRef.current?.zoomIn();
