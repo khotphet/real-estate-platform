@@ -115,7 +115,7 @@ export const MOCK_LISTINGS: Listing[] = [
     isVerified: true,
     updatedAt: 'อัปเดตเมื่อ 3 วันที่แล้ว',
     poster: {
-      name: 'สมหญิง นายหน้ามือทอง',
+      name: 'คุณสมหญิง บุญรักษา',
       role: 'agent',
       verified: true,
     },
@@ -158,7 +158,7 @@ export const MOCK_LISTINGS: Listing[] = [
     isVerified: true,
     updatedAt: 'อัปเดตเมื่อ 5 วันที่แล้ว',
     poster: {
-      name: 'สมชาย เจ้าของห้อง',
+      name: 'คุณสมชาย ยิ่งเจริญ',
       role: 'owner',
       verified: true,
     },
@@ -239,7 +239,7 @@ export const MOCK_LISTINGS: Listing[] = [
     isVerified: true,
     updatedAt: 'อัปเดตเมื่อ 4 วันที่แล้ว',
     poster: {
-      name: 'สมหญิง นายหน้ามือทอง',
+      name: 'คุณสมหญิง บุญรักษา',
       role: 'agent',
       verified: true,
     },
@@ -281,7 +281,7 @@ export const MOCK_LISTINGS: Listing[] = [
     isVerified: true,
     updatedAt: 'อัปเดตเมื่อ 6 วันที่แล้ว',
     poster: {
-      name: 'สมชาย เจ้าของห้อง',
+      name: 'คุณสมชาย ยิ่งเจริญ',
       role: 'owner',
       verified: true,
     },
@@ -324,7 +324,7 @@ export const MOCK_LISTINGS: Listing[] = [
     isVerified: true,
     updatedAt: 'ขายแล้วเมื่อสัปดาห์ที่แล้ว',
     poster: {
-      name: 'สมหญิง นายหน้ามือทอง',
+      name: 'คุณสมหญิง บุญรักษา',
       role: 'agent',
       verified: true,
     },
@@ -405,7 +405,7 @@ export const MOCK_LISTINGS: Listing[] = [
     isVerified: true,
     updatedAt: 'อัปเดตเมื่อ 1 สัปดาห์ที่แล้ว',
     poster: {
-      name: 'สมชาย เจ้าของห้อง',
+      name: 'คุณสมชาย ยิ่งเจริญ',
       role: 'owner',
       verified: true,
     },
@@ -448,7 +448,7 @@ export const MOCK_LISTINGS: Listing[] = [
     isVerified: true,
     updatedAt: 'อัปเดตเมื่อ 1 สัปดาห์ที่แล้ว',
     poster: {
-      name: 'สมหญิง นายหน้ามือทอง',
+      name: 'คุณสมหญิง บุญรักษา',
       role: 'agent',
       verified: true,
     },
@@ -534,7 +534,7 @@ export const MOCK_LISTINGS: Listing[] = [
     isVerified: true,
     updatedAt: 'อัปเดตเมื่อ 2 สัปดาห์ที่แล้ว',
     poster: {
-      name: 'สมชาย เจ้าของห้อง',
+      name: 'คุณสมชาย ยิ่งเจริญ',
       role: 'owner',
       verified: true,
     },

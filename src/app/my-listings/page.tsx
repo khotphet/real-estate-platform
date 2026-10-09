@@ -152,7 +152,7 @@ export default function MyListingsPage() {
           <div className="p-5 rounded-2xl bg-surface-card border border-border-subtle shadow-xs flex flex-col justify-between">
             <div className="flex items-center justify-between">
               <span className="text-xs font-medium text-text-muted">ติดจอง / ปิดการขายแล้ว</span>
-              <div className="w-8 h-8 rounded-lg bg-purple-50 text-teal-700 flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center">
                 <CheckCircle2 className="w-4 h-4" />
               </div>
             </div>
@@ -303,14 +303,13 @@ export default function MyListingsPage() {
                   </Link>
 
                   {/* Boost CTA */}
-                  <button
-                    type="button"
-                    onClick={() => alert(`เริ่มโปรโมทดันประกาศ ${item.code} ขึ้นบนสุด 7 วัน!`)}
+                  <Link
+                    href="/packages"
                     className="px-3 py-1.5 bg-primary-light hover:bg-primary/20 text-primary border border-primary/30 rounded-xl text-xs font-semibold flex items-center gap-1 transition-colors"
                   >
                     <Sparkles className="w-3.5 h-3.5" />
                     <span>ดันประกาศ (Boost)</span>
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}

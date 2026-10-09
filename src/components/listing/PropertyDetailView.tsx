@@ -5,7 +5,6 @@ import Link from 'next/link';
 import {
   ChevronRight,
   Share2,
-  Heart,
   MapPin,
   ExternalLink,
   ShieldCheck,
@@ -33,13 +32,13 @@ import { LoanCalculatorModal } from './LoanCalculatorModal';
 import { PhotoGalleryModal } from './PhotoGalleryModal';
 import { AppointmentModal } from './AppointmentModal';
 import { WaitlistModal } from './WaitlistModal';
+import { FavoriteButton } from './FavoriteButton';
 
 interface PropertyDetailViewProps {
   listing: Listing;
 }
 
 export function PropertyDetailView({ listing }: PropertyDetailViewProps) {
-  const [isFav, setIsFav] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
   const [phoneRevealed, setPhoneRevealed] = useState(false);
 
@@ -116,16 +115,7 @@ export function PropertyDetailView({ listing }: PropertyDetailViewProps) {
                 </span>
               )}
             </button>
-            <button
-              onClick={() => setIsFav(!isFav)}
-              className={`flex items-center gap-2 px-3.5 py-2 bg-surface-card hover:bg-surface-container-low font-medium text-xs sm:text-sm rounded-xl border border-border-subtle shadow-sm transition-colors cursor-pointer ${
-                isFav ? 'text-red-500' : 'text-on-surface'
-              }`}
-              type="button"
-            >
-              <Heart className={`w-4 h-4 ${isFav ? 'fill-red-500 text-red-500' : 'text-text-muted'}`} />
-              <span>{isFav ? 'บันทึกแล้ว' : 'บันทึก'}</span>
-            </button>
+            <FavoriteButton code={listing.code} variant="pill" />
             <Link
               href={`/compare?codes=${listing.code},UD-00102,UD-00104`}
               className="flex items-center gap-1.5 px-3.5 py-2 bg-surface-card hover:bg-surface-container-low font-medium text-xs sm:text-sm text-on-surface rounded-xl border border-border-subtle shadow-sm transition-colors cursor-pointer"

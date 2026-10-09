@@ -96,7 +96,7 @@ export default function MessagesPage() {
     },
     {
       id: 'conv-2',
-      partnerName: 'สมหญิง นายหน้ามือทอง',
+      partnerName: 'คุณสมหญิง บุญรักษา',
       partnerRole: 'agent',
       partnerAvatar:
         'https://lh3.googleusercontent.com/aida-public/AB6AXuCYwILPVniQr0OJxcX-nLxnJkZ8yr4QmddEn-yev-RfXVFAISqRzLBtiVXD9SDEJQ10QUtCuCsyLWavJRWT6OEBaIbgZTaFyMg1fxQXzHKzdV3yksXmPNGOprxkSujVbCDaA8WOMNfPSN0Iwf5q3xw-dwDvbX_U6DmSyJhYhjq1mFbYz_ULRx-T9nF_lKUTbvYiHdB2Eumb8opLNKJkJvaU6WMvsIR8maBQ1a3GUTQ',

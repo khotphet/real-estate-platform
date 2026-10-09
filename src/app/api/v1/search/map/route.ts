@@ -1,37 +1,44 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { query } from '@/lib/db';
+import { query, SqlParam } from '@/lib/db';
+import { numParam, enumParam, errorResponse, BadRequest, DEAL_TYPES, PROPERTY_TYPES, toDbPropertyType } from '@/lib/api-params';
 
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
-    const minLng = searchParams.get('min_lng');
-    const minLat = searchParams.get('min_lat');
-    const maxLng = searchParams.get('max_lng');
-    const maxLat = searchParams.get('max_lat');
-    const propertyType = searchParams.get('property_type');
-    const dealType = searchParams.get('deal_type');
+    const minLng = numParam(searchParams, 'min_lng', { min: -180, max: 180 });
+    const minLat = numParam(searchParams, 'min_lat', { min: -90, max: 90 });
+    const maxLng = numParam(searchParams, 'max_lng', { min: -180, max: 180 });
+    const maxLat = numParam(searchParams, 'max_lat', { min: -90, max: 90 });
+    const propertyType = enumParam(searchParams, 'property_type', PROPERTY_TYPES);
+    const dealType = enumParam(searchParams, 'deal_type', DEAL_TYPES);
+
+    const bbox = [minLng, minLat, maxLng, maxLat];
+    const given = bbox.filter((v) => v !== null).length;
+    if (given !== 0 && given !== 4) {
+      throw new BadRequest('bbox requires all of min_lng, min_lat, max_lng, max_lat');
+    }
+    if (given === 4 && (minLng! >= maxLng! || minLat! >= maxLat!)) {
+      throw new BadRequest('bbox min values must be less than max values');
+    }
 
     const conditions: string[] = ["status IN ('active', 'reserved')"];
-    const values: any[] = [];
+    const values: SqlParam[] = [];
     let paramIndex = 1;
 
-    // Spatial Bounding Box Filter using ST_MakeEnvelope
-    if (minLng && minLat && maxLng && maxLat) {
+    // Spatial bounding-box filter
+    if (given === 4) {
       conditions.push(
         `ST_Intersects(display_location, ST_MakeEnvelope($${paramIndex++}, $${paramIndex++}, $${paramIndex++}, $${paramIndex++}, 4326)::geography)`
       );
-      values.push(Number(minLng), Number(minLat), Number(maxLng), Number(maxLat));
+      values.push(minLng!, minLat!, maxLng!, maxLat!);
     }
-
     if (dealType) {
       conditions.push(`deal_type = $${paramIndex++}`);
       values.push(dealType);
     }
-
-    if (propertyType && propertyType !== 'all') {
-      const typeCode = propertyType === 'townhome' ? 'townhouse' : propertyType;
+    if (propertyType) {
       conditions.push(`property_type_code = $${paramIndex++}`);
-      values.push(typeCode);
+      values.push(toDbPropertyType(propertyType));
     }
 
     const whereClause = `WHERE ${conditions.join(' AND ')}`;
@@ -66,11 +73,7 @@ export async function GET(request: NextRequest) {
       count: pins.length,
       pins,
     });
-  } catch (error: any) {
-    console.error('API /search/map error:', error);
-    return NextResponse.json(
-      { success: false, error: error.message || 'Spatial map query failed' },
-      { status: 500 }
-    );
+  } catch (error) {
+    return errorResponse('/search/map', error);
   }
 }

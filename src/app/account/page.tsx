@@ -3,18 +3,18 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Navbar } from '@/components/layout/Navbar';
-import { useAuth } from '@/context/AuthContext';
+import { useAuth, ROLE_META } from '@/context/AuthContext';
 
 export default function AccountPage() {
-  const { user, loginAs } = useAuth();
+  const { user, openLoginModal } = useAuth();
 
   const [activeTab, setActiveTab] = useState<'profile' | 'kyc' | 'security'>('kyc');
 
   // Profile Form State
-  const [name, setName] = useState(user?.name || 'คุณสมหญิง บุญรักษา');
-  const [phone, setPhone] = useState(user?.phone || '081-882-9901');
-  const [email, setEmail] = useState('somying@udonpremierrealty.com');
-  const [role, setRole] = useState<'owner' | 'agent' | 'buyer' | 'admin'>(user?.role || 'agent');
+  const [name, setName] = useState(user?.name ?? '');
+  const [phone, setPhone] = useState(user?.phone ?? '');
+  const [email, setEmail] = useState(user?.email ?? '');
+  const [profileSaved, setProfileSaved] = useState(false);
 
   // KYC Form State (S31 KYC Upload)
   const [idNumber, setIdNumber] = useState('1-4199-00123-45-6');
@@ -25,13 +25,6 @@ export default function AccountPage() {
   const [kycStatus, setKycStatus] = useState<'unverified' | 'pending' | 'verified'>('pending');
   const [isSaving, setIsSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
-
-  const handleRoleChange = (newRole: 'owner' | 'agent' | 'buyer' | 'admin') => {
-    setRole(newRole);
-    if (user) {
-      loginAs({ ...user, role: newRole });
-    }
-  };
 
   const handleKycSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -217,7 +210,7 @@ export default function AccountPage() {
                 {/* 3. Selfie with ID */}
                 <div className="p-4 border border-dashed border-border rounded-2xl flex items-center justify-between gap-4 bg-slate-50/50">
                   <div className="flex items-center gap-3">
-                    <span className="w-10 h-10 rounded-xl bg-purple-50 text-slate-700 flex items-center justify-center">
+                    <span className="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center">
                       <span className="material-symbols-outlined text-[20px]">photo_camera_front</span>
                     </span>
                     <div>
@@ -273,29 +266,21 @@ export default function AccountPage() {
             </div>
 
             <div className="space-y-6">
-              {/* Role Switcher */}
+              {/* Role (read-only: role belongs to the account) */}
               <div>
-                <label className="block text-xs font-bold text-foreground mb-2">บทบาทผู้ใช้งานหลัก</label>
-                <div className="grid grid-cols-3 gap-3">
-                  {[
-                    { id: 'owner', label: 'เจ้าของทรัพย์ (Owner)', icon: 'home' },
-                    { id: 'agent', label: 'นายหน้า (Agent Pro)', icon: 'badge' },
-                    { id: 'buyer', label: 'ผู้ซื้อ / ผู้เช่า (Buyer)', icon: 'search' },
-                  ].map((r) => (
-                    <button
-                      key={r.id}
-                      type="button"
-                      onClick={() => handleRoleChange(r.id as any)}
-                      className={`p-3 rounded-xl border text-xs font-bold flex flex-col items-center gap-1.5 cursor-pointer transition-all ${
-                        role === r.id
-                          ? 'border-primary bg-primary/10 text-primary shadow-xs'
-                          : 'border-border text-muted hover:border-slate-300'
-                      }`}
-                    >
-                      <span className="material-symbols-outlined text-[20px]">{r.icon}</span>
-                      <span>{r.label}</span>
-                    </button>
-                  ))}
+                <label className="block text-xs font-bold text-foreground mb-2">บทบาทของบัญชีนี้</label>
+                <div className="flex items-center justify-between gap-3 p-3 rounded-xl border border-primary/30 bg-primary/5">
+                  <div className="flex items-center gap-2 text-sm font-bold text-primary">
+                    <span className="material-symbols-outlined text-[20px]">{user ? ROLE_META[user.role].icon : 'person'}</span>
+                    <span>{user ? ROLE_META[user.role].label : '-'}</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={openLoginModal}
+                    className="text-xs font-semibold text-primary hover:underline cursor-pointer"
+                  >
+                    สลับบัญชีทดสอบ
+                  </button>
                 </div>
               </div>
 
@@ -332,10 +317,18 @@ export default function AccountPage() {
                 </div>
               </div>
 
-              <div className="pt-4 flex justify-end">
+              <div className="pt-4 flex items-center justify-end gap-3">
+                {profileSaved && (
+                  <span className="text-xs font-semibold text-status-active">
+                    บันทึกแล้ว (โหมดทดสอบ: ยังไม่บันทึกลงฐานข้อมูล)
+                  </span>
+                )}
                 <button
                   type="button"
-                  onClick={() => alert('บันทึกข้อมูลโปรไฟล์เรียบร้อยแล้ว')}
+                  onClick={() => {
+                    setProfileSaved(true);
+                    setTimeout(() => setProfileSaved(false), 2500);
+                  }}
                   className="px-6 py-2.5 bg-primary text-white rounded-xl text-xs font-bold hover:bg-primary/90 transition-all shadow-xs cursor-pointer"
                 >
                   บันทึกการเปลี่ยนแปลง

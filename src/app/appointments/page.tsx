@@ -67,16 +67,10 @@ export default function AppointmentsPage() {
     },
   ]);
 
+  const [cancelingId, setCancelingId] = useState<string | null>(null);
+
   const upcomingList = appointments.filter((a) => a.status === 'confirmed' || a.status === 'pending');
   const pastList = appointments.filter((a) => a.status === 'completed' || a.status === 'cancelled');
-
-  const handleCancel = (id: string) => {
-    if (confirm('คุณต้องการยกเลิกการนัดหมายนี้ใช่หรือไม่?')) {
-      setAppointments((prev) =>
-        prev.map((a) => (a.id === id ? { ...a, status: 'cancelled' } : a))
-      );
-    }
-  };
 
   return (
     <div className="min-h-screen bg-background pb-12">
@@ -233,13 +227,38 @@ export default function AppointmentsPage() {
                   </Link>
 
                   {item.status !== 'cancelled' && item.status !== 'completed' && (
-                    <button
-                      type="button"
-                      onClick={() => handleCancel(item.id)}
-                      className="px-3 py-2 border border-red-200 text-red-600 hover:bg-red-50 rounded-xl text-xs font-semibold transition-colors cursor-pointer"
-                    >
-                      ยกเลิกนัด
-                    </button>
+                    cancelingId === item.id ? (
+                      <div className="flex items-center gap-1.5 bg-red-50 p-1 rounded-xl border border-red-200">
+                        <span className="text-[11px] text-red-700 font-medium px-2">ยืนยันยกเลิก?</span>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setAppointments((prev) =>
+                              prev.map((a) => (a.id === item.id ? { ...a, status: 'cancelled' } : a))
+                            );
+                            setCancelingId(null);
+                          }}
+                          className="px-2.5 py-1 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs font-bold transition-colors cursor-pointer"
+                        >
+                          ยืนยัน
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setCancelingId(null)}
+                          className="px-2 py-1 text-slate-600 hover:text-foreground text-xs font-medium cursor-pointer"
+                        >
+                          ปิด
+                        </button>
+                      </div>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => setCancelingId(item.id)}
+                        className="px-3 py-2 border border-red-200 text-red-600 hover:bg-red-50 rounded-xl text-xs font-semibold transition-colors cursor-pointer"
+                      >
+                        ยกเลิกนัด
+                      </button>
+                    )
                   )}
                 </div>
               </div>

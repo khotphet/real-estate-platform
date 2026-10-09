@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Navbar } from '@/components/layout/Navbar';
 import { MOCK_LISTINGS } from '@/data/mock-listings';
 import { Listing } from '@/types/listing';
+import { useFavorites } from '@/lib/favorites';
 
 interface WaitlistItem {
   id: string;
@@ -18,9 +19,7 @@ interface WaitlistItem {
 
 export default function SavedPage() {
   const [activeTab, setActiveTab] = useState<'saved' | 'waitlist'>('saved');
-
-  // Initial saved listings (UD-00101, UD-00102, UD-00104)
-  const [savedCodes, setSavedCodes] = useState<string[]>(['UD-00101', 'UD-00102', 'UD-00104']);
+  const { codes: savedCodes, remove: removeFavorite } = useFavorites();
 
   // Initial waitlist item (UD-00103)
   const reservedListing = MOCK_LISTINGS.find((l) => l.code === 'UD-00103') || MOCK_LISTINGS[2];
@@ -41,7 +40,7 @@ export default function SavedPage() {
     .filter((l): l is Listing => Boolean(l));
 
   const handleRemoveSaved = (code: string) => {
-    setSavedCodes((prev) => prev.filter((c) => c !== code));
+    removeFavorite(code);
   };
 
   const handleCancelWaitlist = (id: string) => {

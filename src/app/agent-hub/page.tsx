@@ -13,7 +13,10 @@ export default function AgentHubPage() {
   const [filterType, setFilterType] = useState('all');
 
   // Co-broking listings (filter for sale items with commission calculation)
-  const coBrokerListings = MOCK_LISTINGS.filter((l) => l.dealType === 'sale').filter((l) => {
+  // Only agent-posted, still-available sale listings can be co-broked
+  const coBrokerListings = MOCK_LISTINGS.filter(
+    (l) => l.dealType === 'sale' && l.poster.role === 'agent' && l.status !== 'sold'
+  ).filter((l) => {
     if (filterType === 'all') return true;
     return l.propertyType === filterType;
   });
@@ -87,9 +90,9 @@ export default function AgentHubPage() {
             </button>
             <button
               type="button"
-              onClick={() => setFilterType('detached_house')}
+              onClick={() => setFilterType('house')}
               className={`px-3 py-1.5 rounded-xl text-xs font-bold cursor-pointer transition-all ${
-                filterType === 'detached_house'
+                filterType === 'house'
                   ? 'bg-primary text-white shadow-xs'
                   : 'bg-background border border-border text-muted hover:text-foreground'
               }`}
@@ -98,14 +101,14 @@ export default function AgentHubPage() {
             </button>
             <button
               type="button"
-              onClick={() => setFilterType('commercial')}
+              onClick={() => setFilterType('land')}
               className={`px-3 py-1.5 rounded-xl text-xs font-bold cursor-pointer transition-all ${
-                filterType === 'commercial'
+                filterType === 'land'
                   ? 'bg-primary text-white shadow-xs'
                   : 'bg-background border border-border text-muted hover:text-foreground'
               }`}
             >
-              อาคารพาณิชย์
+              ที่ดิน
             </button>
           </div>
 
@@ -179,17 +182,23 @@ export default function AgentHubPage() {
                     {/* Agent In Charge */}
                     <div className="mt-3 flex items-center justify-between text-xs pt-3 border-t border-border">
                       <div className="flex items-center gap-2">
-                        <div className="w-7 h-7 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center text-[11px]">
-                          สม
-                        </div>
+                        {item.poster.avatarUrl ? (
+                          <img src={item.poster.avatarUrl} alt="" className="w-7 h-7 rounded-full object-cover" />
+                        ) : (
+                          <div className="w-7 h-7 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center text-[11px]">
+                            {item.poster.name.replace('คุณ', '').slice(0, 2)}
+                          </div>
+                        )}
                         <div>
-                          <div className="font-bold text-foreground">คุณสมหญิง (เอเจนต์ผู้ดูแล)</div>
-                          <div className="text-[10px] text-muted">Udon Top Real Estate</div>
+                          <div className="font-bold text-foreground">{item.poster.name}</div>
+                          <div className="text-[10px] text-muted">เอเจนต์ผู้ดูแลประกาศ</div>
                         </div>
                       </div>
-                      <span className="px-2 py-0.5 bg-slate-100 rounded-md text-[10px] font-bold text-slate-700">
-                        Verified ★ 4.9
-                      </span>
+                      {item.poster.verified && (
+                        <span className="px-2 py-0.5 bg-slate-100 rounded-md text-[10px] font-bold text-slate-700">
+                          Verified{item.poster.rating ? ` ★ ${item.poster.rating}` : ''}
+                        </span>
+                      )}
                     </div>
                   </div>
                 </div>

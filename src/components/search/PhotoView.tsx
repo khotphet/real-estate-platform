@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Listing } from '@/types/listing';
+import { FavoriteButton } from '@/components/listing/FavoriteButton';
 
 interface PhotoViewProps {
   listings: Listing[];
@@ -71,13 +72,7 @@ export function PhotoView({ listings, onSelectListing }: PhotoViewProps) {
                   >
                     <span className="material-symbols-outlined text-[18px]">share</span>
                   </button>
-                  <button
-                    type="button"
-                    aria-label="บันทึก"
-                    className="w-9 h-9 rounded-full bg-white/90 hover:bg-white text-muted hover:text-red-500 flex items-center justify-center shadow-xs transition-colors"
-                  >
-                    <span className="material-symbols-outlined text-[18px]">favorite</span>
-                  </button>
+                  <FavoriteButton code={item.code} className="w-9 h-9" />
                 </div>
 
                 {/* Floating Price Pill on image */}

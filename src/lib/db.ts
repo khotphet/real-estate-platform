@@ -21,12 +21,9 @@ if (process.env.NODE_ENV !== 'production') {
   globalThis.__pgPool = pool;
 }
 
-export async function query<T = any>(text: string, params?: any[]): Promise<T[]> {
-  const start = Date.now();
+export type SqlParam = string | number | boolean | null;
+
+export async function query<T = Record<string, unknown>>(text: string, params?: SqlParam[]): Promise<T[]> {
   const res = await pool.query(text, params);
-  const duration = Date.now() - start;
-  if (process.env.NODE_ENV === 'development') {
-    // console.log('executed query', { text, duration, rows: res.rowCount });
-  }
-  return res.rows;
+  return res.rows as T[];
 }

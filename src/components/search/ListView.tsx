@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Listing } from '@/types/listing';
+import { FavoriteButton } from '@/components/listing/FavoriteButton';
 
 interface ListViewProps {
   listings: Listing[];
@@ -63,13 +64,7 @@ export function ListView({ listings, onSelectListing }: ListViewProps) {
               </div>
 
               {/* Heart Favorite Button */}
-              <button
-                type="button"
-                aria-label="บันทึกทรัพย์"
-                className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-muted hover:text-red-500 flex items-center justify-center shadow-xs transition-colors"
-              >
-                <span className="material-symbols-outlined text-[18px]">favorite</span>
-              </button>
+              <FavoriteButton code={item.code} className="absolute top-3 right-3 z-10" />
             </div>
 
             {/* Content Section */}

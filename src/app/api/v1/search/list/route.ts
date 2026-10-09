@@ -1,51 +1,47 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { query } from '@/lib/db';
+import { query, SqlParam } from '@/lib/db';
+import { numParam, enumParam, errorResponse, DEAL_TYPES, PROPERTY_TYPES, toDbPropertyType } from '@/lib/api-params';
 
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
-    const dealType = searchParams.get('deal_type');
-    const propertyType = searchParams.get('property_type');
-    const minPrice = searchParams.get('min_price');
-    const maxPrice = searchParams.get('max_price');
-    const bedrooms = searchParams.get('bedrooms');
-    const q = searchParams.get('q');
-    const limit = Math.min(Number(searchParams.get('limit')) || 20, 50);
-    const offset = Number(searchParams.get('offset')) || 0;
+    const dealType = enumParam(searchParams, 'deal_type', DEAL_TYPES);
+    const propertyType = enumParam(searchParams, 'property_type', PROPERTY_TYPES);
+    const minPrice = numParam(searchParams, 'min_price', { min: 0 });
+    const maxPrice = numParam(searchParams, 'max_price', { min: 0 });
+    const bedrooms = numParam(searchParams, 'bedrooms', { min: 0, max: 20 });
+    const q = searchParams.get('q')?.trim().slice(0, 100) || null;
+    const limit = Math.trunc(numParam(searchParams, 'limit', { min: 1, max: 50 }) ?? 20);
+    const offset = Math.trunc(numParam(searchParams, 'offset', { min: 0 }) ?? 0);
 
     const conditions: string[] = ["status IN ('active', 'reserved')"];
-    const values: any[] = [];
+    const values: SqlParam[] = [];
     let paramIndex = 1;
 
     if (dealType) {
       conditions.push(`deal_type = $${paramIndex++}`);
       values.push(dealType);
     }
-
-    if (propertyType && propertyType !== 'all') {
-      const typeCode = propertyType === 'townhome' ? 'townhouse' : propertyType;
+    if (propertyType) {
       conditions.push(`property_type_code = $${paramIndex++}`);
-      values.push(typeCode);
+      values.push(toDbPropertyType(propertyType));
     }
-
-    if (minPrice) {
+    if (minPrice !== null) {
       conditions.push(`price_thb >= $${paramIndex++}`);
-      values.push(Number(minPrice));
+      values.push(minPrice);
     }
-
-    if (maxPrice) {
+    if (maxPrice !== null) {
       conditions.push(`price_thb <= $${paramIndex++}`);
-      values.push(Number(maxPrice));
+      values.push(maxPrice);
     }
-
-    if (bedrooms) {
+    if (bedrooms !== null) {
       conditions.push(`bedrooms >= $${paramIndex++}`);
-      values.push(Number(bedrooms));
+      values.push(bedrooms);
     }
-
-    if (q && q.trim()) {
-      conditions.push(`(title ILIKE $${paramIndex++} OR project_name ILIKE $${paramIndex - 1})`);
-      values.push(`%${q.trim()}%`);
+    if (q) {
+      conditions.push(`(title ILIKE $${paramIndex} OR project_name ILIKE $${paramIndex})`);
+      paramIndex++;
+      values.push(`%${q}%`);
     }
 
     const whereClause = conditions.length > 0 ? `WHERE ${conditions.join(' AND ')}` : '';
@@ -89,11 +85,7 @@ export async function GET(request: NextRequest) {
       offset,
       items: rows,
     });
-  } catch (error: any) {
-    console.error('API /search/list error:', error);
-    return NextResponse.json(
-      { success: false, error: error.message || 'Database query failed' },
-      { status: 500 }
-    );
+  } catch (error) {
+    return errorResponse('/search/list', error);
   }
 }
