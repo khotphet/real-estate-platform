@@ -18,13 +18,25 @@ export const metadata: Metadata = {
   description: "แพลตฟอร์มซื้อ-ขาย-เช่าอสังหาริมทรัพย์แบบแผนที่ เริ่มต้นที่อุดรธานี",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html
       lang="th"
       className={`${jakarta.variable} ${sarabun.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        />
+      </head>
+      <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
+        {children}
+      </body>
     </html>
   );
 }
