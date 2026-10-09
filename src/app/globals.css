@@ -11,6 +11,15 @@
 
   --primary: #0f766e; /* Forest Teal */
   --primary-foreground: #ffffff;
+  --primary-light: #f0fdfa;
+  --primary-hover: #0d9488;
+
+  --surface-card: #ffffff;
+  --surface-container: #f1f5f9;
+  --surface-container-low: #f8fafc;
+  --canvas-background: #f8fafc;
+  --border-subtle: #e2e8f0;
+  --on-surface: #0f172a;
 
   --status-active: #10b981;
   --status-reserved: #f59e0b;
@@ -24,12 +33,21 @@
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
+  --color-surface-card: var(--surface-card);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-canvas-background: var(--canvas-background);
+  --color-border-subtle: var(--border-subtle);
+  --color-on-surface: var(--on-surface);
+
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-border: var(--border);
 
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-light: var(--primary-light);
+  --color-primary-hover: var(--primary-hover);
 
   --color-status-active: var(--status-active);
   --color-status-reserved: var(--status-reserved);

@@ -149,11 +149,11 @@ export function NotificationDropdown() {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-80 sm:w-96 bg-surface-card rounded-2xl border border-border-subtle shadow-2xl overflow-hidden z-50 animate-in fade-in zoom-in-95 duration-150">
+        <div className="absolute right-0 mt-2 w-80 sm:w-96 bg-white rounded-2xl border border-slate-200 shadow-2xl overflow-hidden z-50 animate-in fade-in zoom-in-95 duration-150">
           {/* Header */}
-          <div className="p-3.5 bg-slate-50/80 border-b border-border-subtle flex items-center justify-between">
+          <div className="p-3.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="text-sm font-bold text-on-surface">การแจ้งเตือน</span>
+              <span className="text-sm font-bold text-slate-900">การแจ้งเตือน</span>
               {unreadCount > 0 && (
                 <span className="px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[11px] font-bold">
                   {unreadCount} ใหม่
@@ -173,16 +173,16 @@ export function NotificationDropdown() {
           </div>
 
           {/* List */}
-          <div className="max-h-[380px] overflow-y-auto divide-y divide-border-subtle">
+          <div className="max-h-[380px] overflow-y-auto divide-y divide-slate-100 bg-white">
             {notifications.length === 0 ? (
-              <div className="py-8 text-center text-xs text-text-muted">
+              <div className="py-8 text-center text-xs text-slate-500">
                 ไม่มีการแจ้งเตือนใหม่ในขณะนี้
               </div>
             ) : (
               <>
                 {todayList.length > 0 && (
                   <div>
-                    <div className="px-3.5 py-1.5 bg-slate-100/60 text-[10px] font-bold text-text-muted uppercase tracking-wider">
+                    <div className="px-3.5 py-1.5 bg-slate-100 text-[10px] font-bold text-slate-500 uppercase tracking-wider">
                       วันนี้
                     </div>
                     {todayList.map((item) => (
@@ -194,24 +194,24 @@ export function NotificationDropdown() {
                           setIsOpen(false);
                         }}
                         className={`p-3.5 flex items-start gap-3 transition-colors hover:bg-slate-50 block ${
-                          !item.isRead ? 'bg-primary/5' : ''
+                          !item.isRead ? 'bg-teal-50/50' : 'bg-white'
                         }`}
                       >
-                        <div className="p-2 rounded-xl bg-surface-card border border-border-subtle shrink-0 shadow-xs mt-0.5">
+                        <div className="p-2 rounded-xl bg-white border border-slate-200 shrink-0 shadow-xs mt-0.5">
                           {getIcon(item.type)}
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center justify-between gap-1 mb-0.5">
                             <h4
                               className={`text-xs truncate ${
-                                !item.isRead ? 'font-bold text-on-surface' : 'font-medium text-slate-700'
+                                !item.isRead ? 'font-bold text-slate-900' : 'font-medium text-slate-700'
                               }`}
                             >
                               {item.title}
                             </h4>
-                            <span className="text-[10px] text-text-muted shrink-0">{item.time}</span>
+                            <span className="text-[10px] text-slate-500 shrink-0">{item.time}</span>
                           </div>
-                          <p className="text-[11px] text-text-muted line-clamp-2 leading-relaxed">
+                          <p className="text-[11px] text-slate-600 line-clamp-2 leading-relaxed">
                             {item.description}
                           </p>
                         </div>
@@ -225,7 +225,7 @@ export function NotificationDropdown() {
 
                 {earlierList.length > 0 && (
                   <div>
-                    <div className="px-3.5 py-1.5 bg-slate-100/60 text-[10px] font-bold text-text-muted uppercase tracking-wider">
+                    <div className="px-3.5 py-1.5 bg-slate-100 text-[10px] font-bold text-slate-500 uppercase tracking-wider">
                       ก่อนหน้านี้
                     </div>
                     {earlierList.map((item) => (
@@ -237,24 +237,24 @@ export function NotificationDropdown() {
                           setIsOpen(false);
                         }}
                         className={`p-3.5 flex items-start gap-3 transition-colors hover:bg-slate-50 block ${
-                          !item.isRead ? 'bg-primary/5' : ''
+                          !item.isRead ? 'bg-teal-50/50' : 'bg-white'
                         }`}
                       >
-                        <div className="p-2 rounded-xl bg-surface-card border border-border-subtle shrink-0 shadow-xs mt-0.5">
+                        <div className="p-2 rounded-xl bg-white border border-slate-200 shrink-0 shadow-xs mt-0.5">
                           {getIcon(item.type)}
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center justify-between gap-1 mb-0.5">
                             <h4
                               className={`text-xs truncate ${
-                                !item.isRead ? 'font-bold text-on-surface' : 'font-medium text-slate-700'
+                                !item.isRead ? 'font-bold text-slate-900' : 'font-medium text-slate-700'
                               }`}
                             >
                               {item.title}
                             </h4>
-                            <span className="text-[10px] text-text-muted shrink-0">{item.time}</span>
+                            <span className="text-[10px] text-slate-500 shrink-0">{item.time}</span>
                           </div>
-                          <p className="text-[11px] text-text-muted line-clamp-2 leading-relaxed">
+                          <p className="text-[11px] text-slate-600 line-clamp-2 leading-relaxed">
                             {item.description}
                           </p>
                         </div>
@@ -267,7 +267,7 @@ export function NotificationDropdown() {
           </div>
 
           {/* Footer */}
-          <div className="p-2.5 bg-slate-50/70 border-t border-border-subtle text-center">
+          <div className="p-2.5 bg-slate-50 border-t border-slate-200 text-center">
             <Link
               href="/account"
               onClick={() => setIsOpen(false)}
