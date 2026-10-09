@@ -153,11 +153,13 @@ export function MapView({ listings, onSelectListing }: MapViewProps) {
           <div className="bg-surface rounded-2xl border border-border p-3.5 shadow-xl flex gap-3 items-center backdrop-blur-xs">
             {/* Thumbnail */}
             <div className="relative w-24 h-24 rounded-xl overflow-hidden shrink-0 bg-slate-100">
-              <img
-                src={selectedListing.images[0]}
-                alt={selectedListing.title}
-                className="w-full h-full object-cover"
-              />
+              <Link href={`/listing/${selectedListing.code}`} className="block w-full h-full">
+                <img
+                  src={selectedListing.images[0]}
+                  alt={selectedListing.title}
+                  className="w-full h-full object-cover"
+                />
+              </Link>
               <span
                 className={`absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded-full text-[10px] font-bold text-white ${
                   selectedListing.dealType === 'sale' ? 'bg-primary' : 'bg-blue-600'
@@ -182,7 +184,9 @@ export function MapView({ listings, onSelectListing }: MapViewProps) {
                 </div>
 
                 <h4 className="text-xs font-bold text-foreground line-clamp-1 mt-1">
-                  {selectedListing.title}
+                  <Link href={`/listing/${selectedListing.code}`} className="hover:text-primary transition-colors">
+                    {selectedListing.title}
+                  </Link>
                 </h4>
                 <p className="text-[11px] text-muted line-clamp-1 mt-0.5">
                   {selectedListing.location.address}
@@ -195,7 +199,7 @@ export function MapView({ listings, onSelectListing }: MapViewProps) {
                   {selectedListing.specs.usableAreaSqm ? 'ตร.ม.' : 'ตร.ว.'}
                 </span>
                 <Link
-                  href={`#property-${selectedListing.code}`}
+                  href={`/listing/${selectedListing.code}`}
                   className="text-xs font-semibold text-primary hover:underline flex items-center gap-0.5"
                 >
                   <span>ดูรายละเอียด</span>

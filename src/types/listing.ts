@@ -34,10 +34,16 @@ export interface Listing {
     totalFloors?: number;
     parking?: number;
     unitType?: string;
+    direction?: string;
+    commonFee?: string;
+    building?: string;
+    furnishedStatus?: string;
   };
   images: string[];
   photoCount: number;
   features: string[];
+  amenities?: { name: string; icon: string }[];
+  landmarks?: { name: string; distance: string; category?: string }[];
   description: string;
   isVerified: boolean;
   updatedAt: string;
@@ -46,7 +52,13 @@ export interface Listing {
     role: 'owner' | 'agent';
     verified: boolean;
     phone?: string;
+    avatarUrl?: string;
+    rating?: number;
+    reviewCount?: number;
+    responseTime?: string;
   };
+  reservedUntil?: string;
+  pricePerSqm?: number;
 }
 
 export type SearchViewMode = 'list' | 'photo' | 'map';

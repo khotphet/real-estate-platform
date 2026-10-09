@@ -24,11 +24,13 @@ export function PhotoView({ listings, onSelectListing }: PhotoViewProps) {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 p-2 bg-slate-50">
               {/* Main Big Photo (Col 1-2) */}
               <div className="relative lg:col-span-2 h-72 sm:h-96 rounded-xl overflow-hidden bg-slate-200">
-                <img
-                  src={item.images[0]}
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-300"
-                />
+                <Link href={`/listing/${item.code}`} className="block w-full h-full">
+                  <img
+                    src={item.images[0]}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-300"
+                  />
+                </Link>
 
                 {/* Overlaid Badges */}
                 <div className="absolute top-4 left-4 flex items-center gap-2">
@@ -130,7 +132,7 @@ export function PhotoView({ listings, onSelectListing }: PhotoViewProps) {
                 </div>
 
                 <h3 className="mt-1 text-lg font-bold text-foreground hover:text-primary transition-colors">
-                  <Link href={`#property-${item.code}`}>{item.title}</Link>
+                  <Link href={`/listing/${item.code}`}>{item.title}</Link>
                 </h3>
 
                 {/* Specs Row */}
@@ -171,7 +173,7 @@ export function PhotoView({ listings, onSelectListing }: PhotoViewProps) {
               {/* Actions */}
               <div className="flex items-center gap-3 shrink-0">
                 <Link
-                  href={`#property-${item.code}`}
+                  href={`/listing/${item.code}`}
                   className="px-5 py-2.5 rounded-xl border border-border hover:border-primary text-foreground font-semibold text-xs transition-colors"
                 >
                   ดูรายละเอียด

@@ -23,11 +23,13 @@ export function ListView({ listings, onSelectListing }: ListViewProps) {
           >
             {/* Image Section */}
             <div className="relative w-full md:w-80 h-56 md:h-auto shrink-0 bg-slate-100 overflow-hidden">
-              <img
-                src={item.images[0]}
-                alt={item.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
+              <Link href={`/listing/${item.code}`} className="block w-full h-full">
+                <img
+                  src={item.images[0]}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </Link>
 
               {/* Photo Count Pill */}
               <div className="absolute bottom-3 right-3 px-2 py-1 rounded-md bg-black/60 backdrop-blur-xs text-white text-[11px] font-medium flex items-center gap-1">
@@ -94,7 +96,7 @@ export function ListView({ listings, onSelectListing }: ListViewProps) {
 
                 {/* Title */}
                 <h3 className="mt-2 text-base font-bold text-foreground group-hover:text-primary transition-colors line-clamp-1">
-                  <Link href={`#property-${item.code}`}>{item.title}</Link>
+                  <Link href={`/listing/${item.code}`}>{item.title}</Link>
                 </h3>
 
                 {/* Location */}
