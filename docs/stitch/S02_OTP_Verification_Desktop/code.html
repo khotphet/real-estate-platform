@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html lang="th"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_blank" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "secondary": "#006c49",
+          "surface-container-highest": "#dae2fd",
+          "error-container": "#ffdad6",
+          "surface-container": "#eaedff",
+          "on-primary-fixed": "#00201d",
+          "on-secondary": "#ffffff",
+          "on-tertiary-fixed-variant": "#004395",
+          "tertiary": "#004eaa",
+          "surface-dim": "#d2d9f4",
+          "secondary-container": "#6cf8bb",
+          "primary": "#005c55",
+          "on-error-container": "#93000a",
+          "surface-tint": "#006a63",
+          "on-tertiary-container": "#e4eaff",
+          "tertiary-container": "#0165d8",
+          "on-error": "#ffffff",
+          "inverse-on-surface": "#eef0ff",
+          "inverse-primary": "#80d5cb",
+          "surface-variant": "#dae2fd",
+          "tertiary-fixed-dim": "#adc6ff",
+          "status-sold": "#EF4444",
+          "on-tertiary": "#ffffff",
+          "primary-hover": "#115E59",
+          "primary-light": "#F0FDFA",
+          "primary-fixed-dim": "#80d5cb",
+          "canvas-background": "#F8FAFC",
+          "on-tertiary-fixed": "#001a42",
+          "on-secondary-container": "#00714d",
+          "status-available": "#10B981",
+          "on-primary": "#ffffff",
+          "primary-fixed": "#9cf2e8",
+          "error": "#ba1a1a",
+          "on-background": "#131b2e",
+          "chart-views": "#3B82F6",
+          "chart-speed": "#F97316",
+          "border-subtle": "#E2E8F0",
+          "on-secondary-fixed-variant": "#005236",
+          "tertiary-fixed": "#d8e2ff",
+          "on-surface-variant": "#3e4947",
+          "surface-container-low": "#f2f3ff",
+          "secondary-fixed-dim": "#4edea3",
+          "on-secondary-fixed": "#002113",
+          "inverse-surface": "#283044",
+          "on-surface": "#131b2e",
+          "background": "#faf8ff",
+          "surface-container-lowest": "#ffffff",
+          "status-reserved": "#F59E0B",
+          "text-muted": "#64748B",
+          "surface": "#faf8ff",
+          "surface-card": "#FFFFFF",
+          "outline": "#6e7977",
+          "surface-container-high": "#e2e7ff",
+          "danger-scam": "#DC2626",
+          "primary-container": "#0f766e",
+          "surface-bright": "#faf8ff",
+          "secondary-fixed": "#6ffbbe",
+          "on-primary-container": "#a3faef",
+          "on-primary-fixed-variant": "#00504a",
+          "outline-variant": "#bdc9c6"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "margin": "1rem",
+          "space-xl": "1.5rem",
+          "space-md": "0.75rem",
+          "margin-desktop": "2rem",
+          "space-xs": "0.25rem",
+          "gutter-desktop": "1.5rem",
+          "space-sm": "0.5rem",
+          "space-lg": "1rem",
+          "margin-tablet": "1.5rem",
+          "gutter": "1rem"
+        },
+        "fontFamily": {
+          "headline-md": [
+            "Plus Jakarta Sans"
+          ],
+          "body-sm": [
+            "Plus Jakarta Sans"
+          ],
+          "price-sm": [
+            "Plus Jakarta Sans"
+          ],
+          "title-md": [
+            "Plus Jakarta Sans"
+          ],
+          "body-lg": [
+            "Plus Jakarta Sans"
+          ],
+          "body-sm-medium": [
+            "Plus Jakarta Sans"
+          ],
+          "display-lg": [
+            "Plus Jakarta Sans"
+          ],
+          "price-xl": [
+            "Plus Jakarta Sans"
+          ],
+          "body-lg-bold": [
+            "Plus Jakarta Sans"
+          ],
+          "label-xs": [
+            "Plus Jakarta Sans"
+          ],
+          "headline-lg": [
+            "Plus Jakarta Sans"
+          ]
+        },
+        "fontSize": {
+          "headline-md": [
+            "20px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "600"
+            }
+          ],
+          "body-sm": [
+            "14px",
+            {
+              "lineHeight": "22px",
+              "fontWeight": "400"
+            }
+          ],
+          "price-sm": [
+            "14px",
+            {
+              "lineHeight": "18px",
+              "fontWeight": "700"
+            }
+          ],
+          "title-md": [
+            "18px",
+            {
+              "lineHeight": "26px",
+              "fontWeight": "600"
+            }
+          ],
+          "body-lg": [
+            "16px",
+            {
+              "lineHeight": "26px",
+              "fontWeight": "400"
+            }
+          ],
+          "body-sm-medium": [
+            "14px",
+            {
+              "lineHeight": "22px",
+              "fontWeight": "500"
+            }
+          ],
+          "display-lg": [
+            "30px",
+            {
+              "lineHeight": "40px",
+              "fontWeight": "700"
+            }
+          ],
+          "price-xl": [
+            "24px",
+            {
+              "lineHeight": "30px",
+              "fontWeight": "800"
+            }
+          ],
+          "body-lg-bold": [
+            "16px",
+            {
+              "lineHeight": "26px",
+              "fontWeight": "600"
+            }
+          ],
+          "label-xs": [
+            "12px",
+            {
+              "lineHeight": "18px",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-lg": [
+            "24px",
+            {
+              "lineHeight": "34px",
+              "fontWeight": "700"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-canvas-background text-on-surface antialiased min-h-screen flex items-center justify-center p-margin"><main class="w-full max-w-md"><div class="flex flex-col w-full relative">
+<!-- Backdrop Canvas Emulating Blurred Platform Viewport -->
+<div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden flex items-center justify-center opacity-40 blur-xl">
+<div class="w-[800px] h-[500px] rounded-full bg-surface-container-highest mix-blend-multiply filter blur-3xl opacity-70"></div>
+<div class="w-[600px] h-[400px] rounded-full bg-primary-light mix-blend-multiply filter blur-2xl opacity-60 ml-32 -mt-20"></div>
+</div>
+<!-- Dedicated Verification Container Window (Desktop Centered Frame) -->
+<div class="w-full max-w-[480px] mx-auto bg-surface-card rounded-2xl shadow-xl p-8 relative flex flex-col transition-all">
+<!-- Top Action Bar -->
+<div class="flex items-center justify-between mb-8">
+<button class="group inline-flex items-center gap-2 text-text-muted hover:text-primary transition-colors cursor-pointer py-1 text-left" type="button">
+<span class="material-symbols-outlined text-lg transition-transform group-hover:-translate-x-1">arrow_back</span>
+<span class="font-body-sm-medium text-body-sm-medium">ย้อนกลับ</span>
+</button>
+<!-- Security Trust Stamp -->
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-light text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="font-label-xs text-label-xs">ความปลอดภัยระดับธนาคาร</span>
+</div>
+</div>
+<!-- Header Section -->
+<div class="flex flex-col gap-2 mb-8">
+<div class="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center text-primary mb-2 shadow-sm">
+<span class="material-symbols-outlined text-2xl">sms</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">ยืนยันรหัส OTP</h1>
+<p class="font-body-sm text-body-sm text-text-muted">
+        กรุณากรอกรหัส 6 หลักที่ส่งไปยังเบอร์ 
+        <span class="font-body-lg-bold text-body-sm text-on-surface font-semibold tracking-wide">+66 81 987 6543</span>
+</p>
+</div>
+<!-- OTP Input Group -->
+<form class="flex flex-col" id="otp-form" onsubmit="event.preventDefault();">
+<div class="flex items-center justify-between gap-2.5 mb-6" id="otp-container">
+<input aria-label="OTP Digit 1" class="w-12 h-14 text-center font-headline-lg text-headline-lg text-on-surface bg-surface-card rounded-xl shadow-sm outline-none transition-all duration-150 focus:bg-primary-light/30 focus:shadow-md cursor-text" inputmode="numeric" maxlength="1" pattern="[0-9]*" type="text" value="4"/>
+<input aria-label="OTP Digit 2" class="w-12 h-14 text-center font-headline-lg text-headline-lg text-on-surface bg-surface-card rounded-xl shadow-sm outline-none transition-all duration-150 focus:bg-primary-light/30 focus:shadow-md cursor-text" inputmode="numeric" maxlength="1" pattern="[0-9]*" type="text" value="8"/>
+<input aria-label="OTP Digit 3" class="w-12 h-14 text-center font-headline-lg text-headline-lg text-on-surface bg-surface-card rounded-xl shadow-sm outline-none transition-all duration-150 focus:bg-primary-light/30 focus:shadow-md cursor-text" inputmode="numeric" maxlength="1" pattern="[0-9]*" type="text" value="2"/>
+<input aria-label="OTP Digit 4" class="w-12 h-14 text-center font-headline-lg text-headline-lg text-on-surface bg-surface-card rounded-xl shadow-sm outline-none transition-all duration-150 focus:bg-primary-light/30 focus:shadow-md cursor-text text-primary" inputmode="numeric" maxlength="1" pattern="[0-9]*" placeholder="•" type="text" value=""/>
+<input aria-label="OTP Digit 5" class="w-12 h-14 text-center font-headline-lg text-headline-lg text-on-surface bg-surface-card rounded-xl shadow-sm outline-none transition-all duration-150 focus:bg-primary-light/30 focus:shadow-md cursor-text" inputmode="numeric" maxlength="1" pattern="[0-9]*" placeholder="•" type="text" value=""/>
+<input aria-label="OTP Digit 6" class="w-12 h-14 text-center font-headline-lg text-headline-lg text-on-surface bg-surface-card rounded-xl shadow-sm outline-none transition-all duration-150 focus:bg-primary-light/30 focus:shadow-md cursor-text" inputmode="numeric" maxlength="1" pattern="[0-9]*" placeholder="•" type="text" value=""/>
+</div>
+<!-- Expiry Countdown & Resend Section -->
+<div class="flex items-center justify-between p-3.5 rounded-xl bg-surface-container-low mb-8">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-primary">schedule</span>
+<span class="font-body-sm text-body-sm text-text-muted">
+            รหัสหมดอายุใน <span class="font-body-sm-medium text-body-sm-medium text-on-surface font-semibold tabular-nums" id="countdown">00:54</span> นาที
+          </span>
+</div>
+<button class="font-body-sm-medium text-body-sm-medium text-primary hover:text-primary-hover transition-colors font-semibold disabled:text-text-muted disabled:cursor-not-allowed" id="resend-btn" type="button">
+          ขอรหัสใหม่
+        </button>
+</div>
+<!-- Action Button -->
+<button class="w-full bg-primary hover:bg-primary-hover active:bg-primary-container text-on-primary py-3.5 px-6 rounded-xl font-headline-md text-headline-md font-semibold tracking-wide transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer" type="submit">
+<span>ยืนยันและดำเนินการต่อ</span>
+<span class="material-symbols-outlined text-xl">arrow_forward</span>
+</button>
+</form>
+<!-- Support Assistance Footer -->
+<div class="mt-8 pt-6 flex flex-col items-center justify-center text-center gap-2">
+<div class="flex items-center gap-1.5 text-text-muted">
+<span class="material-symbols-outlined text-base">support_agent</span>
+<p class="font-body-sm text-body-sm">
+          มีปัญหาในการรับรหัส? 
+          <a class="font-body-sm-medium text-body-sm-medium text-primary hover:underline font-semibold ml-0.5 inline-flex items-center" href="#">
+            ติดต่อฝ่ายบริการลูกค้า MapNest Support
+          </a>
+</p>
+</div>
+<span class="font-label-xs text-label-xs text-outline tracking-wider uppercase">Ref Code: MN-74892A</span>
+</div>
+</div>
+<!-- Micro-interaction script for digit auto-advance and countdown -->
+<script>
+    (function initOTP() {
+      const inputs = Array.from(document.querySelectorAll('#otp-container input'));
+      inputs.forEach((input, index) => {
+        input.addEventListener('input', (e) => {
+          const val = e.target.value;
+          if (val.length >= 1) {
+            e.target.value = val.slice(-1);
+            if (index < inputs.length - 1) {
+              inputs[index + 1].focus();
+            }
+          }
+        });
+
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Backspace' && !input.value && index > 0) {
+            inputs[index - 1].focus();
+          }
+        });
+
+        input.addEventListener('focus', () => {
+          input.select();
+        });
+      });
+
+      // Countdown simulation
+      let timeLeft = 54;
+      const countdownEl = document.getElementById('countdown');
+      const resendBtn = document.getElementById('resend-btn');
+
+      const timer = setInterval(() => {
+        timeLeft--;
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+          if (countdownEl) countdownEl.textContent = '00:00';
+          if (resendBtn) {
+            resendBtn.classList.remove('opacity-50', 'pointer-events-none');
+          }
+        } else if (countdownEl) {
+          const seconds = timeLeft < 10 ? '0' + timeLeft : timeLeft;
+          countdownEl.textContent = `00:${seconds}`;
+        }
+      }, 1000);
+    })();
+  </script>
+</div></main></body></html>

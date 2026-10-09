@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+
+<html lang="th"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"secondary-fixed":"#6ffbbe","border-subtle":"#E2E8F0","primary-hover":"#115E59","primary-container":"#0f766e","secondary":"#006c49","surface-bright":"#faf8ff","on-tertiary-fixed":"#001a42","surface-card":"#FFFFFF","surface-container-low":"#f2f3ff","on-secondary-fixed":"#002113","text-muted":"#64748B","on-secondary-container":"#00714d","on-tertiary-container":"#e4eaff","tertiary-fixed":"#d8e2ff","surface-container-high":"#e2e7ff","chart-speed":"#F97316","surface-dim":"#d2d9f4","surface":"#faf8ff","status-available":"#10B981","chart-views":"#3B82F6","on-secondary":"#ffffff","tertiary-fixed-dim":"#adc6ff","inverse-on-surface":"#eef0ff","on-surface":"#131b2e","outline-variant":"#bdc9c6","error":"#ba1a1a","surface-container-lowest":"#ffffff","on-background":"#131b2e","canvas-background":"#F8FAFC","on-primary-fixed-variant":"#00504a","surface-tint":"#006a63","on-error":"#ffffff","tertiary":"#004eaa","background":"#faf8ff","surface-variant":"#dae2fd","on-primary-container":"#a3faef","on-tertiary-fixed-variant":"#004395","on-primary":"#ffffff","surface-container-highest":"#dae2fd","primary-light":"#F0FDFA","danger-scam":"#DC2626","primary-fixed-dim":"#80d5cb","secondary-fixed-dim":"#4edea3","status-reserved":"#F59E0B","outline":"#6e7977","surface-container":"#eaedff","status-sold":"#EF4444","on-error-container":"#93000a","inverse-primary":"#80d5cb","primary":"#005c55","primary-fixed":"#9cf2e8","tertiary-container":"#0165d8","on-primary-fixed":"#00201d","secondary-container":"#6cf8bb","on-surface-variant":"#3e4947","inverse-surface":"#283044","error-container":"#ffdad6","on-tertiary":"#ffffff","on-secondary-fixed-variant":"#005236"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"margin-desktop":"2rem","space-sm":"0.5rem","space-lg":"1rem","gutter":"1rem","margin":"1rem","margin-tablet":"1.5rem","space-xl":"1.5rem","space-xs":"0.25rem","space-md":"0.75rem","gutter-desktop":"1.5rem"},fontFamily:{"display-lg":["Plus Jakarta Sans"],"label-xs":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"price-xl":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"body-sm-medium":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-lg-bold":["Plus Jakarta Sans"],"price-sm":["Plus Jakarta Sans"]},fontSize:{"display-lg":["30px",{"lineHeight":"40px","fontWeight":"700"}],"label-xs":["12px",{"lineHeight":"18px","fontWeight":"600"}],"title-md":["18px",{"lineHeight":"26px","fontWeight":"600"}],"price-xl":["24px",{"lineHeight":"30px","fontWeight":"800"}],"body-sm":["14px",{"lineHeight":"22px","fontWeight":"400"}],"body-sm-medium":["14px",{"lineHeight":"22px","fontWeight":"500"}],"headline-md":["20px",{"lineHeight":"28px","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"26px","fontWeight":"400"}],"headline-lg":["24px",{"lineHeight":"34px","fontWeight":"700"}],"body-lg-bold":["16px",{"lineHeight":"26px","fontWeight":"600"}],"price-sm":["14px",{"lineHeight":"18px","fontWeight":"700"}]}}}};</script></head><body class="bg-canvas-background text-on-surface font-body-sm text-body-sm"><header class="fixed top-0 left-0 w-full z-50 bg-surface-card/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[1320px] mx-auto px-margin-desktop flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-xl"><a class="flex items-center gap-space-xs" data-path="explore-properties" href="#"><span class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-sm"><span class="material-symbols-outlined text-[22px]">location_city</span></span><div class="flex flex-col leading-none"><span class="font-headline-md text-headline-md text-primary tracking-tight font-bold">MapNest</span><span class="font-label-xs text-label-xs text-text-muted">Udon Thani Hub</span></div></a><nav class="hidden xl:flex items-center gap-space-xl" data-active-classes="text-primary font-body-sm-medium font-bold"><a class="font-body-sm-medium text-body-sm-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="explore-properties" href="#">สำรวจ / ค้นหาทรัพย์</a><a class="font-body-sm-medium text-body-sm-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="my-listings" href="#">จัดการประกาศขอฉัน</a><a class="font-body-sm-medium text-body-sm-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="agent-hub" href="#">นายหน้า Agent Hub</a><a class="font-body-sm-medium text-body-sm-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="pricing-packages" href="#">แพ็กเกจ</a></nav></div><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center justify-center px-space-lg py-space-sm rounded-xl bg-primary hover:bg-primary-hover text-on-primary font-body-sm-medium text-body-sm-medium transition-colors shadow-sm" data-path="s24-post-3-5-price-specs-desktop" href="#">ลงประกาศฟรี (+)</a><button aria-label="Notifications" class="relative p-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-status-reserved"></span></button><div class="flex items-center p-1 rounded-xl bg-surface-container-low"><button class="px-space-xs py-0.5 rounded-lg bg-surface-card text-on-surface font-label-xs text-label-xs shadow-sm font-semibold" type="button">TH</button><button class="px-space-xs py-0.5 rounded-lg text-text-muted hover:text-on-surface font-label-xs text-label-xs transition-colors" type="button">EN</button></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="w-9 h-9 rounded-full bg-primary flex items-center justify-center cursor-pointer shadow-sm hover:ring-2 hover:ring-primary/20 transition-all"><span class="material-symbols-outlined text-on-primary text-[20px]">person</span></div></div></div></div></header><main class="w-full pt-20 bg-canvas-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Workflow & Stepper Section -->
+<section class="w-full bg-surface-card shadow-sm pb-space-lg">
+<div class="max-w-[1320px] mx-auto px-margin-desktop pt-space-lg">
+<!-- Breadcrumb -->
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs text-text-muted font-label-xs text-label-xs mb-space-sm">
+<a class="hover:text-primary transition-colors" href="#">หน้าแรก</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">จัดการประกาศของฉัน</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-semibold">ลงประกาศใหม่ (ขั้นตอนที่ 4/5)</span>
+</nav>
+<!-- Step Title & Value Prop -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">
+            อัปโหลดภาพถ่ายและเอกสารกรรมสิทธิ์ (Photos &amp; Verification)
+          </h1>
+<p class="font-body-sm text-body-sm text-text-muted mt-1 max-w-3xl">
+            ภาพถ่ายจริงช่วยเพิ่มโอกาสปิดการขายได้เร็วขึ้น 3 เท่า และเอกสารโฉนดที่ผ่านการตรวจสอบจะได้รับตราสัญลักษณ์ <span class="text-primary font-semibold">Verified Owner</span> โดยอัตโนมัติ
+          </p>
+</div>
+<div class="inline-flex items-center gap-space-xs bg-primary-light px-space-md py-space-xs rounded-full self-start md:self-auto">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-xs text-label-xs text-primary font-bold">โหมดบันทึกอัตโนมัติ (Draft Saved)</span>
+</div>
+</div>
+<!-- 5-Step Stepper Flow -->
+<div class="w-full bg-canvas-background p-space-md rounded-xl shadow-inner">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-space-md items-center">
+<!-- Step 1 (Completed) -->
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-xs text-label-xs font-bold shadow-sm">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</span>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-text-muted">ขั้นตอนที่ 1</span>
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface line-clamp-1">ประเภท &amp; ธุรกรรม</span>
+</div>
+</div>
+<!-- Step 2 (Completed) -->
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-xs text-label-xs font-bold shadow-sm">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</span>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-text-muted">ขั้นตอนที่ 2</span>
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface line-clamp-1">ที่ตั้ง &amp; แผนที่</span>
+</div>
+</div>
+<!-- Step 3 (Completed) -->
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-xs text-label-xs font-bold shadow-sm">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</span>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-text-muted">ขั้นตอนที่ 3</span>
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface line-clamp-1">ราคา &amp; สเปก</span>
+</div>
+</div>
+<!-- Step 4 (Active) -->
+<div class="flex items-center gap-space-sm col-span-2 md:col-span-1 bg-surface-card p-space-xs px-space-sm rounded-lg shadow-sm">
+<span class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-xs text-label-xs font-bold shadow-sm">
+              4
+            </span>
+<div class="flex flex-col flex-1">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-primary font-bold">ขั้นตอนปัจจุบัน</span>
+<span class="font-label-xs text-label-xs text-primary">85%</span>
+</div>
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface font-bold">รูปภาพ &amp; โฉนด</span>
+</div>
+</div>
+<!-- Step 5 (Upcoming) -->
+<div class="flex items-center gap-space-sm opacity-60">
+<span class="w-7 h-7 rounded-full bg-surface-container text-text-muted flex items-center justify-center font-label-xs text-label-xs font-bold">
+              5
+            </span>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-text-muted">ขั้นตอนที่ 5</span>
+<span class="font-body-sm-medium text-body-sm-medium text-text-muted line-clamp-1">ตรวจสอบ &amp; เผยแพร่</span>
+</div>
+</div>
+</div>
+<!-- Global Progress Strip -->
+<div class="w-full bg-surface-container h-1.5 rounded-full mt-space-md overflow-hidden">
+<div class="bg-primary h-full rounded-full transition-all duration-500" style="width: 80%;"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Work Area (Two Columns) -->
+<main class="max-w-[1320px] mx-auto px-margin-desktop w-full py-space-xl pb-32">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-start">
+<!-- ================= LEFT COLUMN: MAIN FORM (8 cols) ================= -->
+<div class="lg:col-span-8 flex flex-col gap-space-xl">
+<!-- SECTION 1: Property Photos -->
+<section class="bg-surface-card p-space-xl rounded-xl shadow-sm flex flex-col gap-space-lg">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-primary-light text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">photo_library</span>
+</span>
+<div>
+<h2 class="font-title-md text-title-md text-on-surface font-bold">ส่วนที่ 1: ภาพถ่ายทรัพย์สินจริง</h2>
+<p class="font-label-xs text-label-xs text-text-muted">ถ่ายภาพมุมกว้าง สว่างคมชัด และแสดงสภาพจริงของห้อง</p>
+</div>
+</div>
+<span class="bg-primary-light text-primary font-label-xs text-label-xs px-space-md py-1 rounded-full font-bold">
+              จำเป็น (อย่างน้อย 3 ภาพ)
+            </span>
+</div>
+<!-- Drag and Drop Dropzone -->
+<div class="group relative rounded-xl bg-canvas-background p-space-xl flex flex-col items-center justify-center text-center cursor-pointer transition-all hover:bg-primary-light/40 shadow-inner" style="outline: 2px dashed #CBD5E1; outline-offset: -8px;">
+<div class="w-14 h-14 rounded-full bg-surface-card text-primary shadow-sm flex items-center justify-center mb-space-sm group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[32px]">add_photo_alternate</span>
+</div>
+<div class="font-headline-md text-headline-md text-on-surface font-bold mb-1">
+              ลากและวางภาพถ่ายที่นี่ หรือ <span class="text-primary underline">คลิกเพื่อเลือกไฟล์</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted max-w-lg mb-space-sm">
+              รองรับ JPG, PNG, WEBP ขนาดไม่เกิน 15MB ต่อรูป (แนะนำสัดส่วน 16:9 แนวนอน เพื่อความคมชัดสูงสุดบนมือถือและคอมพิวเตอร์)
+            </p>
+<div class="inline-flex items-center gap-space-xs px-space-md py-1 bg-surface-card rounded-full shadow-sm text-text-muted font-label-xs text-label-xs">
+<span class="material-symbols-outlined text-[16px] text-status-available">verified</span>
+<span>อัปโหลดไปแล้ว 5 / 20 ภาพ (อุดรธานี แนะนำ 6 ภาพขึ้นไป)</span>
+</div>
+</div>
+<!-- Photo Grid (6 Slots) -->
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px] text-text-muted">drag_indicator</span>
+                ภาพถ่ายที่อัปโหลดแล้ว (สามารถลากเพื่อสลับลำดับการแสดงผล)
+              </span>
+<span class="font-label-xs text-label-xs text-text-muted">ภาพแรกจะถูกตั้งเป็นภาพหน้าปกหลักโดยอัตโนมัติ</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-space-md">
+<!-- Slot 1: Cover Photo -->
+<div class="group relative rounded-xl overflow-hidden bg-surface-card shadow-sm flex flex-col">
+<div class="relative w-full aspect-video overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="Modern bright living room interior of Lumpini Place UD-Posri condo in Udon Thani, Thailand. Featuring a comfortable warm grey sofa, wooden coffee table, large glass balcony door with sheer curtains admitting soft morning natural sunlight, high-end warm minimalist aesthetic, professional architectural interior photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmxZFl-yozOGtQec82Nhy4-g875r_4-zcOkS28YKvEozB9Aaom42N9g5OB3WZmqnaVbjrnS99XRW1YQfjk3kCdzDk5-4ILhXPx5uyravu47Jl0AYtHicaM4AHjf8bPYqstj2AqVqyGZWflNqA406MwTdhU3Wa_K3mYX7_T_luxfwNKyZhDVAjNwzl1mbnK5bgmi4wbfog3m5mIrZJUtDYLGsYtMDe3BQORgtQojNI"/>
+<div class="absolute top-2 left-2 flex flex-col gap-1 items-start">
+<span class="bg-primary text-on-primary font-label-xs text-label-xs px-space-xs py-0.5 rounded shadow-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">star</span> ภาพหน้าปก (Cover)
+                    </span>
+<span class="bg-on-surface/70 backdrop-blur-sm text-on-primary font-label-xs text-label-xs px-space-xs py-0.5 rounded">
+                      ห้องนั่งเล่น
+                    </span>
+</div>
+<div class="absolute top-2 right-2 flex items-center gap-1">
+<button aria-label="Reorder handle" class="w-7 h-7 rounded-lg bg-surface-card/90 text-on-surface hover:text-primary backdrop-blur-sm flex items-center justify-center shadow-sm cursor-grab" type="button">
+<span class="material-symbols-outlined text-[16px]">drag_handle</span>
+</button>
+<button aria-label="Delete photo" class="w-7 h-7 rounded-lg bg-surface-card/90 text-error hover:bg-error hover:text-on-error backdrop-blur-sm flex items-center justify-center shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</div>
+<div class="p-space-sm bg-surface-card flex items-center justify-between text-text-muted font-label-xs text-label-xs">
+<span class="truncate">UD_Posri_Living_01.jpg</span>
+<span>2.4 MB</span>
+</div>
+</div>
+<!-- Slot 2: Bedroom -->
+<div class="group relative rounded-xl overflow-hidden bg-surface-card shadow-sm flex flex-col">
+<div class="relative w-full aspect-video overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="Cozy master bedroom in condo unit with king size bed neatly made with neutral linen duvet, warm wooden headboard with accent LED lighting, floor-to-ceiling built-in wardrobe, and large window overlooking Udon Thani city skyline, clean soft architectural photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0pfqirj9_QE81Ot1Slkzlz3cghsyIg7mLuf6hk7yDCEH4Z9I9FVa7b2jGcL54urKd_DuckRd90Af7-QuZDb-Cug3_rsGusXHCFeBvFfvrzOBaHLFw8-_k67tsA9stfDdf3qxdqbTVpXU93DXqx85mfRyG9SasNI0OCdx6bPc6pX_0qYzTE8DAWzepLFa6hLO84Npr_lDJ8UMTkdaX71Di60PO3YNWuBGP6NEIuy0"/>
+<div class="absolute top-2 left-2">
+<span class="bg-on-surface/70 backdrop-blur-sm text-on-primary font-label-xs text-label-xs px-space-xs py-0.5 rounded">
+                      ห้องนอนใหญ่
+                    </span>
+</div>
+<div class="absolute top-2 right-2 flex items-center gap-1">
+<button aria-label="Reorder handle" class="w-7 h-7 rounded-lg bg-surface-card/90 text-on-surface hover:text-primary backdrop-blur-sm flex items-center justify-center shadow-sm cursor-grab" type="button">
+<span class="material-symbols-outlined text-[16px]">drag_handle</span>
+</button>
+<button aria-label="Delete photo" class="w-7 h-7 rounded-lg bg-surface-card/90 text-error hover:bg-error hover:text-on-error backdrop-blur-sm flex items-center justify-center shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</div>
+<div class="p-space-sm bg-surface-card flex items-center justify-between text-text-muted font-label-xs text-label-xs">
+<span class="truncate">Master_Bedroom_Wide.jpg</span>
+<span>1.8 MB</span>
+</div>
+</div>
+<!-- Slot 3: Bathroom -->
+<div class="group relative rounded-xl overflow-hidden bg-surface-card shadow-sm flex flex-col">
+<div class="relative w-full aspect-video overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="Clean modern bathroom inside a luxury apartment with white ceramic tiles, tempered glass wet-dry shower partition, high quality sanitary fixtures, electric instant water heater mounted on wall, and warm vanity mirror lighting, spotless and bright." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3VUZBtc-dZPnmIwZnJJehBYTf8Lvr1iKOwlZJGuslxxmzggLslU0tLQfipfiu_OzfqRDBIL_2wlUeHRyZbaj4r9075nakmYPJgvFn-0vn3CcTrRcYXXir-0NZdssLrZEQN9so3k7gZ5Tnefesuvt0ZrurcUyIhGck0-28rY-XG8BenynY14Oh07S4XFVikMeL1MFZNfB8Q03gohM8X_w_Fny2wU5T0oKTgbBIQ6I"/>
+<div class="absolute top-2 left-2">
+<span class="bg-on-surface/70 backdrop-blur-sm text-on-primary font-label-xs text-label-xs px-space-xs py-0.5 rounded">
+                      ห้องน้ำ &amp; เครื่องทำน้ำอุ่น
+                    </span>
+</div>
+<div class="absolute top-2 right-2 flex items-center gap-1">
+<button aria-label="Reorder handle" class="w-7 h-7 rounded-lg bg-surface-card/90 text-on-surface hover:text-primary backdrop-blur-sm flex items-center justify-center shadow-sm cursor-grab" type="button">
+<span class="material-symbols-outlined text-[16px]">drag_handle</span>
+</button>
+<button aria-label="Delete photo" class="w-7 h-7 rounded-lg bg-surface-card/90 text-error hover:bg-error hover:text-on-error backdrop-blur-sm flex items-center justify-center shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</div>
+<div class="p-space-sm bg-surface-card flex items-center justify-between text-text-muted font-label-xs text-label-xs">
+<span class="truncate">Bathroom_Shower.jpg</span>
+<span>1.9 MB</span>
+</div>
+</div>
+<!-- Slot 4: Kitchen / Pantry -->
+<div class="group relative rounded-xl overflow-hidden bg-surface-card shadow-sm flex flex-col">
+<div class="relative w-full aspect-video overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="Compact modern condo kitchen counter with sleek quartz top, built-in electric induction hob and extractor hood, stainless steel sink, contemporary dark teal cabinetry, and stainless steel refrigerator on the side, pristine clean interior view." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxd-3v8w2bALnzySi0e0NDFUhokHe6F3fgiVBTgb7VRbfX0xxM74EEMn3KNEyzgjUzNpGNko1wXjbUHtAK7Z8gKHLrLDDTIX-pO8Nz5Cvr6Hlz-lYL2bWMxdgHRUhy5eJVeDKVD195rXq1ZkJAMa2IlGFtVhKZ_kfhCKwEmv4CPCGJrPyCTrYwn89LNFCwDmK3cqyil6WG07vCbeH7n1fyRSw_HvrpZRzP2cbpse4"/>
+<div class="absolute top-2 left-2">
+<span class="bg-on-surface/70 backdrop-blur-sm text-on-primary font-label-xs text-label-xs px-space-xs py-0.5 rounded">
+                      มุมครัว &amp; ตู้เย็น
+                    </span>
+</div>
+<div class="absolute top-2 right-2 flex items-center gap-1">
+<button aria-label="Reorder handle" class="w-7 h-7 rounded-lg bg-surface-card/90 text-on-surface hover:text-primary backdrop-blur-sm flex items-center justify-center shadow-sm cursor-grab" type="button">
+<span class="material-symbols-outlined text-[16px]">drag_handle</span>
+</button>
+<button aria-label="Delete photo" class="w-7 h-7 rounded-lg bg-surface-card/90 text-error hover:bg-error hover:text-on-error backdrop-blur-sm flex items-center justify-center shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</div>
+<div class="p-space-sm bg-surface-card flex items-center justify-between text-text-muted font-label-xs text-label-xs">
+<span class="truncate">Kitchen_Pantry_Posh.jpg</span>
+<span>2.1 MB</span>
+</div>
+</div>
+<!-- Slot 5: Swimming pool / Facilities -->
+<div class="group relative rounded-xl overflow-hidden bg-surface-card shadow-sm flex flex-col">
+<div class="relative w-full aspect-video overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="Condominium communal facilities featuring an outdoor infinity lap pool with crystal blue water, surrounded by tropical landscaping, sundeck loungers with teal cushions, and modern clubhouse architecture under sunny blue skies in Udon Thani city center." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4wcKUQ98TSqQ1Y0VNdaA7d17UdJNMPM7mgtTKcWaIpZWSAc3fcvjxrmtxzl2cxugQsd_IquK71xYl1_3NIyOxToc75OPsvitSY3iJIqoYwhb-HI24SRjjddypnAaL-w_Hs0ItT3OSs-XYqTR12_vOSOyX7aC9S1Eb1XTc29fab1gvCOZmMYphLeKzj14mdMbgUs5Tx0hlxAVpFBzMawis9aYu5liAt94LiKJlQ3E"/>
+<div class="absolute top-2 left-2">
+<span class="bg-on-surface/70 backdrop-blur-sm text-on-primary font-label-xs text-label-xs px-space-xs py-0.5 rounded">
+                      ส่วนกลาง สระว่ายน้ำ
+                    </span>
+</div>
+<div class="absolute top-2 right-2 flex items-center gap-1">
+<button aria-label="Reorder handle" class="w-7 h-7 rounded-lg bg-surface-card/90 text-on-surface hover:text-primary backdrop-blur-sm flex items-center justify-center shadow-sm cursor-grab" type="button">
+<span class="material-symbols-outlined text-[16px]">drag_handle</span>
+</button>
+<button aria-label="Delete photo" class="w-7 h-7 rounded-lg bg-surface-card/90 text-error hover:bg-error hover:text-on-error backdrop-blur-sm flex items-center justify-center shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</div>
+<div class="p-space-sm bg-surface-card flex items-center justify-between text-text-muted font-label-xs text-label-xs">
+<span class="truncate">Lumpini_Pool_UD.jpg</span>
+<span>3.2 MB</span>
+</div>
+</div>
+<!-- Slot 6: Empty Add Slot -->
+<div class="rounded-xl bg-canvas-background flex flex-col items-center justify-center aspect-video p-space-md text-center cursor-pointer transition-colors hover:bg-primary-light/50 group shadow-inner">
+<span class="w-10 h-10 rounded-full bg-surface-card text-primary flex items-center justify-center shadow-sm mb-1 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[24px]">add</span>
+</span>
+<span class="font-body-sm-medium text-body-sm-medium text-primary font-bold">+ เพิ่มภาพถ่าย</span>
+<span class="font-label-xs text-label-xs text-text-muted mt-0.5">(5/20 ช่องที่เหลือ)</span>
+</div>
+</div>
+</div>
+<!-- AI Enhancement & Watermark Options -->
+<div class="bg-surface-container-low p-space-lg rounded-xl flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs font-body-sm-medium text-body-sm-medium text-on-surface font-bold">
+<span class="material-symbols-outlined text-[20px] text-primary">auto_fix_high</span>
+              เครื่องมือปรับแต่งความปลอดภัยและภาพอัตโนมัติ (MapNest Smart Photo Tools)
+            </div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<label class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-card shadow-sm cursor-pointer hover:bg-surface-container-low/50 transition-colors">
+<input checked="" class="mt-1 w-4 h-4 text-primary rounded focus:ring-0 accent-primary cursor-pointer" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface font-bold">ใส่ลายน้ำ MapNest อัตโนมัติ</span>
+<span class="font-label-xs text-label-xs text-text-muted">ป้องกันผู้ไม่หวังดีคัดลอกภาพไปแอบอ้างขายในกลุ่ม Facebook หรือเว็บอื่น</span>
+</div>
+</label>
+<label class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-card shadow-sm cursor-pointer hover:bg-surface-container-low/50 transition-colors">
+<input checked="" class="mt-1 w-4 h-4 text-primary rounded focus:ring-0 accent-primary cursor-pointer" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface font-bold">เปิดใช้งาน MapNest AI Enhance</span>
+<span class="font-label-xs text-label-xs text-text-muted">ปรับสมดุลแสงสว่าง สีสัน และความคมชัดของภาพภายในห้องให้อัตโนมัติ</span>
+</div>
+</label>
+</div>
+</div>
+</section>
+<!-- SECTION 2: Virtual Tour & Video Links -->
+<section class="bg-surface-card p-space-xl rounded-xl shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-primary-light text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">videocam</span>
+</span>
+<div>
+<h2 class="font-title-md text-title-md text-on-surface font-bold">ส่วนที่ 2: วิดีโอทัวร์ห้องและลิงก์ 360°</h2>
+<p class="font-label-xs text-label-xs text-text-muted">ช่วยให้ผู้ซื้อเห็นสัดส่วนห้องจริงได้รอบด้านโดยไม่ต้องเดินทางมาทันที</p>
+</div>
+</div>
+<span class="bg-surface-container text-text-muted font-label-xs text-label-xs px-space-md py-1 rounded-full font-semibold">
+              ไม่บังคับ
+            </span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<label class="font-body-sm-medium text-body-sm-medium text-on-surface font-semibold flex items-center gap-1" for="video-url-input">
+              ลิงก์คลิปวิดีโอ (YouTube, TikTok, หรือ Facebook Reels)
+            </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-text-muted text-[20px]">link</span>
+<input class="w-full bg-canvas-background pl-10 pr-space-lg py-3 rounded-xl text-on-surface font-body-sm placeholder:text-text-muted focus:bg-surface-card focus:outline-none shadow-inner" id="video-url-input" placeholder="https://www.youtube.com/watch?v=..." style="outline: 1.5px solid #E2E8F0;" type="url"/>
+<button class="absolute right-2.5 px-space-md py-1.5 rounded-lg bg-surface-card text-on-surface font-label-xs text-label-xs font-semibold shadow-sm hover:bg-surface-container-low transition-colors" type="button">
+                ตรวจสอบลิงก์
+              </button>
+</div>
+</div>
+<!-- Feature Highlight Callout -->
+<div class="flex items-start gap-space-sm bg-primary-light/60 p-space-md rounded-xl text-primary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[22px] flex-shrink-0 text-primary">campaign</span>
+<div>
+<span class="font-bold">สิทธิประโยชน์พิเศษสำหรับอุดรธานี:</span> ประกาศที่มีคลิปวิดีโอสั้นหรือคลิปเดินชมห้องจริง จะได้รับการโปรโมตขึ้นสู่แบนเนอร์วิดีโอหน้าแรกในแอปพลิเคชัน และได้รับการกดดูมากกว่าปกติ 2.8 เท่า
+            </div>
+</div>
+</section>
+<!-- SECTION 3: Title Deed & Verification -->
+<section class="bg-surface-card p-space-xl rounded-xl shadow-sm flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-primary-light text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+</span>
+<div>
+<h2 class="font-title-md text-title-md text-on-surface font-bold">ส่วนที่ 3: อัปโหลดเอกสารโฉนดที่ดินเพื่อรับตรา 'Verified Owner'</h2>
+<p class="font-label-xs text-label-xs text-text-muted">สร้างความน่าเชื่อถือสูงสุด ได้รับตราเขียว Verified ป้องกันนายหน้าหลอกลวง</p>
+</div>
+</div>
+<span class="bg-status-available/10 text-status-available font-label-xs text-label-xs px-space-md py-1 rounded-full font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">shield</span> แนะนำอย่างยิ่ง
+            </span>
+</div>
+<!-- Privacy Shield Banner -->
+<div class="bg-primary-light p-space-lg rounded-xl flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">lock</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-body-lg-bold text-body-lg-bold text-primary font-bold">ระบบ MapNest Shield คุ้มครองข้อมูลส่วนบุคคล 100%</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                เอกสารโฉนดของคุณจะถูก <span class="font-bold text-on-surface">เซนเซอร์ปิดบังเลขที่ดิน บัญชีโอน และนามสกุลต่อสายตาสาธารณะอย่างเข้มงวด</span> ข้อมูลทั้งหมดจะถูกตรวจสอบภายในโดยทีมงาน MapNest ประจำศูนย์อุดรธานีเท่านั้น เพื่อยืนยันว่าผู้ลงประกาศมีกรรมสิทธิ์ตัวจริง
+              </p>
+</div>
+</div>
+<!-- Document Type Selector -->
+<div class="flex flex-col gap-space-sm">
+<label class="font-body-sm-medium text-body-sm-medium text-on-surface font-bold">ประเภทเอกสารสิทธิ์ที่นำมาแสดง:</label>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<label class="flex items-start gap-space-sm p-space-md rounded-xl bg-surface-card cursor-pointer shadow-sm hover:bg-primary-light/20 transition-all" style="outline: 2px solid #0F766E;">
+<input checked="" class="mt-1 w-4 h-4 text-primary accent-primary cursor-pointer" name="doc_type" type="radio"/>
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-primary font-bold flex items-center gap-1">
+                    หนังสือกรรมสิทธิ์ห้องชุด (อ.ช. 2) / น.ส. 4 จ.
+                    <span class="material-symbols-outlined text-[16px] text-status-available">check_circle</span>
+</span>
+<span class="font-label-xs text-label-xs text-text-muted mt-0.5">
+                    สำหรับคอนโดมิเนียม หรือโฉนดที่ดินครุฑแดงพร้อมกรรมสิทธิ์
+                  </span>
+</div>
+</label>
+<label class="flex items-start gap-space-sm p-space-md rounded-xl bg-canvas-background cursor-pointer hover:bg-surface-container-low transition-all">
+<input class="mt-1 w-4 h-4 text-primary accent-primary cursor-pointer" name="doc_type" type="radio"/>
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface font-semibold">
+                    สัญญาจะซื้อจะขาย หรือสัญญาจองสิทธิ์
+                  </span>
+<span class="font-label-xs text-label-xs text-text-muted mt-0.5">
+                    สำหรับทรัพย์ขายดาวน์ หรืออยู่ระหว่างผ่อนชำระกับโครงการ
+                  </span>
+</div>
+</label>
+</div>
+</div>
+<!-- Uploaded Document Card & Extracted Metadata -->
+<div class="rounded-xl bg-canvas-background p-space-lg flex flex-col md:flex-row gap-space-lg items-center shadow-inner">
+<!-- Deed Document Thumbnail / Visual -->
+<div class="relative w-full md:w-44 aspect-[3/4] bg-surface-card rounded-lg overflow-hidden shadow-md flex-shrink-0 flex items-center justify-center group">
+<img class="w-full h-full object-cover filter blur-[0.5px]" data-alt="Official Thai land title deed document Nor Sor 4 Jor or Or Chor 2 condominium ownership title deed paper, with official government red emblem Garuda seal at top center, secure watermarks, official blue verification stamps, macro close-up angle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfva_ewwoJ9KUpuZkN8tjdQOkvc5gfz_Pn256LNbSwOhvWO5A180cZpJZEv49anJgkCEUV-0fn27nCJ7XJ8or3Pqy2df8UjWWtkI-2XjVHVT7qHq5E9tE2DcJT5J5NboriPLzc5qWmWrUWqy1tnEjZKnI21fSt35rK39E1WyKOstkWzdoVEZJo8FT_lcOj2Vl-BstOlGkyAnQ-4nVuyQlR8Jfxwj1oSap5liNalVE"/>
+<div class="absolute inset-0 bg-on-surface/40 flex flex-col items-center justify-center gap-1 text-on-primary p-space-sm text-center">
+<span class="material-symbols-outlined text-[32px] text-status-available">verified</span>
+<span class="font-label-xs text-label-xs font-bold">เอกสารผ่านการตรวจสอบเบื้องต้น</span>
+</div>
+</div>
+<!-- Details Parsed by OCR / System -->
+<div class="flex flex-col flex-1 gap-space-sm w-full">
+<div class="flex flex-wrap items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-status-available"></span>
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface font-bold">อัปโหลดเรียบร้อยแล้ว - ตรวจสอบไฟล์สมบูรณ์ ✓</span>
+</div>
+<span class="font-label-xs text-label-xs text-text-muted">ไฟล์: Achaw2_Lumpini_804.pdf (4.8 MB)</span>
+</div>
+<!-- Extracted Fields Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-2 gap-space-sm bg-surface-card p-space-md rounded-lg shadow-sm">
+<div>
+<span class="font-label-xs text-label-xs text-text-muted">ประเภทเอกสาร</span>
+<div class="font-body-sm-medium text-body-sm-medium text-on-surface font-bold">อ.ช. 2 (ห้องชุด)</div>
+</div>
+<div>
+<span class="font-label-xs text-label-xs text-text-muted">ชื่อโครงการที่ตรวจพบ</span>
+<div class="font-body-sm-medium text-body-sm-medium text-primary font-bold">ลุมพินี เพลส ยูดี-โพศรี</div>
+</div>
+<div>
+<span class="font-label-xs text-label-xs text-text-muted">ตำแหน่งห้องชุด</span>
+<div class="font-body-sm-medium text-body-sm-medium text-on-surface">อาคาร B ชั้น 8 ห้อง 804</div>
+</div>
+<div>
+<span class="font-label-xs text-label-xs text-text-muted">ขนาดเนื้อที่ตรวจพบ</span>
+<div class="font-body-sm-medium text-body-sm-medium text-status-available font-bold flex items-center gap-1">
+                    28.50 ตร.ม. 
+                    <span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+</div>
+</div>
+<p class="font-label-xs text-label-xs text-text-muted">
+                * ข้อมูลที่สกัดได้ตรงกับข้อมูลราคาและสเปกที่คุณกรอกในขั้นตอนที่ 3 ทุกประการ
+              </p>
+<div class="flex items-center gap-space-sm pt-space-xs">
+<button class="px-space-md py-1.5 rounded-lg bg-surface-card text-on-surface font-body-sm-medium text-body-sm-medium shadow-sm hover:bg-surface-container-low transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+                  ดูตัวอย่างแบบขยาย
+                </button>
+<button class="px-space-md py-1.5 rounded-lg bg-surface-card text-text-muted hover:text-error font-body-sm-medium text-body-sm-medium shadow-sm hover:bg-surface-container-low transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[18px]">change_circle</span>
+                  เปลี่ยนไฟล์เอกสาร
+                </button>
+</div>
+</div>
+</div>
+<!-- Owner Consent Checkbox -->
+<label class="flex items-start gap-space-sm p-space-md rounded-xl bg-canvas-background cursor-pointer hover:bg-surface-container-low transition-colors shadow-inner">
+<input checked="" class="mt-1 w-4 h-4 text-primary rounded accent-primary cursor-pointer" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface leading-normal">
+              ข้าพเจ้ายืนยันว่าเป็นเจ้าของกรรมสิทธิ์ถูกต้องตามกฎหมาย หรือเป็นตัวแทนที่ได้รับมอบอำนาจเป็นลายลักษณ์อักษร และยินยอมให้ทีมงานตรวจสอบความถูกต้องของโฉนดตามนโยบายคุ้มครองข้อมูลส่วนบุคคลของ MapNest
+            </span>
+</label>
+</section>
+</div>
+<!-- ================= RIGHT COLUMN: SIDEBAR (4 cols) ================= -->
+<aside class="lg:col-span-4 flex flex-col gap-space-lg sticky top-28">
+<!-- SIDEBAR CARD 1: Photo Quality Score -->
+<div class="bg-surface-card p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">คุณภาพของประกาศ</h3>
+<span class="bg-primary-light text-primary font-label-xs text-label-xs px-space-sm py-0.5 rounded-full font-bold">
+              ระดับยอดเยี่ยม
+            </span>
+</div>
+<!-- Circular / Metric Visualization -->
+<div class="bg-canvas-background p-space-md rounded-xl flex items-center gap-space-md shadow-inner">
+<div class="relative w-16 h-16 flex-shrink-0 flex items-center justify-center">
+<!-- SVG Radial Meter -->
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="92, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center leading-none">
+<span class="font-price-xl text-price-xl text-primary font-extrabold">92</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface font-bold">คะแนนรวม 92 / 100</span>
+<p class="font-label-xs text-label-xs text-text-muted mt-0.5">
+                ประกาศที่มีคะแนนเกิน 90 ขึ้นไป จะได้รับการแนะนำไปยังผู้ซื้อที่ค้นหาคอนโดในอุดรธานีบ่อยขึ้น 45%
+              </p>
+</div>
+</div>
+<!-- Quality Checklist -->
+<div class="flex flex-col gap-space-xs font-body-sm text-body-sm">
+<div class="flex items-center gap-space-xs text-status-available">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span class="text-on-surface">ภาพหน้าปกความละเอียดสูง คมชัด</span>
+</div>
+<div class="flex items-center gap-space-xs text-status-available">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span class="text-on-surface">มีภาพห้องนอนและห้องน้ำครบถ้วน</span>
+</div>
+<div class="flex items-center gap-space-xs text-status-available">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span class="text-on-surface">มีภาพสิ่งอำนวยความสะดวกส่วนกลาง</span>
+</div>
+<div class="flex items-center gap-space-xs text-status-available">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span class="text-on-surface font-bold text-primary">แนบเอกสารโฉนดขอตรา Verified (+30%)</span>
+</div>
+<div class="flex items-center gap-space-xs text-chart-speed mt-1">
+<span class="material-symbols-outlined text-[18px]">tips_and_updates</span>
+<span class="font-label-xs text-label-xs text-chart-speed font-semibold">แนะนำ: เพิ่มวิดีโอสั้นเพื่อรับคะแนนเต็ม 100%</span>
+</div>
+</div>
+</div>
+<!-- SIDEBAR CARD 2: Live Listing Preview -->
+<div class="bg-surface-card p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">ตัวอย่างการแสดงผลบนหน้าค้นหา</h3>
+<span class="font-label-xs text-label-xs text-text-muted">Live Preview</span>
+</div>
+<!-- Miniature Card Display -->
+<div class="group rounded-xl overflow-hidden bg-surface-card shadow-md flex flex-col transition-all hover:shadow-lg">
+<div class="relative w-full aspect-video bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Modern bright living room interior of Lumpini Place UD-Posri condo in Udon Thani, Thailand. Featuring a comfortable warm grey sofa, wooden coffee table, large glass balcony door with sheer curtains admitting soft morning natural sunlight, high-end warm minimalist aesthetic, professional architectural interior photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPUvrf7o-QqlJj--lYyCGziYKEqfQANw4_weMbDwV2WzFSBTLTe3fQQS9seGv30PL6wpTbj4er2h8KruWh0-Z98aDHXhYWSZFddcmcgUbKUIpeCmCJkJlz7NwzPB-EFrdmlzOMql0azwmGqB2o25RyzFfXg2Us99ZxKbThLRz0tWPixhNBLGBtg4OzqSABAq-_zEY1Y3IB4qIwTBDGuvT4CW1AoifNj6wIJS_GtDI"/>
+<!-- Badges on Preview Image -->
+<div class="absolute top-2 left-2 flex items-center gap-1">
+<span class="bg-on-surface/80 backdrop-blur-sm text-on-primary font-label-xs text-label-xs px-2 py-0.5 rounded shadow-sm">
+                  คอนโดมิเนียม · ขาย
+                </span>
+<span class="bg-status-available text-on-primary font-label-xs text-label-xs px-2 py-0.5 rounded shadow-sm flex items-center gap-0.5 font-bold">
+<span class="material-symbols-outlined text-[12px]">verified</span> Verified
+                </span>
+</div>
+<!-- Heart Button -->
+<div class="absolute top-2 right-2 w-7 h-7 rounded-full bg-surface-card/85 backdrop-blur-sm flex items-center justify-center text-text-muted">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+</div>
+</div>
+<!-- Preview Card Body -->
+<div class="p-space-md flex flex-col gap-1">
+<div class="font-price-xl text-price-xl text-on-surface font-extrabold tracking-tight">
+                ฿1,450,000
+              </div>
+<div class="font-body-sm-medium text-body-sm-medium text-on-surface font-bold truncate">
+                ลุมพินี เพลส ยูดี-โพศรี (ห้อง 804 ชั้น 8)
+              </div>
+<div class="flex items-center gap-1 text-text-muted font-label-xs text-label-xs truncate">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+<span>ถ.โพศรี ต.หมากแข้ง อ.เมืองอุดรธานี</span>
+</div>
+<div class="mt-space-xs pt-space-xs flex items-center justify-between text-text-muted font-label-xs text-label-xs bg-surface-container-low px-space-sm py-1 rounded">
+<span>28.5 ตร.ม.</span>
+<span>•</span>
+<span>1 ห้องนอน</span>
+<span>•</span>
+<span>1 ห้องน้ำ</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SIDEBAR CARD 3: Photo Shooting Tips -->
+<div class="bg-surface-card p-space-lg rounded-xl shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">lightbulb</span>
+<h3 class="font-body-lg-bold text-body-lg-bold text-on-surface font-bold">เคล็ดลับถ่ายภาพให้น่าสนใจ MapNest Tips</h3>
+</div>
+<div class="flex flex-col gap-space-sm font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary flex-shrink-0 mt-0.5">wb_sunny</span>
+<span><strong class="text-on-surface">เปิดม่านรับแสงธรรมชาติ:</strong> ช่วงเวลา 09:00 - 11:30 น. ทิศทางแดดจะสว่างนุ่มนวลที่สุด</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary flex-shrink-0 mt-0.5">cleaning_services</span>
+<span><strong class="text-on-surface">เก็บของใช้ส่วนตัว:</strong> จัดระเบียบเคาน์เตอร์ครัวและโต๊ะ เพื่อให้ผู้ซื้อจินตนาการการอยู่อาศัยได้ง่ายขึ้น</span>
+</div>
+<div class="flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary flex-shrink-0 mt-0.5">crop_landscape</span>
+<span><strong class="text-on-surface">ถ่ายแนวนอนมุมกว้าง (Wide):</strong> ยืนชิดมุมห้องแล้วถ่ายระดับสายตา จะช่วยให้ห้องดูกว้างโปร่ง</span>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Sticky Bottom Navigation Action Bar -->
+<footer class="fixed bottom-0 left-0 w-full bg-surface-card/95 backdrop-blur-xl shadow-[0_-4px_16px_rgba(0,0,0,0.06)] z-40 py-space-md">
+<div class="max-w-[1320px] mx-auto px-margin-desktop flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<!-- Left: Draft Action -->
+<div class="flex items-center gap-space-sm order-2 sm:order-1">
+<button class="inline-flex items-center gap-space-xs px-space-lg py-2.5 rounded-xl bg-canvas-background hover:bg-surface-container text-on-surface font-body-sm-medium text-body-sm-medium shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-text-muted">bookmark_border</span>
+          บันทึกแบบร่าง &amp; กลับหน้าจัดการ
+        </button>
+</div>
+<!-- Center: Current Milestone Tracker -->
+<div class="hidden md:flex items-center gap-space-xs text-text-muted font-body-sm text-body-sm order-2">
+<span class="font-bold text-primary">ขั้นตอน 4 จาก 5</span>
+<span>•</span>
+<span>ขั้นตอนถัดไป: ตรวจสอบความถูกต้องและเผยแพร่ประกาศ</span>
+</div>
+<!-- Right: Navigation Buttons -->
+<div class="flex items-center gap-space-md order-1 sm:order-3 w-full sm:w-auto justify-end">
+<button class="inline-flex items-center gap-space-xs px-space-lg py-2.5 rounded-xl bg-canvas-background hover:bg-surface-container text-on-surface font-body-sm-medium text-body-sm-medium shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span>ย้อนกลับ (ขั้นตอน 3/5)</span>
+</button>
+<button class="inline-flex items-center gap-space-xs px-space-xl py-2.5 rounded-xl bg-primary hover:bg-primary-hover text-on-primary font-body-sm-medium text-body-sm-medium shadow-md transition-all hover:shadow-lg" type="button">
+<span>ต่อไป: ตรวจสอบและเผยแพร่ (ขั้นตอน 5/5)</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</footer>
+</div></main><footer class="w-full bg-surface-card border-t border-border-subtle py-space-xl mt-space-xl"><div class="max-w-[1320px] mx-auto px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-lg text-text-muted font-body-sm text-body-sm"><div>© 2025 MapNest Thailand (Udon Thani Pilot). สงวนลิขสิทธิ์ทุกประการ</div><div class="flex items-center gap-space-lg"><a class="hover:text-primary transition-colors" data-path="terms-and-privacy" href="#">ข้อกำหนดและนโยบายความเป็นส่วนตัว</a><a class="hover:text-primary transition-colors" data-path="agent-hub" href="#">ศูนย์ช่วยเหลือนายหน้า</a></div></div></footer></body></html>

@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+
+<html lang="th"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>MapNest Admin Backoffice</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Sarabun:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-dim": "#d2d9f4", "on-primary-container": "#a3faef", "primary-fixed-dim": "#80d5cb", "on-tertiary-fixed": "#001a42", "primary-fixed": "#9cf2e8", "surface-container": "#eaedff", "status-reserved": "#F59E0B", "primary-hover": "#115E59", "danger-scam": "#DC2626", "on-tertiary": "#ffffff", "on-primary-fixed-variant": "#00504a", "on-secondary": "#ffffff", "on-surface-variant": "#3e4947", "on-surface": "#131b2e", "error": "#ba1a1a", "surface-bright": "#faf8ff", "outline": "#6e7977", "chart-speed": "#F97316", "surface-container-high": "#e2e7ff", "status-sold": "#EF4444", "tertiary-fixed-dim": "#adc6ff", "secondary-container": "#6cf8bb", "inverse-surface": "#283044", "outline-variant": "#bdc9c6", "on-secondary-fixed-variant": "#005236", "background": "#faf8ff", "surface-card": "#FFFFFF", "inverse-primary": "#80d5cb", "surface": "#faf8ff", "chart-views": "#3B82F6", "status-available": "#10B981", "surface-tint": "#006a63", "on-background": "#131b2e", "on-secondary-fixed": "#002113", "on-error": "#ffffff", "surface-container-low": "#f2f3ff", "text-muted": "#64748B", "surface-container-highest": "#dae2fd", "error-container": "#ffdad6", "on-error-container": "#93000a", "secondary-fixed": "#6ffbbe", "secondary": "#006c49", "tertiary-fixed": "#d8e2ff", "primary": "#005c55", "canvas-background": "#F8FAFC", "surface-container-lowest": "#ffffff", "on-primary": "#ffffff", "inverse-on-surface": "#eef0ff", "on-secondary-container": "#00714d", "primary-container": "#0f766e", "on-primary-fixed": "#00201d", "primary-light": "#F0FDFA", "secondary-fixed-dim": "#4edea3", "tertiary-container": "#0165d8", "on-tertiary-fixed-variant": "#004395", "on-tertiary-container": "#e4eaff", "tertiary": "#004eaa", "border-subtle": "#E2E8F0", "surface-variant": "#dae2fd" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-tablet": "1.5rem", "space-md": "0.75rem", "space-xl": "1.5rem", "gutter": "1rem", "gutter-desktop": "1.5rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "margin": "1rem", "margin-desktop": "2rem", "space-lg": "1rem" }, "fontFamily": { "title-md": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "display-lg": ["Plus Jakarta Sans"], "body-sm-medium": ["Plus Jakarta Sans"], "price-sm": ["Plus Jakarta Sans"], "label-xs": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "price-xl": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-lg-bold": ["Plus Jakarta Sans"] }, "fontSize": { "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }], "display-lg": ["30px", { "lineHeight": "40px", "fontWeight": "700" }], "body-sm-medium": ["14px", { "lineHeight": "22px", "fontWeight": "500" }], "price-sm": ["14px", { "lineHeight": "18px", "fontWeight": "700" }], "label-xs": ["12px", { "lineHeight": "18px", "fontWeight": "600" }], "body-sm": ["14px", { "lineHeight": "22px", "fontWeight": "400" }], "price-xl": ["24px", { "lineHeight": "30px", "fontWeight": "800" }], "headline-lg": ["24px", { "lineHeight": "34px", "fontWeight": "700" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "body-lg-bold": ["16px", { "lineHeight": "26px", "fontWeight": "600" }] } } } };</script></head><body class="bg-canvas-background font-body-sm text-body-sm text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface-card shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-28 w-full px-margin-desktop flex flex-col justify-between pt-space-sm"><div class="flex items-center justify-between pb-space-xs"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center shadow-[0_2px_8px_rgba(0,92,85,0.25)]"><span class="material-symbols-outlined text-on-primary text-[22px]">domain</span></div><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-title-md text-title-md text-on-surface tracking-tight font-bold">MapNest</span><span class="font-label-xs text-label-xs bg-primary-container text-on-primary px-space-xs py-0.5 rounded">ADMIN</span></div><span class="font-label-xs text-label-xs text-text-muted">Udon Thani Center Management Portal</span></div></div><div class="hidden xl:flex items-center gap-space-xs px-space-md py-1 bg-surface-container-low rounded-full"><span class="w-2 h-2 rounded-full bg-status-available animate-pulse"></span><span class="font-label-xs text-label-xs text-on-surface-variant font-medium">ระบบจัดการส่วนกลาง Udon Thani Center</span><span class="font-label-xs text-label-xs text-text-muted">•</span><span class="font-label-xs text-label-xs text-status-available font-semibold">System Operational</span></div></div><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-sm px-space-md py-1 bg-surface-container-low rounded-xl"><div class="flex flex-col text-right"><span class="font-label-xs text-label-xs text-on-surface font-semibold">Admin: ชานนท์</span><span class="font-label-xs text-label-xs text-text-muted">Super Admin • สนง.อุดรธานี</span></div><div class="w-2 h-2 rounded-full bg-secondary"></div></div><button aria-label="Notifications" class="relative p-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-danger-scam rounded-full ring-2 ring-surface-card"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><nav class="flex items-center gap-space-xs overflow-x-auto no-scrollbar -mb-px" data-active-classes="bg-primary-light text-primary font-body-sm-medium font-semibold border-b-2 border-primary rounded-t-lg"><a class="text-on-surface-variant hover:text-on-surface px-space-md py-2 font-body-sm text-body-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-path="admin-dashboard" href="#">ภาพรวมระบบ</a><a class="text-on-surface-variant hover:text-on-surface px-space-md py-2 font-body-sm text-body-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-path="kyc-queue" href="#"><span>ตรวจสอบ KYC</span><span class="bg-surface-container-high text-on-surface font-label-xs text-label-xs px-1.5 py-0.5 rounded-full">14</span></a><a class="text-on-surface-variant hover:text-on-surface px-space-md py-2 font-body-sm text-body-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-path="listing-review" href="#"><span>ตรวจสอบประกาศ</span><span class="bg-surface-container-high text-on-surface font-label-xs text-label-xs px-1.5 py-0.5 rounded-full">9</span></a><a class="text-on-surface-variant hover:text-on-surface px-space-md py-2 font-body-sm text-body-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-path="reports-and-scam" href="#"><span>รายงานและสแกม</span><span class="bg-error-container text-on-error-container font-label-xs text-label-xs px-1.5 py-0.5 rounded-full">3</span></a><a class="text-on-surface-variant hover:text-on-surface px-space-md py-2 font-body-sm text-body-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-path="stale-listings" href="#">ประกาศค้างเก่า</a><a class="text-on-surface-variant hover:text-on-surface px-space-md py-2 font-body-sm text-body-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-path="packages-and-promo" href="#">แพ็กเกจและโปรโมชัน</a><a class="text-on-surface-variant hover:text-on-surface px-space-md py-2 font-body-sm text-body-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-path="orders-and-refunds" href="#">คำสั่งซื้อและการคืนเงิน</a><a class="text-on-surface-variant hover:text-on-surface px-space-md py-2 font-body-sm text-body-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-path="user-management" href="#">จัดการผู้ใช้งาน</a></nav></div></header><main class="w-full pt-28 min-h-[calc(100vh-140px)] bg-canvas-background px-margin-desktop py-space-xl"><div class="flex flex-col w-full">
+<!-- Breadcrumb & Top Utilities -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-lg">
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs text-text-muted font-body-sm text-body-sm">
+<span class="hover:text-primary cursor-pointer transition-colors">หน้าแรก</span>
+<span class="material-symbols-outlined text-[16px] text-text-muted">chevron_right</span>
+<span class="hover:text-primary cursor-pointer transition-colors">ระบบผู้ดูแล</span>
+<span class="material-symbols-outlined text-[16px] text-text-muted">chevron_right</span>
+<span class="text-on-surface font-body-sm-medium font-medium">ศูนย์จัดการเรื่องร้องเรียนและปราบปรามสแกมเมอร์ (Fraud &amp; Scam Investigation)</span>
+</nav>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1.5 px-space-md py-1 bg-surface-card rounded-xl shadow-sm text-text-muted font-label-xs text-label-xs">
+<span class="w-2 h-2 rounded-full bg-status-available animate-pulse"></span>
+<span>Real-time Sentinel: Udon Thani Grid Active</span>
+</div>
+<button class="flex items-center gap-1.5 px-space-md py-1 bg-primary text-on-primary rounded-xl font-body-sm-medium text-body-sm shadow-sm hover:bg-primary-hover transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+<span>ซิงค์ข้อมูลสถิติ</span>
+</button>
+</div>
+</div>
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div class="space-y-1">
+<div class="flex items-center gap-space-sm">
+<h1 class="font-display-lg text-display-lg text-on-surface font-bold tracking-tight">ศูนย์จัดการเรื่องร้องเรียนและปราบปรามสแกม</h1>
+<span class="px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-xs text-label-xs font-semibold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+          Active Defense
+        </span>
+</div>
+<p class="text-text-muted font-body-lg text-body-lg">
+        ตรวจสอบรายงานการแอบอ้างกรรมสิทธิ์, ราคาหลอกลวงมัดจำ, ภาพถ่ายปลอม, และพฤติกรรมหลอกลวงในพื้นที่ จ.อุดรธานี
+      </p>
+</div>
+<div class="flex items-center gap-space-sm self-start md:self-auto">
+<span class="text-text-muted font-label-xs text-label-xs bg-surface-card px-space-md py-2 rounded-xl shadow-sm">
+        รอบเวร: <strong>ชานนท์ (Admin-01)</strong>
+</span>
+</div>
+</div>
+<!-- Summary Metric Cards (Bento 4-Grid) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter-desktop mb-space-lg">
+<!-- Metric 1 -->
+<div class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-3 -top-3 w-20 h-20 rounded-full bg-error-container/40 pointer-events-none"></div>
+<div class="flex items-start justify-between mb-space-md">
+<div>
+<span class="text-text-muted font-label-xs text-label-xs uppercase tracking-wide">เคสร้องเรียนรอดำเนินการ</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-price-xl text-price-xl text-danger-scam font-extrabold">3</span>
+<span class="text-text-muted font-body-sm text-body-sm">เคส</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-error-container text-on-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">warning</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 text-danger-scam font-label-xs text-label-xs bg-error-container/50 px-2 py-1 rounded-lg w-fit">
+<span class="material-symbols-outlined text-[14px]">error</span>
+<span>วิกฤตความเสี่ยงสูง 1 เคส (โอนเงินมัดจำ)</span>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-3 -top-3 w-20 h-20 rounded-full bg-surface-container-high/60 pointer-events-none"></div>
+<div class="flex items-start justify-between mb-space-md">
+<div>
+<span class="text-text-muted font-label-xs text-label-xs uppercase tracking-wide">ระงับบัญชีแล้วในเดือนนี้</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-price-xl text-price-xl text-on-surface font-extrabold">19</span>
+<span class="text-text-muted font-body-sm text-body-sm">บัญชี</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-surface-container-high text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">person_off</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 text-status-available font-label-xs text-label-xs">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span>+4 บัญชีจากสัปดาห์ก่อน (เครือข่ายบัญชีม้า)</span>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-3 -top-3 w-20 h-20 rounded-full bg-primary-light/80 pointer-events-none"></div>
+<div class="flex items-start justify-between mb-space-md">
+<div>
+<span class="text-text-muted font-label-xs text-label-xs uppercase tracking-wide">มูลค่าความเสียหายที่ป้องกันได้</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-price-xl text-price-xl text-primary font-extrabold">฿480,000</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-primary-light text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">savings</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 text-text-muted font-label-xs text-label-xs">
+<span class="material-symbols-outlined text-[14px] text-secondary">verified</span>
+<span>สกัดเงินมัดจำเท็จก่อนตกเป็นเหยื่อ 12 ราย</span>
+</div>
+</div>
+<!-- Metric 4 -->
+<div class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-3 -top-3 w-20 h-20 rounded-full bg-surface-container/60 pointer-events-none"></div>
+<div class="flex items-start justify-between mb-space-md">
+<div>
+<span class="text-text-muted font-label-xs text-label-xs uppercase tracking-wide">อัตราตอบสนองเฉลี่ย</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-price-xl text-price-xl text-secondary font-extrabold">14.2</span>
+<span class="text-text-muted font-body-sm text-body-sm">นาที</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-secondary-container/40 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px]">speed</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-text-muted font-label-xs text-label-xs">
+<span class="text-status-available font-semibold">เร็วกว่าเป้าหมาย 52%</span>
+<span>เป้าหมาย &lt; 30 นาที</span>
+</div>
+</div>
+</div>
+<!-- Incident Alert Banner -->
+<div class="bg-error-container text-on-error-container rounded-xl p-space-md md:p-space-lg mb-space-lg shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-danger-scam text-on-error flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[24px]">crisis_alert</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-body-lg-bold text-body-lg-bold font-bold">คำเตือนความเสี่ยงสูง (High Risk Alert):</span>
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded-full bg-danger-scam text-on-error">RED SENTINEL TRIGGER</span>
+</div>
+<p class="font-body-sm text-body-sm mt-0.5 opacity-90">
+          ตรวจพบ IP และเบอร์โทรแปลกปลอมนำภาพห้องชุดจากโครงการอื่นมาตั้งราคาเช่าต่ำผิดปกติในโซน <strong>UD Town (อ.เมืองอุดรธานี)</strong> เสี่ยงหลอกลวงให้โอนเงินมัดจำล่วงหน้าก่อนนัดหมายดูห้องจริง
+        </p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0 self-end md:self-auto">
+<button class="px-space-md py-1.5 bg-danger-scam text-on-error rounded-xl font-label-xs text-label-xs font-semibold hover:opacity-95 transition-opacity flex items-center gap-1 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>โฟกัสเคสเป้าหมายทันที</span>
+</button>
+</div>
+</div>
+<!-- Filter & Incident Severity Tabs Bar -->
+<div class="bg-surface-card rounded-xl p-space-md shadow-sm mb-space-lg flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<!-- Tabs -->
+<div class="flex flex-wrap items-center gap-1.5">
+<button class="px-space-md py-1.5 rounded-full bg-primary text-on-primary font-body-sm-medium text-body-sm font-semibold flex items-center gap-1.5 shadow-sm" type="button">
+<span>ทั้งหมด</span>
+<span class="bg-surface-card/25 text-on-primary px-1.5 py-0.2 rounded-full font-label-xs text-label-xs">3</span>
+</button>
+<button class="px-space-md py-1.5 rounded-full bg-error-container text-on-error-container font-body-sm-medium text-body-sm font-semibold hover:bg-error-container/80 transition-colors flex items-center gap-1.5" type="button">
+<span class="w-2 h-2 rounded-full bg-danger-scam"></span>
+<span>เสี่ยงหลอกมัดจำ / เร่งด่วน</span>
+<span class="bg-danger-scam text-on-error px-1.5 py-0.2 rounded-full font-label-xs text-label-xs">1</span>
+</button>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors font-body-sm text-body-sm flex items-center gap-1.5" type="button">
+<span>ภาพปลอม / ทักท้วงกรรมสิทธิ์</span>
+<span class="bg-surface-container-high text-on-surface px-1.5 py-0.2 rounded-full font-label-xs text-label-xs">1</span>
+</button>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors font-body-sm text-body-sm flex items-center gap-1.5" type="button">
+<span>ข้อมูลผิดพลาด / สแปม</span>
+<span class="bg-surface-container-high text-on-surface px-1.5 py-0.2 rounded-full font-label-xs text-label-xs">1</span>
+</button>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container-low text-text-muted hover:bg-surface-container-high transition-colors font-body-sm text-body-sm flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">history</span>
+<span>ประวัติเคสที่ปิดแล้ว (42)</span>
+</button>
+</div>
+<!-- Quick Action Controls -->
+<div class="flex items-center gap-space-sm">
+<span class="text-text-muted font-label-xs text-label-xs hidden sm:inline">จัดเรียง: ความเสี่ยงสูงสุดก่อน</span>
+<button class="p-2 rounded-xl bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors" title="Export Audit Log" type="button">
+<span class="material-symbols-outlined text-[20px]">download</span>
+</button>
+</div>
+</div>
+<!-- Search & Filter Controls -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-sm pt-space-xs">
+<div class="md:col-span-6 relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-text-muted text-[20px]">search</span>
+<input class="w-full bg-canvas-background rounded-xl pl-10 pr-space-md py-2 font-body-sm text-body-sm text-on-surface placeholder:text-text-muted focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" placeholder="ค้นหารหัสเคส REP-xxx, รหัสทรัพย์, เบอร์โทรผู้ถูกรายงาน, เลข IP, หรือชื่อผู้เสียหาย..." type="text" value="REP-UD25-0042"/>
+</div>
+<div class="md:col-span-3">
+<div class="relative">
+<select class="w-full bg-canvas-background rounded-xl px-space-md py-2 font-body-sm text-body-sm text-on-surface focus:outline-none focus:ring-1 focus:ring-primary appearance-none cursor-pointer">
+<option>ทุกโซนในอุดรฯ (โซน UD Town / โพศรี)</option>
+<option>โซนหนองประจักษ์ - บ้านเลื่อม</option>
+<option>โซนวงแหวนรอบเมือง - มิตรภาพ</option>
+<option>โซนมหาวิทยาลัยราชภัฏอุดรธานี</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-text-muted pointer-events-none text-[20px]">expand_more</span>
+</div>
+</div>
+<div class="md:col-span-3">
+<div class="relative">
+<select class="w-full bg-canvas-background rounded-xl px-space-md py-2 font-body-sm text-body-sm text-on-surface focus:outline-none focus:ring-1 focus:ring-primary appearance-none cursor-pointer">
+<option>ทุกแหล่งที่มา (User Report / AI Sentinel / ตร.)</option>
+<option>ผู้ใช้แจ้งผ่านปุ่ม Report (2 ราย)</option>
+<option>AI Visual &amp; Price Anomaly Sentinel</option>
+<option>ส่งต่อจาก สภ.เมืองอุดรธานี (ตำรวจ)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-text-muted pointer-events-none text-[20px]">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Two-Column Investigation Workspace -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-start">
+<!-- LEFT COLUMN: Active Reports Queue (~42% -> 5 cols in 12 grid) -->
+<div class="lg:col-span-5 space-y-space-md">
+<div class="flex items-center justify-between px-1">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">คิวรายงานที่รอดำเนินการ (3)</span>
+<span class="font-label-xs text-label-xs text-text-muted">คลิกเพื่อเปิดสำนวนการสืบสวน</span>
+</div>
+<!-- Case 1: SELECTED / CRITICAL ACTIVE -->
+<div class="bg-surface-card rounded-xl p-space-md shadow-md cursor-pointer transition-all relative overflow-hidden bg-gradient-to-r from-error-container/20 to-surface-card">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-danger-scam"></div>
+<div class="pl-2">
+<!-- Card Top Bar -->
+<div class="flex items-start justify-between gap-space-xs mb-1.5">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-body-sm-medium text-body-sm-medium font-bold text-on-surface">REP-UD25-0042</span>
+<span class="text-text-muted text-[12px]">•</span>
+<span class="text-text-muted font-label-xs text-label-xs">35 นาทีที่แล้ว</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-danger-scam text-on-error font-label-xs text-label-xs font-bold flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[13px]">emergency</span>
+              วิกฤตความเสี่ยงสูง (Scam Alert)
+            </span>
+</div>
+<!-- Target Listing Info -->
+<div class="flex items-start gap-space-sm mb-space-sm">
+<div class="w-16 h-16 rounded-lg bg-surface-container-high overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Modern high rise condominium unit in Udon Thani city center near UD Town with city view and clean balcony, bright daytime, modern architecture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7nhvmUX4sw_VHtYpvzLI7ZwY3L4PRr903U4h6kHdfhoFeViqnQs6SJnp7GNMqO__LuayKrooRCMn_Vf4Xb-NVtcObPLZndBfVBU9z3MEttGbam85IJe9-00G3q-54IVlKFIU6GbdTVayc9vhTV5QkElVdje_Nggd-3oykM5z7EpZIWzh5N52ufx48tRSpUYSNN-E0IsIhT7o0-jhHmwBpiw1Nm4TdZJfMeIkP48s"/>
+</div>
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-1 text-text-muted font-label-xs text-label-xs">
+<span class="text-primary font-semibold">UD-880291</span>
+<span>• คอนโดมิเนียม</span>
+</div>
+<h2 class="font-body-lg-bold text-body-lg-bold text-on-surface truncate">คอนโด ลุมพินี เพลส ยูดี-โพศรี (ห้อง 402 วิวเมือง)</h2>
+<div class="flex items-center gap-space-xs mt-0.5">
+<span class="font-price-sm text-price-sm text-danger-scam font-bold">฿3,500/เดือน</span>
+<span class="text-text-muted line-through font-label-xs text-label-xs">฿8,500/เดือน</span>
+<span class="font-label-xs text-label-xs px-1.5 py-0.2 rounded bg-error-container text-on-error-container font-semibold">ต่ำผิดปกติ -58%</span>
+</div>
+</div>
+</div>
+<!-- Reason & Suspect Summary -->
+<div class="bg-surface-container-low p-space-sm rounded-lg text-body-sm font-body-sm text-on-surface-variant mb-space-sm">
+<div class="flex items-center gap-1 font-body-sm-medium text-body-sm-medium text-danger-scam mb-1">
+<span class="material-symbols-outlined text-[16px]">report_problem</span>
+<span>ข้อหารายงาน: เร่งเร้าโอนมัดจำล่วงหน้า ฿7,000</span>
+</div>
+<p class="text-[13px] leading-relaxed line-clamp-2">
+              ตั้งราคาต่ำกว่าตลาดเพื่อล่อลวงให้ผู้เช่ารีบโอนเงินมัดจำ ฿7,000 เข้าบัญชีบุคคลธรรมดา โดยอ้างว่ามีคิวรอเยอะ และปฏิเสธการพาดูห้องจริง
+            </p>
+</div>
+<!-- Offender & Reporters Metadata -->
+<div class="flex flex-wrap items-center justify-between text-text-muted font-label-xs text-label-xs pt-1">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-danger-scam">person</span>
+<span>ผู้ถูกร้อง: <strong class="text-on-surface">นายอำนาจ พงษ์ไพศาล (USER-FAKE-09)</strong></span>
+</div>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[15px]">flag</span>
+<span>ผู้แจ้ง 2 ราย (มีสลิป/แชท)</span>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between">
+<span class="font-label-xs text-label-xs px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-semibold">สถานะ: รอสั่งระงับทันที (Pending Ban)</span>
+<span class="text-primary font-body-sm-medium text-body-sm flex items-center gap-0.5">
+<span>กำลังตรวจสอบ</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</span>
+</div>
+</div>
+</div>
+<!-- Case 2: In Review (Owner Dispute) -->
+<div class="bg-surface-card rounded-xl p-space-md shadow-sm hover:shadow-md cursor-pointer transition-all relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-status-reserved"></div>
+<div class="pl-2">
+<div class="flex items-start justify-between gap-space-xs mb-1.5">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-body-sm-medium text-body-sm-medium font-bold text-on-surface">REP-UD25-0041</span>
+<span class="text-text-muted text-[12px]">•</span>
+<span class="text-text-muted font-label-xs text-label-xs">2.1 ชม. ที่แล้ว</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-status-reserved font-label-xs text-label-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">gavel</span>
+              ทักท้วงกรรมสิทธิ์ (Owner Dispute)
+            </span>
+</div>
+<div class="flex items-start gap-space-sm mb-space-sm">
+<div class="w-16 h-16 rounded-lg bg-surface-container-high overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Two storey detached modern suburban house in Udon Thani Mittraphap area with neat lawn, double garage, sunny tropical climate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjXkumUH2mPaVgjiIpza0Sez44NeF9MRqQmwnwW_Sgnq-phS21atxIqolg7gf263QCwhluim2ribts6BnzwHRpx9AILEKMDiZitVRgucEmcCn73EvdCGFwk87yfE6dIPlKC7YywJ7eRvqqwmCaN4QrRUNiSgpo9V4yDwN-uXP2EkF2_EDfnxp2nT3CRZLITcC64TLFsvZv22EXq53ZJzpzGulI9FP9UhSlw05RY-w"/>
+</div>
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-1 text-text-muted font-label-xs text-label-xs">
+<span class="text-primary font-semibold">UD-883110</span>
+<span>• บ้านเดี่ยว 2 ชั้น</span>
+</div>
+<h2 class="font-body-lg-bold text-body-lg-bold text-on-surface truncate">บ้านเดี่ยว ศุภาลัย เบลล่า มิตรภาพ-อุดรธานี</h2>
+<span class="font-price-sm text-price-sm text-on-surface font-bold">฿4,200,000</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg text-body-sm font-body-sm text-on-surface-variant mb-space-sm">
+<p class="text-[13px] leading-relaxed line-clamp-2">
+              เจ้าของตัวจริง (คุณสมศักดิ์ ว.) แนบโฉนดแจ้งว่าไม่ได้เซ็นสัญญาแต่งตั้งตัวแทน และผู้ลงประกาศลักลอบนำภาพส่วนตัวไปโพสต์ขายตัดราคา
+            </p>
+</div>
+<div class="flex flex-wrap items-center justify-between text-text-muted font-label-xs text-label-xs">
+<span>ผู้ถูกร้อง: <strong>AGT-SUB-212 (ไม่ผ่าน KYC)</strong></span>
+<span class="text-status-reserved font-semibold">รอเอกสารมอบอำนาจ (In Review)</span>
+</div>
+</div>
+</div>
+<!-- Case 3: Waiting Response (Misleading Coordinates) -->
+<div class="bg-surface-card rounded-xl p-space-md shadow-sm hover:shadow-md cursor-pointer transition-all relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-outline-variant"></div>
+<div class="pl-2">
+<div class="flex items-start justify-between gap-space-xs mb-1.5">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-body-sm-medium text-body-sm-medium font-bold text-on-surface">REP-UD25-0040</span>
+<span class="text-text-muted text-[12px]">•</span>
+<span class="text-text-muted font-label-xs text-label-xs">4.5 ชม. ที่แล้ว</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-text-muted font-label-xs text-label-xs font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">location_off</span>
+              ข้อมูลคลาดเคลื่อน (Misleading Info)
+            </span>
+</div>
+<div class="flex items-start gap-space-sm mb-space-sm">
+<div class="w-16 h-16 rounded-lg bg-surface-container-high overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Empty residential land plot for sale near Nong Prajak park lake in Udon Thani, green grass, boundary markers, daytime" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5O18APl8EjWK6FTEavoavUP97ubfn79cMpH3dDLBXAs1c8lmEx5VgrhIpOY-_-W4ecnyQ4Rhy6GHQTjX9UqGjRRYM57K67BiONmK-ZNGZDjF1uQ8qGCz22CGRA-zeLHiT_QlVWK_3qtL7QayPGrgr4pdu1r_azp92oib4xAxv-atXpWn98uG0W1bQypeEtePI5hRTScRil6GvSa_nARVFhGKDu53sevw1toeM--w"/>
+</div>
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-1 text-text-muted font-label-xs text-label-xs">
+<span class="text-primary font-semibold">UD-882405</span>
+<span>• ที่ดินเปล่าแบ่งขาย</span>
+</div>
+<h2 class="font-body-lg-bold text-body-lg-bold text-on-surface truncate">ที่ดินแบ่งขาย ทำเลทอง ใกล้หนองประจักษ์</h2>
+<span class="font-price-sm text-price-sm text-on-surface font-bold">฿1,850,000</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg text-body-sm font-body-sm text-on-surface-variant mb-space-sm">
+<p class="text-[13px] leading-relaxed line-clamp-2">
+              ผู้ใช้รายงานว่าตำแหน่งพิกัดหมุดในแผนที่ไม่ตรงกับที่ดินจริง (คลาดเคลื่อน 1.2 กม. ชี้เข้าซอยตัน) ทำให้เดินทางไปดูแล้วไม่พบแปลงที่ดิน
+            </p>
+</div>
+<div class="flex flex-wrap items-center justify-between text-text-muted font-label-xs text-label-xs">
+<span>ผู้ถูกร้อง: <strong>USER-UD-LAND88</strong></span>
+<span class="text-text-muted font-semibold">รอผู้ลงประกาศชี้แจงพิกัด</span>
+</div>
+</div>
+</div>
+<!-- Live Sentinel Logs Footer -->
+<div class="bg-surface-card rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">security</span>
+            Auto-Sentinel Anti-Fraud Daemon
+          </span>
+<span class="text-status-available font-label-xs text-label-xs font-semibold">RUNNING</span>
+</div>
+<p class="text-text-muted font-label-xs text-label-xs leading-relaxed">
+          ระบบสแกนอัตโนมัติเปรียบเทียบภาพลิขสิทธิ์และตรวจจับสถิติการโก่ง/ดัมพ์ราคาใน จ.อุดรธานี กำลังตรวจสอบอีก 482 รายการในระบบ
+        </p>
+</div>
+</div>
+<!-- RIGHT COLUMN: Investigation & Enforcement Workspace (~58% -> 7 cols in 12 grid) -->
+<div class="lg:col-span-7 bg-surface-card rounded-xl p-space-lg shadow-md space-y-space-lg">
+<!-- Investigation Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-md border-b-0">
+<div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-xs text-label-xs font-bold">สำนวนสืบสวนเร่งด่วน</span>
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">REP-UD25-0042</span>
+</div>
+<p class="text-danger-scam font-body-sm-medium text-body-sm-medium font-semibold mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">gavel</span>
+            ข้อหา: พฤติกรรมมิจฉาชีพหลอกโอนเงินมัดจำล่วงหน้า &amp; แอบอ้างกรรมสิทธิ์ห้องชุด
+          </p>
+</div>
+<div class="flex items-center gap-space-xs self-start sm:self-auto">
+<span class="font-label-xs text-label-xs text-text-muted bg-surface-container-low px-space-md py-1.5 rounded-lg">
+            เวลาเปิดเคส: 14:12 น. วันนี้
+          </span>
+</div>
+</div>
+<!-- Investigation Evidence Bento Grid -->
+<div class="space-y-space-md">
+<!-- Evidence 1: Price Anomaly & AI Warning -->
+<div class="bg-surface-container-low rounded-xl p-space-md">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-1.5 text-on-surface font-body-sm-medium text-body-sm-medium font-bold">
+<span class="material-symbols-outlined text-danger-scam text-[20px]">analytics</span>
+<span>Evidence 1: การเปรียบเทียบราคาและประวัติ (Price Anomaly &amp; AI Sentinel)</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-danger-scam text-on-error font-label-xs text-label-xs font-bold">
+              AI Risk Score: 94.6% (Extreme High)
+            </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm mb-space-sm">
+<div class="bg-surface-card p-space-sm rounded-lg">
+<span class="text-text-muted font-label-xs text-label-xs">ราคาเสนอเช่าในประกาศ</span>
+<div class="font-price-xl text-price-xl text-danger-scam font-extrabold mt-0.5">฿3,500 <span class="text-text-muted text-[13px] font-normal">/ ด.</span></div>
+<span class="text-danger-scam font-label-xs text-label-xs font-semibold">ต่ำกว่าตลาด 58%</span>
+</div>
+<div class="bg-surface-card p-space-sm rounded-lg">
+<span class="text-text-muted font-label-xs text-label-xs">ราคาเฉลี่ยโครงการ ลุมพินี เพลส</span>
+<div class="font-price-xl text-price-xl text-on-surface font-extrabold mt-0.5">฿8,000 - ฿9,000</div>
+<span class="text-text-muted font-label-xs text-label-xs">อ้างอิงจาก 18 ยูนิตปัจจุบัน</span>
+</div>
+<div class="bg-surface-card p-space-sm rounded-lg">
+<span class="text-text-muted font-label-xs text-label-xs">ตำแหน่งพิกัดและโครงการ</span>
+<div class="font-body-sm-medium text-body-sm-medium text-on-surface font-bold mt-1">ชั้น 4 ห้อง 402 (28 ตร.ม.)</div>
+<span class="text-primary font-label-xs text-label-xs">ใกล้ UD Town โซนยอดนิยม</span>
+</div>
+</div>
+<!-- Inline Visual: Price Comparison Chart & Score Meter -->
+<div class="bg-surface-card p-space-sm rounded-lg flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="w-full md:w-3/5 space-y-1.5">
+<div class="flex items-center justify-between text-label-xs font-label-xs">
+<span class="text-text-muted">แถบเปรียบเทียบราคาประกาศต่อตารางเมตร</span>
+<span class="text-danger-scam font-bold">เบี่ยงเบนผิดปกติ (Z-Score: -3.8)</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden flex">
+<div class="bg-danger-scam h-full w-[42%]"></div>
+<div class="bg-status-available h-full w-[58%]"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] text-text-muted">
+<span>ประกาศนี้ (฿125/ตร.ม.)</span>
+<span>ค่ามาตรฐานอาคาร (฿300/ตร.ม.)</span>
+</div>
+</div>
+<!-- Mini SVG Gauge -->
+<div class="flex items-center gap-space-sm bg-error-container/40 px-space-md py-1.5 rounded-lg shrink-0">
+<svg class="w-10 h-10 text-danger-scam" viewbox="0 0 36 36">
+<path class="text-surface-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="4"></path>
+<path class="text-danger-scam" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="95, 100" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+<div class="flex flex-col">
+<span class="text-danger-scam font-bold text-label-xs font-label-xs">CONFIDENCE HIGH</span>
+<span class="text-text-muted text-[11px]">ดัชนีตรวจจับสแกมแม่นยำ</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Evidence 2: Chat Transcript & OCR Extracted Proof -->
+<div class="bg-surface-container-low rounded-xl p-space-md">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-1.5 text-on-surface font-body-sm-medium text-body-sm-medium font-bold">
+<span class="material-symbols-outlined text-primary text-[20px]">chat</span>
+<span>Evidence 2: หลักฐานภาพแคปเจอร์แชทและข้อความเร่งโอน (Extracted Transcript)</span>
+</div>
+<span class="text-text-muted font-label-xs text-label-xs">แจ้งโดย: คุณชลธิชา ส. &amp; คุณศุภชัย</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md items-start">
+<!-- Chat transcript box -->
+<div class="md:col-span-8 bg-surface-card rounded-lg p-space-md space-y-2.5">
+<div class="flex items-start gap-2">
+<div class="w-7 h-7 rounded-full bg-surface-container text-text-muted flex items-center justify-center font-bold text-[12px] shrink-0">
+                  เหยื่อ
+                </div>
+<div class="bg-surface-container-low rounded-2xl rounded-tl-sm px-3 py-2 text-on-surface text-[13px] max-w-[85%]">
+                  สวัสดีค่ะ สนใจห้อง 402 ลุมพินี โพศรี ค่ะ ขอนัดเปิดดูห้องช่วงเย็นนี้ได้ไหมคะ?
+                </div>
+</div>
+<div class="flex items-start gap-2 flex-row-reverse">
+<div class="w-7 h-7 rounded-full bg-danger-scam text-on-error flex items-center justify-center font-bold text-[12px] shrink-0">
+                  สแกม
+                </div>
+<div class="bg-error-container text-on-error-container rounded-2xl rounded-tr-sm px-3 py-2 text-[13px] max-w-[85%]">
+                  "ห้องสวยเฟอร์ครบครับ มีคนนัดดู 3 คิว ถ้าพี่อยากได้สิทธิ์ก่อน <strong>รบกวนโอนมัดจำจองห้อง ฿3,500 เข้าบัญชีม้า... ภายในเที่ยงนี้ครับ</strong> ไม่ต้องดูห้องจริงก็ได้ครับการันตีสวยตรงปก"
+                </div>
+</div>
+<!-- Keyword Highlights -->
+<div class="pt-2 border-t-0 flex flex-wrap items-center gap-1.5">
+<span class="text-text-muted font-label-xs text-label-xs">คีย์เวิร์ดอันตรายที่ AI ไฮไลต์:</span>
+<span class="px-2 py-0.5 rounded bg-danger-scam/15 text-danger-scam font-label-xs text-label-xs font-semibold">[โอนมัดจำทันที]</span>
+<span class="px-2 py-0.5 rounded bg-danger-scam/15 text-danger-scam font-label-xs text-label-xs font-semibold">[ไม่ต้องดูห้องจริง]</span>
+<span class="px-2 py-0.5 rounded bg-danger-scam/15 text-danger-scam font-label-xs text-label-xs font-semibold">[มีคนรอจอง 3 คิว]</span>
+</div>
+</div>
+<!-- Uploaded Evidence Preview -->
+<div class="md:col-span-4 bg-surface-card rounded-lg p-space-sm flex flex-col items-center">
+<span class="text-text-muted font-label-xs text-label-xs mb-1.5 self-start">หลักฐานสลิป / แคปจอ (2 ไฟล์)</span>
+<div class="w-full h-32 rounded-lg bg-surface-container-high overflow-hidden relative group cursor-pointer">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Digital screenshot of a mobile instant messaging chat conversation showing urgency messages asking for security deposit and bank account slip verification details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiUyhGmlsUmINgqj0TM1bC25hh3grEmNd08ve3HDOHKMo8aT9VrDF6_-nSpf7RpIQ0j0ZDHW4Ti1pHTeLDTvmFXXqg1OfKASzWs88MpXGnsgonpK0OYJ_iUb8HEJfh2PjUrGnuUogWcgS8rXpU8LzVNbROGOKwkOb7ivDpJn8tm_YRjDES8hXg4xLCBZy16691vnhjkxo9Kw3O1Tn3NtNjC6YnQHAYj5sQ8kcGpQw"/>
+<div class="absolute inset-0 bg-inverse-surface/40 flex items-center justify-center text-on-primary font-label-xs text-label-xs">
+<span class="material-symbols-outlined text-[18px] mr-1">zoom_in</span> ขยายดูหลักฐาน
+                </div>
+</div>
+<span class="text-[11px] text-text-muted mt-1.5">MD5 Hash: 4a9f81...e201 (ยืนยันไฟล์แท้)</span>
+</div>
+</div>
+</div>
+<!-- Evidence 3: Offender Account Fingerprint & Network -->
+<div class="bg-surface-container-low rounded-xl p-space-md">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-1.5 text-on-surface font-body-sm-medium text-body-sm-medium font-bold">
+<span class="material-symbols-outlined text-secondary text-[20px]">fingerprint</span>
+<span>Evidence 3: การวิเคราะห์บัญชีและเครือข่ายอุปกรณ์ (Device Fingerprint &amp; Network)</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-xs text-label-xs font-semibold">
+              KYC: ไม่ผ่าน (ชื่อไม่ตรง)
+            </span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm text-body-sm font-body-sm">
+<div class="bg-surface-card p-space-sm rounded-lg space-y-1">
+<span class="text-text-muted font-label-xs text-label-xs">ข้อมูลบัญชีผู้ลงทะเบียน</span>
+<div class="font-body-sm-medium text-body-sm-medium text-on-surface font-bold">นายอำนาจ พงษ์ไพศาล</div>
+<div class="text-[12px] text-text-muted">User ID: USER-FAKE-09</div>
+<div class="text-[12px] text-danger-scam font-semibold">สร้างบัญชี: เมื่อวานนี้ (14 ชม. ที่แล้ว)</div>
+</div>
+<div class="bg-surface-card p-space-sm rounded-lg space-y-1">
+<span class="text-text-muted font-label-xs text-label-xs">หมายเลขโทรศัพท์ &amp; เครือข่าย</span>
+<div class="font-body-sm-medium text-body-sm-medium text-on-surface font-bold">098-771-41XX (ซิมเติมเงิน)</div>
+<div class="text-[12px] text-text-muted">IP: 182.232.14.88 (VPN Proxy)</div>
+<div class="text-[12px] text-danger-scam font-semibold">ตำแหน่ง IP: นอกพื้นที่ จ.อุดรธานี</div>
+</div>
+<div class="bg-surface-card p-space-sm rounded-lg space-y-1">
+<span class="text-text-muted font-label-xs text-label-xs">บัญชีธนาคารปลายทางที่แจ้งเหยื่อ</span>
+<div class="font-body-sm-medium text-body-sm-medium text-danger-scam font-bold">ธ.กสิกรไทย 042-8-XXXXX</div>
+<div class="text-[12px] text-text-muted">ชื่อบัญชี: "นายสมชาย (นามสมมุติ)"</div>
+<div class="text-[12px] text-danger-scam font-semibold">ชื่อไม่ตรงกับบัตร ปชช. ในระบบ</div>
+</div>
+</div>
+</div>
+<!-- Enforcement & Sanctions Control Box (Admin Command Center) -->
+<div class="bg-surface-card rounded-xl p-space-lg shadow-inner bg-gradient-to-b from-surface-card to-surface-container-low/50">
+<div class="flex items-center justify-between mb-space-md">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">มาตรการบังคับใช้และการระงับสิทธิ์ (Enforcement Actions)</h3>
+<p class="text-text-muted font-label-xs text-label-xs">เลือกคำสั่งจัดการที่ต้องการให้ระบบประมวลผลต่อผู้ลงประกาศและทรัพย์นี้</p>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-danger-scam text-on-error font-label-xs text-label-xs font-bold uppercase tracking-wider">
+              High Severity Protocol
+            </span>
+</div>
+<!-- Checkboxes list -->
+<div class="space-y-space-sm mb-space-md">
+<label class="flex items-start gap-space-sm p-space-sm rounded-xl bg-surface-card hover:bg-error-container/20 cursor-pointer transition-colors shadow-sm">
+<input checked="" class="mt-1 w-4 h-4 text-danger-scam rounded focus:ring-0 accent-danger-scam cursor-pointer" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface font-bold">ลบและระงับประกาศนี้ทันที (Takedown Listing &amp; Hide from Search)</span>
+<span class="text-text-muted font-label-xs text-label-xs">ตัดออกจากหน้าค้นหา แผนที่อุดรธานี และปิดการดูรายละเอียดทั้งหมดทันที</span>
+</div>
+</label>
+<label class="flex items-start gap-space-sm p-space-sm rounded-xl bg-surface-card hover:bg-error-container/20 cursor-pointer transition-colors shadow-sm">
+<input checked="" class="mt-1 w-4 h-4 text-danger-scam rounded focus:ring-0 accent-danger-scam cursor-pointer" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface font-bold">ระงับบัญชีผู้ใช้ถาวร (Permanent Ban Account &amp; Blacklist Phone/Device ID)</span>
+<span class="text-text-muted font-label-xs text-label-xs">แบน USER-FAKE-09 บล็อกเบอร์ 098-771-XXXX และบล็อก Device ID ไม่ให้สมัครใหม่</span>
+</div>
+</label>
+<label class="flex items-start gap-space-sm p-space-sm rounded-xl bg-surface-card hover:bg-error-container/20 cursor-pointer transition-colors shadow-sm">
+<input checked="" class="mt-1 w-4 h-4 text-danger-scam rounded focus:ring-0 accent-danger-scam cursor-pointer" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface font-bold">บันทึก Blacklist เลขบัญชีธนาคารเข้าสู่ฐานข้อมูลกลาง Anti-Fraud</span>
+<span class="text-text-muted font-label-xs text-label-xs">กระจายเลขบัญชีต้องสงสัยไปยังเครือข่ายแพลตฟอร์มอสังหาฯ พันธมิตรในภาคอีสาน</span>
+</div>
+</label>
+<label class="flex items-start gap-space-sm p-space-sm rounded-xl bg-surface-card hover:bg-error-container/20 cursor-pointer transition-colors shadow-sm">
+<input checked="" class="mt-1 w-4 h-4 text-danger-scam rounded focus:ring-0 accent-danger-scam cursor-pointer" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface font-bold">ส่งแจ้งเตือนอัตโนมัติถึงผู้ใช้ทุกคนที่เคยกดบันทึกหรือทักแชทประกาศนี้ (Fraud Alert Push)</span>
+<span class="text-text-muted font-label-xs text-label-xs">ส่ง Push Alert ไปยังผู้ใช้ 14 รายที่เคยกดหัวใจ/ทักแชทเตือนให้ระวังการโอนเงิน</span>
+</div>
+</label>
+<label class="flex items-start gap-space-sm p-space-sm rounded-xl bg-surface-card hover:bg-primary-light cursor-pointer transition-colors shadow-sm">
+<input class="mt-1 w-4 h-4 text-primary rounded focus:ring-0 accent-primary cursor-pointer" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface font-bold">ส่งเรื่องให้ทีมกฎหมายประสานงานสถานีตำรวจภูธรเมืองอุดรธานี (File Police Report)</span>
+<span class="text-text-muted font-label-xs text-label-xs">สร้างเอกสารสรุปสำนวนหลักฐานส่งร้อยเวร สภ.เมืองอุดรฯ เพื่อดำเนินคดีตาม พ.ร.บ.คอมพิวเตอร์ฯ</span>
+</div>
+</label>
+</div>
+<!-- Admin Officer Internal Note -->
+<div class="space-y-1 mb-space-lg">
+<div class="flex items-center justify-between">
+<label class="font-label-xs text-label-xs text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">edit_note</span>
+                บันทึกเหตุผลของเจ้าหน้าที่ (Admin Audit Note):
+              </label>
+<span class="text-text-muted text-[11px]">บันทึกถาวรลงใน Audit Trail</span>
+</div>
+<textarea class="w-full bg-surface-card rounded-xl p-space-md font-body-sm text-body-sm text-on-surface border-0 focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" rows="3">เจ้าหน้าที่ชานนท์: ตรวจสอบยืนยันพฤติกรรมมิจฉาชีพล่อลวงเงินมัดจำชัดเจน โดยตั้งราคาต่ำกว่าตลาด 58% และเร่งเร้าให้โอนเงินเข้าบัญชีบุคคลอื่นที่ไม่ตรงกับชื่อผู้ลงทะเบียน ดำเนินการ Takedown และแบนบัญชีทันทีเพื่อป้องกันความเสียหายแก่ประชาชนใน จ.อุดรธานี</textarea>
+</div>
+<!-- Large Action Button Group -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-sm">
+<button class="flex-1 px-space-lg py-3 rounded-xl bg-danger-scam text-on-error font-body-lg-bold text-body-lg-bold font-bold hover:bg-danger-scam/90 transition-colors shadow-md flex items-center justify-center gap-2" onclick="alert('ยืนยันการบังคับใช้มาตรการ: บัญชี USER-FAKE-09 ถูกระงับถาวร และถอดถอนประกาศ UD-880291 สำเร็จเรียบร้อยแล้ว');" type="button">
+<span class="material-symbols-outlined text-[20px]">block</span>
+<span>บังคับใช้มาตรการ: สั่งระงับทรัพย์ &amp; แบนบัญชีทันที</span>
+</button>
+<button class="px-space-md py-3 rounded-xl bg-status-reserved text-on-error font-body-sm-medium text-body-sm font-semibold hover:opacity-95 transition-opacity shadow-sm flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[18px]">pause_circle</span>
+<span>ระงับชั่วคราว 48 ชม.</span>
+</button>
+<button class="px-space-md py-3 rounded-xl bg-surface-card text-on-surface font-body-sm-medium text-body-sm font-semibold hover:bg-surface-container-low transition-colors shadow-sm flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[18px] text-text-muted">close</span>
+<span>ยกเลิกรายงาน (False Alarm)</span>
+</button>
+</div>
+<!-- Bottom Audit Tag -->
+<div class="mt-space-md pt-space-xs flex flex-wrap items-center justify-between text-text-muted font-label-xs text-label-xs">
+<span>Security Signature: SEC-HASH-992-UDON-VERIFIED</span>
+<span class="text-secondary font-semibold">ศูนย์คุ้มครองผู้บริโภค MapNest Udon Thani Desk</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></main><footer class="w-full bg-surface-card mt-auto"><div class="w-full px-margin-desktop py-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex flex-wrap items-center gap-space-md text-text-muted font-label-xs text-label-xs"><span class="flex items-center gap-1.5 text-secondary font-semibold"><span class="material-symbols-outlined text-[16px]">verified_user</span>MapNest Security Stamp Level 4</span><span>•</span><span>Audit Log ID: AUD-UDON-2024-LIVE</span><span>•</span><span>Node: TH-NE-UDON-01</span></div><div class="flex items-center gap-space-lg text-text-muted font-label-xs text-label-xs"><span class="hover:text-on-surface transition-colors cursor-pointer">Privacy Compliance</span><span class="hover:text-on-surface transition-colors cursor-pointer">Data Residency Policy</span><span class="text-on-surface-variant font-medium">© 2024 MapNest Thailand. All rights reserved.</span></div></div></footer></body></html>

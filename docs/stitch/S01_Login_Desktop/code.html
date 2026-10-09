@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html lang="th"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_blank" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "secondary": "#006c49",
+          "surface-container-highest": "#dae2fd",
+          "error-container": "#ffdad6",
+          "surface-container": "#eaedff",
+          "on-primary-fixed": "#00201d",
+          "on-secondary": "#ffffff",
+          "on-tertiary-fixed-variant": "#004395",
+          "tertiary": "#004eaa",
+          "surface-dim": "#d2d9f4",
+          "secondary-container": "#6cf8bb",
+          "primary": "#005c55",
+          "on-error-container": "#93000a",
+          "surface-tint": "#006a63",
+          "on-tertiary-container": "#e4eaff",
+          "tertiary-container": "#0165d8",
+          "on-error": "#ffffff",
+          "inverse-on-surface": "#eef0ff",
+          "inverse-primary": "#80d5cb",
+          "surface-variant": "#dae2fd",
+          "tertiary-fixed-dim": "#adc6ff",
+          "status-sold": "#EF4444",
+          "on-tertiary": "#ffffff",
+          "primary-hover": "#115E59",
+          "primary-light": "#F0FDFA",
+          "primary-fixed-dim": "#80d5cb",
+          "canvas-background": "#F8FAFC",
+          "on-tertiary-fixed": "#001a42",
+          "on-secondary-container": "#00714d",
+          "status-available": "#10B981",
+          "on-primary": "#ffffff",
+          "primary-fixed": "#9cf2e8",
+          "error": "#ba1a1a",
+          "on-background": "#131b2e",
+          "chart-views": "#3B82F6",
+          "chart-speed": "#F97316",
+          "border-subtle": "#E2E8F0",
+          "on-secondary-fixed-variant": "#005236",
+          "tertiary-fixed": "#d8e2ff",
+          "on-surface-variant": "#3e4947",
+          "surface-container-low": "#f2f3ff",
+          "secondary-fixed-dim": "#4edea3",
+          "on-secondary-fixed": "#002113",
+          "inverse-surface": "#283044",
+          "on-surface": "#131b2e",
+          "background": "#faf8ff",
+          "surface-container-lowest": "#ffffff",
+          "status-reserved": "#F59E0B",
+          "text-muted": "#64748B",
+          "surface": "#faf8ff",
+          "surface-card": "#FFFFFF",
+          "outline": "#6e7977",
+          "surface-container-high": "#e2e7ff",
+          "danger-scam": "#DC2626",
+          "primary-container": "#0f766e",
+          "surface-bright": "#faf8ff",
+          "secondary-fixed": "#6ffbbe",
+          "on-primary-container": "#a3faef",
+          "on-primary-fixed-variant": "#00504a",
+          "outline-variant": "#bdc9c6"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "margin": "1rem",
+          "space-xl": "1.5rem",
+          "space-md": "0.75rem",
+          "margin-desktop": "2rem",
+          "space-xs": "0.25rem",
+          "gutter-desktop": "1.5rem",
+          "space-sm": "0.5rem",
+          "space-lg": "1rem",
+          "margin-tablet": "1.5rem",
+          "gutter": "1rem"
+        },
+        "fontFamily": {
+          "headline-md": [
+            "Plus Jakarta Sans"
+          ],
+          "body-sm": [
+            "Plus Jakarta Sans"
+          ],
+          "price-sm": [
+            "Plus Jakarta Sans"
+          ],
+          "title-md": [
+            "Plus Jakarta Sans"
+          ],
+          "body-lg": [
+            "Plus Jakarta Sans"
+          ],
+          "body-sm-medium": [
+            "Plus Jakarta Sans"
+          ],
+          "display-lg": [
+            "Plus Jakarta Sans"
+          ],
+          "price-xl": [
+            "Plus Jakarta Sans"
+          ],
+          "body-lg-bold": [
+            "Plus Jakarta Sans"
+          ],
+          "label-xs": [
+            "Plus Jakarta Sans"
+          ],
+          "headline-lg": [
+            "Plus Jakarta Sans"
+          ]
+        },
+        "fontSize": {
+          "headline-md": [
+            "20px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "600"
+            }
+          ],
+          "body-sm": [
+            "14px",
+            {
+              "lineHeight": "22px",
+              "fontWeight": "400"
+            }
+          ],
+          "price-sm": [
+            "14px",
+            {
+              "lineHeight": "18px",
+              "fontWeight": "700"
+            }
+          ],
+          "title-md": [
+            "18px",
+            {
+              "lineHeight": "26px",
+              "fontWeight": "600"
+            }
+          ],
+          "body-lg": [
+            "16px",
+            {
+              "lineHeight": "26px",
+              "fontWeight": "400"
+            }
+          ],
+          "body-sm-medium": [
+            "14px",
+            {
+              "lineHeight": "22px",
+              "fontWeight": "500"
+            }
+          ],
+          "display-lg": [
+            "30px",
+            {
+              "lineHeight": "40px",
+              "fontWeight": "700"
+            }
+          ],
+          "price-xl": [
+            "24px",
+            {
+              "lineHeight": "30px",
+              "fontWeight": "800"
+            }
+          ],
+          "body-lg-bold": [
+            "16px",
+            {
+              "lineHeight": "26px",
+              "fontWeight": "600"
+            }
+          ],
+          "label-xs": [
+            "12px",
+            {
+              "lineHeight": "18px",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-lg": [
+            "24px",
+            {
+              "lineHeight": "34px",
+              "fontWeight": "700"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-canvas-background text-on-surface antialiased min-h-screen flex items-center justify-center p-margin"><main class="w-full max-w-md"><div class="flex flex-col w-full relative">
+<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none filter blur-sm select-none opacity-40">
+<div class="w-full h-full grid grid-cols-12 gap-gutter-desktop p-margin-desktop bg-canvas-background">
+<div class="col-span-8 flex flex-col gap-space-lg">
+<div class="h-16 bg-surface-card rounded-xl shadow-sm flex items-center px-space-lg justify-between">
+<div class="w-48 h-6 bg-surface-container rounded-full"></div>
+<div class="flex gap-space-sm">
+<div class="w-20 h-8 bg-surface-container rounded-full"></div>
+<div class="w-20 h-8 bg-surface-container rounded-full"></div>
+</div>
+</div>
+<div class="h-[580px] bg-surface-container-high rounded-xl relative overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 bg-surface-container-highest opacity-30"></div>
+<div class="absolute top-12 left-16 bg-surface-card px-space-md py-space-xs rounded-full shadow-md flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-status-available"></span>
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface">฿3,890,000</span>
+</div>
+<div class="absolute top-44 left-72 bg-primary-container text-on-primary px-space-md py-space-xs rounded-full shadow-lg flex items-center gap-space-xs">
+<span class="font-body-sm-medium text-body-sm-medium">฿5,450,000</span>
+</div>
+<div class="absolute bottom-24 left-36 bg-surface-card px-space-md py-space-xs rounded-full shadow-md flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-status-reserved"></span>
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface">฿2,200,000</span>
+</div>
+<div class="absolute top-28 right-24 bg-surface-card px-space-md py-space-xs rounded-full shadow-md flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-status-available"></span>
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface">฿7,900,000</span>
+</div>
+</div>
+</div>
+<div class="col-span-4 flex flex-col gap-space-lg">
+<div class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="h-40 bg-surface-container rounded-lg"></div>
+<div class="h-6 w-3/4 bg-surface-container rounded"></div>
+<div class="h-4 w-1/2 bg-surface-container-low rounded"></div>
+</div>
+<div class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="h-40 bg-surface-container rounded-lg"></div>
+<div class="h-6 w-3/4 bg-surface-container rounded"></div>
+<div class="h-4 w-1/2 bg-surface-container-low rounded"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="relative z-10 w-full min-h-[calc(100vh-2rem)] flex items-center justify-center p-space-xs">
+<div class="w-full max-w-[480px] bg-surface-card rounded-[16px] shadow-2xl p-space-xl flex flex-col relative text-on-surface">
+<button aria-label="Close" class="absolute top-space-lg right-space-lg w-9 h-9 rounded-full bg-surface-container-low hover:bg-surface-container flex items-center justify-center text-text-muted hover:text-on-surface transition-colors focus:outline-none" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<div class="flex flex-col items-center text-center mt-space-xs mb-space-lg">
+<div class="h-10 mb-space-md flex items-center justify-center">
+<img alt="MapNest Logo" class="h-9 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W0mcxoqTWFJDtqiSJknOl2g_EEDvXTmJP-KGweq2SlS1YjYOyo0MoYk4uwSp0ALAFMD9rqamPRf5EVIYhsW622BoTODxGJZnZwuoCMygpwsIR-1oQ07TjWTleejZTYGAdigpl7j5cNBc1Qll_5_hJjnlAYyKhQVFrbSgQLM4C0wk0pA4ZpdxmrOoCu_lPj9bufaepv88aGI1KOw4OvYSKStaMrHUsMdWON7Bw5aW4"/>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-space-xs tracking-tight">เข้าสู่ระบบ / ลงทะเบียน</h1>
+<p class="font-body-sm text-body-sm text-text-muted">เริ่มต้นค้นหาและจัดการอสังหาริมทรัพย์ในอุดรธานี</p>
+</div>
+<div class="flex flex-col gap-space-sm mb-space-lg">
+<button class="w-full h-12 bg-[#06C755] hover:bg-[#05b34c] text-on-secondary font-body-lg-bold text-body-lg-bold rounded-xl flex items-center justify-center gap-space-md shadow-sm transition-all active:scale-[0.99]" type="button">
+<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24">
+<path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.31c0 .344-.279.63-.629.63-.346 0-.626-.286-.626-.63V8.108c0-.27.173-.51.431-.595.065-.023.132-.033.201-.033.211 0 .389.09.51.25l2.438 3.308v-2.3c0-.348.282-.631.629-.631.345 0 .63.283.63.631v4.771zm-5.741 0c0 .344-.282.63-.63.63-.346 0-.628-.286-.628-.63V8.108c0-.345.282-.63.628-.63.348 0 .63.285.63.63v4.771zm-2.466.63H4.918c-.347 0-.63-.286-.63-.63V8.108c0-.345.283-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"></path>
+</svg>
+<span>เข้าสู่ระบบด้วย LINE</span>
+</button>
+<button class="w-full h-12 bg-surface-card hover:bg-surface-container-low text-on-surface font-body-lg-bold text-body-lg-bold rounded-xl flex items-center justify-center gap-space-md shadow-sm transition-all active:scale-[0.99] relative" type="button">
+<svg class="w-5 h-5 shrink-0" viewbox="0 0 24 24">
+<path d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.15z" fill="#4285F4"></path>
+<path d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.26v3.15C3.25 21.36 7.33 24 12 24z" fill="#34A853"></path>
+<path d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.14-1.55.38-2.27V6.58H1.26C.46 8.16 0 9.99 0 12s.46 3.84 1.26 5.42l4.02-3.15z" fill="#FBBC05"></path>
+<path d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.25 2.64 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z" fill="#EA4335"></path>
+</svg>
+<span>เข้าสู่ระบบด้วย Google</span>
+</button>
+</div>
+<div class="flex items-center gap-space-md my-space-sm">
+<div class="flex-1 h-px bg-surface-container-high"></div>
+<span class="font-label-xs text-label-xs text-text-muted uppercase tracking-wider shrink-0">หรือดำเนินการด้วยเบอร์โทรศัพท์</span>
+<div class="flex-1 h-px bg-surface-container-high"></div>
+</div>
+<form class="flex flex-col gap-space-lg mt-space-md" onsubmit="event.preventDefault();">
+<div class="flex flex-col gap-space-xs">
+<label class="font-body-sm-medium text-body-sm-medium text-on-surface flex items-center justify-between" for="phone-input">
+<span>เบอร์โทรศัพท์มือถือ</span>
+<span class="font-label-xs text-label-xs text-primary font-semibold">ส่งรหัสผ่าน SMS</span>
+</label>
+<div class="flex rounded-xl bg-surface-container-lowest shadow-sm transition-all focus-within:shadow-md">
+<div class="flex items-center gap-space-xs px-space-md py-space-sm bg-surface-container-low rounded-l-xl text-on-surface select-none shrink-0">
+<span aria-label="Thailand" class="text-lg leading-none" role="img">🇹🇭</span>
+<span class="font-body-sm-medium text-body-sm-medium">+66</span>
+<svg class="w-3.5 h-3.5 text-text-muted" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<input class="w-full bg-surface-container-lowest px-space-md py-space-sm rounded-r-xl font-body-lg text-body-lg text-on-surface placeholder-text-muted outline-none focus:bg-white" id="phone-input" inputmode="numeric" maxlength="12" placeholder="81 234 5678" type="tel"/>
+</div>
+<p class="font-label-xs text-label-xs text-text-muted mt-0.5">ระบุเบอร์โทรศัพท์มือถือเพื่อรับรหัสยืนยัน OTP (เช่น 081-234-5678)</p>
+</div>
+<div class="flex items-start gap-space-sm pt-space-xs">
+<div class="flex items-center h-5 mt-0.5">
+<input class="w-4 h-4 rounded text-primary accent-primary focus:ring-0 cursor-pointer" defaultchecked="" id="pdpa-consent" type="checkbox"/>
+</div>
+<label class="font-label-xs text-label-xs text-text-muted leading-relaxed cursor-pointer select-none" for="pdpa-consent">
+            ฉันได้อ่านและยอมรับ <a class="text-primary font-semibold underline underline-offset-2 hover:text-primary-hover" href="#">ข้อกำหนดการใช้งาน</a> และ <a class="text-primary font-semibold underline underline-offset-2 hover:text-primary-hover" href="#">นโยบายความเป็นส่วนตัว (PDPA)</a> ของ MapNest
+          </label>
+</div>
+<button class="w-full h-12 bg-primary-container hover:bg-primary-hover active:bg-primary text-on-primary font-body-lg-bold text-body-lg-bold rounded-xl shadow-md flex items-center justify-center transition-all duration-200 mt-space-xs active:scale-[0.99]" id="btn-otp" type="button">
+          ขอรหัส OTP
+        </button>
+</form>
+<div class="mt-space-xl pt-space-md flex items-center justify-center gap-space-xs text-text-muted bg-surface-container-low/60 rounded-lg py-2.5 px-space-md">
+<span class="text-sm">🔒</span>
+<span class="font-label-xs text-label-xs text-text-muted font-medium text-center">ปลอดภัยด้วยการยืนยันตัวตน 2 ขั้นตอน ไม่มีสแปม</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const input = document.getElementById('phone-input');
+    const btn = document.getElementById('btn-otp');
+    if (!input || !btn) return;
+
+    input.addEventListener('input', function(e) {
+      let val = e.target.value.replace(/\D/g, '');
+      if (val.startsWith('0')) {
+        val = val.substring(1);
+      }
+      if (val.length > 9) {
+        val = val.substring(0, 9);
+      }
+      
+      let formatted = '';
+      if (val.length > 0) {
+        formatted = val.substring(0, 2);
+        if (val.length > 2) {
+          formatted += ' ' + val.substring(2, 5);
+        }
+        if (val.length > 5) {
+          formatted += ' ' + val.substring(5, 9);
+        }
+      }
+      e.target.value = formatted;
+    });
+
+    btn.addEventListener('click', function() {
+      const current = input.value.replace(/\s+/g, '');
+      if (current.length < 9) {
+        input.focus();
+        return;
+      }
+      btn.innerText = 'กำลังส่งรหัส OTP...';
+      btn.classList.add('opacity-80', 'pointer-events-none');
+      setTimeout(() => {
+        btn.innerText = 'ส่งรหัส OTP สำเร็จ!';
+        setTimeout(() => {
+          btn.innerText = 'ขอรหัส OTP';
+          btn.classList.remove('opacity-80', 'pointer-events-none');
+        }, 2000);
+      }, 700);
+    });
+  })();
+</script></main></body></html>

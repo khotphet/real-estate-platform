@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+
+<html lang="th"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"outline-variant":"#bdc9c6","status-sold":"#EF4444","on-tertiary-fixed-variant":"#004395","surface-card":"#FFFFFF","status-available":"#10B981","inverse-primary":"#80d5cb","on-secondary":"#ffffff","surface-variant":"#dae2fd","chart-views":"#3B82F6","error":"#ba1a1a","primary-fixed":"#9cf2e8","surface-container-high":"#e2e7ff","on-tertiary":"#ffffff","surface-container-highest":"#dae2fd","danger-scam":"#DC2626","on-primary-fixed":"#00201d","primary-light":"#F0FDFA","primary":"#005c55","on-secondary-fixed":"#002113","error-container":"#ffdad6","inverse-on-surface":"#eef0ff","outline":"#6e7977","on-secondary-container":"#00714d","primary-container":"#0f766e","tertiary-container":"#0165d8","background":"#faf8ff","tertiary":"#004eaa","text-muted":"#64748B","secondary-fixed":"#6ffbbe","secondary-fixed-dim":"#4edea3","surface-tint":"#006a63","secondary":"#006c49","chart-speed":"#F97316","primary-fixed-dim":"#80d5cb","surface-container-low":"#f2f3ff","inverse-surface":"#283044","on-background":"#131b2e","on-primary":"#ffffff","tertiary-fixed":"#d8e2ff","on-tertiary-container":"#e4eaff","primary-hover":"#115E59","on-secondary-fixed-variant":"#005236","on-primary-container":"#a3faef","status-reserved":"#F59E0B","on-surface":"#131b2e","tertiary-fixed-dim":"#adc6ff","on-error":"#ffffff","surface-dim":"#d2d9f4","surface-container":"#eaedff","on-error-container":"#93000a","border-subtle":"#E2E8F0","on-primary-fixed-variant":"#00504a","secondary-container":"#6cf8bb","surface":"#faf8ff","canvas-background":"#F8FAFC","surface-bright":"#faf8ff","on-surface-variant":"#3e4947","on-tertiary-fixed":"#001a42","surface-container-lowest":"#ffffff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xl":"1.5rem","margin-desktop":"2rem","space-xs":"0.25rem","margin":"1rem","gutter-desktop":"1.5rem","margin-tablet":"1.5rem","space-md":"0.75rem","space-sm":"0.5rem","gutter":"1rem","space-lg":"1rem"},"fontFamily":{"price-xl":["Plus Jakarta Sans"],"body-lg-bold":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"body-sm-medium":["Plus Jakarta Sans"],"price-sm":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"label-xs":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"]},"fontSize":{"price-xl":["24px",{"lineHeight":"30px","fontWeight":"800"}],"body-lg-bold":["16px",{"lineHeight":"26px","fontWeight":"600"}],"display-lg":["30px",{"lineHeight":"40px","fontWeight":"700"}],"body-sm-medium":["14px",{"lineHeight":"22px","fontWeight":"500"}],"price-sm":["14px",{"lineHeight":"18px","fontWeight":"700"}],"body-sm":["14px",{"lineHeight":"22px","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"26px","fontWeight":"400"}],"label-xs":["12px",{"lineHeight":"18px","fontWeight":"600"}],"title-md":["18px",{"lineHeight":"26px","fontWeight":"600"}],"headline-lg":["24px",{"lineHeight":"34px","fontWeight":"700"}],"headline-md":["20px",{"lineHeight":"28px","fontWeight":"600"}]}}}};</script></head><body class="bg-canvas-background text-on-surface font-body-sm"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-card shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-28"><div class="h-16 border-b border-border-subtle"><div class="max-w-[1320px] mx-auto px-margin-desktop h-full flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><div class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center text-on-primary font-headline-md font-bold">M</div><span class="font-headline-md text-headline-md text-on-surface tracking-tight">MapNest</span></div><span class="px-space-xs py-0.5 rounded bg-primary-light text-primary font-label-xs text-label-xs border border-primary/20 font-bold uppercase tracking-wider">Admin</span><div class="h-5 w-px bg-border-subtle mx-space-xs"></div><div class="flex flex-col"><span class="font-body-sm-medium text-body-sm-medium text-on-surface leading-tight">ศูนย์จัดการข้อมูลอสังหาริมทรัพย์ จ.อุดรธานี</span><span class="font-label-xs text-label-xs text-text-muted leading-tight">Udon Thani Center Management Portal</span></div><span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-status-available font-label-xs text-label-xs border border-emerald-200"><span class="w-1.5 h-1.5 rounded-full bg-status-available"></span>ระบบพร้อมทำงาน (Operational)</span></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-2.5 py-1 rounded bg-slate-50 border border-border-subtle text-text-muted font-label-xs text-label-xs"><span class="material-symbols-outlined text-[16px] text-primary animate-spin">sync</span><span>Auto-sync 30s</span></div><button class="p-1.5 rounded-lg border border-border-subtle text-on-surface-variant hover:bg-slate-50 hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">refresh</span></button><button class="relative p-1.5 rounded-lg border border-border-subtle text-on-surface-variant hover:bg-slate-50 hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-danger-scam"></span></button><div class="h-6 w-px bg-border-subtle"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col"><div class="flex items-center gap-1"><span class="font-body-sm-medium text-body-sm-medium text-on-surface">ชานนท์</span><span class="font-label-xs text-label-xs text-text-muted">· Super Admin</span></div><div class="flex items-center gap-1 text-text-muted font-label-xs text-label-xs"><span>สำนักงานอุดรธานี</span><span class="text-[10px]">•</span><span>TH-NE-UDON</span></div></div></div></div></div></div><div class="h-12 border-b border-border-subtle bg-surface-card"><div class="max-w-[1320px] mx-auto px-margin-desktop h-full flex items-center justify-between"><nav class="flex items-center gap-space-lg h-full" data-active-classes="text-primary border-b-2 border-primary font-body-lg-bold"><a class="text-on-surface-variant hover:text-on-surface font-body-sm-medium text-body-sm-medium h-full flex items-center border-b-2 border-transparent transition-colors" data-path="overview" href="#">ภาพรวมระบบ</a><a class="text-on-surface-variant hover:text-on-surface font-body-sm-medium text-body-sm-medium h-full flex items-center gap-1.5 border-b-2 border-transparent transition-colors" data-path="kyc-verification" href="#"><span>ตรวจสอบ KYC</span><span class="px-1.5 py-0.2 rounded-full bg-slate-100 text-on-surface text-[11px] font-bold">14</span></a><a class="text-on-surface-variant hover:text-on-surface font-body-sm-medium text-body-sm-medium h-full flex items-center gap-1.5 border-b-2 border-transparent transition-colors" data-path="listing-verification" href="#"><span>ตรวจสอบประกาศ</span><span class="px-1.5 py-0.2 rounded-full bg-slate-100 text-on-surface text-[11px] font-bold">9</span></a><a class="text-on-surface-variant hover:text-on-surface font-body-sm-medium text-body-sm-medium h-full flex items-center gap-1.5 border-b-2 border-transparent transition-colors" data-path="reports-and-scams" href="#"><span>รายงานและสแกม</span><span class="px-1.5 py-0.2 rounded-full bg-red-100 text-danger-scam text-[11px] font-bold">3</span></a><a class="text-on-surface-variant hover:text-on-surface font-body-sm-medium text-body-sm-medium h-full flex items-center border-b-2 border-transparent transition-colors" data-path="stale-listings" href="#">ประกาศค้างเก่า</a><a class="text-on-surface-variant hover:text-on-surface font-body-sm-medium text-body-sm-medium h-full flex items-center border-b-2 border-transparent transition-colors" data-path="packages-and-promotions" href="#">แพ็กเกจและโปรโมชั่น</a><a class="text-on-surface-variant hover:text-on-surface font-body-sm-medium text-body-sm-medium h-full flex items-center border-b-2 border-transparent transition-colors" data-path="orders-and-refunds" href="#">คำสั่งซื้อและการคืนเงิน</a><a aria-current="page" class="h-full flex items-center transition-colors text-primary border-b-2 border-primary font-body-lg-bold" data-path="user-management" href="#">จัดการผู้ใช้งาน</a></nav><div class="flex items-center gap-space-sm text-text-muted font-label-xs text-label-xs"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">verified_user</span>PDPA Active</span><span class="text-border-subtle">|</span><span>Node: TH-NE-UDON-01</span></div></div></div></div><div class="h-9 bg-slate-50 border-b border-border-subtle"><div class="max-w-[1320px] mx-auto px-margin-desktop h-full flex items-center justify-between font-label-xs text-label-xs"><div class="flex items-center gap-1.5 text-text-muted"><span>ระบบจัดการกลาง</span><span class="material-symbols-outlined text-[14px]">chevron_right</span><span>อุดรธานี</span><span class="material-symbols-outlined text-[14px]">chevron_right</span><span class="text-on-surface font-body-sm-medium">แดชบอร์ดหลัก</span></div><div class="flex items-center gap-space-md text-text-muted"><span class="inline-flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Real-time Transaction Audit</span><span class="inline-flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-status-available"></span>PDPA Compliance Standard</span><span class="font-mono text-[11px] text-on-surface-variant">LAT 17.4138° N / LON 102.7872° E</span></div></div></div></header><main class="w-full pt-28 bg-canvas-background min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<!-- Main Governance Workspace: Max Width 1320px adhering to MapNest Grid System -->
+<div class="max-w-[1320px] w-full mx-auto px-margin-desktop py-space-xl flex flex-col gap-space-xl">
+<!-- Top Action Breadcrumb & Title Area -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-1.5 text-text-muted font-label-xs text-label-xs">
+<span>หน้าแรก</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span>ระบบผู้ดูแล</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary-container font-body-sm-medium">การจัดการผู้ใช้งานและสิทธิ์ (User & Access Governance)</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+          ศูนย์จัดการผู้ใช้งานและสิทธิ์เจ้าหน้าที่ (User Management & Role Access)
+        </h1>
+<p class="font-body-sm text-body-sm text-text-muted">
+          ตรวจสอบและกำกับดูแลบัญชีผู้ใช้ในระบบ MapNest จ.อุดรธานี (ผู้ซื้อ, เจ้าของทรัพย์, นายหน้าตัวแทน, และเจ้าหน้าที่ผู้ดูแลระบบ)
+        </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-surface-card text-on-surface font-body-sm-medium text-body-sm-medium shadow-sm hover:bg-slate-50 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-text-muted">download</span>
+<span>ส่งออกรายชื่อผู้ใช้งาน (CSV)</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-primary-container hover:bg-primary-hover text-on-primary font-body-sm-medium text-body-sm-medium shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">person_add</span>
+<span>+ เพิ่มเจ้าหน้าที่แอดมินใหม่ (Add Admin Staff)</span>
+</button>
+</div>
+</div>
+<!-- Top 4 User Statistics KPI Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- KPI 1: Total Users -->
+<div class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-text-muted font-label-xs text-label-xs block">ผู้ใช้งานทั้งหมดในระบบ (Total Users)</span>
+<div class="font-price-xl text-price-xl text-on-surface mt-1">4,820 บัญชี</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-slate-100 text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">group</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm bg-slate-50 -mx-space-lg -mb-space-lg px-space-lg py-2.5 rounded-b-xl">
+<div class="flex items-center justify-between text-[11px] font-body-sm-medium">
+<span class="text-status-available flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +284 เดือนนี้
+            </span>
+<span class="text-text-muted">ซื้อ 3.1k · นายหน้า 380 · แอดมิน 40</span>
+</div>
+</div>
+</div>
+<!-- KPI 2: KYC Verified Agents -->
+<div class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-text-muted font-label-xs text-label-xs block">นายหน้ายืนยันตัวตน (KYC Verified)</span>
+<div class="font-price-xl text-price-xl text-on-surface mt-1">186 บัญชี</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-emerald-50 text-status-available flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm bg-slate-50 -mx-space-lg -mb-space-lg px-space-lg py-2.5 rounded-b-xl">
+<div class="flex items-center justify-between text-[11px] font-body-sm-medium">
+<span class="text-text-muted">คิดเป็น 48.9% ของนายหน้า</span>
+<span class="inline-flex items-center gap-1 text-status-available font-label-xs text-label-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-status-available"></span> TREBA 84 คน
+            </span>
+</div>
+</div>
+</div>
+<!-- KPI 3: Flagged / Under Review -->
+<div class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-text-muted font-label-xs text-label-xs block">บัญชีที่ถูกรายงาน/เสี่ยงสแกม (Flagged)</span>
+<div class="font-price-xl text-price-xl text-status-reserved mt-1">7 บัญชี</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-amber-50 text-status-reserved flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm bg-slate-50 -mx-space-lg -mb-space-lg px-space-lg py-2.5 rounded-b-xl">
+<div class="flex items-center justify-between text-[11px] font-body-sm-medium">
+<span class="text-status-reserved flex items-center gap-1 font-label-xs text-label-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-status-reserved animate-pulse"></span> รอดำเนินการตรวจสอบ
+            </span>
+<span class="text-text-muted">ความเร่งด่วน: ปานกลาง</span>
+</div>
+</div>
+</div>
+<!-- KPI 4: Banned / Blacklisted -->
+<div class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-text-muted font-label-xs text-label-xs block">บัญชีถูกระงับถาวร (Banned/Blacklist)</span>
+<div class="font-price-xl text-price-xl text-danger-scam mt-1">28 บัญชี</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-red-50 text-danger-scam flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">block</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm bg-slate-50 -mx-space-lg -mb-space-lg px-space-lg py-2.5 rounded-b-xl">
+<div class="flex items-center justify-between text-[11px] font-body-sm-medium">
+<span class="text-text-muted">มิจฉาชีพ 19 · ข้อมูลปลอม 9</span>
+<span class="text-danger-scam font-label-xs text-label-xs">บล็อก IMEI & เบอร์</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Search, Filter & Role Switcher Bar -->
+<div class="bg-surface-card rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<!-- Role Tabs -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 text-body-sm-medium font-body-sm-medium">
+<button class="px-3.5 py-1.5 rounded-full bg-primary-light text-primary-container whitespace-nowrap" type="button">
+          ผู้ใช้งานทั้งหมด (4,820)
+        </button>
+<button class="px-3.5 py-1.5 rounded-full bg-slate-50 hover:bg-slate-100 text-on-surface whitespace-nowrap transition-colors" type="button">
+          นายหน้ามืออาชีพ (Agent Pro - 380)
+        </button>
+<button class="px-3.5 py-1.5 rounded-full bg-slate-50 hover:bg-slate-100 text-on-surface whitespace-nowrap transition-colors" type="button">
+          เจ้าของทรัพย์ (Owner - 1,280)
+        </button>
+<button class="px-3.5 py-1.5 rounded-full bg-slate-50 hover:bg-slate-100 text-on-surface whitespace-nowrap transition-colors" type="button">
+          ผู้ค้นหา/ผู้เช่า (Buyer - 3,120)
+        </button>
+<button class="px-3.5 py-1.5 rounded-full bg-slate-50 hover:bg-slate-100 text-on-surface whitespace-nowrap transition-colors" type="button">
+          เจ้าหน้าที่ผู้ดูแล (Staff & Admin - 40)
+        </button>
+</div>
+<!-- Controls row: Search + Filters + Sort -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-sm items-center">
+<!-- Search Field -->
+<div class="md:col-span-5 relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-muted text-[18px]">search</span>
+<input class="w-full pl-9 pr-3 py-2 bg-slate-50 rounded-xl text-on-surface placeholder:text-text-muted font-body-sm text-body-sm focus:outline-none focus:bg-surface-card transition-all" placeholder="ค้นหาด้วยชื่อ, เบอร์โทรศัพท์, อีเมล, รหัสสมาชิก หรือเลขบัตร ปชช...." type="text"/>
+</div>
+<!-- Status Filter Dropdown -->
+<div class="md:col-span-3">
+<div class="relative">
+<select class="w-full appearance-none pl-3 pr-8 py-2 bg-slate-50 rounded-xl text-on-surface font-body-sm text-body-sm focus:outline-none cursor-pointer">
+<option>สถานะ: ทั้งหมด (All Statuses)</option>
+<option selected="">สถานะ: ปกติ / ยืนยันแล้ว (Active)</option>
+<option>สถานะ: รอตรวจสอบ KYC (Pending)</option>
+<option>สถานะ: ถูกระงับชั่วคราว (Suspended)</option>
+<option>สถานะ: ระงับถาวร (Banned)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-text-muted text-[18px] pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Zone Filter Dropdown -->
+<div class="md:col-span-2">
+<div class="relative">
+<select class="w-full appearance-none pl-3 pr-8 py-2 bg-slate-50 rounded-xl text-on-surface font-body-sm text-body-sm focus:outline-none cursor-pointer">
+<option>โซน: ทุกพื้นที่</option>
+<option selected="">โซน: อ.เมืองอุดรธานี</option>
+<option>โซน: ต.หมากแข้ง</option>
+<option>โซน: หนองประจักษ์</option>
+<option>โซน: อ.กุมภวาปี</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-text-muted text-[18px] pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Sort Select -->
+<div class="md:col-span-2">
+<div class="relative">
+<select class="w-full appearance-none pl-3 pr-8 py-2 bg-slate-50 rounded-xl text-on-surface font-body-sm text-body-sm focus:outline-none cursor-pointer">
+<option selected="">เรียง: ใช้งานล่าสุด (Active)</option>
+<option>เรียง: วันที่สมัคร (ใหม่ > เก่า)</option>
+<option>เรียง: จำนวนทรัพย์สูงสุด</option>
+<option>เรียง: คะแนนรีวิวสูงสุด</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-text-muted text-[18px] pointer-events-none">sort</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Two-Column User Governance Layout (62% Left, 38% Right) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN: User Directory Table & List (62%) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<div class="bg-surface-card rounded-xl shadow-sm overflow-hidden">
+<div class="px-space-lg py-space-md bg-slate-50 flex items-center justify-between">
+<div class="flex items-center gap-space-xs font-title-md text-title-md text-on-surface">
+<span class="material-symbols-outlined text-primary-container text-[20px]">badge</span>
+<span>รายชื่อบัญชีผู้ใช้งานในระบบ (Directory)</span>
+</div>
+<span class="font-label-xs text-label-xs text-text-muted">กำลังแสดงแถว 1-5 จาก 4,820</span>
+</div>
+<div class="divide-y divide-slate-100 flex flex-col">
+<!-- ROW 1 (SELECTED USER - Active) -->
+<div class="p-space-lg bg-emerald-50/40 hover:bg-emerald-50/60 transition-colors flex flex-col gap-space-sm cursor-pointer relative">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary-container"></div>
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-md">
+<div class="relative w-12 h-12 rounded-full overflow-hidden shadow-sm flex-shrink-0 bg-slate-200">
+<img class="w-full h-full object-cover" data-alt="Professional Thai male real estate agent portrait wearing smart blazer with neutral background studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvuIkycRPdHxMNWqBqwlDOTjkAmPiHm8OqOfEDpy-qZkwofwm1gPFwm4EUJWGUOsAczAfcOXn7z2k0D_oovuav6mlRMx1AR3j7xlQxPjw9q3SBHMogb29lbBtA_uiNZzuMAeaiB_cE8O9QV3bdy0mw0LW1ssrrG0Ymdr60xeYha5Hg27PtOxXr4HpIrNm10L9nsGIo4V6bsCBkLnwF22KC0FBEwf8PUToCklZSYs8"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-body-lg-bold text-body-lg-bold text-on-surface">คุณปิยะพงษ์ วัฒนาสกุล</span>
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-status-available font-label-xs text-label-xs font-bold inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">verified</span> TREBA Certified
+                      </span>
+</div>
+<div class="flex items-center gap-2 text-text-muted font-label-xs text-label-xs mt-0.5">
+<span class="font-mono text-on-surface-variant font-bold">USR-UD25-1042</span>
+<span>•</span>
+<span>Agent Pro (นายหน้าอิสระ)</span>
+<span>•</span>
+<span>ต.หมากแข้ง (UD Town / โพศรี)</span>
+</div>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-emerald-50 text-status-available font-label-xs text-label-xs font-bold inline-flex items-center gap-1 flex-shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-status-available"></span> ยืนยันแล้ว (Active)
+                </span>
+</div>
+<div class="grid grid-cols-3 gap-2 bg-surface-card p-space-sm rounded-lg text-label-xs font-label-xs mt-1">
+<div>
+<span class="text-text-muted block">เบอร์ติดต่อ</span>
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface">081-456-XXXX</span>
+</div>
+<div>
+<span class="text-text-muted block">ทรัพย์ในมือ</span>
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface">18 รายการ (Active 14)</span>
+</div>
+<div>
+<span class="text-text-muted block">เรตติ้งผู้ใช้</span>
+<span class="font-body-sm-medium text-body-sm-medium text-amber-600 inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">star</span> 4.9 (12 รีวิว)
+                  </span>
+</div>
+</div>
+</div>
+<!-- ROW 2 (Corporate Agent) -->
+<div class="p-space-lg hover:bg-slate-50 transition-colors flex flex-col gap-space-sm cursor-pointer">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-md">
+<div class="relative w-12 h-12 rounded-full overflow-hidden shadow-sm flex-shrink-0 bg-slate-200">
+<img class="w-full h-full object-cover" data-alt="Experienced Thai male corporate realtor headshot in business suit with clean corporate light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeGzUi1LSu1Ag28RdNBke_YMhVUPkJWv7Ef9i4kq0FSvkX_Lkmy5yWHMeAht8yAiEXyYKTwtdIxB97WR-LZExA1gDLRc7NTRaFX26-U_Ij_eyKy42YuF16ZOb1AKIBNG-2-QOSw_spod_0ZjEJCuxbVd45YuuAHqQSppSg31pUq_IsJejuXILKTtn1tcm7CWIZmrR58YfbfF3ulXHaq1bGUcqfs87p5TLveFz1X3w"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-body-lg-bold text-body-lg-bold text-on-surface">คุณสมศักดิ์ สุขสวัสดิ์</span>
+<span class="px-2 py-0.5 rounded-full bg-blue-50 text-tertiary-container font-label-xs text-label-xs font-bold">
+                        Corporate Agent
+                      </span>
+</div>
+<div class="flex items-center gap-2 text-text-muted font-label-xs text-label-xs mt-0.5">
+<span class="font-mono text-on-surface-variant font-bold">USR-UD25-0841</span>
+<span>•</span>
+<span>บจก. อุดรธานี พร็อพเพอร์ตี้ เซอร์วิส</span>
+<span>•</span>
+<span>อ.เมืองอุดรธานี</span>
+</div>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-emerald-50 text-status-available font-label-xs text-label-xs font-bold inline-flex items-center gap-1 flex-shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-status-available"></span> ยืนยันแล้ว
+                </span>
+</div>
+<div class="grid grid-cols-3 gap-2 bg-slate-50 p-space-sm rounded-lg text-label-xs font-label-xs mt-1">
+<div>
+<span class="text-text-muted block">เบอร์ติดต่อ / อีเมล</span>
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface truncate">081-499-XXXX</span>
+</div>
+<div>
+<span class="text-text-muted block">ทรัพย์ในมือ</span>
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface">34 รายการ</span>
+</div>
+<div>
+<span class="text-text-muted block">เรตติ้ง</span>
+<span class="font-body-sm-medium text-body-sm-medium text-amber-600 inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">star</span> 4.8 (26 รีวิว)
+                  </span>
+</div>
+</div>
+</div>
+<!-- ROW 3 (FLAGGED / BANNED FRAUD) -->
+<div class="p-space-lg bg-red-50/30 hover:bg-red-50/50 transition-colors flex flex-col gap-space-sm cursor-pointer">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-md">
+<div class="relative w-12 h-12 rounded-full overflow-hidden shadow-sm flex-shrink-0 bg-red-100 flex items-center justify-center text-danger-scam">
+<span class="material-symbols-outlined text-[24px]">person_off</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-body-lg-bold text-body-lg-bold text-on-surface">นายอำนาจ พงษ์ไพศาล</span>
+<span class="px-2 py-0.5 rounded-full bg-red-100 text-danger-scam font-label-xs text-label-xs font-bold inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">gavel</span> FRAUD SCAM
+                      </span>
+</div>
+<div class="flex items-center gap-2 text-text-muted font-label-xs text-label-xs mt-0.5">
+<span class="font-mono text-danger-scam font-bold">USR-FAKE-09</span>
+<span>•</span>
+<span>Individual Owner (เจ้าของทรัพย์)</span>
+<span>•</span>
+<span class="text-danger-scam">ซิมเติมเงิน</span>
+</div>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-red-100 text-danger-scam font-label-xs text-label-xs font-bold inline-flex items-center gap-1 flex-shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-danger-scam"></span> ระงับถาวร (Banned)
+                </span>
+</div>
+<div class="grid grid-cols-3 gap-2 bg-red-50/60 p-space-sm rounded-lg text-label-xs font-label-xs mt-1">
+<div>
+<span class="text-text-muted block">เบอร์โทรบล็อก</span>
+<span class="font-body-sm-medium text-body-sm-medium text-danger-scam">098-771-XXXX</span>
+</div>
+<div class="col-span-2">
+<span class="text-text-muted block">สาเหตุการแบน</span>
+<span class="font-body-sm-medium text-body-sm-medium text-danger-scam truncate">หลอกลวงค่ามัดจำห้องลุมพินีเพลส ฿3,500</span>
+</div>
+</div>
+</div>
+<!-- ROW 4 (Pending KYC Owner) -->
+<div class="p-space-lg hover:bg-slate-50 transition-colors flex flex-col gap-space-sm cursor-pointer">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-md">
+<div class="relative w-12 h-12 rounded-full overflow-hidden shadow-sm flex-shrink-0 bg-slate-200">
+<img class="w-full h-full object-cover" data-alt="Portrait of middle-aged Thai female homeowner with friendly expression in soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoEoix7BJ92XASA84XcW8K6LbRHrC1Q1MNASmV_HGY5UImGm-gn4Gvlbvhe7NMk6RkUf4Uur02ulZgrIvVMuhlTJrnMQlQCnfaQqCh-DYtF4K9g5EPdY-IkDzXm4LLL45ffbe9ZeQOFul9cJPSN8Y5S7rqR_jQ9LiSfych5mG_uSnxvbfYEx32EQ50LRcZhcWknn6ORjoLGD8Yekk_gHaFoKACZ6rdirwMWKShZBI"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-body-lg-bold text-body-lg-bold text-on-surface">คุณกัลยาณี เจริญสุข</span>
+<span class="px-2 py-0.5 rounded-full bg-amber-100 text-status-reserved font-label-xs text-label-xs font-bold">
+                        Pending KYC
+                      </span>
+</div>
+<div class="flex items-center gap-2 text-text-muted font-label-xs text-label-xs mt-0.5">
+<span class="font-mono text-on-surface-variant font-bold">USR-UD25-0141</span>
+<span>•</span>
+<span>Individual Owner (เจ้าของทรัพย์)</span>
+<span>•</span>
+<span>อ.เมืองอุดรธานี</span>
+</div>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-amber-50 text-status-reserved font-label-xs text-label-xs font-bold inline-flex items-center gap-1 flex-shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-status-reserved"></span> รอตรวจเอกสารสิทธิ์
+                </span>
+</div>
+<div class="grid grid-cols-3 gap-2 bg-slate-50 p-space-sm rounded-lg text-label-xs font-label-xs mt-1">
+<div>
+<span class="text-text-muted block">เบอร์ติดต่อ</span>
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface">089-772-XXXX</span>
+</div>
+<div>
+<span class="text-text-muted block">ทรัพย์ยื่นขอลง</span>
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface">1 แปลง (โฉนดที่ดิน)</span>
+</div>
+<div>
+<span class="text-text-muted block">เอกสารรอตรวจ</span>
+<span class="font-body-sm-medium text-body-sm-medium text-status-reserved">น.ส.4จ + บัตร ปชช.</span>
+</div>
+</div>
+</div>
+<!-- ROW 5 (Super Admin Staff) -->
+<div class="p-space-lg hover:bg-slate-50 transition-colors flex flex-col gap-space-sm cursor-pointer">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-md">
+<div class="relative w-12 h-12 rounded-full overflow-hidden shadow-sm flex-shrink-0 bg-primary-container text-on-primary flex items-center justify-center font-bold">
+                    CM
+                  </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-body-lg-bold text-body-lg-bold text-on-surface">นายชานนท์ มหาวงศ์</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-light text-primary-container font-label-xs text-label-xs font-bold">
+                        Super Admin
+                      </span>
+</div>
+<div class="flex items-center gap-2 text-text-muted font-label-xs text-label-xs mt-0.5">
+<span class="font-mono text-on-surface-variant font-bold">ADM-UD25-001</span>
+<span>•</span>
+<span>เจ้าหน้าที่ศูนย์ประสานงานอุดรธานี</span>
+<span>•</span>
+<span>chanon.m@mapnest.co.th</span>
+</div>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-teal-50 text-primary-container font-label-xs text-label-xs font-bold inline-flex items-center gap-1 flex-shrink-0">
+<span class="material-symbols-outlined text-[13px]">shield_person</span> Security Level 4
+                </span>
+</div>
+<div class="grid grid-cols-3 gap-2 bg-slate-50 p-space-sm rounded-lg text-label-xs font-label-xs mt-1">
+<div>
+<span class="text-text-muted block">สิทธิ์การควบคุม</span>
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface">Full System Governance</span>
+</div>
+<div>
+<span class="text-text-muted block">ตรวจสอบ KYC</span>
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface">1,420 รายการ</span>
+</div>
+<div>
+<span class="text-text-muted block">การเข้าสู่ระบบล่าสุด</span>
+<span class="font-body-sm-medium text-body-sm-medium text-status-available">กำลังใช้งานอยู่ (Active)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination Bar -->
+<div class="p-space-md bg-slate-50 flex items-center justify-between border-t border-slate-100 font-label-xs text-label-xs text-text-muted">
+<div class="flex items-center gap-2">
+<span>แสดง 1 - 5 จากทั้งหมด 4,820 รายการ</span>
+</div>
+<div class="flex items-center gap-1 font-body-sm-medium">
+<button class="px-2.5 py-1 rounded-lg bg-surface-card shadow-sm text-text-muted hover:text-on-surface" type="button">ก่อนหน้า</button>
+<button class="w-7 h-7 rounded-lg bg-primary-container text-on-primary flex items-center justify-center" type="button">1</button>
+<button class="w-7 h-7 rounded-lg bg-surface-card hover:bg-slate-100 text-on-surface flex items-center justify-center" type="button">2</button>
+<button class="w-7 h-7 rounded-lg bg-surface-card hover:bg-slate-100 text-on-surface flex items-center justify-center" type="button">3</button>
+<span>...</span>
+<button class="w-7 h-7 rounded-lg bg-surface-card hover:bg-slate-100 text-on-surface flex items-center justify-center" type="button">964</button>
+<button class="px-2.5 py-1 rounded-lg bg-surface-card shadow-sm text-on-surface hover:bg-slate-100" type="button">ถัดไป</button>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: User Detail & Governance Inspector Drawer (38%) -->
+<div class="lg:col-span-5 flex flex-col gap-space-md sticky top-32">
+<div class="bg-surface-card rounded-xl p-space-lg shadow-sm flex flex-col gap-space-lg">
+<!-- Header Card for Selected User -->
+<div class="flex flex-col gap-space-sm pb-space-md bg-gradient-to-br from-slate-50 to-white -mx-space-lg -mt-space-lg p-space-lg rounded-t-xl">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-md">
+<div class="relative w-16 h-16 rounded-2xl overflow-hidden shadow-md bg-slate-200">
+<img class="w-full h-full object-cover" data-alt="Close-up professional portrait of Thai real estate consultant in modern office lighting with clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzjJklr6vDRetx3rMtN6npI8sQq71IP54_vD36undh00cSxj2din30VnHBNfOgzuM6ABGFXaRKC3zlr1N81GUJGtB8dFaiXePCvAVUogGXCLFwgT97tVWMSODjS-7TNDV7OOYjw8ZdoF2WcBrW6gv0HFXf9xkHsBBrk_Gig4cPbSx5AmykxYHX6wN208wA0B3ORi1wrVz-Mk-8S-w1vOset0sns11YX9kFSCYWY3w"/>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface font-bold leading-tight">คุณปิยะพงษ์ วัฒนาสกุล</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-mono text-label-xs text-label-xs bg-slate-200/70 text-on-surface px-1.5 py-0.5 rounded font-bold">UID: USR-UD25-1042</span>
+<span class="font-label-xs text-label-xs text-text-muted">เป็นสมาชิก: 14 ก.พ. 2567 (1 ปี 1 เดือน)</span>
+</div>
+</div>
+</div>
+<span class="p-1 rounded-lg text-text-muted hover:text-on-surface hover:bg-slate-200/50 transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</span>
+</div>
+<!-- Verification Badges -->
+<div class="flex items-center gap-1.5 flex-wrap mt-1">
+<span class="px-2.5 py-1 rounded-full bg-emerald-50 text-status-available font-label-xs text-label-xs font-bold inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> KYC Verified (DOPA Match)
+              </span>
+<span class="px-2.5 py-1 rounded-full bg-emerald-50 text-status-available font-label-xs text-label-xs font-bold inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">badge</span> TREBA: TR-2024-9102
+              </span>
+<span class="px-2 py-1 rounded-full bg-slate-100 text-on-surface font-label-xs text-label-xs inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">call</span> OTP Verified
+              </span>
+</div>
+</div>
+<!-- Activity & Performance Summary -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-xs text-label-xs font-bold text-text-muted uppercase tracking-wider">ภาพรวมกิจกรรมและประสิทธิภาพ (Activity & Performance)</span>
+<div class="grid grid-cols-2 gap-space-sm mt-1">
+<div class="bg-slate-50 p-space-sm rounded-xl flex items-center justify-between">
+<div>
+<span class="text-text-muted text-[11px] block">ประกาศที่เปิดอยู่</span>
+<span class="font-price-sm text-price-sm text-on-surface">14 รายการ</span>
+</div>
+<div class="w-8 h-8 rounded-lg bg-teal-50 text-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">real_estate_agent</span>
+</div>
+</div>
+<div class="bg-slate-50 p-space-sm rounded-xl flex items-center justify-between">
+<div>
+<span class="text-text-muted text-[11px] block">ปิดการขายสำเร็จ</span>
+<span class="font-price-sm text-price-sm text-status-available">8 รายการ (฿24.6M)</span>
+</div>
+<div class="w-8 h-8 rounded-lg bg-emerald-50 text-status-available flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">handshake</span>
+</div>
+</div>
+<div class="bg-slate-50 p-space-sm rounded-xl flex items-center justify-between">
+<div>
+<span class="text-text-muted text-[11px] block">เครดิตคงเหลือ</span>
+<span class="font-price-sm text-price-sm text-on-surface">68 เครดิต</span>
+</div>
+<div class="w-8 h-8 rounded-lg bg-amber-50 text-status-reserved flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">token</span>
+</div>
+</div>
+<div class="bg-slate-50 p-space-sm rounded-xl flex items-center justify-between">
+<div>
+<span class="text-text-muted text-[11px] block">อัตราการตอบแชท</span>
+<span class="font-price-sm text-price-sm text-on-surface">98% (~4 นาที)</span>
+</div>
+<div class="w-8 h-8 rounded-lg bg-blue-50 text-chart-views flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</div>
+</div>
+</div>
+<div class="bg-emerald-50/50 p-2.5 rounded-lg flex items-center justify-between mt-1 text-label-xs font-label-xs">
+<span class="text-status-available font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">verified_user</span> ประวัติขาวสะอาด ไม่เคยถูกรายงาน
+              </span>
+<span class="text-text-muted">Report count: 0</span>
+</div>
+</div>
+<!-- Permissions & Role Management -->
+<div class="flex flex-col gap-space-sm">
+<span class="font-label-xs text-label-xs font-bold text-text-muted uppercase tracking-wider">การปรับบทบาทและสิทธิ์ (Role & Permissions)</span>
+<div class="bg-slate-50 p-space-md rounded-xl flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="text-on-surface font-body-sm-medium text-body-sm-medium">บทบาทปัจจุบัน:</span>
+<span class="px-2 py-0.5 rounded bg-primary-container text-on-primary font-label-xs text-label-xs font-bold">Agent Pro (มืออาชีพ)</span>
+</div>
+<p class="text-text-muted text-[11px] leading-relaxed">
+                สิทธิ์ที่ได้รับ: ลงประกาศไม่จำกัดจำนวน, สิทธิ์เข้าถึง Co-Broker Board อุดรธานี, สิทธิ์ยืนยันตนด้วยตราสัญลักษณ์ TREBA สีเขียว, ติดต่อทีมซัพพอร์ตโดยตรง
+              </p>
+<div class="mt-2">
+<label class="text-[11px] text-text-muted block mb-1">เปลี่ยนระดับบทบาทผู้ใช้งาน (Assign New Role):</label>
+<div class="relative">
+<select class="w-full appearance-none pl-3 pr-8 py-2 bg-surface-card rounded-lg text-on-surface font-body-sm text-body-sm shadow-sm focus:outline-none cursor-pointer">
+<option selected="">Agent Pro (นายหน้ามืออาชีพได้รับการรับรอง)</option>
+<option>Standard Agent (นายหน้าทั่วไป)</option>
+<option>Property Owner (เจ้าของทรัพย์ยืนยันตัวตน)</option>
+<option>Admin Staff (เจ้าหน้าที่ประสานงานเขต)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-text-muted text-[18px] pointer-events-none">swap_horiz</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Security & Enforcement Actions -->
+<div class="flex flex-col gap-space-sm">
+<span class="font-label-xs text-label-xs font-bold text-text-muted uppercase tracking-wider">มาตรการรักษาความปลอดภัย (Security Controls)</span>
+<div class="space-y-2 text-body-sm text-body-sm">
+<label class="flex items-center gap-2 cursor-pointer p-2 rounded-lg hover:bg-slate-50 transition-colors">
+<input checked="" class="w-4 h-4 rounded text-primary-container accent-primary-container" type="checkbox"/>
+<span class="text-on-surface font-body-sm-medium text-body-sm-medium">อนุญาตการเข้าถึงแอปมือถือและ API พาร์ทเนอร์</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer p-2 rounded-lg hover:bg-slate-50 transition-colors">
+<input class="w-4 h-4 rounded text-primary-container accent-primary-container" type="checkbox"/>
+<span class="text-on-surface font-body-sm-medium text-body-sm-medium">บังคับรีเซ็ตรหัสผ่านและส่งลิงก์ยืนยันตัวตนใหม่</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer p-2 rounded-lg hover:bg-amber-50/50 transition-colors">
+<input class="w-4 h-4 rounded text-status-reserved accent-status-reserved" type="checkbox"/>
+<span class="text-amber-800 font-body-sm-medium text-body-sm-medium">สั่งพักการใช้งานชั่วคราว (Suspend 7-30 วัน)</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer p-2 rounded-lg hover:bg-red-50/50 transition-colors">
+<input class="w-4 h-4 rounded text-danger-scam accent-danger-scam" type="checkbox"/>
+<span class="text-danger-scam font-body-sm-medium text-body-sm-medium">แบนถาวรและขึ้นบัญชีดำ (Blacklist IMEI / Phone)</span>
+</label>
+</div>
+</div>
+<!-- Audit Log Trail for this user -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-xs text-label-xs font-bold text-text-muted uppercase tracking-wider">ประวัติการตรวจสอบล่าสุด (Audit Trail)</span>
+<div class="bg-slate-50 p-space-sm rounded-xl space-y-2 font-label-xs text-label-xs">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[14px] text-status-available mt-0.5">check_circle</span>
+<div class="flex flex-col">
+<span class="text-on-surface">ผ่านการตรวจ KYC โดยแอดมิน ชานนท์ (DOPA Valid)</span>
+<span class="text-text-muted text-[10px]">25 มี.ค. 2568 · 10:24 น. · Node UDON-01</span>
+</div>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[14px] text-chart-views mt-0.5">shopping_bag</span>
+<div class="flex flex-col">
+<span class="text-on-surface">ทำรายการซื้อ Spotlight Package (30 วัน)</span>
+<span class="text-text-muted text-[10px]">24 มี.ค. 2568 · 16:40 น. · บัตรเครดิต KBANK</span>
+</div>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[14px] text-primary-container mt-0.5">upload_file</span>
+<div class="flex flex-col">
+<span class="text-on-surface">ยื่นต่ออายุบัตรสมาชิกสมาคมนายหน้า TREBA ประจำปี</span>
+<span class="text-text-muted text-[10px]">20 มี.ค. 2568 · 14:15 น. · ระบบอัตโนมัติ</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Buttons in Inspector -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<button class="w-full py-2.5 px-4 rounded-xl bg-primary-container hover:bg-primary-hover text-on-primary font-body-sm-medium text-body-sm-medium shadow-sm transition-colors flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[18px]">save</span>
+<span>บันทึกการตั้งค่าสิทธิ์ (Save Settings)</span>
+</button>
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="w-full py-2 px-3 rounded-xl bg-surface-card hover:bg-slate-100 text-on-surface font-body-sm-medium text-body-sm-medium shadow-sm transition-colors text-center truncate" type="button">
+                ดูประกาศทั้งหมด (18)
+              </button>
+<button class="w-full py-2 px-3 rounded-xl bg-red-50 hover:bg-red-100 text-danger-scam font-body-sm-medium text-body-sm-medium shadow-sm transition-colors text-center truncate" type="button">
+                ระงับบัญชี (Suspend)
+              </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Security & Compliance Bar -->
+<div class="bg-surface-card rounded-xl p-space-md shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-xs text-label-xs text-text-muted">
+<div class="flex items-center gap-space-md flex-wrap">
+<span class="inline-flex items-center gap-1 text-on-surface font-body-sm-medium">
+<span class="material-symbols-outlined text-primary-container text-[16px]">verified_user</span>
+          Security Stamp Level 4 (PDPA Compliant)
+        </span>
+<span>•</span>
+<span>การเข้าถึงและแก้ไขข้อมูลถูกบันทึกใน Immutable Audit Trail</span>
+<span>•</span>
+<span class="font-mono text-on-surface-variant font-bold">Audit Log ID: 0x8892FA-UDON</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-status-available"></span>
+<span class="font-mono text-[11px] text-on-surface">Node: TH-NE-UDON-01 (Udon Thani Center Hub)</span>
+</div>
+</div>
+</div>
+</div></main><footer class="w-full bg-surface-card border-t border-border-subtle py-space-lg"><div class="max-w-[1320px] mx-auto px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-md font-label-xs text-label-xs text-text-muted"><div>© 2025 MapNest Thailand. ศูนย์ประสานงานและกำกับดูแลอสังหาริมทรัพย์ สาขาอุดรธานี สงวนลิขสิทธิ์ทุกประการ</div><div class="flex items-center gap-space-lg"><span>PDPA Compliance Officer: ext. 4201</span><span>บันทึกประวัติการตรวจสอบ Audit Trail #UDON-8894</span><a class="hover:text-primary transition-colors" href="#">ข้อกำหนดการใช้งานระบบ</a></div></div></footer></body></html>

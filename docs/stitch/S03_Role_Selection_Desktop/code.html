@@ -1,0 +1,456 @@
+<!DOCTYPE html><html lang="th"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_blank" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "secondary": "#006c49",
+          "surface-container-highest": "#dae2fd",
+          "error-container": "#ffdad6",
+          "surface-container": "#eaedff",
+          "on-primary-fixed": "#00201d",
+          "on-secondary": "#ffffff",
+          "on-tertiary-fixed-variant": "#004395",
+          "tertiary": "#004eaa",
+          "surface-dim": "#d2d9f4",
+          "secondary-container": "#6cf8bb",
+          "primary": "#005c55",
+          "on-error-container": "#93000a",
+          "surface-tint": "#006a63",
+          "on-tertiary-container": "#e4eaff",
+          "tertiary-container": "#0165d8",
+          "on-error": "#ffffff",
+          "inverse-on-surface": "#eef0ff",
+          "inverse-primary": "#80d5cb",
+          "surface-variant": "#dae2fd",
+          "tertiary-fixed-dim": "#adc6ff",
+          "status-sold": "#EF4444",
+          "on-tertiary": "#ffffff",
+          "primary-hover": "#115E59",
+          "primary-light": "#F0FDFA",
+          "primary-fixed-dim": "#80d5cb",
+          "canvas-background": "#F8FAFC",
+          "on-tertiary-fixed": "#001a42",
+          "on-secondary-container": "#00714d",
+          "status-available": "#10B981",
+          "on-primary": "#ffffff",
+          "primary-fixed": "#9cf2e8",
+          "error": "#ba1a1a",
+          "on-background": "#131b2e",
+          "chart-views": "#3B82F6",
+          "chart-speed": "#F97316",
+          "border-subtle": "#E2E8F0",
+          "on-secondary-fixed-variant": "#005236",
+          "tertiary-fixed": "#d8e2ff",
+          "on-surface-variant": "#3e4947",
+          "surface-container-low": "#f2f3ff",
+          "secondary-fixed-dim": "#4edea3",
+          "on-secondary-fixed": "#002113",
+          "inverse-surface": "#283044",
+          "on-surface": "#131b2e",
+          "background": "#faf8ff",
+          "surface-container-lowest": "#ffffff",
+          "status-reserved": "#F59E0B",
+          "text-muted": "#64748B",
+          "surface": "#faf8ff",
+          "surface-card": "#FFFFFF",
+          "outline": "#6e7977",
+          "surface-container-high": "#e2e7ff",
+          "danger-scam": "#DC2626",
+          "primary-container": "#0f766e",
+          "surface-bright": "#faf8ff",
+          "secondary-fixed": "#6ffbbe",
+          "on-primary-container": "#a3faef",
+          "on-primary-fixed-variant": "#00504a",
+          "outline-variant": "#bdc9c6"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "margin": "1rem",
+          "space-xl": "1.5rem",
+          "space-md": "0.75rem",
+          "margin-desktop": "2rem",
+          "space-xs": "0.25rem",
+          "gutter-desktop": "1.5rem",
+          "space-sm": "0.5rem",
+          "space-lg": "1rem",
+          "margin-tablet": "1.5rem",
+          "gutter": "1rem"
+        },
+        "fontFamily": {
+          "headline-md": [
+            "Plus Jakarta Sans"
+          ],
+          "body-sm": [
+            "Plus Jakarta Sans"
+          ],
+          "price-sm": [
+            "Plus Jakarta Sans"
+          ],
+          "title-md": [
+            "Plus Jakarta Sans"
+          ],
+          "body-lg": [
+            "Plus Jakarta Sans"
+          ],
+          "body-sm-medium": [
+            "Plus Jakarta Sans"
+          ],
+          "display-lg": [
+            "Plus Jakarta Sans"
+          ],
+          "price-xl": [
+            "Plus Jakarta Sans"
+          ],
+          "body-lg-bold": [
+            "Plus Jakarta Sans"
+          ],
+          "label-xs": [
+            "Plus Jakarta Sans"
+          ],
+          "headline-lg": [
+            "Plus Jakarta Sans"
+          ]
+        },
+        "fontSize": {
+          "headline-md": [
+            "20px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "600"
+            }
+          ],
+          "body-sm": [
+            "14px",
+            {
+              "lineHeight": "22px",
+              "fontWeight": "400"
+            }
+          ],
+          "price-sm": [
+            "14px",
+            {
+              "lineHeight": "18px",
+              "fontWeight": "700"
+            }
+          ],
+          "title-md": [
+            "18px",
+            {
+              "lineHeight": "26px",
+              "fontWeight": "600"
+            }
+          ],
+          "body-lg": [
+            "16px",
+            {
+              "lineHeight": "26px",
+              "fontWeight": "400"
+            }
+          ],
+          "body-sm-medium": [
+            "14px",
+            {
+              "lineHeight": "22px",
+              "fontWeight": "500"
+            }
+          ],
+          "display-lg": [
+            "30px",
+            {
+              "lineHeight": "40px",
+              "fontWeight": "700"
+            }
+          ],
+          "price-xl": [
+            "24px",
+            {
+              "lineHeight": "30px",
+              "fontWeight": "800"
+            }
+          ],
+          "body-lg-bold": [
+            "16px",
+            {
+              "lineHeight": "26px",
+              "fontWeight": "600"
+            }
+          ],
+          "label-xs": [
+            "12px",
+            {
+              "lineHeight": "18px",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-lg": [
+            "24px",
+            {
+              "lineHeight": "34px",
+              "fontWeight": "700"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-canvas-background text-on-surface antialiased min-h-screen flex items-center justify-center p-margin"><main class="w-full max-w-5xl mx-auto"><div class="flex flex-col w-full">
+<div class="relative w-full py-space-xl flex items-center justify-center">
+<!-- Atmospheric Ambient Blur Backdrop -->
+<div class="absolute -top-12 -left-12 w-96 h-96 bg-primary-light/80 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute -bottom-16 -right-16 w-80 h-80 bg-secondary-container/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- Main Container Card (Desktop Modal 960px) -->
+<div class="w-full max-w-[960px] mx-auto bg-surface-card rounded-xl shadow-xl p-8 sm:p-12 relative flex flex-col">
+<!-- Top Branding & Navigation Meta -->
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-8">
+<div class="flex items-center gap-3">
+<img alt="MapNest Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W0mcxoqTWFJDtqiSJknOl2g_EEDvXTmJP-KGweq2SlS1YjYOyo0MoYk4uwSp0ALAFMD9rqamPRf5EVIYhsW622BoTODxGJZnZwuoCMygpwsIR-1oQ07TjWTleejZTYGAdigpl7j5cNBc1Qll_5_hJjnlAYyKhQVFrbSgQLM4C0wk0pA4ZpdxmrOoCu_lPj9bufaepv88aGI1KOw4OvYSKStaMrHUsMdWON7Bw5aW4">
+</div>
+<!-- Step Indicator Pill -->
+<div class="flex items-center gap-3 self-start sm:self-auto bg-canvas-background px-4 py-2 rounded-full shadow-sm">
+<div class="flex gap-1.5 items-center">
+<span class="w-2 h-2 rounded-full bg-border-subtle"></span>
+<span class="w-6 h-2 rounded-full bg-primary-container"></span>
+</div>
+<span class="text-body-sm-medium font-body-sm-medium text-text-muted">
+            ขั้นตอนที่ 2 จาก 2 : กำหนดบทบาทการใช้งาน
+          </span>
+</div>
+</div>
+<!-- Heading & Explanatory Subtitle -->
+<div class="max-w-2xl mb-10 text-left">
+<div class="inline-flex items-center gap-2 px-3 py-1 mb-3 rounded-full bg-primary-light text-primary font-label-xs text-label-xs uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-status-available"></span>
+          Udon Thani Pilot • ระบบคัดกรองผู้ใช้งาน
+        </div>
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight mb-2">
+          คุณต้องการใช้ MapNest เพื่ออะไร?
+        </h1>
+<p class="font-body-lg text-body-lg text-text-muted">
+          เลือกบทบาทหลักของคุณ คุณสามารถสลับหรือเพิ่มบทบาทได้ในภายหลังผ่านการตั้งค่าบัญชี
+        </p>
+</div>
+<!-- 3-Column Role Selection Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch mb-10" id="role-selector-container">
+<!-- Card 1: ผู้ซื้อ / ผู้เช่า (Buyer / Tenant) -->
+<div aria-pressed="false" class="role-card group relative flex flex-col justify-between p-6 rounded-xl bg-surface-card shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer text-left focus:outline-none" data-role="buyer" role="button" tabindex="0">
+<!-- Top Row: Icon Badge & Radio Selection Indicator -->
+<div>
+<div class="flex items-start justify-between mb-5">
+<div class="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center text-primary group-hover:scale-105 transition-transform duration-200">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+<path d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M10.5 7.5v6m-3-3h6" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<!-- Radio Indicator Icon -->
+<div class="radio-indicator w-6 h-6 rounded-full bg-canvas-background flex items-center justify-center text-transparent transition-colors">
+<svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 16 16">
+<circle cx="8" cy="8" r="4"></circle>
+</svg>
+</div>
+</div>
+<!-- Role Title -->
+<div class="mb-3">
+<h2 class="font-headline-md text-headline-md text-on-surface">ผู้ซื้อ / ผู้เช่า</h2>
+<span class="font-label-xs text-label-xs text-text-muted">Buyer / Tenant</span>
+</div>
+<!-- Highlight Value Props -->
+<ul class="space-y-3 mb-6 pt-3 text-text-muted font-body-sm text-body-sm">
+<li class="flex items-start gap-2.5">
+<svg class="w-4 h-4 mt-1 text-primary shrink-0" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
+</svg>
+<span class="">ค้นหาบ้าน คอนโด ที่ดินในอุดรธานี</span>
+</li>
+<li class="flex items-start gap-2.5">
+<svg class="w-4 h-4 mt-1 text-primary shrink-0" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
+</svg>
+<span class="">ปักหมุดความต้องการซื้อ (Demand Pin)</span>
+</li>
+<li class="flex items-start gap-2.5">
+<svg class="w-4 h-4 mt-1 text-primary shrink-0" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
+</svg>
+<span class="">แชทคุยตรงกับเจ้าของหรือนายหน้า</span>
+</li>
+<li class="flex items-start gap-2.5">
+<svg class="w-4 h-4 mt-1 text-status-available shrink-0" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
+</svg>
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface">ไม่มีค่าธรรมเนียมการค้นหา</span>
+</li>
+</ul>
+</div>
+<div class="pt-4 mt-auto">
+<span class="card-status-label inline-block font-label-xs text-label-xs text-text-muted">คลิกเพื่อเลือก</span>
+</div>
+</div>
+<!-- Card 2: เจ้าของทรัพย์ (Property Owner) -->
+<div aria-pressed="false" class="role-card group relative flex flex-col justify-between p-6 rounded-xl bg-surface-card shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer text-left focus:outline-none" data-role="owner" role="button" tabindex="0">
+<!-- Floating Badge -->
+<div class="absolute -top-3 left-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-xs text-label-xs shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              ลงประกาศฟรี 3 รายการ
+            </span>
+</div>
+<!-- Top Row: Icon Badge & Radio Selection Indicator -->
+<div>
+<div class="flex items-start justify-between mb-5 mt-1">
+<div class="w-12 h-12 rounded-xl bg-canvas-background flex items-center justify-center text-primary group-hover:scale-105 transition-transform duration-200">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+<path d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<!-- Radio Indicator Icon -->
+<div class="radio-indicator w-6 h-6 rounded-full bg-canvas-background flex items-center justify-center text-transparent transition-colors">
+<svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 16 16">
+<circle cx="8" cy="8" r="4"></circle>
+</svg>
+</div>
+</div>
+<!-- Role Title -->
+<div class="mb-3">
+<h2 class="font-headline-md text-headline-md text-on-surface">เจ้าของทรัพย์</h2>
+<span class="font-label-xs text-label-xs text-text-muted">Property Owner</span>
+</div>
+<!-- Highlight Value Props -->
+<ul class="space-y-3 mb-6 pt-3 text-text-muted font-body-sm text-body-sm">
+<li class="flex items-start gap-2.5">
+<svg class="w-4 h-4 mt-1 text-primary shrink-0" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
+</svg>
+<span class="">ลงประกาศขาย-เช่าฟรีด้วยตัวเอง</span>
+</li>
+<li class="flex items-start gap-2.5">
+<svg class="w-4 h-4 mt-1 text-primary shrink-0" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
+</svg>
+<span class="">ตรวจสอบสถานะการตรวจสอบ (Verified)</span>
+</li>
+<li class="flex items-start gap-2.5">
+<svg class="w-4 h-4 mt-1 text-primary shrink-0" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
+</svg>
+<span class="">ดูสถิติคนเข้าชมแบบเรียลไทม์</span>
+</li>
+<li class="flex items-start gap-2.5">
+<svg class="w-4 h-4 mt-1 text-primary shrink-0" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
+</svg>
+<span class="">จัดการคิวนัดหมายชมบ้าน</span>
+</li>
+</ul>
+</div>
+<div class="pt-4 mt-auto">
+<span class="card-status-label inline-block font-label-xs text-label-xs text-text-muted">คลิกเพื่อเลือก</span>
+</div>
+</div>
+<!-- Card 3: นายหน้าอสังหาฯ (Real Estate Agent) [Active Initial State] -->
+<div aria-pressed="true" class="role-card group relative flex flex-col justify-between p-6 rounded-xl bg-primary-light/40 shadow-md transition-all duration-200 cursor-pointer text-left focus:outline-none" data-role="agent" role="button" tabindex="0">
+<!-- Floating Badge -->
+<div class="absolute -top-3 left-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-primary-container text-on-primary font-label-xs text-label-xs shadow-sm">
+<svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" fill-rule="evenodd"></path>
+</svg>
+              เหมาะสำหรับมืออาชีพ
+            </span>
+</div>
+<!-- Top Row: Icon Badge & Radio Selection Indicator -->
+<div>
+<div class="flex items-start justify-between mb-5 mt-1">
+<div class="w-12 h-12 rounded-xl bg-primary-container flex items-center justify-center text-on-primary group-hover:scale-105 transition-transform duration-200 shadow-sm">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+<path d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0M12 12.75h.008v.008H12v-.008Z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<!-- Radio Indicator Icon (Selected) -->
+<div class="radio-indicator w-6 h-6 rounded-full bg-primary-container flex items-center justify-center text-on-primary transition-colors">
+<svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 16 16">
+<circle cx="8" cy="8" r="4"></circle>
+</svg>
+</div>
+</div>
+<!-- Role Title -->
+<div class="mb-3">
+<h2 class="font-headline-md text-headline-md text-on-surface">นายหน้าอสังหาฯ</h2>
+<span class="font-label-xs text-label-xs text-primary font-semibold">Real Estate Agent (แนะนำ)</span>
+</div>
+<!-- Highlight Value Props -->
+<ul class="space-y-3 mb-6 pt-3 text-on-surface-variant font-body-sm text-body-sm">
+<li class="flex items-start gap-2.5">
+<svg class="w-4 h-4 mt-1 text-primary shrink-0" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
+</svg>
+<span class="">เข้าถึงกระดานความต้องการซื้อ (Demand Board)</span>
+</li>
+<li class="flex items-start gap-2.5">
+<svg class="w-4 h-4 mt-1 text-primary shrink-0" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
+</svg>
+<span class="">ส่งข้อเสนอทรัพย์ตรงถึงผู้ซื้อได้ทันที</span>
+</li>
+<li class="flex items-start gap-2.5">
+<svg class="w-4 h-4 mt-1 text-primary shrink-0" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
+</svg>
+<span class="">ระบบยืนยันตัวตน KYC เพิ่มความน่าเชื่อถือ</span>
+</li>
+<li class="flex items-start gap-2.5">
+<svg class="w-4 h-4 mt-1 text-primary shrink-0" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path>
+</svg>
+<span class="">หน้าโปรไฟล์และไมโครไซต์นายหน้าส่วนตัว</span>
+</li>
+</ul>
+</div>
+<div class="pt-4 mt-auto">
+<span class="card-status-label inline-block font-label-xs text-label-xs text-primary font-bold">เลือกบทบาทนี้อยู่</span>
+</div>
+</div>
+</div>
+<!-- Trust Indicator Strip -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-canvas-background mb-8">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-card shadow-sm flex items-center justify-center text-primary">
+<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<div class="text-left">
+<p class="font-body-sm-medium text-body-sm-medium text-on-surface">ความปลอดภัยและมาตรฐานยืนยันตัวตน</p>
+<p class="font-label-xs text-label-xs text-text-muted">ข้อมูลของคุณได้รับการปกป้องตามมาตรฐาน PDPA ประเทศไทย</p>
+</div>
+</div>
+<div class="hidden sm:flex items-center gap-4 text-text-muted font-label-xs text-label-xs">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-status-available"></span>ระบบพร้อมใช้งานในอุดรธานี</span>
+</div>
+</div>
+<!-- Bottom Action Bar -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
+<!-- Skip for now link -->
+<a class="font-body-sm-medium text-body-sm-medium text-text-muted hover:text-on-surface transition-colors py-2 px-3 rounded-lg focus:outline-none" href="#dashboard">
+          ข้ามขั้นตอนนี้ไปก่อน
+        </a>
+<!-- Primary Action Button (Forest Teal CTA) -->
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-primary-container hover:bg-primary-hover text-on-primary font-body-lg-bold text-body-lg-bold px-8 py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all transform active:scale-[0.99] focus:outline-none" id="confirm-role-btn" type="button">
+<span class="">ยืนยันและเข้าสู่ระบบ</span>
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div></main>
+
+</body></html>

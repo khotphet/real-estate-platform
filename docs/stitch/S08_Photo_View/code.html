@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="th"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>S08 Photo View [Desktop] - MapNest</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Sarabun:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#0F766E",
+            "primary-hover": "#115E59",
+            "primary-light": "#F0FDFA",
+            "primary-container": "#0F766E",
+            "canvas-background": "#F8FAFC",
+            "surface-card": "#FFFFFF",
+            "border-subtle": "#E2E8F0",
+            "text-muted": "#64748B",
+            "on-surface": "#0F172A",
+            "status-available": "#10B981",
+            "status-reserved": "#F59E0B",
+            "status-sold": "#EF4444"
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Sarabun"', 'sans-serif'],
+            body: ['"Sarabun"', '"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    body { font-family: 'Plus Jakarta Sans', 'Sarabun', sans-serif; background-color: #F8FAFC; color: #0F172A; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .material-symbols-fill { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  </style>
+</head>
+<body class="min-h-full bg-[#F8FAFC] text-[#0F172A] antialiased">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-40 w-full bg-white border-b border-[#E2E8F0] shadow-sm">
+<div class="max-w-[1440px] mx-auto px-8 h-20 flex items-center justify-between gap-6">
+<!-- Left: Logo & Search -->
+<div class="flex items-center gap-8 flex-1 max-w-2xl">
+<a class="flex items-center gap-2.5 shrink-0 group" href="#">
+<div class="w-10 h-10 rounded-xl bg-[#0F766E] flex items-center justify-center text-white shadow-md shadow-[#0F766E]/20 group-hover:bg-[#115E59] transition">
+<span class="material-symbols-outlined text-[24px]">home_pin</span>
+</div>
+<div class="flex flex-col">
+<span class="text-2xl font-black tracking-tight text-[#0F766E] leading-none">MapNest</span>
+<span class="text-[10px] tracking-wider font-semibold text-[#64748B] uppercase">Real Estate Udon</span>
+</div>
+</a>
+<!-- Search Input -->
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-[#64748B] text-[20px]">search</span>
+<input class="w-full pl-11 pr-4 py-2.5 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl text-sm font-medium text-[#0F172A] placeholder-[#64748B] focus:outline-none focus:border-[#0F766E] focus:ring-2 focus:ring-[#0F766E]/20 transition" placeholder="ค้นหาทำเล, โครงการในอุดรธานี..." type="text" value="อุดรธานี"/>
+</div>
+</div>
+<!-- Center & Right Nav -->
+<div class="flex items-center gap-7">
+<nav class="hidden lg:flex items-center gap-6">
+<a class="text-sm font-bold text-[#0F766E] border-b-2 border-[#0F766E] py-2" href="#">สำรวจ / ค้นหาทรัพย์</a>
+<a class="text-sm font-medium text-[#64748B] hover:text-[#0F172A] transition" href="#">ลงประกาศฟรี</a>
+<a class="text-sm font-medium text-[#64748B] hover:text-[#0F172A] transition" href="#">นายหน้า Agent Hub</a>
+<a class="text-sm font-medium text-[#64748B] hover:text-[#0F172A] transition" href="#">แพ็กเกจ</a>
+</nav>
+<div class="h-6 w-px bg-[#E2E8F0]"></div>
+<!-- Right Controls -->
+<div class="flex items-center gap-4">
+<!-- Language Selector -->
+<button class="px-2.5 py-1.5 rounded-lg border border-[#E2E8F0] text-xs font-bold text-[#0F172A] bg-white hover:bg-slate-50 transition flex items-center gap-1" type="button">
+<span>TH</span>
+<span class="text-[#64748B]">|</span>
+<span class="text-[#64748B] font-normal">EN</span>
+</button>
+<!-- Notification Bell -->
+<button class="relative w-10 h-10 rounded-xl border border-[#E2E8F0] flex items-center justify-center text-[#64748B] hover:text-[#0F172A] hover:bg-slate-50 transition" type="button">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-[#EF4444] ring-2 ring-white"></span>
+</button>
+<!-- Post Listing CTA -->
+<button class="h-10 px-4 rounded-xl bg-[#0F766E] hover:bg-[#115E59] text-white text-sm font-bold flex items-center gap-1.5 shadow-sm transition" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>ลงประกาศ</span>
+</button>
+<!-- User Profile Avatar -->
+<div class="flex items-center gap-2 pl-1 cursor-pointer">
+<img alt="User Profile" class="w-10 h-10 rounded-full object-cover ring-2 ring-[#0F766E]/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdIeOIUBaeeK-0fCwccN4mfeyFsyJA4ZPiq-bdF0Q_83vUBG5UmpsHC5PtoeQ6y0B1C1mpyfIBEsaD4GIQSguK1FKaeMX5J1UYAYd01CyeA_iHSoHGTUUqvpNA6HJDYIHLOpkBELt2uxUdMkbPqD1FJVpJhirUbB7Ke6kUcPpwWONORNlI-KIi6T2_vBz7BDDEkSVAsrSMd5jkrPNWJwQ3dwMz0SkjWm5gqX1YKkEAds4F3l5HmwAC"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Container (Desktop 1440px max width) -->
+<main class="max-w-[1440px] mx-auto px-8 py-6">
+<!-- Breadcrumb & Top Bar -->
+<div class="flex items-center justify-between mb-4">
+<nav class="flex items-center gap-2 text-xs text-[#64748B] font-medium">
+<a class="hover:text-[#0F766E]" href="#">หน้าแรก</a>
+<span class="text-slate-300">/</span>
+<a class="hover:text-[#0F766E]" href="#">ภาคอีสาน</a>
+<span class="text-slate-300">/</span>
+<span class="text-[#0F172A] font-semibold">อุดรธานี</span>
+</nav>
+<div class="text-xs text-[#64748B]">
+        อัปเดตข้อมูลล่าสุดเมื่อ: วันนี้ 09:30 น.
+      </div>
+</div>
+<!-- Title & View Switcher Bar -->
+<div class="bg-white border border-[#E2E8F0] rounded-2xl p-5 mb-6 shadow-sm">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#E2E8F0]">
+<div>
+<h1 class="text-2xl font-bold text-[#0F172A] flex items-center gap-2.5">
+<span>อสังหาริมทรัพย์ในอุดรธานี</span>
+<span class="px-2.5 py-0.5 rounded-full bg-[#F0FDFA] text-[#0F766E] text-xs font-bold border border-[#0F766E]/20">พบ 11 รายการ</span>
+</h1>
+<p class="text-xs text-[#64748B] mt-1">คัดกรองทรัพย์คุณภาพ ตรวจสอบเอกสารสิทธิ์แล้วในทำเลเมืองอุดรธานี</p>
+</div>
+<div class="flex items-center gap-3">
+<!-- View Switcher Pill -->
+<div class="inline-flex p-1 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl text-xs font-bold">
+<a class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-[#64748B] hover:text-[#0F172A] transition" href="#">
+<span class="material-symbols-outlined text-[16px]">view_list</span>
+<span>รายการ</span>
+</a>
+<!-- Active: Photo View Forest Teal -->
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#0F766E] text-white shadow-sm font-bold" type="button">
+<span class="material-symbols-outlined text-[16px]">photo_library</span>
+<span>รูปภาพ</span>
+</button>
+<a class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-[#64748B] hover:text-[#0F172A] transition" href="#">
+<span class="material-symbols-outlined text-[16px]">map</span>
+<span>แผนที่</span>
+</a>
+</div>
+<!-- Sort Dropdown -->
+<div class="relative">
+<select class="appearance-none bg-white border border-[#E2E8F0] rounded-xl px-4 py-2 pr-9 text-xs font-bold text-[#0F172A] focus:outline-none focus:border-[#0F766E] cursor-pointer shadow-sm">
+<option>เรียงตาม: ล่าสุด (Newest)</option>
+<option>ราคา: ต่ำไปสูง</option>
+<option>ราคา: สูงไปต่ำ</option>
+<option>พื้นที่: มากไปน้อย</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-[#64748B] text-[18px] pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Filter Chips Row -->
+<div class="flex items-center justify-between gap-4 pt-4 flex-wrap">
+<div class="flex items-center gap-2 flex-wrap">
+<button class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#0F766E] text-white shadow-sm flex items-center gap-1" type="button">
+<span>คอนโด</span>
+<span class="px-1.5 py-0.2 rounded-full bg-white/20 text-[10px]">3</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#F8FAFC] border border-[#E2E8F0] text-[#0F172A] hover:bg-slate-100 transition flex items-center gap-1" type="button">
+<span>บ้านเดี่ยว</span>
+<span class="px-1.5 py-0.2 rounded-full bg-slate-200 text-[#64748B] text-[10px]">4</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#F8FAFC] border border-[#E2E8F0] text-[#0F172A] hover:bg-slate-100 transition flex items-center gap-1" type="button">
+<span>ทาวน์โฮม</span>
+<span class="px-1.5 py-0.2 rounded-full bg-slate-200 text-[#64748B] text-[10px]">2</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-full text-xs font-medium bg-[#F8FAFC] border border-[#E2E8F0] text-[#0F172A] hover:bg-slate-100 transition flex items-center gap-1" type="button">
+<span>ที่ดิน</span>
+<span class="px-1.5 py-0.2 rounded-full bg-slate-200 text-[#64748B] text-[10px]">2</span>
+</button>
+<div class="h-4 w-px bg-[#E2E8F0] mx-1"></div>
+<!-- Dropdown Filter: Price Range -->
+<div class="relative">
+<button class="px-3 py-1.5 rounded-xl border border-[#E2E8F0] bg-white text-xs font-medium text-[#0F172A] hover:bg-slate-50 flex items-center gap-1.5" type="button">
+<span>ช่วงราคา: ทุกราคา</span>
+<span class="material-symbols-outlined text-[16px] text-[#64748B]">expand_more</span>
+</button>
+</div>
+<!-- Dropdown Filter: Bedrooms -->
+<div class="relative">
+<button class="px-3 py-1.5 rounded-xl border border-[#E2E8F0] bg-white text-xs font-medium text-[#0F172A] hover:bg-slate-50 flex items-center gap-1.5" type="button">
+<span>ห้องนอน</span>
+<span class="material-symbols-outlined text-[16px] text-[#64748B]">expand_more</span>
+</button>
+</div>
+<!-- Additional Filters Button -->
+<button class="px-3 py-1.5 rounded-xl border border-[#E2E8F0] bg-white text-xs font-medium text-[#0F172A] hover:bg-slate-50 flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px] text-[#0F766E]">tune</span>
+<span>ตัวกรองเพิ่มเติม</span>
+</button>
+</div>
+<div class="text-xs text-[#64748B]">
+          แสดง <span class="font-bold text-[#0F172A]">11</span> จาก <span class="font-bold text-[#0F172A]">11</span> รายการ
+        </div>
+</div>
+</div>
+<!-- Photo View Property Cards Layout (1 property per full-width row) -->
+<div class="space-y-6">
+<!-- Listing 1: ลุมพินี เพลส ยูดี-โพศรี -->
+<article class="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
+<div class="grid grid-cols-12 gap-1.5 p-2 bg-[#F8FAFC]">
+<!-- Big Primary Photo (~65% width = 8 cols) -->
+<div class="col-span-8 relative h-[380px] rounded-xl overflow-hidden group">
+<img alt="ลุมพินี เพลส ยูดี-โพศรี" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsGNxBVj0xcEqh9ATiIxynQMw9lRPXUkPMNeGPuQp1oQ8g8x4n5gPkLvfzqDVJlBlMjECyENE6zBEYHVeK8uLrV0y_wUd-AImzeSGgZGpT5s8mB5LkjI-Vb7x6cs_zPTGPOvfMr_ZzR8jPTWBzoTp_eqKieYFJ9Sa_yCqWcDmRYPcxEY4u5WkZWcJoWdYZlvFD4e1IHZ1nMV23sa1IDEzGmqXvNOvx6wm3LySDbGin_BqKrJTY3qVk"/>
+<!-- Top Badges Overlay -->
+<div class="absolute top-4 left-4 flex items-center gap-2">
+<span class="px-3 py-1 rounded-md bg-[#0F766E] text-white font-bold text-xs tracking-wide shadow">ขาย</span>
+<span class="px-3 py-1 rounded-md bg-[#10B981] text-white font-bold text-xs flex items-center gap-1 shadow">
+<span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                ว่าง
+              </span>
+<span class="px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-sm text-[#0F766E] font-bold text-xs flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                Verified
+              </span>
+</div>
+<!-- Top Right Action Icons -->
+<div class="absolute top-4 right-4 flex items-center gap-2">
+<button class="w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#EF4444] flex items-center justify-center shadow backdrop-blur-sm transition" title="บันทึกเป็นรายการโปรด" type="button">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#0F766E] flex items-center justify-center shadow backdrop-blur-sm transition" title="แชร์ทรัพย์นี้" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+<!-- Bottom Gradient Scrim Overlay -->
+<div class="absolute inset-x-0 bottom-0 pt-24 pb-4 px-5 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white">
+<div class="text-2xl font-black text-white drop-shadow-sm">฿1,450,000</div>
+<h2 class="text-lg font-bold text-white mt-0.5 leading-snug">ลุมพินี เพลส ยูดี-โพศรี (Lumpini UD-Posri)</h2>
+<div class="flex items-center gap-1.5 text-xs text-slate-200 mt-1">
+<span class="material-symbols-outlined text-[16px] text-[#10B981]">location_on</span>
+<span>ถ.โพศรี ใกล้ UD Town อ.เมือง จ.อุดรธานี</span>
+</div>
+</div>
+</div>
+<!-- Side Thumbnails (~35% width = 4 cols) -->
+<div class="col-span-4 flex flex-col gap-1.5">
+<div class="relative h-[186px] rounded-xl overflow-hidden group">
+<img alt="ห้องนอน ลุมพินี ยูดี-โพศรี" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUy7Y7DEmB7-bm_lnQJBNwi_10E-pSFnPFui6y2nrotY73vdlnb7Nhv4GiJ_kwfbJFjGXdrKSTIlzj8rtDBxBxlfLAx7j8tGWg0dYblSfMiG5-I3qUDl1C4cXq_ynd-yvtO8nh6j_HcAvvO6vHVnr0hF6_wbftxr6yR-2na8nf-7bcUMqvN43FdENHVved1aH5N_Zyh_SHfNMlfZZC3WcwpNpjPoTBKpkIgnntG3OyGxQMdISV5qZw"/>
+</div>
+<div class="relative h-[186px] rounded-xl overflow-hidden group">
+<img alt="สิ่งอำนวยความสะดวก ลุมพินี" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh5Ps1mVM6YF5Zzs2Cio_0Jaulf1R0mkz7zhis5zRvNyVyHxkhJjagyV8Fy000st85eNuWb6gfB6nJsrBaYLGkNnwl_q-pkpBDg8-cIDGg8guro03heEKXCDv14rXwjPeUxLK0ka74UEmkgbEh8axA3PcbkrTEc0JKli-raWhZXcc5fpWMABFVQBO1EqCQ3rocpWLLEN7XopKT2SnJ6RKtInVEkkxj9pH91kB-1yYYmqFGdpqiqeIg"/>
+<div class="absolute inset-0 bg-black/45 flex items-center justify-center text-white font-bold text-sm backdrop-blur-[1px] hover:bg-black/35 transition cursor-pointer">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">photo_camera</span> +18 รูป</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card Footer & Specs Row -->
+<div class="px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#E2E8F0] bg-white">
+<div class="flex items-center gap-6 text-sm text-[#0F172A] font-semibold flex-wrap">
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">square_foot</span>
+<span>28.5 ตร.ม.</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">bed</span>
+<span>1 ห้องนอน</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">bathtub</span>
+<span>1 ห้องน้ำ</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">stairs</span>
+<span>ชั้น 8</span>
+</div>
+<span class="text-xs px-2.5 py-0.5 rounded bg-slate-100 text-[#64748B] font-medium">เฟอร์นิเจอร์ครบ · พร้อมอยู่</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial px-4 py-2 rounded-xl border border-[#E2E8F0] text-xs font-bold text-[#64748B] hover:text-[#0F172A] hover:bg-slate-50 transition flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">compare_arrows</span>
+<span>เปรียบเทียบ</span>
+</button>
+<button class="flex-1 sm:flex-initial px-5 py-2 rounded-xl bg-[#0F766E] hover:bg-[#115E59] text-white text-xs font-bold transition shadow-sm flex items-center justify-center gap-1" type="button">
+<span>ดูรายละเอียด</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Listing 2: เดอะ เบส เซ็นทรัล อุดร -->
+<article class="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
+<div class="grid grid-cols-12 gap-1.5 p-2 bg-[#F8FAFC]">
+<div class="col-span-8 relative h-[380px] rounded-xl overflow-hidden group">
+<img alt="เดอะ เบส เซ็นทรัล อุดร" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNgOpCUElFea5TYq8JiZDNrxZEUxVey60mA2KTxxe4yy7nntcGNGxU710ISoRGbimpudf9UQadARdxkJp6Ee1C6DiKLqy5GWo7gIAz0c_OhosKi5PVkfwqjEv--HF57eQqzeezKDGSAz7SCl57tUrwWsixIjl7mkKsKKEkUhaOm6sxs2Sl_rxK1VK-XzrV0dOCGussVXscqVF4K2jLBdpUBGuokR_5TwGisLVIu39rDhBW5n9yxgh6"/>
+<div class="absolute top-4 left-4 flex items-center gap-2">
+<span class="px-3 py-1 rounded-md bg-[#004eaa] text-white font-bold text-xs tracking-wide shadow">เช่า</span>
+<span class="px-3 py-1 rounded-md bg-[#10B981] text-white font-bold text-xs flex items-center gap-1 shadow">
+<span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                ว่าง
+              </span>
+<span class="px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-sm text-[#0F766E] font-bold text-xs flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                Verified
+              </span>
+</div>
+<div class="absolute top-4 right-4 flex items-center gap-2">
+<button class="w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#EF4444] flex items-center justify-center shadow backdrop-blur-sm transition" type="button">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#0F766E] flex items-center justify-center shadow backdrop-blur-sm transition" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+<div class="absolute inset-x-0 bottom-0 pt-24 pb-4 px-5 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white">
+<div class="text-2xl font-black text-white drop-shadow-sm">฿8,500 <span class="text-sm font-normal text-slate-200">/เดือน</span></div>
+<h2 class="text-lg font-bold text-white mt-0.5 leading-snug">เดอะ เบส เซ็นทรัล อุดร (The Base Central Udon)</h2>
+<div class="flex items-center gap-1.5 text-xs text-slate-200 mt-1">
+<span class="material-symbols-outlined text-[16px] text-[#10B981]">location_on</span>
+<span>ถ.วัฒนานุวงศ์ ติดเซ็นทรัลพลาซา อุดรธานี</span>
+</div>
+</div>
+</div>
+<div class="col-span-4 flex flex-col gap-1.5">
+<div class="relative h-[186px] rounded-xl overflow-hidden group">
+<img alt="Living area The Base" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyRwqLYcwpdCpbCJzVIqaE0Mg15ZzoKpJaJqJCMBV_eYJQp9yJJI8uyzvdCNZ13iPutHUo4jAKUcAvzYOZzXiGZbqp2CEOm_D4uU9xCulwHRn1WXbrrmm5xlrhs7kMJ4ArMjIDe1z-pY6pk-j-O97jGjl2HptiVOBCQjpMIeI5rf4G46U7GcLACaaM34VRetQjdt3mXFA6asMk-taqBYWnwnJF9xqv3tnegG2DJ2rK9U-l51B6wHTO"/>
+</div>
+<div class="relative h-[186px] rounded-xl overflow-hidden group">
+<img alt="Pool View The Base" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQdwt8p8g-pRSE6NYuJL72JNpNdJVHRwbKFffZ8KgfUBvmMX7LOQPIcWSXxOJz6xt22cf1wnSr1sdkD7HlNrZWKxI6qcM31oHipvUc_GD761PvlnfBDFKu-GxzVq45QAA8pD_Beq0Kx_LY90R6Ly1RLhCiXu24dw6yB4ZNpUK26cTVyYzuXsLw0i98vq4vg-qqqirkggLWY8_YNq7YvoP4XnMIn7pHjyI0HP5t89_nNDlTwgK-v-dz"/>
+<div class="absolute inset-0 bg-black/45 flex items-center justify-center text-white font-bold text-sm backdrop-blur-[1px] hover:bg-black/35 transition cursor-pointer">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">photo_camera</span> +14 รูป</span>
+</div>
+</div>
+</div>
+</div>
+<div class="px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#E2E8F0] bg-white">
+<div class="flex items-center gap-6 text-sm text-[#0F172A] font-semibold flex-wrap">
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">square_foot</span>
+<span>31.5 ตร.ม.</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">bed</span>
+<span>1 ห้องนอน</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">bathtub</span>
+<span>1 ห้องน้ำ</span>
+</div>
+<span class="text-xs px-2.5 py-0.5 rounded bg-slate-100 text-[#64748B] font-medium">สัญญา 1 ปี · สระว่ายน้ำลอยฟ้า</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial px-4 py-2 rounded-xl border border-[#E2E8F0] text-xs font-bold text-[#64748B] hover:text-[#0F172A] hover:bg-slate-50 transition flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">compare_arrows</span>
+<span>เปรียบเทียบ</span>
+</button>
+<button class="flex-1 sm:flex-initial px-5 py-2 rounded-xl bg-[#0F766E] hover:bg-[#115E59] text-white text-xs font-bold transition shadow-sm flex items-center justify-center gap-1" type="button">
+<span>ดูรายละเอียด</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Listing 3: ศุภาลัย เบลล่า อุดรธานี (ติดจอง #F59E0B) -->
+<article class="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
+<div class="grid grid-cols-12 gap-1.5 p-2 bg-[#F8FAFC]">
+<div class="col-span-8 relative h-[380px] rounded-xl overflow-hidden group">
+<img alt="ศุภาลัย เบลล่า อุดรธานี" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7Erg6_Yh21Kyt1mhrH0b_UwtEsTIgLU-C2PaNRYs1mlCoBMpEBBMb0FkVJwv8L0m50QkkgBBllamEEQWcpUZplWvYIefoKk7gEwr9qFsMxUFfsCBcTRsRZ9C1OO5YyLquPQGtQGiIbSBsGzPvVVg67D2B2J1srhdYv4eTmGIIVXQbe3HLLQ-sIySUnHQ2jyBueJdoIwNSaYlo8NAo8EXzYVHkCF8NWTjItpx1ieHXtLfyvbhU4o6l"/>
+<div class="absolute top-4 left-4 flex items-center gap-2">
+<span class="px-3 py-1 rounded-md bg-[#0F766E] text-white font-bold text-xs tracking-wide shadow">ขาย</span>
+<span class="px-3 py-1 rounded-md bg-[#F59E0B] text-white font-bold text-xs flex items-center gap-1 shadow">
+<span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                ติดจอง
+              </span>
+<span class="px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-sm text-[#0F766E] font-bold text-xs flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                Verified
+              </span>
+</div>
+<div class="absolute top-4 right-4 flex items-center gap-2">
+<button class="w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#EF4444] flex items-center justify-center shadow backdrop-blur-sm transition" type="button">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#0F766E] flex items-center justify-center shadow backdrop-blur-sm transition" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+<div class="absolute inset-x-0 bottom-0 pt-24 pb-4 px-5 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white">
+<div class="text-2xl font-black text-white drop-shadow-sm">฿3,890,000</div>
+<h2 class="text-lg font-bold text-white mt-0.5 leading-snug">ศุภาลัย เบลล่า อุดรธานี (Supalai Bella)</h2>
+<div class="flex items-center gap-1.5 text-xs text-slate-200 mt-1">
+<span class="material-symbols-outlined text-[16px] text-[#10B981]">location_on</span>
+<span>ถ.มิตรภาพ-หนองคาย ต.กุดสระ อ.เมือง จ.อุดรธานี</span>
+</div>
+</div>
+</div>
+<div class="col-span-4 flex flex-col gap-1.5">
+<div class="relative h-[186px] rounded-xl overflow-hidden group">
+<img alt="Supalai Bella Master Bedroom" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA99qbi2GPVKyK5tWbKRoJM_rzgo9gVIbF4j2UZOfYu0ijrTYmbkAOEyrDlzkWtk7zZYUTYcZHRzNoiIHubMJgpD0wVekR7B9FtsRoXcwSI7-ZHz5P6bk0MR0TqkwliIwYMojleCF6vK5X329VydBIOqSD_3PVh-0n9qixEgzFM7i26LFOUVlnYwmMZ5Fx9p4W2ocihi9RP1cIPRCnB_19jJ7mMhXAL9y4C9q0d8mMNRwj3_Q9ipska"/>
+</div>
+<div class="relative h-[186px] rounded-xl overflow-hidden group">
+<img alt="Supalai Garden" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAIDw9J5GPwFNawXZQ3aZo4yPt-NOJ6YrLN8XQBUHsb1Fu-64LsI-NOKffQGWOiJe9ea6_ZeUbcoWys4ZpXS7AroeNU3hHyI1CFbN9275NvkJdvkkr5IcM3L_JBaudPDfc9tXZ0leSMIyww6ZX9UETSJilYjpdPnRUoeugAJPnmTQvn8Y4vGTBNnfY5rhwbXAqgCpWQsjPoXz9z2omVBMFefrWwfUQmU2zIsUJz93KJssNuZV5PKDu"/>
+<div class="absolute inset-0 bg-black/45 flex items-center justify-center text-white font-bold text-sm backdrop-blur-[1px] hover:bg-black/35 transition cursor-pointer">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">photo_camera</span> +22 รูป</span>
+</div>
+</div>
+</div>
+</div>
+<div class="px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#E2E8F0] bg-white">
+<div class="flex items-center gap-6 text-sm text-[#0F172A] font-semibold flex-wrap">
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">square_foot</span>
+<span>142 ตร.ม.</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">bed</span>
+<span>3 ห้องนอน</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">bathtub</span>
+<span>2 ห้องน้ำ</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">directions_car</span>
+<span>2 ที่จอดรถ</span>
+</div>
+<span class="text-xs px-2.5 py-0.5 rounded bg-amber-50 text-[#F59E0B] font-bold border border-amber-200">มีผู้สนใจวางเงินจองแล้ว</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial px-4 py-2 rounded-xl border border-[#E2E8F0] text-xs font-bold text-[#64748B] hover:text-[#0F172A] hover:bg-slate-50 transition flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">compare_arrows</span>
+<span>เปรียบเทียบ</span>
+</button>
+<button class="flex-1 sm:flex-initial px-5 py-2 rounded-xl bg-[#0F766E] hover:bg-[#115E59] text-white text-xs font-bold transition shadow-sm flex items-center justify-center gap-1" type="button">
+<span>ดูรายละเอียด</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Listing 4: ที่ดินซอยจินตคาม -->
+<article class="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
+<div class="grid grid-cols-12 gap-1.5 p-2 bg-[#F8FAFC]">
+<div class="col-span-8 relative h-[380px] rounded-xl overflow-hidden group">
+<img alt="ที่ดินซอยจินตคาม" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPC-Q7Zt3WL-wXozXJFeMguoSmhg0VqzZ7myyvt3QENfpwcEwu3guZn6loU91meAlF9xHIVXlxndlIG_-5SsN2W-CwEPI_B0UPatLPcPI6gJd3NDp6wSP7QSz6pGOBpfaM0uzXSwvN9fAG7me9r9BPN6owQPMO1aL0rj5eGDUSq3yDs25C6yxxY4RRrk_B5I1gz_V05F0XimvVqmkNfduStqLf9sCvw6uV_XK-zkekTPP2kvf7tnnW"/>
+<div class="absolute top-4 left-4 flex items-center gap-2">
+<span class="px-3 py-1 rounded-md bg-[#0F766E] text-white font-bold text-xs tracking-wide shadow">ขาย</span>
+<span class="px-3 py-1 rounded-md bg-[#10B981] text-white font-bold text-xs flex items-center gap-1 shadow">
+<span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                ว่าง
+              </span>
+<span class="px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-sm text-[#0F766E] font-bold text-xs flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                Verified
+              </span>
+</div>
+<div class="absolute top-4 right-4 flex items-center gap-2">
+<button class="w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#EF4444] flex items-center justify-center shadow backdrop-blur-sm transition" type="button">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#0F766E] flex items-center justify-center shadow backdrop-blur-sm transition" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+<div class="absolute inset-x-0 bottom-0 pt-24 pb-4 px-5 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white">
+<div class="text-2xl font-black text-white drop-shadow-sm">฿2,400,000</div>
+<h2 class="text-lg font-bold text-white mt-0.5 leading-snug">ที่ดินซอยจินตคาม (Land Soi Chintakham)</h2>
+<div class="flex items-center gap-1.5 text-xs text-slate-200 mt-1">
+<span class="material-symbols-outlined text-[16px] text-[#10B981]">location_on</span>
+<span>ซอยจินตคาม ใกล้ มรภ.อุดรธานี ต.หมากแข้ง</span>
+</div>
+</div>
+</div>
+<div class="col-span-4 flex flex-col gap-1.5">
+<div class="relative h-[186px] rounded-xl overflow-hidden group">
+<img alt="แนวเขตที่ดิน" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfvcFzyJKc633jNLx3kfaBJLSspQuc3Bn2sKYcH-idO5r4HQ5e4_n2R-tPCiYbL8yrkF-89rhUmwV0F9OeCeIkw5Rh7PyfTrWfkoV8tK0RscSk1zFQ77XuFG1jhaykOlcbKckiFlqbug6s5hbf-RhSzUQs57xnlApljW_pV3pldQhkZEch0UFjceM7AF7M-XbeOUjQkAYh4y72Cj_7FKE94Zmbb0f7TTDrQ2TIC8J7VsNAPt0xhQj8"/>
+</div>
+<div class="relative h-[186px] rounded-xl overflow-hidden group">
+<img alt="ถนนหน้าแปลงที่ดิน" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzjUKKDFGNrlIRxHI5hCLRH2lTQyuKJJ5BHqexCRB9qhbxFO0Opmq27wb4H9OS42vcYBNCMZOnRTUf1q0uPRmQmHCiMRSqG9fesBCBzI0aZhKXALxeAozYdn1QXMzM8Khd7NlQHHUwNsvewAZrxQD5eWuVSgR3W7QIQpP5FCGHKHJ7hWAH2MLOOW2u31IWC1GvE6oacApLWPH8mWkgQ0V7l_7u-YhHX5rDTcbF7wJ1pwkrmmG-FBkH"/>
+<div class="absolute inset-0 bg-black/45 flex items-center justify-center text-white font-bold text-sm backdrop-blur-[1px] hover:bg-black/35 transition cursor-pointer">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">photo_camera</span> +8 รูป</span>
+</div>
+</div>
+</div>
+</div>
+<div class="px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#E2E8F0] bg-white">
+<div class="flex items-center gap-6 text-sm text-[#0F172A] font-semibold flex-wrap">
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">terrain</span>
+<span>98 ตร.ว.</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">straighten</span>
+<span>หน้ากว้าง 14 ม. ลึก 28 ม.</span>
+</div>
+<span class="text-xs px-2.5 py-0.5 rounded bg-slate-100 text-[#64748B] font-medium">โฉนด ครุฑแดงพร้อมโอน · ถมแล้ว</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial px-4 py-2 rounded-xl border border-[#E2E8F0] text-xs font-bold text-[#64748B] hover:text-[#0F172A] hover:bg-slate-50 transition flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">compare_arrows</span>
+<span>เปรียบเทียบ</span>
+</button>
+<button class="flex-1 sm:flex-initial px-5 py-2 rounded-xl bg-[#0F766E] hover:bg-[#115E59] text-white text-xs font-bold transition shadow-sm flex items-center justify-center gap-1" type="button">
+<span>ดูรายละเอียด</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Listing 5: ทาวน์โฮม ถ.นิตโย -->
+<article class="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
+<div class="grid grid-cols-12 gap-1.5 p-2 bg-[#F8FAFC]">
+<div class="col-span-8 relative h-[380px] rounded-xl overflow-hidden group">
+<img alt="ทาวน์โฮม ถ.นิตโย" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeUIWs3v5hzScMWqxh--R2z3sJBoOiNFWjLiya_0d2CpelgjUNVVyZN8Y_eQFP5Ok3QMRjQja3FSxi90EizkSW_b_LF0zkogFb2m5BcXOdgwTaIenIB-PI4JC2_JhlO4BxHpVKGlGYg3UVJddqz832XCnZ23nwyTBxSxbhhzbYJS46f8ipz_iIdY9MgOqpYi4819_v6rDK-C9cq9_ns7yb8WwGhVSDPy0yO7tfF8p39D5oCHwWYLw_"/>
+<div class="absolute top-4 left-4 flex items-center gap-2">
+<span class="px-3 py-1 rounded-md bg-[#0F766E] text-white font-bold text-xs tracking-wide shadow">ขาย</span>
+<span class="px-3 py-1 rounded-md bg-[#10B981] text-white font-bold text-xs flex items-center gap-1 shadow">
+<span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                ว่าง
+              </span>
+<span class="px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-sm text-[#0F766E] font-bold text-xs flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                Verified
+              </span>
+</div>
+<div class="absolute top-4 right-4 flex items-center gap-2">
+<button class="w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#EF4444] flex items-center justify-center shadow backdrop-blur-sm transition" type="button">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#0F766E] flex items-center justify-center shadow backdrop-blur-sm transition" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+<div class="absolute inset-x-0 bottom-0 pt-24 pb-4 px-5 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white">
+<div class="text-2xl font-black text-white drop-shadow-sm">฿1,890,000</div>
+<h2 class="text-lg font-bold text-white mt-0.5 leading-snug">ทาวน์โฮม ถ.นิตโย ใกล้ Big C (Townhome Nittayo)</h2>
+<div class="flex items-center gap-1.5 text-xs text-slate-200 mt-1">
+<span class="material-symbols-outlined text-[16px] text-[#10B981]">location_on</span>
+<span>ถ.นิตโย ใกล้ Big C อุดรธานี</span>
+</div>
+</div>
+</div>
+<div class="col-span-4 flex flex-col gap-1.5">
+<div class="relative h-[186px] rounded-xl overflow-hidden group">
+<img alt="Living room" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa0cStTSeb1UBEAd747fW6QG6UOK9WuYc0TjC93LFjJ8ZOjbv_WOI7JgAkmi3zUE121Tp2IAvM1Rzk6G9UDsw0GZoEeI3Vp_fGHxTGbfzHqeoB4ORKdqQfkRzXpGVHxh7wBKeg-Z-Cj6oG_BlFsGwwdw29IqvPOgjeMVt7YIR4NIrZfHM3BGzvGsAhFkVwDJH1ocEivh3O29kTk6SK3uTklZUCQ6Ty-6yr9yT6lX5bz1bR3BAlE6NY"/>
+</div>
+<div class="relative h-[186px] rounded-xl overflow-hidden group">
+<img alt="Kitchen" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfPOkM0hgXLt3fN1TVPwF5WR3PsP_ZPDNoYnipSkHn89_pyfZYvPCeSdjCu-Gr9QvaVdDDTpavH3zvHZNozsMirIkYc5aN5Ru4qFY8TyhYLuCxKCQOn94h_3rw8JDnraMpWTwW1QXSBmppjv8mIqlXnx3KzJ3d5ID3OQDqrK5-oHg2_bJoobyox7PxhCECWtQUXuSwlENYQ3QvqyuGNDcGJExXsAICNIUm1QZ1CQyQFI8J6AEjfB4M"/>
+<div class="absolute inset-0 bg-black/45 flex items-center justify-center text-white font-bold text-sm backdrop-blur-[1px] hover:bg-black/35 transition cursor-pointer">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">photo_camera</span> +12 รูป</span>
+</div>
+</div>
+</div>
+</div>
+<div class="px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#E2E8F0] bg-white">
+<div class="flex items-center gap-6 text-sm text-[#0F172A] font-semibold flex-wrap">
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">square_foot</span>
+<span>118 ตร.ม.</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">bed</span>
+<span>3 ห้องนอน</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">bathtub</span>
+<span>2 ห้องน้ำ</span>
+</div>
+<span class="text-xs px-2.5 py-0.5 rounded bg-slate-100 text-[#64748B] font-medium">เดินทางสะดวก · ใกล้ห้าง</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial px-4 py-2 rounded-xl border border-[#E2E8F0] text-xs font-bold text-[#64748B] hover:text-[#0F172A] hover:bg-slate-50 transition flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">compare_arrows</span>
+<span>เปรียบเทียบ</span>
+</button>
+<button class="flex-1 sm:flex-initial px-5 py-2 rounded-xl bg-[#0F766E] hover:bg-[#115E59] text-white text-xs font-bold transition shadow-sm flex items-center justify-center gap-1" type="button">
+<span>ดูรายละเอียด</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Listing 6: บ้านใกล้ UD Town -->
+<article class="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
+<div class="grid grid-cols-12 gap-1.5 p-2 bg-[#F8FAFC]">
+<div class="col-span-8 relative h-[380px] rounded-xl overflow-hidden group">
+<img alt="บ้านใกล้ UD Town" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlyPEZVZWIDuSf0tLqIjEFiAT9hgfwtNvFtftM6uKi9Asr2IJ5JVYroyYB_A2rmu6auIJyeFPAKs20myJzVR8bVsj67b_7wTYz9YfAojW2JpAU0c6fC-Mntr2CnoS03BAxR4MDz05qfnJhPU4ZImpu__mTfyH_pKQYczGXzi2dlASXYydIU2QziAhk5NHRyNng1x90Yer12kGllxKLb47_CSPiRLNbqNfF5iAIchUNVPjrnd-dCwiW"/>
+<div class="absolute top-4 left-4 flex items-center gap-2">
+<span class="px-3 py-1 rounded-md bg-[#004eaa] text-white font-bold text-xs tracking-wide shadow">เช่า</span>
+<span class="px-3 py-1 rounded-md bg-[#10B981] text-white font-bold text-xs flex items-center gap-1 shadow">
+<span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                ว่าง
+              </span>
+<span class="px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-sm text-[#0F766E] font-bold text-xs flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                Verified
+              </span>
+</div>
+<div class="absolute top-4 right-4 flex items-center gap-2">
+<button class="w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#EF4444] flex items-center justify-center shadow backdrop-blur-sm transition" type="button">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#0F766E] flex items-center justify-center shadow backdrop-blur-sm transition" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+<div class="absolute inset-x-0 bottom-0 pt-24 pb-4 px-5 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white">
+<div class="text-2xl font-black text-white drop-shadow-sm">฿15,000 <span class="text-sm font-normal text-slate-200">/เดือน</span></div>
+<h2 class="text-lg font-bold text-white mt-0.5 leading-snug">บ้านเดี่ยว 2 ชั้น ใกล้ UD Town (House Near UD Town)</h2>
+<div class="flex items-center gap-1.5 text-xs text-slate-200 mt-1">
+<span class="material-symbols-outlined text-[16px] text-[#10B981]">location_on</span>
+<span>ซอยแจ่มนุสรณ์ ใกล้ UD Town ต.หมากแข้ง</span>
+</div>
+</div>
+</div>
+<div class="col-span-4 flex flex-col gap-1.5">
+<div class="relative h-[186px] rounded-xl overflow-hidden group">
+<img alt="Living room house" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA_ybf4XoL583X024KX90iZ2hp-u0BfdTsj_nUwGzusrXbC_28NvfeSYTiq7cI0OW73IKLaYsaaxBRZsHPajHlorX18sk8ourUpFHX6tMeS1I0blXoVYr-qCC3wMaW5d9bL5uZJWN0wRDEoLH499mesLeRYEsdry_7X1BF0S-5phZq1rae_mw4JxLnTDfEaQrrRsjCDZMyFggPpnPsmaoGL61IKS9uWPrJk8Z4m5E0I1a3wPhK1uwl"/>
+</div>
+<div class="relative h-[186px] rounded-xl overflow-hidden group">
+<img alt="Yard and garden" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiUINS3uSNKPetgxGOfW7BBMz8uIKPg7J2VdniSSx9tBIHRTkOJnoRMKX3Cw6l78U86MoROgFzdVK4lTHROnAus13cnl87VuFnu3VyS1dYr4ZWHWizhNGbD2Rxu9PMDnn4yQZgsEwqd-3gHKTkVmfVFUg3L70HBbmNxb3Lh27NvqskNeBgcPC8Y0CGUIv2QYGSEiFIPnrQ84dhfmPxjrVic9SF7hxzYnja8dbv8LGkYfCmRYrNkHXv"/>
+<div class="absolute inset-0 bg-black/45 flex items-center justify-center text-white font-bold text-sm backdrop-blur-[1px] hover:bg-black/35 transition cursor-pointer">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">photo_camera</span> +25 รูป</span>
+</div>
+</div>
+</div>
+</div>
+<div class="px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#E2E8F0] bg-white">
+<div class="flex items-center gap-6 text-sm text-[#0F172A] font-semibold flex-wrap">
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">square_foot</span>
+<span>180 ตร.ม.</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">bed</span>
+<span>4 ห้องนอน</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">bathtub</span>
+<span>3 ห้องน้ำ</span>
+</div>
+<span class="text-xs px-2.5 py-0.5 rounded bg-slate-100 text-[#64748B] font-medium">มีสนามหญ้ารอบบ้าน · เลี้ยงสัตว์ได้</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial px-4 py-2 rounded-xl border border-[#E2E8F0] text-xs font-bold text-[#64748B] hover:text-[#0F172A] hover:bg-slate-50 transition flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">compare_arrows</span>
+<span>เปรียบเทียบ</span>
+</button>
+<button class="flex-1 sm:flex-initial px-5 py-2 rounded-xl bg-[#0F766E] hover:bg-[#115E59] text-white text-xs font-bold transition shadow-sm flex items-center justify-center gap-1" type="button">
+<span>ดูรายละเอียด</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Listing 7: ทาวน์โฮม ถ.ประจักษ์ศิลปาคม -->
+<article class="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
+<div class="grid grid-cols-12 gap-1.5 p-2 bg-[#F8FAFC]">
+<div class="col-span-8 relative h-[380px] rounded-xl overflow-hidden group">
+<img alt="ทาวน์โฮม ถ.ประจักษ์ศิลปาคม" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_5WAtAU4x2IoaadS6cvoxeqFNwZ4leKyPvVMNG5nlMB2IzRUO26EyNxhvLdp1MawqEm_zd6O_yDy4tj35D1JQ61N8RbDLNkR2E8zpI_e_AvK6571TFwSI418A9TUSFMWTe3TZLxGCjyFDqmFqDFiSNymhWBg-2Q-ExkG4rC-wB_JjhtTWHdIVINula8L9E7dO0f8SqyWfaTWzvjV-kr9fpKmH4HHqrp45oJJmzrZbR1NZF2mRS9Yb"/>
+<div class="absolute top-4 left-4 flex items-center gap-2">
+<span class="px-3 py-1 rounded-md bg-[#004eaa] text-white font-bold text-xs tracking-wide shadow">เช่า</span>
+<span class="px-3 py-1 rounded-md bg-[#10B981] text-white font-bold text-xs flex items-center gap-1 shadow">
+<span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                ว่าง
+              </span>
+<span class="px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-sm text-[#0F766E] font-bold text-xs flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                Verified
+              </span>
+</div>
+<div class="absolute top-4 right-4 flex items-center gap-2">
+<button class="w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#EF4444] flex items-center justify-center shadow backdrop-blur-sm transition" type="button">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#0F766E] flex items-center justify-center shadow backdrop-blur-sm transition" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+<div class="absolute inset-x-0 bottom-0 pt-24 pb-4 px-5 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white">
+<div class="text-2xl font-black text-white drop-shadow-sm">฿12,000 <span class="text-sm font-normal text-slate-200">/เดือน</span></div>
+<h2 class="text-lg font-bold text-white mt-0.5 leading-snug">ทาวน์โฮม ถ.ประจักษ์ศิลปาคม (Townhome Prajak)</h2>
+<div class="flex items-center gap-1.5 text-xs text-slate-200 mt-1">
+<span class="material-symbols-outlined text-[16px] text-[#10B981]">location_on</span>
+<span>ถ.ประจักษ์ศิลปาคม ใจกลางเมืองอุดรฯ ต.หมากแข้ง</span>
+</div>
+</div>
+</div>
+<div class="col-span-4 flex flex-col gap-1.5">
+<div class="relative h-[186px] rounded-xl overflow-hidden group">
+<img alt="Interior Townhome" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkCFE9XY5_A_oZ2REW9zWuQe8rpBSz7JcljaMxkcVJRHehLe_sn85D0NDX2YS7YyFnfBRTzY0WYr3V7hgKzL6XlBqctKCPODDQxOGvcq5fM9VyFmyVPwXOjZMcTUTzlOd1UNQkqPlpOo2aVURtAbtE1pWr_h1M_2_5JpZRjkP5-9jL2615sn7Tfhx__P5R5yQ4icYCkwU3qTtOc7pd-u8YTWuvJCHlLv_ZdDL0oZE9ACVR9cMJm3XA"/>
+</div>
+<div class="relative h-[186px] rounded-xl overflow-hidden group">
+<img alt="Kitchen area" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAblJPiNM-H0iloftLa-KUS9llFQnks_4_fqT-6Y9hhvQXH5tQ__OF44U7D9Qlj2tWXEDEcWJysdCn4tfFz4kW1jfRJ59G68eneKqvougN384jEVQmy7RtrZbfEkVnsO2ACNN08WdsS6LCgvMcymRfQB6PyCuJ-KMCV4kx695DMeM2FOilYobYI4K8Kzm9EKNA_YtmNk6lp85dGVK31wAOo6P1ZsQlm-hR3hg9rpczltDqJigTbTmdp"/>
+<div class="absolute inset-0 bg-black/45 flex items-center justify-center text-white font-bold text-sm backdrop-blur-[1px] hover:bg-black/35 transition cursor-pointer">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">photo_camera</span> +15 รูป</span>
+</div>
+</div>
+</div>
+</div>
+<div class="px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#E2E8F0] bg-white">
+<div class="flex items-center gap-6 text-sm text-[#0F172A] font-semibold flex-wrap">
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">square_foot</span>
+<span>115 ตร.ม.</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">bed</span>
+<span>2 ห้องนอน</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">bathtub</span>
+<span>2 ห้องน้ำ</span>
+</div>
+<span class="text-xs px-2.5 py-0.5 rounded bg-slate-100 text-[#64748B] font-medium">ทำโฮมออฟฟิศได้ · ทำเลทอง</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial px-4 py-2 rounded-xl border border-[#E2E8F0] text-xs font-bold text-[#64748B] hover:text-[#0F172A] hover:bg-slate-50 transition flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">compare_arrows</span>
+<span>เปรียบเทียบ</span>
+</button>
+<button class="flex-1 sm:flex-initial px-5 py-2 rounded-xl bg-[#0F766E] hover:bg-[#115E59] text-white text-xs font-bold transition shadow-sm flex items-center justify-center gap-1" type="button">
+<span>ดูรายละเอียด</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Listing 8: ที่ดินบ้านเลื่อม -->
+<article class="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
+<div class="grid grid-cols-12 gap-1.5 p-2 bg-[#F8FAFC]">
+<div class="col-span-8 relative h-[380px] rounded-xl overflow-hidden group">
+<img alt="ที่ดินบ้านเลื่อม" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuaFv5xvOMC_G8mEG9EY9_Gwo8_C0cEVR3fJiTenJvhtLJylMHvu5aVQ5_WBXl3YvTA8vPzRxFCSeWBeZTihuRmRy987AZJLe9HeJ6iDTRfLROWZicYVAbbDV_xJ4jIwS99vXWr6P_WXk303Qtttd4Mz4Py5w0ZwbIRxNLrmKXXQtNYGrlLGApWTm4yg2DhNO0CvdkjSMMxh15_Ci44O1HJpjv1nR-0fELoG3xGmqzrcjoEZdDivzP"/>
+<div class="absolute top-4 left-4 flex items-center gap-2">
+<span class="px-3 py-1 rounded-md bg-[#0F766E] text-white font-bold text-xs tracking-wide shadow">ขาย</span>
+<span class="px-3 py-1 rounded-md bg-[#10B981] text-white font-bold text-xs flex items-center gap-1 shadow">
+<span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                ว่าง
+              </span>
+<span class="px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-sm text-[#0F766E] font-bold text-xs flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                Verified
+              </span>
+</div>
+<div class="absolute top-4 right-4 flex items-center gap-2">
+<button class="w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#EF4444] flex items-center justify-center shadow backdrop-blur-sm transition" type="button">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#0F766E] flex items-center justify-center shadow backdrop-blur-sm transition" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+<div class="absolute inset-x-0 bottom-0 pt-24 pb-4 px-5 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white">
+<div class="text-2xl font-black text-white drop-shadow-sm">฿850,000</div>
+<h2 class="text-lg font-bold text-white mt-0.5 leading-snug">ที่ดินบ้านเลื่อม (Land Ban Lueam)</h2>
+<div class="flex items-center gap-1.5 text-xs text-slate-200 mt-1">
+<span class="material-symbols-outlined text-[16px] text-[#10B981]">location_on</span>
+<span>ต.บ้านเลื่อม อ.เมือง จ.อุดรธานี</span>
+</div>
+</div>
+</div>
+<div class="col-span-4 flex flex-col gap-1.5">
+<div class="relative h-[186px] rounded-xl overflow-hidden group">
+<img alt="แปลงที่ดิน" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1dsCU7kptJRsbbMo-P6bZS0rKwNIMtBLsnvMAenk58drEJ4Uw43aIDeiD4SbKNiisp-aKiS_kuTD-nxub767OxsbUsdqzoO8YxmwhpbDBTeCW2eVTfNMmrdmFGXz5_-aOCGz-c7w-NMKk6wCZYI0LGiOJyXzYrdRqDIltl0--IARtnMvDf5RiicmZNKu7HeQvmBrrmXTscHhCaxsxE_rX-kHon7N-6dEgPJPhWMz5JFyFWNR6Asr3"/>
+</div>
+<div class="relative h-[186px] rounded-xl overflow-hidden group">
+<img alt="บรรยากาศรอบแปลง" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcpnPGw_Jj2AAs5GQznRIWdaSjiivSoYTkvSvzZLtuoM-oY_2drKv_u3jOolJRbE-nYrrKQt3uUZCXblJDbQ7cFy97oRyOMWw9ao7SHiHgI7t4R3BqX0E_B6_WgE7dBiz9ZxONJKe0kr5B-JFKab17jpg2XNoSuYdzvTl91SYCFNC7pxTZuOxEd8LVdYEM6zERfnOZ2oLfTjFSLVdn0Np1GZZE9Swq6dwA_n6OC8oiwRc3Ksse5c-Q"/>
+<div class="absolute inset-0 bg-black/45 flex items-center justify-center text-white font-bold text-sm backdrop-blur-[1px] hover:bg-black/35 transition cursor-pointer">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">photo_camera</span> +6 รูป</span>
+</div>
+</div>
+</div>
+</div>
+<div class="px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#E2E8F0] bg-white">
+<div class="flex items-center gap-6 text-sm text-[#0F172A] font-semibold flex-wrap">
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">terrain</span>
+<span>80 ตร.ว.</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">bolt</span>
+<span>น้ำประปา-ไฟฟ้าเข้าถึง</span>
+</div>
+<span class="text-xs px-2.5 py-0.5 rounded bg-slate-100 text-[#64748B] font-medium">เหมาะสร้างบ้านพักอาศัย · บรรยากาศเงียบสงบ</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial px-4 py-2 rounded-xl border border-[#E2E8F0] text-xs font-bold text-[#64748B] hover:text-[#0F172A] hover:bg-slate-50 transition flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">compare_arrows</span>
+<span>เปรียบเทียบ</span>
+</button>
+<button class="flex-1 sm:flex-initial px-5 py-2 rounded-xl bg-[#0F766E] hover:bg-[#115E59] text-white text-xs font-bold transition shadow-sm flex items-center justify-center gap-1" type="button">
+<span>ดูรายละเอียด</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Listing 9: บ้านหนองสำโรง (ติดจอง #F59E0B) -->
+<article class="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
+<div class="grid grid-cols-12 gap-1.5 p-2 bg-[#F8FAFC]">
+<div class="col-span-8 relative h-[380px] rounded-xl overflow-hidden group">
+<img alt="บ้านหนองสำโรง" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAis-sl8UFthwgfdbTaL6qISsE4jXF_hv4asrqbjn4dPkxUPElym3J5Y97rDGFOmOeEYLDZvHOjXzrMGVxkv1VLNsgzCPCiXhJPiNAm4MaEt8lLn3j-WJED-Ewfc1RUf9oXIsSBRMW8cEgCYBI3PUpR9mcj-PHaCOPLCB7ka333kpiz92OZGejWQC98NEiRqCcZFRxOTPKI0ygC6yBQnuGT3YPaMAnLvGPLEcrZUcnZbf6vBblAJETn"/>
+<div class="absolute top-4 left-4 flex items-center gap-2">
+<span class="px-3 py-1 rounded-md bg-[#0F766E] text-white font-bold text-xs tracking-wide shadow">ขาย</span>
+<span class="px-3 py-1 rounded-md bg-[#F59E0B] text-white font-bold text-xs flex items-center gap-1 shadow">
+<span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                ติดจอง
+              </span>
+<span class="px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-sm text-[#0F766E] font-bold text-xs flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                Verified
+              </span>
+</div>
+<div class="absolute top-4 right-4 flex items-center gap-2">
+<button class="w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#EF4444] flex items-center justify-center shadow backdrop-blur-sm transition" type="button">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#0F766E] flex items-center justify-center shadow backdrop-blur-sm transition" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+<div class="absolute inset-x-0 bottom-0 pt-24 pb-4 px-5 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white">
+<div class="text-2xl font-black text-white drop-shadow-sm">฿2,650,000</div>
+<h2 class="text-lg font-bold text-white mt-0.5 leading-snug">บ้านเดี่ยวชั้นเดียว หนองสำโรง (House Nong Samrong)</h2>
+<div class="flex items-center gap-1.5 text-xs text-slate-200 mt-1">
+<span class="material-symbols-outlined text-[16px] text-[#10B981]">location_on</span>
+<span>ต.หนองสำโรง อ.เมือง จ.อุดรธานี</span>
+</div>
+</div>
+</div>
+<div class="col-span-4 flex flex-col gap-1.5">
+<div class="relative h-[186px] rounded-xl overflow-hidden group">
+<img alt="Interior Nong Samrong" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpGjaW6updPSOZdumzFGq_u2rsz5230n4VYIMGcZocBGYClqRdLf9pLRJA5YxAxDyDB1zqq8DEz2GfDWUY_KCmONBF8W1ZsyuNoYRXof51Fan6ZREkA9RZlyB_ZBoO4b8VTi3Pk5fT7xF0jwRlem8TSacEU7wt4QRxeKaLo1kU4lRKpvsL-_3iVcFn8PqPh0vm-taLSWLZ1cMZ6DpTBFkypAxCgC-MP-oq4h1MV1cBoZWJKmomSPxm"/>
+</div>
+<div class="relative h-[186px] rounded-xl overflow-hidden group">
+<img alt="Dining room" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxa54qVvFrRUMe7ACwMKKkFoXEdPIKz6GuWdJQFgqFjwGDmkruDjvWMqRRbEeVJaEeAGI64WTpJRARaWlmLrKCGc84P9MH7vDp4mZ47szfy2l8vublkO0RCw-u7hEXhQoekbiGN0D_b2JqWh955D80j0SLjfPAp-jnq4IGIRXocH3PJH4ckDaO2jiEpqp-67lIA6OBCGpSF3qo3WzogtNYNJgQOsp4rvjPgRBKulAlwWMUrDC6BAmg"/>
+<div class="absolute inset-0 bg-black/45 flex items-center justify-center text-white font-bold text-sm backdrop-blur-[1px] hover:bg-black/35 transition cursor-pointer">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">photo_camera</span> +19 รูป</span>
+</div>
+</div>
+</div>
+</div>
+<div class="px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#E2E8F0] bg-white">
+<div class="flex items-center gap-6 text-sm text-[#0F172A] font-semibold flex-wrap">
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">square_foot</span>
+<span>130 ตร.ม.</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">bed</span>
+<span>3 ห้องนอน</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">bathtub</span>
+<span>2 ห้องน้ำ</span>
+</div>
+<span class="text-xs px-2.5 py-0.5 rounded bg-amber-50 text-[#F59E0B] font-bold border border-amber-200">ติดจอง (รออนุมัติสินเชื่อ)</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial px-4 py-2 rounded-xl border border-[#E2E8F0] text-xs font-bold text-[#64748B] hover:text-[#0F172A] hover:bg-slate-50 transition flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">compare_arrows</span>
+<span>เปรียบเทียบ</span>
+</button>
+<button class="flex-1 sm:flex-initial px-5 py-2 rounded-xl bg-[#0F766E] hover:bg-[#115E59] text-white text-xs font-bold transition shadow-sm flex items-center justify-center gap-1" type="button">
+<span>ดูรายละเอียด</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Listing 10: คอนโดใกล้ราชภัฏ (แอสปาย อุดรธานี) -->
+<article class="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
+<div class="grid grid-cols-12 gap-1.5 p-2 bg-[#F8FAFC]">
+<div class="col-span-8 relative h-[380px] rounded-xl overflow-hidden group">
+<img alt="คอนโดใกล้ราชภัฏ แอสปาย อุดรธานี" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyx93wJPpth8YhOp2zTfZWbbSlMjMvg_iP59rIeYviJuj3tikPhnl03Ry8xW2h9TWFdKv9RzvyRUI9GQE3HZo8NYKl6H0UZawa9YoZvY3YileoxZaWdTISkC0KrsdyvcHT7XdPTedwkjNkV_A7HtPllKpek_m1ohvkWctEVVUS4qPm9Eb8Tt4FFJBdMQ9DGw18rUuivzwb6byeFdwbiwTearg4DUwUIJhhBDLmUav-EpXl9L0ScJjl"/>
+<div class="absolute top-4 left-4 flex items-center gap-2">
+<span class="px-3 py-1 rounded-md bg-[#004eaa] text-white font-bold text-xs tracking-wide shadow">เช่า</span>
+<span class="px-3 py-1 rounded-md bg-[#10B981] text-white font-bold text-xs flex items-center gap-1 shadow">
+<span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                ว่าง
+              </span>
+<span class="px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-sm text-[#0F766E] font-bold text-xs flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                Verified
+              </span>
+</div>
+<div class="absolute top-4 right-4 flex items-center gap-2">
+<button class="w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#EF4444] flex items-center justify-center shadow backdrop-blur-sm transition" type="button">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#0F766E] flex items-center justify-center shadow backdrop-blur-sm transition" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+<div class="absolute inset-x-0 bottom-0 pt-24 pb-4 px-5 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white">
+<div class="text-2xl font-black text-white drop-shadow-sm">฿5,500 <span class="text-sm font-normal text-slate-200">/เดือน</span></div>
+<h2 class="text-lg font-bold text-white mt-0.5 leading-snug">คอนโดใกล้ราชภัฏ (แอสปาย อุดรธานี / Aspire Udonthani)</h2>
+<div class="flex items-center gap-1.5 text-xs text-slate-200 mt-1">
+<span class="material-symbols-outlined text-[16px] text-[#10B981]">location_on</span>
+<span>ถ.ทหาร หน้า มรภ.อุดรธานี ต.หมากแข้ง</span>
+</div>
+</div>
+</div>
+<div class="col-span-4 flex flex-col gap-1.5">
+<div class="relative h-[186px] rounded-xl overflow-hidden group">
+<img alt="Studio unit" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjKYuIO4NLO1bj3mxS4PNPld-CWEGqTDlMm0ftqk4dJiT28WSteOYnmj-1o_wUOyzOnugBdigoI2ZkTKhfQYG74oEynPj6EZWNpR3DzzXEcdbBBJ_P6Ptl2IFnUe9UDztM-9r4mEAF2XChvDGvJOqQsfdc9WQjdZsCqOn2je8IUeIVMiyH60iSzP18pzRW9A7_mA-0n8lBCU0bTaOvB_IpLWI5willMEegaHf--jT2DFF3NoxUORxl"/>
+</div>
+<div class="relative h-[186px] rounded-xl overflow-hidden group">
+<img alt="Study corner" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBteK8Fouj2NEMPFiQnjnQxns4GQA3jf26z33nevnH_hIs8ixhoeAQNqndm2z-mvS_RuWGiyTjYo3jXOXS8XFSEtfBo0kekIUh7dtbOkhSFXewP3y8DnDWKmrdt-bsjqsXpl7jXbN3zlDGVzLUP6uc9C8qLm8EaWBODvVjjelADsHH7SACMr3xV_p0WpdD5FlRdBXeIBy-boirQYEpOfA2JwUszA1e9LVCNJtXqAFAyItSlw1MzL2QK"/>
+<div class="absolute inset-0 bg-black/45 flex items-center justify-center text-white font-bold text-sm backdrop-blur-[1px] hover:bg-black/35 transition cursor-pointer">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">photo_camera</span> +10 รูป</span>
+</div>
+</div>
+</div>
+</div>
+<div class="px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#E2E8F0] bg-white">
+<div class="flex items-center gap-6 text-sm text-[#0F172A] font-semibold flex-wrap">
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">square_foot</span>
+<span>27 ตร.ม.</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">bed</span>
+<span>1 ห้องนอน</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">bathtub</span>
+<span>1 ห้องน้ำ</span>
+</div>
+<span class="text-xs px-2.5 py-0.5 rounded bg-slate-100 text-[#64748B] font-medium">เดินไป มรภ. ได้ใน 3 นาที · เครื่องซักผ้าในตัว</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial px-4 py-2 rounded-xl border border-[#E2E8F0] text-xs font-bold text-[#64748B] hover:text-[#0F172A] hover:bg-slate-50 transition flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">compare_arrows</span>
+<span>เปรียบเทียบ</span>
+</button>
+<button class="flex-1 sm:flex-initial px-5 py-2 rounded-xl bg-[#0F766E] hover:bg-[#115E59] text-white text-xs font-bold transition shadow-sm flex items-center justify-center gap-1" type="button">
+<span>ดูรายละเอียด</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Listing 11: บ้านใกล้สนามบิน (สิริเพลส) -->
+<article class="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
+<div class="grid grid-cols-12 gap-1.5 p-2 bg-[#F8FAFC]">
+<div class="col-span-8 relative h-[380px] rounded-xl overflow-hidden group">
+<img alt="บ้านใกล้สนามบิน สิริเพลส" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhr3DZbqDVg7I-Ehcr17YoLY6JHyCyBESvwdzH0XxHBh6_0kP5Vh4BJWg-pkBD8UXewcLXujsXQRgvkcwVeHEfHgZloy6irTWBHuHgLJpyZseyhjcH28gLocuLLWNcjv4NarOMambyvVZC7zXIRmCGVaNM-4ZJhA4jd-ZJv3xSCq2Utvmi22mYtBqWY8SNhP-4bQiTpXj2UW9iP_Av4aMC71lFnmGhLoSWx-AspsNKg0IueIwfUqKy"/>
+<div class="absolute top-4 left-4 flex items-center gap-2">
+<span class="px-3 py-1 rounded-md bg-[#0F766E] text-white font-bold text-xs tracking-wide shadow">ขาย</span>
+<span class="px-3 py-1 rounded-md bg-[#10B981] text-white font-bold text-xs flex items-center gap-1 shadow">
+<span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                ว่าง
+              </span>
+<span class="px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-sm text-[#0F766E] font-bold text-xs flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                Verified
+              </span>
+</div>
+<div class="absolute top-4 right-4 flex items-center gap-2">
+<button class="w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#EF4444] flex items-center justify-center shadow backdrop-blur-sm transition" type="button">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-700 hover:text-[#0F766E] flex items-center justify-center shadow backdrop-blur-sm transition" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+<div class="absolute inset-x-0 bottom-0 pt-24 pb-4 px-5 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white">
+<div class="text-2xl font-black text-white drop-shadow-sm">฿4,290,000</div>
+<h2 class="text-lg font-bold text-white mt-0.5 leading-snug">บ้านเดี่ยวหรู ใกล้สนามบินนานาชาติ (สิริเพลส อุดรธานี)</h2>
+<div class="flex items-center gap-1.5 text-xs text-slate-200 mt-1">
+<span class="material-symbols-outlined text-[16px] text-[#10B981]">location_on</span>
+<span>5 นาทีถึงสนามบินนานาชาติอุดรธานี ต.บ้านจั่น</span>
+</div>
+</div>
+</div>
+<div class="col-span-4 flex flex-col gap-1.5">
+<div class="relative h-[186px] rounded-xl overflow-hidden group">
+<img alt="Master suite" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnDu0GbGemBCqbyLwOVNpgsXROccyReTsidIsvqshaIsgU_lgLtHNnEyKpmPHe1KTjFu3FrdYbKK9iHJHwseE3lwiObrGNtY9aWomivWAtYQk9Yf3Rj-5UfjVv0ynkPalPpyUOn_er97f4nHLh5UMWYsVpsNpVLrVJVwQTJHnncIM-1GzHsXcCQphFggAoapX7is9lobFpcDB42NzlNEZPRpNY8IDYlKl2IIt6j-dPDNjq20--VFiY"/>
+</div>
+<div class="relative h-[186px] rounded-xl overflow-hidden group">
+<img alt="Garden and terrace" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTwns8v1xnB-tFLrDwywYGDGs-5PL6CrEWmmkE9OGWDJH4MrvErQZ8KhvcUX75F3BTzJrAG3NPPY2w3Ke8yO_q6TmBBZmxjMUJgKBg1iS2P2f3IjagcZVk1PgErf_tpw4OBIiHam88U2leCFodddCXZljSZtjV6qza4NXcq0ISwn4FHHnsSMfjHm_KMXpYhH7sl-33UPGGkL8f_3YzIrnzShE5m5NWwFNPTC-Uwh_Hc0DfNjHh7k6d"/>
+<div class="absolute inset-0 bg-black/45 flex items-center justify-center text-white font-bold text-sm backdrop-blur-[1px] hover:bg-black/35 transition cursor-pointer">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">photo_camera</span> +30 รูป</span>
+</div>
+</div>
+</div>
+</div>
+<div class="px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#E2E8F0] bg-white">
+<div class="flex items-center gap-6 text-sm text-[#0F172A] font-semibold flex-wrap">
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">square_foot</span>
+<span>205 ตร.ม.</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">bed</span>
+<span>4 ห้องนอน</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">bathtub</span>
+<span>3 ห้องน้ำ</span>
+</div>
+<div class="flex items-center gap-1.5 text-slate-600">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">directions_car</span>
+<span>2 คัน</span>
+</div>
+<span class="text-xs px-2.5 py-0.5 rounded bg-slate-100 text-[#64748B] font-medium">ติดถนนใหญ่ · ระบบความปลอดภัย 24 ชม.</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial px-4 py-2 rounded-xl border border-[#E2E8F0] text-xs font-bold text-[#64748B] hover:text-[#0F172A] hover:bg-slate-50 transition flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">compare_arrows</span>
+<span>เปรียบเทียบ</span>
+</button>
+<button class="flex-1 sm:flex-initial px-5 py-2 rounded-xl bg-[#0F766E] hover:bg-[#115E59] text-white text-xs font-bold transition shadow-sm flex items-center justify-center gap-1" type="button">
+<span>ดูรายละเอียด</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<!-- Load More Button -->
+<div class="mt-8 flex justify-center">
+<button class="px-8 py-3 rounded-xl border border-[#E2E8F0] bg-white hover:bg-slate-50 text-[#0F172A] font-bold text-sm shadow-sm transition flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px] text-[#0F766E]">autorenew</span>
+<span>โหลดเพิ่มเติม (Load More)</span>
+</button>
+</div>
+<!-- Post Demand Pin Banner -->
+<section class="mt-10 bg-gradient-to-r from-[#0F766E] to-[#115E59] rounded-2xl p-8 text-white shadow-md relative overflow-hidden">
+<div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="max-w-2xl">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 text-white text-xs font-bold mb-3 backdrop-blur-sm">
+<span class="material-symbols-outlined text-[14px]">push_pin</span>
+<span>Post Demand Pin</span>
+</div>
+<h3 class="text-2xl font-black text-white">ไม่เจอที่ถูกใจ? ปักหมุดความต้องการ</h3>
+<p class="text-sm text-teal-100 mt-1.5 leading-relaxed">
+            แจ้งทำเล, ประเภททรัพย์ และงบประมาณที่คุณต้องการในอุดรธานี แล้วให้นายหน้ามืออาชีพในพื้นที่คัดเลือกทรัพย์ที่ตรงใจส่งให้คุณโดยตรง
+          </p>
+</div>
+<div class="shrink-0">
+<button class="px-6 py-3.5 rounded-xl bg-white text-[#0F766E] hover:bg-teal-50 font-bold text-sm shadow-lg transition flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[20px]">add_location_alt</span>
+<span>ปักหมุดค้นหาทรัพย์ฟรี</span>
+</button>
+</div>
+</div>
+<!-- Subtle Decorative Map Grid Circles -->
+<div class="absolute -right-12 -bottom-12 w-64 h-64 rounded-full bg-white/5 pointer-events-none"></div>
+<div class="absolute right-36 -top-12 w-48 h-48 rounded-full bg-white/5 pointer-events-none"></div>
+</section>
+<!-- Pagination -->
+<div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 py-4 border-t border-[#E2E8F0]">
+<p class="text-xs text-[#64748B]">
+        แสดง <span class="font-bold text-[#0F172A]">1-11</span> จากทั้งหมด <span class="font-bold text-[#0F172A]">11</span> รายการ
+      </p>
+<div class="flex items-center gap-1">
+<button class="w-9 h-9 rounded-lg border border-[#E2E8F0] bg-white text-slate-300 flex items-center justify-center cursor-not-allowed" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-9 h-9 rounded-lg bg-[#0F766E] text-white font-bold text-xs flex items-center justify-center shadow-sm" type="button">
+          1
+        </button>
+<button class="w-9 h-9 rounded-lg border border-[#E2E8F0] bg-white text-slate-300 flex items-center justify-center cursor-not-allowed" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Global Footer -->
+<footer class="bg-white border-t border-[#E2E8F0] mt-12 py-8">
+<div class="max-w-[1440px] mx-auto px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#64748B]">
+<div>
+        © 2025 MapNest Thailand (Udon Thani Pilot). All rights reserved.
+      </div>
+<div class="flex items-center gap-6 font-medium">
+<a class="hover:text-[#0F766E] transition" href="#">นโยบายความเป็นส่วนตัว</a>
+<a class="hover:text-[#0F766E] transition" href="#">ข้อกำหนดการให้บริการ</a>
+<a class="hover:text-[#0F766E] transition" href="#">ติดต่อเรา</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+
+<html lang="th"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>MapNest Admin Backoffice</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Sarabun:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-dim": "#d2d9f4", "on-primary-container": "#a3faef", "primary-fixed-dim": "#80d5cb", "on-tertiary-fixed": "#001a42", "primary-fixed": "#9cf2e8", "surface-container": "#eaedff", "status-reserved": "#F59E0B", "primary-hover": "#115E59", "danger-scam": "#DC2626", "on-tertiary": "#ffffff", "on-primary-fixed-variant": "#00504a", "on-secondary": "#ffffff", "on-surface-variant": "#3e4947", "on-surface": "#131b2e", "error": "#ba1a1a", "surface-bright": "#faf8ff", "outline": "#6e7977", "chart-speed": "#F97316", "surface-container-high": "#e2e7ff", "status-sold": "#EF4444", "tertiary-fixed-dim": "#adc6ff", "secondary-container": "#6cf8bb", "inverse-surface": "#283044", "outline-variant": "#bdc9c6", "on-secondary-fixed-variant": "#005236", "background": "#faf8ff", "surface-card": "#FFFFFF", "inverse-primary": "#80d5cb", "surface": "#faf8ff", "chart-views": "#3B82F6", "status-available": "#10B981", "surface-tint": "#006a63", "on-background": "#131b2e", "on-secondary-fixed": "#002113", "on-error": "#ffffff", "surface-container-low": "#f2f3ff", "text-muted": "#64748B", "surface-container-highest": "#dae2fd", "error-container": "#ffdad6", "on-error-container": "#93000a", "secondary-fixed": "#6ffbbe", "secondary": "#006c49", "tertiary-fixed": "#d8e2ff", "primary": "#005c55", "canvas-background": "#F8FAFC", "surface-container-lowest": "#ffffff", "on-primary": "#ffffff", "inverse-on-surface": "#eef0ff", "on-secondary-container": "#00714d", "primary-container": "#0f766e", "on-primary-fixed": "#00201d", "primary-light": "#F0FDFA", "secondary-fixed-dim": "#4edea3", "tertiary-container": "#0165d8", "on-tertiary-fixed-variant": "#004395", "on-tertiary-container": "#e4eaff", "tertiary": "#004eaa", "border-subtle": "#E2E8F0", "surface-variant": "#dae2fd" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-tablet": "1.5rem", "space-md": "0.75rem", "space-xl": "1.5rem", "gutter": "1rem", "gutter-desktop": "1.5rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "margin": "1rem", "margin-desktop": "2rem", "space-lg": "1rem" }, "fontFamily": { "title-md": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "display-lg": ["Plus Jakarta Sans"], "body-sm-medium": ["Plus Jakarta Sans"], "price-sm": ["Plus Jakarta Sans"], "label-xs": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "price-xl": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-lg-bold": ["Plus Jakarta Sans"] }, "fontSize": { "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }], "display-lg": ["30px", { "lineHeight": "40px", "fontWeight": "700" }], "body-sm-medium": ["14px", { "lineHeight": "22px", "fontWeight": "500" }], "price-sm": ["14px", { "lineHeight": "18px", "fontWeight": "700" }], "label-xs": ["12px", { "lineHeight": "18px", "fontWeight": "600" }], "body-sm": ["14px", { "lineHeight": "22px", "fontWeight": "400" }], "price-xl": ["24px", { "lineHeight": "30px", "fontWeight": "800" }], "headline-lg": ["24px", { "lineHeight": "34px", "fontWeight": "700" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "body-lg-bold": ["16px", { "lineHeight": "26px", "fontWeight": "600" }] } } } };</script></head><body class="bg-canvas-background font-body-sm text-body-sm text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface-card shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-28 w-full px-margin-desktop flex flex-col justify-between pt-space-sm"><div class="flex items-center justify-between pb-space-xs"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center shadow-[0_2px_8px_rgba(0,92,85,0.25)]"><span class="material-symbols-outlined text-on-primary text-[22px]">domain</span></div><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-title-md text-title-md text-on-surface tracking-tight font-bold">MapNest</span><span class="font-label-xs text-label-xs bg-primary-container text-on-primary px-space-xs py-0.5 rounded">ADMIN</span></div><span class="font-label-xs text-label-xs text-text-muted">Udon Thani Center Management Portal</span></div></div><div class="hidden xl:flex items-center gap-space-xs px-space-md py-1 bg-surface-container-low rounded-full"><span class="w-2 h-2 rounded-full bg-status-available animate-pulse"></span><span class="font-label-xs text-label-xs text-on-surface-variant font-medium">ระบบจัดการส่วนกลาง Udon Thani Center</span><span class="font-label-xs text-label-xs text-text-muted">•</span><span class="font-label-xs text-label-xs text-status-available font-semibold">System Operational</span></div></div><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-sm px-space-md py-1 bg-surface-container-low rounded-xl"><div class="flex flex-col text-right"><span class="font-label-xs text-label-xs text-on-surface font-semibold">Admin: ชานนท์</span><span class="font-label-xs text-label-xs text-text-muted">Super Admin • สนง.อุดรธานี</span></div><div class="w-2 h-2 rounded-full bg-secondary"></div></div><button aria-label="Notifications" class="relative p-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-danger-scam rounded-full ring-2 ring-surface-card"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><nav class="flex items-center gap-space-xs overflow-x-auto no-scrollbar -mb-px" data-active-classes="bg-primary-light text-primary font-body-sm-medium font-semibold border-b-2 border-primary rounded-t-lg"><a class="text-on-surface-variant hover:text-on-surface px-space-md py-2 font-body-sm text-body-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-path="admin-dashboard" href="#">ภาพรวมระบบ</a><a class="text-on-surface-variant hover:text-on-surface px-space-md py-2 font-body-sm text-body-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-path="kyc-queue" href="#"><span>ตรวจสอบ KYC</span><span class="bg-surface-container-high text-on-surface font-label-xs text-label-xs px-1.5 py-0.5 rounded-full">14</span></a><a class="text-on-surface-variant hover:text-on-surface px-space-md py-2 font-body-sm text-body-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-path="listing-review" href="#"><span>ตรวจสอบประกาศ</span><span class="bg-surface-container-high text-on-surface font-label-xs text-label-xs px-1.5 py-0.5 rounded-full">9</span></a><a class="text-on-surface-variant hover:text-on-surface px-space-md py-2 font-body-sm text-body-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-path="reports-and-scam" href="#"><span>รายงานและสแกม</span><span class="bg-error-container text-on-error-container font-label-xs text-label-xs px-1.5 py-0.5 rounded-full">3</span></a><a class="text-on-surface-variant hover:text-on-surface px-space-md py-2 font-body-sm text-body-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-path="stale-listings" href="#">ประกาศค้างเก่า</a><a class="text-on-surface-variant hover:text-on-surface px-space-md py-2 font-body-sm text-body-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-path="packages-and-promo" href="#">แพ็กเกจและโปรโมชัน</a><a class="text-on-surface-variant hover:text-on-surface px-space-md py-2 font-body-sm text-body-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-path="orders-and-refunds" href="#">คำสั่งซื้อและการคืนเงิน</a><a class="text-on-surface-variant hover:text-on-surface px-space-md py-2 font-body-sm text-body-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-path="user-management" href="#">จัดการผู้ใช้งาน</a></nav></div></header><main class="w-full pt-28 min-h-[calc(100vh-140px)] bg-canvas-background px-margin-desktop py-space-xl"><div class="flex flex-col w-full pb-12">
+<!-- Breadcrumb and Live Indicator -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
+<div class="flex items-center gap-2 text-text-muted font-label-xs text-label-xs">
+<span class="hover:text-primary cursor-pointer transition-colors">หน้าแรก</span>
+<span>/</span>
+<span class="hover:text-primary cursor-pointer transition-colors">ระบบผู้ดูแล</span>
+<span>/</span>
+<span class="text-on-surface font-semibold">คิวตรวจสอบประกาศอสังหาริมทรัพย์ (Listing Review Queue)</span>
+</div>
+<div class="flex items-center gap-2 text-text-muted font-label-xs text-label-xs">
+<span class="inline-block w-2 h-2 rounded-full bg-status-available animate-ping"></span>
+<span class="text-secondary font-medium">Syncing with กรมที่ดิน DOL WMS (Realtime API active)</span>
+</div>
+</div>
+<!-- Header Title & Summary Metrics -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-6">
+<div>
+<div class="flex items-center gap-3">
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">คิวตรวจสอบและอนุมัติประกาศ</h1>
+<span class="bg-primary-light text-primary font-label-xs text-label-xs px-2.5 py-1 rounded-full font-bold">DOL Land Registry Verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted mt-1 max-w-3xl">
+        ตรวจสอบความถูกต้องของข้อมูลพิกัด GPS, เอกสารสิทธิ์โฉนดที่ดิน (น.ส. 4 จ.), ความเป็นเจ้าของ และภาพถ่ายป้องกันการแอบอ้างก่อนขึ้นเผยแพร่บนแผนที่สาธารณะ
+      </p>
+</div>
+<!-- Quick Action / Switch -->
+<div class="flex items-center gap-2">
+<button class="bg-surface-card hover:bg-surface-container-low text-on-surface font-label-xs text-label-xs px-3 py-2 rounded-xl shadow-sm flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[18px] text-primary">download</span>
+<span>ส่งออกรายงานค้างตรวจ (CSV)</span>
+</button>
+<button class="bg-primary hover:bg-primary-hover text-on-primary font-label-xs text-label-xs px-3.5 py-2 rounded-xl shadow-sm flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[18px]">rule</span>
+<span>รัน AI Batch Pre-check</span>
+</button>
+</div>
+</div>
+<!-- Summary Metric Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
+<!-- Metric 1 -->
+<div class="bg-surface-card rounded-xl p-4 shadow-sm flex items-center justify-between">
+<div>
+<span class="font-label-xs text-label-xs text-text-muted">คิวรอตรวจสอบทั้งหมด</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-price-xl text-price-xl text-on-surface">9</span>
+<span class="font-label-xs text-label-xs text-text-muted">รายการ</span>
+</div>
+<div class="flex items-center gap-1 mt-1 text-chart-speed font-label-xs text-label-xs">
+<span class="material-symbols-outlined text-[14px]">timer</span>
+<span>มี 2 รายการใกล้เกิน SLA 2 ชม.</span>
+</div>
+</div>
+<div class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">pending_actions</span>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-card rounded-xl p-4 shadow-sm flex items-center justify-between">
+<div>
+<span class="font-label-xs text-label-xs text-text-muted">ตรวจสอบด่วน (Flash Spotlight)</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-price-xl text-price-xl text-status-reserved">3</span>
+<span class="font-label-xs text-label-xs text-text-muted">รายการบูสต์</span>
+</div>
+<div class="flex items-center gap-1 mt-1 text-status-reserved font-label-xs text-label-xs">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span>จ่ายผ่านพร้อมเพย์แล้ว • ลำดับแรก</span>
+</div>
+</div>
+<div class="w-11 h-11 rounded-xl bg-error-container/40 flex items-center justify-center text-status-reserved">
+<span class="material-symbols-outlined text-[24px]">local_fire_department</span>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface-card rounded-xl p-4 shadow-sm flex items-center justify-between">
+<div>
+<span class="font-label-xs text-label-xs text-text-muted">ตรวจผ่านแล้ววันนี้</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-price-xl text-price-xl text-status-available">34</span>
+<span class="font-label-xs text-label-xs text-text-muted">รายการ</span>
+</div>
+<div class="flex items-center gap-1 mt-1 text-status-available font-label-xs text-label-xs">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>+18% เทียบกับสัปดาห์ก่อน</span>
+</div>
+</div>
+<div class="w-11 h-11 rounded-xl bg-primary-light flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[24px]">task_alt</span>
+</div>
+</div>
+<!-- Metric 4 -->
+<div class="bg-surface-card rounded-xl p-4 shadow-sm flex items-center justify-between">
+<div>
+<span class="font-label-xs text-label-xs text-text-muted">เฉลี่ยเวลาตรวจสอบ</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-price-xl text-price-xl text-on-surface">12.5</span>
+<span class="font-label-xs text-label-xs text-text-muted">นาที / ประกาศ</span>
+</div>
+<div class="flex items-center gap-1 mt-1 text-chart-views font-label-xs text-label-xs">
+<span class="material-symbols-outlined text-[14px]">speed</span>
+<span>อยู่ในเกณฑ์มาตรฐานความไว</span>
+</div>
+</div>
+<div class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center text-chart-views">
+<span class="material-symbols-outlined text-[24px]">avg_time</span>
+</div>
+</div>
+</div>
+<!-- Filter & Search Controls Bar -->
+<div class="bg-surface-card rounded-2xl p-4 shadow-sm mb-6 flex flex-col gap-3">
+<!-- Filter Chips Row -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+<button class="px-3.5 py-1.5 rounded-full bg-primary text-on-primary font-label-xs text-label-xs font-semibold whitespace-nowrap shadow-sm flex items-center gap-1.5">
+<span>ทั้งหมด</span>
+<span class="bg-primary-hover px-1.5 py-0.2 rounded-full text-label-xs">9</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface font-label-xs text-label-xs whitespace-nowrap transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">description</span>
+<span>โฉนด น.ส. 4 จ. / เอกสารสิทธิ์</span>
+<span class="bg-surface-card text-on-surface px-1.5 py-0.2 rounded-full text-label-xs">4</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface font-label-xs text-label-xs whitespace-nowrap transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-chart-views">apartment</span>
+<span>คอนโดมิเนียม</span>
+<span class="bg-surface-card text-on-surface px-1.5 py-0.2 rounded-full text-label-xs">3</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface font-label-xs text-label-xs whitespace-nowrap transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">cottage</span>
+<span>บ้านเดี่ยว / วิลล่า</span>
+<span class="bg-surface-card text-on-surface px-1.5 py-0.2 rounded-full text-label-xs">2</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-full bg-error-container/30 hover:bg-error-container/50 text-danger-scam font-label-xs text-label-xs whitespace-nowrap transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">edit_note</span>
+<span>รอผู้ลงแก้ไขเอกสาร</span>
+<span class="bg-surface-card text-danger-scam px-1.5 py-0.2 rounded-full text-label-xs">2</span>
+</button>
+</div>
+<!-- Search and Dropdown Controls -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center pt-2">
+<!-- Search Input -->
+<div class="md:col-span-5 relative">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-[18px] text-text-muted">search</span>
+<input class="w-full bg-canvas-background pl-10 pr-4 py-2 rounded-xl text-body-sm font-body-sm text-on-surface placeholder:text-text-muted focus:outline-none focus:bg-surface-card shadow-inner" placeholder="ค้นหารหัสประกาศ, ชื่อผู้ลง, โฉนดเลขที่, ระวาง, หรือชื่อโครงการ..." type="text" value="UD-884102"/>
+</div>
+<!-- Area Dropdown -->
+<div class="md:col-span-3">
+<div class="relative">
+<select class="w-full appearance-none bg-canvas-background px-3.5 py-2 pr-9 rounded-xl text-body-sm font-body-sm text-on-surface focus:outline-none cursor-pointer shadow-inner">
+<option value="all">ทุกพื้นที่อำเภอเมือง (หมากแข้ง, หนองบัว, นาดี)</option>
+<option selected="" value="makkheng">ต.หมากแข้ง (ในเมือง)</option>
+<option value="nongbua">ต.หนองบัว</option>
+<option value="baanluem">ต.บ้านเลื่อม</option>
+<option value="nadee">ต.นาดี (ใกล้สนามบิน)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-[18px] text-text-muted pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Toggle Spotlight Filter -->
+<div class="md:col-span-2 flex items-center justify-start md:justify-center">
+<label class="flex items-center gap-2 cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-0 accent-primary cursor-pointer" type="checkbox"/>
+<span class="font-label-xs text-label-xs text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-status-reserved">bolt</span>
+<span>คิวบูสต์ Flash</span>
+</span>
+</label>
+</div>
+<!-- Sort Dropdown -->
+<div class="md:col-span-2">
+<div class="relative">
+<select class="w-full appearance-none bg-canvas-background px-3 py-2 pr-8 rounded-xl text-label-xs font-label-xs text-on-surface focus:outline-none cursor-pointer shadow-inner">
+<option selected="">รอนานที่สุดก่อน (Oldest)</option>
+<option>รายการมาใหม่ล่าสุด</option>
+<option>ราคาสูงไปต่ำ</option>
+<option>ระดับความเสี่ยง AI สูงสุด</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-[18px] text-text-muted pointer-events-none">sort</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Two-Column Master-Detail Split Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- ============================================== -->
+<!-- LEFT COLUMN: Queue List (~45% -> 5 cols on lg) -->
+<!-- ============================================== -->
+<div class="lg:col-span-5 flex flex-col gap-3">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="font-title-md text-title-md text-on-surface">รายการในคิว (Queue Stream)</span>
+<span class="bg-surface-container px-2 py-0.5 rounded-full text-label-xs font-label-xs font-semibold text-primary">9</span>
+</div>
+<button class="text-primary hover:text-primary-hover font-label-xs text-label-xs flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+<span>รีเฟรชข้อมูล</span>
+</button>
+</div>
+<!-- CARD 1 [SELECTED / IN REVIEW] -->
+<div class="bg-surface-card rounded-2xl p-4 shadow-md bg-gradient-to-r from-primary-light/40 to-surface-card cursor-pointer transition-all">
+<!-- Top meta -->
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="font-label-xs text-label-xs bg-primary text-on-primary px-2 py-0.5 rounded font-mono font-bold">UD-884102</span>
+<span class="text-text-muted font-label-xs text-label-xs">ยื่นเมื่อ 1.5 ชม. ที่แล้ว</span>
+</div>
+<span class="bg-status-reserved/15 text-status-reserved font-label-xs text-label-xs px-2 py-0.5 rounded-full font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">bolt</span>
+<span>ตรวจด่วน (Spotlight)</span>
+</span>
+</div>
+<!-- Title -->
+<h2 class="font-body-lg-bold text-body-lg-bold text-on-surface line-clamp-1 mb-1">
+          ที่ดินเปล่า 120 ตร.ว. ซอยจินตคาม ถ.ทหาร อ.เมืองอุดรธานี
+        </h2>
+<!-- Price & Type -->
+<div class="flex items-baseline gap-2 mb-3">
+<span class="font-price-xl text-price-xl text-primary font-bold">฿2,400,000</span>
+<span class="font-label-xs text-label-xs text-text-muted">(฿20,000/ตร.ว. • ที่ดินเปล่า)</span>
+</div>
+<!-- Poster info & Attached doc chips -->
+<div class="bg-canvas-background rounded-xl p-2.5 flex flex-col gap-2 mb-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-label-xs text-label-xs font-bold">ก</div>
+<div class="flex items-center gap-1.5">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface">คุณกมลวรรณ</span>
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant text-[10px] font-bold px-1.5 py-0.2 rounded flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[11px]">verified</span>
+<span>KYC บัตร ปชช. แล้ว</span>
+</span>
+</div>
+</div>
+<span class="font-label-xs text-label-xs text-secondary font-medium">เจ้าของขายเอง</span>
+</div>
+<div class="flex flex-wrap items-center gap-1.5 pt-1 text-text-muted font-label-xs text-label-xs">
+<span class="bg-surface-card px-2 py-0.5 rounded flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[13px]">workspace_premium</span>
+<span>โฉนด น.ส. 4 จ. หน้า-หลัง</span>
+</span>
+<span class="bg-surface-card px-2 py-0.5 rounded flex items-center gap-1 text-chart-views">
+<span class="material-symbols-outlined text-[13px]">pin_drop</span>
+<span>หมุด GPS กรมที่ดิน</span>
+</span>
+</div>
+</div>
+<!-- Action / Status line -->
+<div class="flex items-center justify-between pt-1">
+<span class="inline-flex items-center gap-1.5 text-primary font-label-xs text-label-xs font-semibold bg-primary-light px-2.5 py-1 rounded-full">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span>กำลังตรวจสอบ (In Review)</span>
+</span>
+<span class="font-label-xs text-label-xs text-primary flex items-center gap-0.5 font-bold">
+<span>ดูข้อมูลในแผงขวา</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</span>
+</div>
+</div>
+<!-- CARD 2 -->
+<div class="bg-surface-card rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="font-label-xs text-label-xs bg-surface-container text-on-surface px-2 py-0.5 rounded font-mono font-bold">UD-883921</span>
+<span class="text-text-muted font-label-xs text-label-xs">ยื่นเมื่อ 2.2 ชม. ที่แล้ว</span>
+</div>
+<span class="bg-surface-container-low text-text-muted font-label-xs text-label-xs px-2 py-0.5 rounded-full font-medium">คิวปกติ</span>
+</div>
+<h3 class="font-body-lg-bold text-body-lg-bold text-on-surface line-clamp-1 mb-1">
+          ลุมพินี เพลส ยูดี-โพศรี (ห้อง 804 ชั้น 8 วิวสวน) 28.5 ตร.ม.
+        </h3>
+<div class="flex items-baseline gap-2 mb-3">
+<span class="font-price-xl text-price-xl text-on-surface font-bold">฿1,450,000</span>
+<span class="font-label-xs text-label-xs text-text-muted">(฿50,877/ตร.ม. • คอนโดมิเนียม)</span>
+</div>
+<div class="bg-canvas-background rounded-xl p-2.5 flex flex-col gap-2 mb-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-chart-views text-on-primary flex items-center justify-center font-label-xs text-label-xs font-bold">ส</div>
+<div class="flex items-center gap-1.5">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface">นายสิรวิชญ์ พันธ์ทองแท้</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-bold text-[10px] px-1.5 py-0.2 rounded">Agent Pro</span>
+</div>
+</div>
+<span class="font-label-xs text-label-xs text-text-muted">TREBA Verified</span>
+</div>
+<div class="flex flex-wrap items-center gap-1.5 pt-1 text-text-muted font-label-xs text-label-xs">
+<span class="bg-surface-card px-2 py-0.5 rounded flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-[13px]">contract</span>
+<span>หนังสือกรรมสิทธิ์ อ.ช.2</span>
+</span>
+<span class="bg-surface-card px-2 py-0.5 rounded flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[13px]">assignment_turned_in</span>
+<span>Exclusive Listing Contract</span>
+</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="inline-flex items-center gap-1.5 text-text-muted font-label-xs text-label-xs bg-surface-container-low px-2.5 py-1 rounded-full">
+<span class="w-2 h-2 rounded-full bg-text-muted"></span>
+<span>รอตรวจ (Pending)</span>
+</span>
+<button class="text-primary hover:text-primary-hover font-label-xs text-label-xs font-medium">กดเพื่อเริ่มตรวจ</button>
+</div>
+</div>
+<!-- CARD 3 -->
+<div class="bg-surface-card rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="font-label-xs text-label-xs bg-surface-container text-on-surface px-2 py-0.5 rounded font-mono font-bold">UD-883504</span>
+<span class="text-text-muted font-label-xs text-label-xs">ยื่นเมื่อ 3.8 ชม. ที่แล้ว</span>
+</div>
+<span class="bg-surface-container-low text-text-muted font-label-xs text-label-xs px-2 py-0.5 rounded-full font-medium">คิวปกติ</span>
+</div>
+<h3 class="font-body-lg-bold text-body-lg-bold text-on-surface line-clamp-1 mb-1">
+          ศุภาลัย เบลล่า อุดรธานี (บ้านเดี่ยว 2 ชั้น ถนนมิตรภาพ) 160 ตร.ม.
+        </h3>
+<div class="flex items-baseline gap-2 mb-3">
+<span class="font-price-xl text-price-xl text-on-surface font-bold">฿3,890,000</span>
+<span class="font-label-xs text-label-xs text-text-muted">(บ้านเดี่ยว 4 ห้องนอน • ต.นาดี)</span>
+</div>
+<div class="bg-canvas-background rounded-xl p-2.5 flex flex-col gap-2 mb-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-label-xs text-label-xs font-bold">ป</div>
+<div class="flex items-center gap-1.5">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface">คุณปิยะพงษ์ วัฒนาสกุล</span>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-bold text-[10px] px-1.5 py-0.2 rounded">Agent Pro</span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-1.5 pt-1 text-text-muted font-label-xs text-label-xs">
+<span class="bg-surface-card px-2 py-0.5 rounded flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-[13px]">description</span>
+<span>โฉนดที่ดินหน้า 1</span>
+</span>
+<span class="bg-surface-card px-2 py-0.5 rounded flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-[13px]">handshake</span>
+<span>สัญญาจะซื้อจะขาย</span>
+</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="inline-flex items-center gap-1.5 text-text-muted font-label-xs text-label-xs bg-surface-container-low px-2.5 py-1 rounded-full">
+<span class="w-2 h-2 rounded-full bg-text-muted"></span>
+<span>รอตรวจ (Pending)</span>
+</span>
+<button class="text-primary hover:text-primary-hover font-label-xs text-label-xs font-medium">กดเพื่อเริ่มตรวจ</button>
+</div>
+</div>
+<!-- CARD 4 (FLAGGED / DUPLICATE ALERT) -->
+<div class="bg-surface-card rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer bg-gradient-to-r from-error-container/20 to-surface-card">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="font-label-xs text-label-xs bg-danger-scam text-on-error px-2 py-0.5 rounded font-mono font-bold">UD-882991</span>
+<span class="text-text-muted font-label-xs text-label-xs">ยื่นเมื่อ 5.0 ชม. ที่แล้ว</span>
+</div>
+<span class="bg-error-container text-on-error-container font-label-xs text-label-xs px-2 py-0.5 rounded-full font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">warning</span>
+<span>ต้องตรวจพิเศษ (Flagged)</span>
+</span>
+</div>
+<h3 class="font-body-lg-bold text-body-lg-bold text-on-surface line-clamp-1 mb-1">
+          อาคารพาณิชย์ 3.5 ชั้น หน้าตลาดสดโพศรี ทำเลทองค้าขาย
+        </h3>
+<div class="flex items-baseline gap-2 mb-2">
+<span class="font-price-xl text-price-xl text-danger-scam font-bold">฿28,000</span>
+<span class="font-label-xs text-label-xs text-text-muted">/เดือน (เช่า • อาคารพาณิชย์)</span>
+</div>
+<!-- AI Duplicate Alert Banner -->
+<div class="bg-error-container/40 rounded-xl p-2.5 flex items-start gap-2 mb-3">
+<span class="material-symbols-outlined text-danger-scam text-[18px] shrink-0 mt-0.5">report_problem</span>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs font-bold text-danger-scam">AI Duplicate Alert: พบภาพถ่ายคล้ายประกาศเดิม 85%</span>
+<span class="text-[11px] text-on-surface-variant">ตรวจพบภาพหน้าตึกซ้ำกับประกาศรหัส UD-771201 ซึ่งถูกปิดการขายไปเมื่อ 30 วันก่อน</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="text-text-muted font-label-xs text-label-xs">ผู้ลง: หจก. อุดรการค้า (Corporate)</span>
+<button class="text-danger-scam hover:underline font-label-xs text-label-xs font-bold flex items-center gap-1">
+<span>ส่งเข้าห้องสืบสวน</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-between pt-2 px-2 text-text-muted font-label-xs text-label-xs">
+<span>แสดง 1 - 4 จาก 9 รายการ</span>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg bg-surface-card hover:bg-surface-container flex items-center justify-center text-on-surface shadow-sm disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center font-bold shadow-sm">1</button>
+<button class="w-8 h-8 rounded-lg bg-surface-card hover:bg-surface-container flex items-center justify-center text-on-surface shadow-sm">2</button>
+<button class="w-8 h-8 rounded-lg bg-surface-card hover:bg-surface-container flex items-center justify-center text-on-surface shadow-sm">3</button>
+<button class="w-8 h-8 rounded-lg bg-surface-card hover:bg-surface-container flex items-center justify-center text-on-surface shadow-sm">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- ============================================== -->
+<!-- RIGHT COLUMN: Review & Verification Inspector Panel (~55% -> 7 cols on lg) -->
+<!-- ============================================== -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<!-- Inspector Panel Header Box -->
+<div class="bg-surface-card rounded-2xl p-5 shadow-sm">
+<div class="flex flex-wrap items-center justify-between gap-3 pb-3">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-status-reserved animate-ping"></span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">UD-884102</span>
+<span class="text-text-muted font-body-sm text-body-sm">• ซอยจินตคาม ถ.ทหาร ต.หมากแข้ง</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-primary-light text-primary font-label-xs text-label-xs px-3 py-1 rounded-full font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified_user</span>
+<span>เจ้าของขายเอง (Owner Direct)</span>
+</span>
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant font-label-xs text-label-xs px-3 py-1 rounded-full font-bold">
+              น.ส. 4 จ. ครุฑแดง
+            </span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-6 pt-2 font-label-xs text-label-xs text-text-muted">
+<div>ผู้ยื่นขอ: <span class="text-on-surface font-semibold">นางสาวกมลวรรณ สุวรรณโชติ</span></div>
+<div>เบอร์ติดต่อ: <span class="text-on-surface font-semibold">081-972-XXXX</span> (ผ่าน OTP)</div>
+<div>ราคาประกาศ: <span class="text-primary font-price-sm text-price-sm font-bold">฿2,400,000</span></div>
+<div>ขนาดแปลง: <span class="text-on-surface font-semibold">0 ไร่ 1 งาน 20.0 ตร.ว. (120 ตร.ว.)</span></div>
+</div>
+</div>
+<!-- SECTION 1: การตรวจสอบโฉนดที่ดิน & ข้อมูลกรมที่ดิน (DOL OCR Match) -->
+<div class="bg-surface-card rounded-2xl p-5 shadow-sm flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-primary-light text-primary flex items-center justify-center font-bold">1</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">การตรวจสอบเอกสารสิทธิ์โฉนดที่ดิน &amp; ฐานข้อมูล DOL</h3>
+<p class="font-label-xs text-label-xs text-text-muted">ตรวจสอบความสอดคล้องระหว่างเอกสารที่แนบและระบบระวางที่ดิน กรมที่ดิน</p>
+</div>
+</div>
+<span class="bg-status-available/15 text-status-available font-label-xs text-label-xs px-3 py-1 rounded-full font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span>ตรงกับ DOL 100% (OCR Match)</span>
+</span>
+</div>
+<!-- Document Preview & Extracted OCR Split -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-start">
+<!-- Document Scan Realistic Preview (5 cols) -->
+<div class="md:col-span-5 bg-surface-container-low rounded-xl p-3 flex flex-col items-center">
+<div class="relative w-full aspect-[3/4] rounded-lg overflow-hidden shadow-sm bg-surface-card">
+<img class="w-full h-full object-cover object-top" data-alt="An authentic high-resolution scan of an official Thai Land Title Deed (โฉนดที่ดิน น.ส. 4 จ.) featuring an intricate red Garuda emblem at the top center, typed government Thai serif text, official red seal stamps, boundary map diagram, parcel numbers and survey demarcations, crisp clean paper texture, legal documentation style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH6cxSF1UbzKFZWdQlMz0jHtqse5u2oRTd9TppcUWNvq_ws9eNGy-fcCWKyTI2bM-jTFnnxY5sMYp1uU64hq6rwtErronARYat1-WC_efNxofzrupp4-GMUkgcSB0g4E8cUcl14mGlkVygVFCeU3-TbDbae5p5y_O2U9TMhZwOnbPcQE4lTKHKIJqPlLbm0b_13dZ81dp7UtxkBw1hpXeYDeyXaxyvmnWtSRM3KIk"/>
+<div class="absolute top-2 left-2 bg-inverse-surface/80 backdrop-blur-sm text-on-primary font-label-xs text-[10px] px-2 py-0.5 rounded">
+                สแกนความละเอียดสูง 300 DPI
+              </div>
+<button class="absolute bottom-2 right-2 bg-surface-card/90 hover:bg-surface-card text-on-surface p-1.5 rounded-lg shadow-sm flex items-center gap-1 text-[11px] font-medium transition-colors">
+<span class="material-symbols-outlined text-[14px]">zoom_in</span>
+<span>ขยายตรวจตราครุฑ</span>
+</button>
+</div>
+<div class="flex items-center justify-between w-full mt-2 font-label-xs text-label-xs text-text-muted px-1">
+<span>ไฟล์: chanod_udon_41209.pdf</span>
+<span class="text-secondary font-medium">ด้านหลัง: ปลอดจำนอง</span>
+</div>
+</div>
+<!-- Matching Checklist & OCR Extracted Details (7 cols) -->
+<div class="md:col-span-7 flex flex-col gap-3">
+<div class="bg-canvas-background rounded-xl p-3.5 space-y-2">
+<div class="text-on-surface font-label-xs text-label-xs font-bold uppercase tracking-wider text-text-muted">
+                ข้อมูลสารบบที่ดินจากระบบ e-LandMaps (อุดรธานี)
+              </div>
+<div class="grid grid-cols-2 gap-2 text-body-sm font-body-sm">
+<div>
+<span class="text-text-muted text-label-xs font-label-xs block">เลขที่โฉนด:</span>
+<span class="font-bold text-on-surface">41209</span>
+</div>
+<div>
+<span class="text-text-muted text-label-xs font-label-xs block">หน้าสำรวจ:</span>
+<span class="font-bold text-on-surface">5443</span>
+</div>
+<div>
+<span class="text-text-muted text-label-xs font-label-xs block">ระวาง:</span>
+<span class="font-bold text-on-surface">5443 II 8012 (1:4000)</span>
+</div>
+<div>
+<span class="text-text-muted text-label-xs font-label-xs block">ตำบล / อำเภอ:</span>
+<span class="font-bold text-on-surface">หมากแข้ง / เมืองอุดรธานี</span>
+</div>
+</div>
+</div>
+<!-- Verification Checklist -->
+<div class="flex flex-col gap-2">
+<div class="flex items-start gap-2 bg-primary-light/60 p-2.5 rounded-xl">
+<span class="material-symbols-outlined text-status-available text-[20px] shrink-0">check_circle</span>
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface font-semibold">เลขที่โฉนดและหน้าสำรวจตรงกับระบบระวางที่ดิน 100%</span>
+<span class="text-text-muted text-label-xs font-label-xs">ผ่านการเทียบเคียงกับฐานข้อมูลสำนักงานที่ดินจังหวัดอุดรธานี</span>
+</div>
+</div>
+<div class="flex items-start gap-2 bg-primary-light/60 p-2.5 rounded-xl">
+<span class="material-symbols-outlined text-status-available text-[20px] shrink-0">check_circle</span>
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface font-semibold">ชื่อผู้ถือกรรมสิทธิ์ตรงกับชื่อบัญชีผู้ลงประกาศ</span>
+<span class="text-text-muted text-label-xs font-label-xs">นางสาวกมลวรรณ สุวรรณโชติ (ตรงกับชื่อบัตรประชาชนที่ผ่าน KYC)</span>
+</div>
+</div>
+<div class="flex items-start gap-2 bg-primary-light/60 p-2.5 rounded-xl">
+<span class="material-symbols-outlined text-status-available text-[20px] shrink-0">check_circle</span>
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface font-semibold">ด้านหลังโฉนดไม่ติดภาระจำนองหรืออายัด (ปลอดภาระ)</span>
+<span class="text-text-muted text-label-xs font-label-xs">การจดทะเบียนสิทธิและนิติกรรมครั้งล่าสุดเมื่อ 14 พ.ค. 2565 เป็นมรดกกรรมสิทธิ์สมบูรณ์</span>
+</div>
+</div>
+<div class="flex items-start gap-2 bg-primary-light/60 p-2.5 rounded-xl">
+<span class="material-symbols-outlined text-status-available text-[20px] shrink-0">check_circle</span>
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface font-semibold">พิกัดแปลงที่ดินตรงกับระบบ DOL WMS (คลาดเคลื่อน 0.8 ม.)</span>
+<span class="text-text-muted text-label-xs font-label-xs">ละติจูด 17.39820, ลองจิจูด 102.79150 (ตรงกับรูปแปลงหน้าสารบบ)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 2: การตรวจสอบภาพถ่ายและพิกัดที่ดินจริง (Photo & Map Pin Check) -->
+<div class="bg-surface-card rounded-2xl p-5 shadow-sm flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-chart-views/15 text-chart-views flex items-center justify-center font-bold">2</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">การตรวจสอบภาพถ่ายและพิกัดแปลงจริง (Satellite &amp; Field Photos)</h3>
+<p class="font-label-xs text-label-xs text-text-muted">เปรียบเทียบภาพถ่ายดาวเทียม แปลงรูปเรขาคณิต และภาพถ่ายหลักหมุด คอร.</p>
+</div>
+</div>
+<span class="bg-status-available/15 text-status-available font-label-xs text-label-xs px-2.5 py-1 rounded-full font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">filter_center_focus</span>
+<span>Unique Score 99.2% (ไม่พบภาพซ้ำ)</span>
+</span>
+</div>
+<!-- Satellite Boundary Comparison Map -->
+<div class="relative w-full h-52 rounded-xl overflow-hidden shadow-inner bg-surface-container">
+<div class="w-full h-full bg-cover bg-center" data-location="Thahan Road, Soi Jintakham, Mueang Udon Thani, Thailand" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDtF8Ur02_dDRzdzIEPK2O6T2PLA2q2gIGk5QyzKJdLs1DnMILaVenpPzeHJI0l6rFi0B75neSAkVxicm9-yunFZr-PKZLTh5d-fCZGiTzcUUrufwDyEdpcst56pQE0iExpnzjoB73gGr4lPNvGpXTY4OGJBqIqiUM5tXyKPmxRyDCyxfScnBw1pau-WwB-XXzNHIr3zLXbVQbiMn-v74OZf76k5QzuYCLQhr4M5eQ')"></div>
+<!-- Overlay Boundary Graphic Simulation -->
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-transparent pointer-events-none"></div>
+<div class="absolute top-3 left-3 bg-surface-card/95 backdrop-blur-sm px-3 py-1.5 rounded-lg shadow-sm flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-danger-scam"></div>
+<span class="font-label-xs text-label-xs text-on-surface font-bold">เส้นเขตแปลง DOL (สีแดง)</span>
+<span class="text-text-muted font-label-xs text-label-xs">vs</span>
+<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+<span class="font-label-xs text-label-xs text-primary font-bold">หมุดที่ปัก (สีเขียว)</span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-on-primary font-label-xs text-label-xs">
+<div class="flex items-center gap-2">
+<span class="bg-secondary px-2 py-0.5 rounded font-bold">Delta: 0.8m</span>
+<span>ตำแหน่งซอยจินตคาม แยก 4 ถ.ทหาร หน้ากว้างติดถนนสาธารณะ 16 เมตร</span>
+</div>
+<div class="flex items-center gap-1 bg-inverse-surface/60 px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[14px]">satellite_alt</span>
+<span>Orthophoto 2024</span>
+</div>
+</div>
+</div>
+<!-- 4-Image Strip submitted by poster -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-on-surface font-semibold">ภาพถ่ายภาคสนามที่ผู้ลงประกาศแนบ (4 รูป)</span>
+<span class="font-label-xs text-label-xs text-secondary font-medium">EXIF Metadata: มีข้อมูลพิกัด GPS ตรงกับสถานที่จริง</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+<!-- Photo 1: Entrance Soi -->
+<div class="flex flex-col gap-1">
+<div class="w-full aspect-[4/3] rounded-lg overflow-hidden bg-surface-container relative group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Street view photo taken at the entrance of Soi Jintakham in Udon Thani city, showing a clean asphalt road with clear Thai street signs, concrete electricity poles, bright daytime sunlight, realistic documentary photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBOC_tlJg_s4_CK5SalAsrAFmU9WljqrfU88wxX-apvXysb4hVhidEIqhRMelcjeExkz8rgbTdnr9sOM3o4NoMbXnM1KJDTIvuUAsEiwSD5mS0_rckeVlIbB0LIVIAkPRFlxa6VphztilFmdZ2ZNrCJmkqORYl6ZEURLT_6gmh0vBzQ3foarGIfPYuMKrCVCZlo92LXT0qWMIn-z0-NRQY5nLwXTLfTq2UuPc1NUI"/>
+<span class="absolute bottom-1.5 left-1.5 bg-inverse-surface/75 text-on-primary font-label-xs text-[10px] px-1.5 py-0.2 rounded">1. ทางเข้าซอย</span>
+</div>
+</div>
+<!-- Photo 2: Boundary Marker Pillar -->
+<div class="flex flex-col gap-1">
+<div class="w-full aspect-[4/3] rounded-lg overflow-hidden bg-surface-container relative group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Close up photo of an authentic Thai concrete cadastral land boundary boundary marker post embedded in the ground with carved Thai department of lands official numbers visible, surrounded by clean dry soil, sharp focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpqeSJ0JxpIrwTdBJ4hucYKUZOIPJvmJB4NUt7Pfl9NnVzwT_FWTbVQdLS82QspHk3NEiZMeJgFrAH91SfYxPGFEiqKcVbYa26f2vLjOxte39Bc6ZdSNO_f2Dn9RIpguMit703PAcMxw9C_Qmd4tsdmkcWfTuS0clUIblVOUJhOZn5TRz8dKRjpJM4CpM5wwpcducfyovy06bg-Cumk-bz5-vlxiV5ISvkhFAKZKk"/>
+<span class="absolute bottom-1.5 left-1.5 bg-inverse-surface/75 text-on-primary font-label-xs text-[10px] px-1.5 py-0.2 rounded">2. หลักหมุด คอร.</span>
+</div>
+</div>
+<!-- Photo 3: Cleared Land Parcel -->
+<div class="flex flex-col gap-1">
+<div class="w-full aspect-[4/3] rounded-lg overflow-hidden bg-surface-container relative group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Wide angle shot of a flat leveled residential land plot ready for construction in Udon Thani, lush green background trees under clear tropical sky, clean perimeter boundaries, professional real estate photograph" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNt5p70Xe7FYuBkGpGgKBHr-VkciHka2u0ZyXPDuKGKrS5cXBfM8CB25KzTLi5AaAEksCqKaUTTZMxTQY6T9SuXxff8TPKN6qlHxmjI9s2b9a94q5h-4ho_2YvGPTZUXiIwg5W9CPedISt87zLTFbbneRd7suYhcpAzgbt1-kOF6-fA8KZoUnSWzPysskq4mVIWjZGlyaAS7kqLLIS6KPpHp1tTnMcJ3UExT54tnk"/>
+<span class="absolute bottom-1.5 left-1.5 bg-inverse-surface/75 text-on-primary font-label-xs text-[10px] px-1.5 py-0.2 rounded">3. แปลงที่ดินถมแล้ว</span>
+</div>
+</div>
+<!-- Photo 4: Front Road Access -->
+<div class="flex flex-col gap-1">
+<div class="w-full aspect-[4/3] rounded-lg overflow-hidden bg-surface-container relative group">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Ground level perspective showing a 6-meter wide concrete public access road in front of the empty land plot in Udon Thani residential suburb, quiet peaceful neighborhood setting with proper drainage gutters" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxAIPjP9TvBkaLoYzq-vWfrJaBswaZtqqDuJFMkSytt9cIPvieudlWdgYGsmMw5NIcN9vAPi9ZIAg28vuFR-zkx1FMZeLjL7s5NBaZ-H-nanb30G62ueeyfRMjBYA5MjqQe8_GNR2V9cIQYH9eWZmKqdIKqrQYABhxOIt55OYCJIXXq3c1Pb-TXZjmKKwiOb0lRUVYVvDjLOYYlguVoMT38aXdpWh_Q140Gso2_3E"/>
+<span class="absolute bottom-1.5 left-1.5 bg-inverse-surface/75 text-on-primary font-label-xs text-[10px] px-1.5 py-0.2 rounded">4. ถนนหน้าแปลง 6 ม.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 3: ตรวจสอบความสมเหตุสมผลของราคา (Price Valuation Benchmark) -->
+<div class="bg-surface-card rounded-2xl p-5 shadow-sm flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-chart-speed/15 text-chart-speed flex items-center justify-center font-bold">3</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">ตรวจสอบความสมเหตุสมผลของราคา (Price Sanity &amp; Valuation Benchmark)</h3>
+<p class="font-label-xs text-label-xs text-text-muted">เปรียบเทียบราคาประเมินทุนทรัพย์ที่ดินกรมธนารักษ์ และมัธยฐานราคาซื้อขายในย่านซอยจินตคาม</p>
+</div>
+</div>
+<span class="bg-status-available/15 text-status-available font-label-xs text-label-xs px-2.5 py-1 rounded-full font-bold">
+            Fair Market Range (สมเหตุสมผล)
+          </span>
+</div>
+<!-- 3-Column Valuation Metric Comparators -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<!-- Treasury Dept Valuation -->
+<div class="bg-canvas-background p-3.5 rounded-xl flex flex-col">
+<span class="text-text-muted font-label-xs text-label-xs">ราคาประเมินกรมธนารักษ์</span>
+<span class="font-price-xl text-price-xl text-on-surface mt-1">฿15,000</span>
+<span class="text-[11px] text-text-muted">ต่อ ตร.ว. (มูลค่ารวม ฿1.80M)</span>
+<div class="mt-2 text-[11px] text-secondary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">account_balance</span>
+<span>รอบปีบัญชี 2566 - 2569</span>
+</div>
+</div>
+<!-- Market Benchmark Range -->
+<div class="bg-canvas-background p-3.5 rounded-xl flex flex-col">
+<span class="text-text-muted font-label-xs text-label-xs">ราคาตลาดเฉลี่ยโซนซอยจินตคาม</span>
+<span class="font-price-xl text-price-xl text-chart-views mt-1">฿18k - 22k</span>
+<span class="text-[11px] text-text-muted">ต่อ ตร.ว. (อ้างอิง 12 แปลงล่าสุด)</span>
+<div class="mt-2 text-[11px] text-chart-views font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">analytics</span>
+<span>Median: ฿19,800/ตร.ว.</span>
+</div>
+</div>
+<!-- Listing Target Price -->
+<div class="bg-primary-light p-3.5 rounded-xl flex flex-col border border-primary/20">
+<span class="text-primary font-label-xs text-label-xs font-bold">ราคาเสนอขายของผู้ลงประกาศ</span>
+<span class="font-price-xl text-price-xl text-primary mt-1">฿20,000</span>
+<span class="text-[11px] text-text-muted">ต่อ ตร.ว. (รวม ฿2,400,000)</span>
+<div class="mt-2 text-[11px] text-status-available font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">check</span>
+<span>อยู่ในช่วงราคาตลาดจริง</span>
+</div>
+</div>
+</div>
+<!-- Inline Price Visual Meter (SVG bar) -->
+<div class="bg-canvas-background p-3 rounded-xl flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-label-xs font-label-xs text-text-muted">
+<span>฿10,000/ตร.ว. (ต่ำผิดปกติ/เสี่ยง)</span>
+<span class="text-on-surface font-semibold">฿20,000/ตร.ว. (ราคาประกาศปัจจุบัน)</span>
+<span>฿35,000+/ตร.ว. (สูงเกินจริง)</span>
+</div>
+<div class="relative w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<!-- Zone 1: Below Market -->
+<div class="absolute left-0 top-0 bottom-0 w-[20%] bg-status-reserved/40"></div>
+<!-- Zone 2: Fair Range -->
+<div class="absolute left-[20%] top-0 bottom-0 w-[50%] bg-status-available/60"></div>
+<!-- Zone 3: High Range -->
+<div class="absolute left-[70%] top-0 bottom-0 w-[30%] bg-error-container"></div>
+<!-- Current Needle Pointer -->
+<div class="absolute left-[50%] top-0 bottom-0 w-1 bg-primary shadow-sm -translate-x-1/2"></div>
+</div>
+<div class="text-[11px] text-text-muted text-center pt-0.5">
+            ราคาเสนอขายไม่พบความผิดปกติ ไม่มีความเสี่ยงเรื่องราคาตั้งต่ำเพื่อหลอกเงินจอง (Non-Scam Pattern)
+          </div>
+</div>
+</div>
+<!-- SECTION 4: Admin Note & Decision Action Area -->
+<div class="bg-surface-card rounded-2xl p-5 shadow-sm flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">admin_panel_settings</span>
+<span class="font-title-md text-title-md text-on-surface font-bold">บันทึกผลการตรวจสอบและดำเนินการ (Review Verdict)</span>
+</div>
+<span class="text-text-muted font-label-xs text-label-xs">ผู้ตรวจ: ชานนท์ (Super Admin)</span>
+</div>
+<!-- Admin Internal Note Input -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-xs text-label-xs text-on-surface font-semibold flex items-center justify-between">
+<span>บันทึกความเห็นเจ้าหน้าที่ (Admin Internal Note - บันทึกเข้า Audit Trail):</span>
+<span class="text-text-muted font-normal">ความยาวสูงสุด 500 ตัวอักษร</span>
+</label>
+<textarea class="w-full bg-canvas-background p-3.5 rounded-xl text-body-sm font-body-sm text-on-surface placeholder:text-text-muted focus:outline-none focus:bg-surface-card shadow-inner" rows="3">ตรวจสอบรูปแปลงโฉนดและพิกัด DOL เรียบร้อย ตรงตามเกณฑ์ความปลอดภัยทุกข้อ เอกสารสิทธิ์ปลอดภาระจำนอง อนุมัติพร้อมเปิดสิทธิ์ป้าย Golden Pin (Flash Spotlight) ได้ทันที</textarea>
+</div>
+<!-- Quick Reason Template Dropdown for Rejection/Revision -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 items-center">
+<div class="flex items-center gap-2 text-text-muted font-label-xs text-label-xs">
+<span class="material-symbols-outlined text-[16px]">info</span>
+<span>หากต้องการส่งกลับแก้ไขหรือปฏิเสธ กรุณาเลือกสาเหตุมาตรฐาน:</span>
+</div>
+<div class="relative">
+<select class="w-full appearance-none bg-canvas-background px-3 py-2 pr-8 rounded-xl text-label-xs font-label-xs text-on-surface focus:outline-none cursor-pointer shadow-inner">
+<option disabled="" selected="">-- เลือกสาเหตุมาตรฐาน (ส่ง SMS/Push แจ้งเตือนผู้ลง) --</option>
+<option>ภาพถ่ายโฉนดไม่ชัดเจน / บดบังสาระสำคัญ</option>
+<option>พิกัดหมุดบนแผนที่คลาดเคลื่อนเกิน 100 เมตร</option>
+<option>ชื่อผู้ครอบครองไม่ตรงกับบัตรประชาชน (ขาดหนังสือมอบอำนาจ)</option>
+<option>พบภาพถ่ายซ้ำกับประกาศอื่นในระบบ</option>
+<option>ราคาตั้งต่ำกว่าราคาประเมินราชการผิดปกติ เสี่ยงหลอกลวง</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-[18px] text-text-muted pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- 3 Primary Action Buttons -->
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-3 pt-2">
+<!-- Destructive Button: Reject -->
+<button class="sm:col-span-3 bg-error-container hover:bg-error-container/80 text-danger-scam font-body-sm-medium text-body-sm-medium font-semibold px-4 py-3 rounded-xl transition-colors flex items-center justify-center gap-1.5 shadow-sm" onclick="confirmReject()" type="button">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+<span>ปฏิเสธประกาศ / ระงับ</span>
+</button>
+<!-- Warning Button: Request Revision -->
+<button class="sm:col-span-3 bg-status-reserved/15 hover:bg-status-reserved/25 text-status-reserved font-body-sm-medium text-body-sm-medium font-semibold px-4 py-3 rounded-xl transition-colors flex items-center justify-center gap-1.5 shadow-sm" onclick="confirmRevision()" type="button">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+<span>ส่งกลับให้แก้ไข</span>
+</button>
+<!-- Primary Button: Approve & Publish -->
+<button class="sm:col-span-6 bg-primary hover:bg-primary-hover active:bg-primary-hover text-on-primary font-body-lg-bold text-body-lg-bold px-6 py-3 rounded-xl shadow-md transition-all flex items-center justify-center gap-2" onclick="confirmApprove()" type="button">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+<span>อนุมัติประกาศและมอบตรา Verified Listing</span>
+</button>
+</div>
+<div class="flex items-center justify-between text-text-muted font-label-xs text-label-xs pt-1 px-1">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">lock</span>
+<span>การอนุมัติจะถูกเข้ารหัสลงใน Udon Thani Center Immutable Audit Log</span>
+</span>
+<span>Shortcut: กด [Shift + Enter] เพื่ออนุมัติทันที</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function confirmApprove() {
+    alert("✓ อนุมัติประกาศ UD-884102 เรียบร้อยแล้ว!\nระบบได้ส่งสถานะ 'Verified Listing' พร้อมเปิดใช้งาน Flash Spotlight บนแผนที่อุดรธานีเรียบร้อย และส่งแจ้งเตือนผ่าน SMS/Line แก่คุณกมลวรรณ");
+  }
+
+  function confirmRevision() {
+    const reason = prompt("ระบุข้อมูลที่ต้องการให้ผู้ลงแก้ไขเพิ่มเติม:", "กรุณาแนบภาพถ่ายด้านหลังโฉนดที่เห็นสารบบการจดทะเบียนชัดเจนยิ่งขึ้น");
+    if (reason) {
+      alert("ส่งคำขอแก้ไขไปยังผู้ลงประกาศเรียบร้อยแล้ว สถานะเปลี่ยนเป็น 'รอผู้ลงแก้ไขเอกสาร'");
+    }
+  }
+
+  function confirmReject() {
+    if (confirm("คุณแน่ใจหรือไม่ว่าต้องการปฏิเสธประกาศ UD-884102? การกระทำนี้จะส่งผลให้ประกาศถูกปิดการแสดงผล")) {
+      alert("ประกาศถูกปฏิเสธและบันทึกเข้าประวัติเรียบร้อยแล้ว");
+    }
+  }
+</script></main><footer class="w-full bg-surface-card mt-auto"><div class="w-full px-margin-desktop py-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex flex-wrap items-center gap-space-md text-text-muted font-label-xs text-label-xs"><span class="flex items-center gap-1.5 text-secondary font-semibold"><span class="material-symbols-outlined text-[16px]">verified_user</span>MapNest Security Stamp Level 4</span><span>•</span><span>Audit Log ID: AUD-UDON-2024-LIVE</span><span>•</span><span>Node: TH-NE-UDON-01</span></div><div class="flex items-center gap-space-lg text-text-muted font-label-xs text-label-xs"><span class="hover:text-on-surface transition-colors cursor-pointer">Privacy Compliance</span><span class="hover:text-on-surface transition-colors cursor-pointer">Data Residency Policy</span><span class="text-on-surface-variant font-medium">© 2024 MapNest Thailand. All rights reserved.</span></div></div></footer></body></html>

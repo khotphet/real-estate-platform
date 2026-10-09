@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+
+<html lang="th"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>MapNest Admin Backoffice</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Sarabun:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-dim": "#d2d9f4", "on-primary-container": "#a3faef", "primary-fixed-dim": "#80d5cb", "on-tertiary-fixed": "#001a42", "primary-fixed": "#9cf2e8", "surface-container": "#eaedff", "status-reserved": "#F59E0B", "primary-hover": "#115E59", "danger-scam": "#DC2626", "on-tertiary": "#ffffff", "on-primary-fixed-variant": "#00504a", "on-secondary": "#ffffff", "on-surface-variant": "#3e4947", "on-surface": "#131b2e", "error": "#ba1a1a", "surface-bright": "#faf8ff", "outline": "#6e7977", "chart-speed": "#F97316", "surface-container-high": "#e2e7ff", "status-sold": "#EF4444", "tertiary-fixed-dim": "#adc6ff", "secondary-container": "#6cf8bb", "inverse-surface": "#283044", "outline-variant": "#bdc9c6", "on-secondary-fixed-variant": "#005236", "background": "#faf8ff", "surface-card": "#FFFFFF", "inverse-primary": "#80d5cb", "surface": "#faf8ff", "chart-views": "#3B82F6", "status-available": "#10B981", "surface-tint": "#006a63", "on-background": "#131b2e", "on-secondary-fixed": "#002113", "on-error": "#ffffff", "surface-container-low": "#f2f3ff", "text-muted": "#64748B", "surface-container-highest": "#dae2fd", "error-container": "#ffdad6", "on-error-container": "#93000a", "secondary-fixed": "#6ffbbe", "secondary": "#006c49", "tertiary-fixed": "#d8e2ff", "primary": "#005c55", "canvas-background": "#F8FAFC", "surface-container-lowest": "#ffffff", "on-primary": "#ffffff", "inverse-on-surface": "#eef0ff", "on-secondary-container": "#00714d", "primary-container": "#0f766e", "on-primary-fixed": "#00201d", "primary-light": "#F0FDFA", "secondary-fixed-dim": "#4edea3", "tertiary-container": "#0165d8", "on-tertiary-fixed-variant": "#004395", "on-tertiary-container": "#e4eaff", "tertiary": "#004eaa", "border-subtle": "#E2E8F0", "surface-variant": "#dae2fd" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-tablet": "1.5rem", "space-md": "0.75rem", "space-xl": "1.5rem", "gutter": "1rem", "gutter-desktop": "1.5rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "margin": "1rem", "margin-desktop": "2rem", "space-lg": "1rem" }, "fontFamily": { "title-md": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "display-lg": ["Plus Jakarta Sans"], "body-sm-medium": ["Plus Jakarta Sans"], "price-sm": ["Plus Jakarta Sans"], "label-xs": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "price-xl": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-lg-bold": ["Plus Jakarta Sans"] }, "fontSize": { "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }], "display-lg": ["30px", { "lineHeight": "40px", "fontWeight": "700" }], "body-sm-medium": ["14px", { "lineHeight": "22px", "fontWeight": "500" }], "price-sm": ["14px", { "lineHeight": "18px", "fontWeight": "700" }], "label-xs": ["12px", { "lineHeight": "18px", "fontWeight": "600" }], "body-sm": ["14px", { "lineHeight": "22px", "fontWeight": "400" }], "price-xl": ["24px", { "lineHeight": "30px", "fontWeight": "800" }], "headline-lg": ["24px", { "lineHeight": "34px", "fontWeight": "700" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "body-lg-bold": ["16px", { "lineHeight": "26px", "fontWeight": "600" }] } } } };</script></head><body class="bg-canvas-background font-body-sm text-body-sm text-on-surface antialiased"><header class="fixed top-0 w-full z-50 bg-surface-card shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-28 w-full px-margin-desktop flex flex-col justify-between pt-space-sm"><div class="flex items-center justify-between pb-space-xs"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center shadow-[0_2px_8px_rgba(0,92,85,0.25)]"><span class="material-symbols-outlined text-on-primary text-[22px]">domain</span></div><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-title-md text-title-md text-on-surface tracking-tight font-bold">MapNest</span><span class="font-label-xs text-label-xs bg-primary-container text-on-primary px-space-xs py-0.5 rounded">ADMIN</span></div><span class="font-label-xs text-label-xs text-text-muted">Udon Thani Center Management Portal</span></div></div><div class="hidden xl:flex items-center gap-space-xs px-space-md py-1 bg-surface-container-low rounded-full"><span class="w-2 h-2 rounded-full bg-status-available animate-pulse"></span><span class="font-label-xs text-label-xs text-on-surface-variant font-medium">ระบบจัดการส่วนกลาง Udon Thani Center</span><span class="font-label-xs text-label-xs text-text-muted">•</span><span class="font-label-xs text-label-xs text-status-available font-semibold">System Operational</span></div></div><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-sm px-space-md py-1 bg-surface-container-low rounded-xl"><div class="flex flex-col text-right"><span class="font-label-xs text-label-xs text-on-surface font-semibold">Admin: ชานนท์</span><span class="font-label-xs text-label-xs text-text-muted">Super Admin • สนง.อุดรธานี</span></div><div class="w-2 h-2 rounded-full bg-secondary"></div></div><button aria-label="Notifications" class="relative p-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-danger-scam rounded-full ring-2 ring-surface-card"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><nav class="flex items-center gap-space-xs overflow-x-auto no-scrollbar -mb-px" data-active-classes="bg-primary-light text-primary font-body-sm-medium font-semibold border-b-2 border-primary rounded-t-lg"><a aria-current="page" class="px-space-md py-2 whitespace-nowrap transition-colors flex items-center gap-1.5 bg-primary-light text-primary font-body-sm-medium font-semibold border-b-2 border-primary rounded-t-lg" data-path="admin-dashboard" href="#">ภาพรวมระบบ</a><a class="text-on-surface-variant hover:text-on-surface px-space-md py-2 font-body-sm text-body-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-path="kyc-queue" href="#"><span>ตรวจสอบ KYC</span><span class="bg-surface-container-high text-on-surface font-label-xs text-label-xs px-1.5 py-0.5 rounded-full">14</span></a><a class="text-on-surface-variant hover:text-on-surface px-space-md py-2 font-body-sm text-body-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-path="listing-review" href="#"><span>ตรวจสอบประกาศ</span><span class="bg-surface-container-high text-on-surface font-label-xs text-label-xs px-1.5 py-0.5 rounded-full">9</span></a><a class="text-on-surface-variant hover:text-on-surface px-space-md py-2 font-body-sm text-body-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-path="reports-and-scam" href="#"><span>รายงานและสแกม</span><span class="bg-error-container text-on-error-container font-label-xs text-label-xs px-1.5 py-0.5 rounded-full">3</span></a><a class="text-on-surface-variant hover:text-on-surface px-space-md py-2 font-body-sm text-body-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-path="stale-listings" href="#">ประกาศค้างเก่า</a><a class="text-on-surface-variant hover:text-on-surface px-space-md py-2 font-body-sm text-body-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-path="packages-and-promo" href="#">แพ็กเกจและโปรโมชัน</a><a class="text-on-surface-variant hover:text-on-surface px-space-md py-2 font-body-sm text-body-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-path="orders-and-refunds" href="#">คำสั่งซื้อและการคืนเงิน</a><a class="text-on-surface-variant hover:text-on-surface px-space-md py-2 font-body-sm text-body-sm whitespace-nowrap transition-colors flex items-center gap-1.5" data-path="user-management" href="#">จัดการผู้ใช้งาน</a></nav></div></header><main class="w-full pt-28 min-h-[calc(100vh-140px)] bg-canvas-background px-margin-desktop py-space-xl"><div class="flex flex-col w-full">
+<!-- Top Command Ribbon & Header -->
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-lg mb-space-xl">
+<div>
+<div class="flex items-center gap-space-xs text-text-muted font-label-xs text-label-xs mb-1">
+<span>MapNest Control</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span>ภาคตะวันออกเฉียงเหนือ</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">Udon Thani Center (Pilot Sandbox)</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-md">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">
+          แดชบอร์ดผู้ดูแลระบบ (Admin Overview) · จังหวัดอุดรธานี
+        </h1>
+<div class="flex items-center gap-2 px-3 py-1 bg-primary-light text-primary rounded-full font-label-xs text-label-xs font-semibold shadow-sm">
+<span class="w-2 h-2 rounded-full bg-status-available animate-pulse"></span>
+<span>25 มีนาคม 2568 · 14:45 น. (Real-time sync)</span>
+</div>
+</div>
+</div>
+<!-- Quick Action Toolset -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface-card text-on-surface hover:bg-surface-container-low transition-all duration-200 shadow-sm active:scale-95" id="refreshBtn">
+<span class="material-symbols-outlined text-[18px] text-text-muted transition-transform duration-500" id="refreshIcon">sync</span>
+<span class="font-body-sm-medium text-body-sm-medium">รีเฟรชข้อมูล</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surface-card text-on-surface hover:bg-surface-container-low transition-all duration-200 shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-primary">download</span>
+<span class="font-body-sm-medium text-body-sm-medium">ส่งออกรายงานประจำวัน (Daily Audit)</span>
+</button>
+<div class="flex items-center bg-surface-card rounded-xl p-1 shadow-sm">
+<button class="px-3 py-1.5 rounded-lg bg-primary text-on-primary font-label-xs text-label-xs font-semibold shadow-sm">สด (Live)</button>
+<button class="px-3 py-1.5 rounded-lg text-text-muted hover:text-on-surface font-label-xs text-label-xs transition-colors">สัปดาห์นี้</button>
+<button class="px-3 py-1.5 rounded-lg text-text-muted hover:text-on-surface font-label-xs text-label-xs transition-colors">เดือนนี้</button>
+</div>
+</div>
+</div>
+<!-- Critical Operational KPI Bento (4 Cards) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter-desktop mb-space-xl">
+<!-- KPI 1: Pending Queues (High Priority Alert) -->
+<div class="relative overflow-hidden rounded-xl bg-surface-card p-space-lg shadow-sm hover:shadow-md transition-shadow">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-error-container/40 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-xs text-label-xs text-text-muted tracking-wide uppercase">คิวรออนุมัติตรวจสอบ</span>
+<span class="flex items-center justify-center w-7 h-7 rounded-lg bg-error-container text-danger-scam">
+<span class="material-symbols-outlined text-[18px]">pending_actions</span>
+</span>
+</div>
+<div class="flex items-baseline gap-2 mb-2">
+<span class="font-price-xl text-price-xl font-bold text-danger-scam">26</span>
+<span class="font-label-xs text-label-xs text-text-muted font-medium">รายการค้างท่อ</span>
+</div>
+<div class="flex flex-col gap-1.5 text-text-muted font-label-xs text-label-xs mb-4 pb-2 bg-surface-container-low p-2 rounded-lg">
+<div class="flex justify-between items-center">
+<span>KYC ตัวแทนใหม่</span>
+<span class="font-semibold text-on-surface">14 รายการ</span>
+</div>
+<div class="flex justify-between items-center">
+<span>ประกาศรอตรวจโฉนด</span>
+<span class="font-semibold text-on-surface">9 รายการ</span>
+</div>
+<div class="flex justify-between items-center text-danger-scam font-semibold">
+<span>รายงานร้องเรียน / สแกม</span>
+<span class="px-1.5 py-0.2 rounded bg-error-container text-on-error-container">3 เร่งด่วน</span>
+</div>
+</div>
+<button class="w-full py-2 px-3 rounded-lg bg-danger-scam text-on-primary font-body-sm-medium text-body-sm-medium hover:bg-error transition-colors flex items-center justify-center gap-1.5 shadow-sm">
+<span>เข้าสู่คิวเร่งด่วน</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<!-- KPI 2: Active Listings in Udon Thani -->
+<div class="rounded-xl bg-surface-card p-space-lg shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-xs text-label-xs text-text-muted tracking-wide uppercase">ทรัพย์ที่เปิดแสดงผลในอุดรฯ</span>
+<span class="flex items-center justify-center w-7 h-7 rounded-lg bg-primary-light text-primary">
+<span class="material-symbols-outlined text-[18px]">location_city</span>
+</span>
+</div>
+<div class="flex items-baseline gap-2 mb-2">
+<span class="font-price-xl text-price-xl font-bold text-on-surface">1,428</span>
+<span class="font-label-xs text-label-xs text-status-available font-semibold flex items-center">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +12.4% MoM
+        </span>
+</div>
+<!-- Visual breakdown bar -->
+<div class="w-full h-2 rounded-full bg-surface-container-high flex overflow-hidden mb-3">
+<div class="h-full bg-primary" style="width: 28.8%" title="คอนโด 412"></div>
+<div class="h-full bg-secondary" style="width: 40.6%" title="บ้านเดี่ยว 580"></div>
+<div class="h-full bg-chart-views" style="width: 22.1%" title="ที่ดิน 316"></div>
+<div class="h-full bg-chart-speed" style="width: 8.5%" title="อาคารพาณิชย์ 120"></div>
+</div>
+<div class="grid grid-cols-2 gap-2 text-text-muted font-label-xs text-label-xs">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>คอนโด <strong>412</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>บ้านเดี่ยว <strong>580</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-chart-views"></span>
+<span>ที่ดิน <strong>316</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-chart-speed"></span>
+<span>พาณิชย์ <strong>120</strong></span>
+</div>
+</div>
+</div>
+<!-- KPI 3: Monthly GMV & Revenue -->
+<div class="rounded-xl bg-surface-card p-space-lg shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-xs text-label-xs text-text-muted tracking-wide uppercase">ยอดธุรกรรมและรายได้เดือนนี้</span>
+<span class="flex items-center justify-center w-7 h-7 rounded-lg bg-surface-container-high text-chart-views">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</span>
+</div>
+<div class="flex items-baseline gap-1 mb-2">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">฿248,650</span>
+<span class="font-label-xs text-label-xs text-text-muted">THB</span>
+</div>
+<div class="flex items-center gap-1.5 text-text-muted font-label-xs text-label-xs mb-3">
+<span class="font-semibold text-on-surface">184 คำสั่งซื้อสำเร็จ</span>
+<span>•</span>
+<span class="text-status-available">99.1% Success</span>
+</div>
+<!-- Ratio representation -->
+<div class="p-2.5 rounded-lg bg-surface-container-low flex flex-col gap-1.5">
+<div class="flex justify-between text-label-xs font-label-xs">
+<span class="text-text-muted">ค่าแพ็กเกจบูสต์ (Boost):</span>
+<span class="font-semibold text-primary">68% (฿169,080)</span>
+</div>
+<div class="flex justify-between text-label-xs font-label-xs">
+<span class="text-text-muted">เครดิตนายหน้า (TREBA Credits):</span>
+<span class="font-semibold text-on-surface">32% (฿79,570)</span>
+</div>
+</div>
+</div>
+<!-- KPI 4: Verified Local Agents -->
+<div class="rounded-xl bg-surface-card p-space-lg shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-3">
+<span class="font-label-xs text-label-xs text-text-muted tracking-wide uppercase">นายหน้าและตัวแทนยืนยัน</span>
+<span class="flex items-center justify-center w-7 h-7 rounded-lg bg-secondary-fixed/50 text-secondary">
+<span class="material-symbols-outlined text-[18px]">badge</span>
+</span>
+</div>
+<div class="flex items-baseline gap-2 mb-2">
+<span class="font-price-xl text-price-xl font-bold text-on-surface">186</span>
+<span class="font-label-xs text-label-xs text-text-muted">นายหน้าคุณภาพ</span>
+</div>
+<div class="flex items-center gap-2 mb-4">
+<div class="flex items-center gap-1 px-2 py-0.5 rounded bg-status-available/10 text-status-available font-label-xs text-label-xs font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-status-available"></span>
+          Active วีคนี้ 142 คน
+        </div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-border-subtle text-text-muted font-label-xs text-label-xs">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
+<span>ผ่านสมาคม TREBA:</span>
+</div>
+<span class="font-bold text-on-surface">84 คน (45.1%)</span>
+</div>
+</div>
+</div>
+<!-- Main Analytical Grid (7 Columns / 5 Columns) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter-desktop items-start">
+<!-- LEFT COLUMN: Analytics & Action Required (7 cols) -->
+<div class="xl:col-span-7 flex flex-col gap-space-xl">
+<!-- Section: Weekly Listing & GMV Trends -->
+<div class="rounded-xl bg-surface-card p-space-lg shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-space-lg pb-space-sm border-b border-border-subtle">
+<div>
+<h2 class="font-title-md text-title-md font-bold text-on-surface">
+              แนวโน้มธุรกรรมและประกาศรายสัปดาห์ (Weekly Listing &amp; GMV Trends)
+            </h2>
+<p class="font-label-xs text-label-xs text-text-muted">
+              เปรียบเทียบการเติบโตของทรัพย์เปิดใหม่ อัตราการดู และยอดธุรกรรมรายโซนเศรษฐกิจหลัก
+            </p>
+</div>
+<div class="flex items-center gap-2">
+<span class="flex items-center gap-1 text-label-xs font-label-xs text-text-muted">
+<span class="w-3 h-3 rounded bg-primary"></span> ยอดประกาศ
+            </span>
+<span class="flex items-center gap-1 text-label-xs font-label-xs text-text-muted">
+<span class="w-3 h-3 rounded bg-chart-speed"></span> รายได้บูสต์
+            </span>
+</div>
+</div>
+<!-- SVG Zone Analytics Bar & Sparkline Comparison -->
+<div class="space-y-space-md">
+<!-- Zone 1: UD Town - Phosi -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">storefront</span>
+<div>
+<div class="font-body-sm-medium text-body-sm-medium font-bold text-on-surface">โซน UD Town - ถ.โพศรี (CBD Center)</div>
+<div class="font-label-xs text-label-xs text-text-muted">เน้นคอนโดมิเนียมและพื้นที่ปล่อยเช่าการค้า</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-body-sm-medium text-body-sm-medium font-bold text-on-surface">542 ทรัพย์</div>
+<div class="font-label-xs text-label-xs text-status-available font-semibold">฿94,200 Boost GMV</div>
+</div>
+</div>
+<!-- Progress bar -->
+<div class="w-full bg-surface-card rounded-full h-2.5 overflow-hidden flex">
+<div class="bg-primary h-2.5 rounded-full" style="width: 78%"></div>
+</div>
+<div class="flex justify-between items-center mt-1 text-label-xs font-label-xs text-text-muted">
+<span>อัตราปิดการขายเฉลี่ย: 14 วัน</span>
+<span>ความหนาแน่นผู้เข้าชม: 42.8% สูงสุดในจังหวัด</span>
+</div>
+</div>
+<!-- Zone 2: Nong Prajak - Provincial Hall -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-secondary">park</span>
+<div>
+<div class="font-body-sm-medium text-body-sm-medium font-bold text-on-surface">โซนหนองประจักษ์ - ศาลากลางจังหวัด</div>
+<div class="font-label-xs text-label-xs text-text-muted">บ้านเดี่ยวเพื่อการอยู่อาศัยระดับพรีเมียมและผู้เกษียณ</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-body-sm-medium text-body-sm-medium font-bold text-on-surface">418 ทรัพย์</div>
+<div class="font-label-xs text-label-xs text-status-available font-semibold">฿78,500 Boost GMV</div>
+</div>
+</div>
+<div class="w-full bg-surface-card rounded-full h-2.5 overflow-hidden flex">
+<div class="bg-secondary h-2.5 rounded-full" style="width: 62%"></div>
+</div>
+<div class="flex justify-between items-center mt-1 text-label-xs font-label-xs text-text-muted">
+<span>อัตราปิดการขายเฉลี่ย: 26 วัน</span>
+<span>ความหนาแน่นผู้เข้าชม: 28.4%</span>
+</div>
+</div>
+<!-- Zone 3: Central Udon & Transit Hub -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-chart-views">shopping_bag</span>
+<div>
+<div class="font-body-sm-medium text-body-sm-medium font-bold text-on-surface">โซนเซ็นทรัลอุดร - สถานีรถไฟรางคู่</div>
+<div class="font-label-xs text-label-xs text-text-muted">คอนโดเก็งกำไรใกล้รถไฟความเร็วสูงไทย-ลาว</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-body-sm-medium text-body-sm-medium font-bold text-on-surface">288 ทรัพย์</div>
+<div class="font-label-xs text-label-xs text-status-available font-semibold">฿49,150 Boost GMV</div>
+</div>
+</div>
+<div class="w-full bg-surface-card rounded-full h-2.5 overflow-hidden flex">
+<div class="bg-chart-views h-2.5 rounded-full" style="width: 48%"></div>
+</div>
+<div class="flex justify-between items-center mt-1 text-label-xs font-label-xs text-text-muted">
+<span>อัตราปิดการขายเฉลี่ย: 19 วัน</span>
+<span>ความหนาแน่นผู้เข้าชม: 18.2%</span>
+</div>
+</div>
+<!-- Zone 4: Outer Ring Road (Mittraphap - Sakon Nakhon) -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-chart-speed">roundabout_left</span>
+<div>
+<div class="font-body-sm-medium text-body-sm-medium font-bold text-on-surface">โซนวงแหวนรอบเมือง (มิตรภาพ - สกลนคร)</div>
+<div class="font-label-xs text-label-xs text-text-muted">ที่ดินเปล่าแปลงใหญ่และโกดังโลจิสติกส์</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-body-sm-medium text-body-sm-medium font-bold text-on-surface">180 ทรัพย์</div>
+<div class="font-label-xs text-label-xs text-status-available font-semibold">฿26,800 Boost GMV</div>
+</div>
+</div>
+<div class="w-full bg-surface-card rounded-full h-2.5 overflow-hidden flex">
+<div class="bg-chart-speed h-2.5 rounded-full" style="width: 31%"></div>
+</div>
+<div class="flex justify-between items-center mt-1 text-label-xs font-label-xs text-text-muted">
+<span>อัตราปิดการขายเฉลี่ย: 45 วัน</span>
+<span>ความหนาแน่นผู้เข้าชม: 10.6%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Urgent Action Queue -->
+<div class="rounded-xl bg-surface-card p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-danger-scam"></span>
+<h2 class="font-title-md text-title-md font-bold text-on-surface">
+              คิวงานเร่งด่วนที่ต้องดำเนินการทันที (Action Required Feed)
+            </h2>
+</div>
+<span class="font-label-xs text-label-xs bg-error-container text-on-error-container px-2 py-0.5 rounded-full font-semibold">
+            3 รายการจำเป็น
+          </span>
+</div>
+<div class="space-y-space-md">
+<!-- Urgent Item 1: KYC Agent -->
+<div class="p-space-md rounded-xl bg-surface-card border border-border-subtle hover:border-primary transition-colors flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-light flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[22px]">how_to_reg</span>
+</div>
+<div>
+<div class="flex items-center gap-2 flex-wrap mb-1">
+<span class="font-label-xs text-label-xs bg-primary-container text-on-primary px-1.5 py-0.5 rounded font-medium">KYC ตัวแทน</span>
+<span class="font-body-sm-medium text-body-sm-medium font-bold text-on-surface">คุณปิยะพงษ์ วัฒนาสกุล</span>
+<span class="font-label-xs text-label-xs text-status-reserved bg-amber-50 px-1.5 py-0.5 rounded">รอ 45 นาที</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted">
+                  ส่งเอกสารบัตร ปชช. + ใบอนุญาตตัวแทน TREBA (สมาคมนายหน้าอสังหาริมทรัพย์ไทย) รหัสตรวจสอบ #AGT-88219
+                </p>
+<div class="flex items-center gap-3 text-label-xs font-label-xs text-text-muted mt-1.5">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">phone</span> 081-492-XXXX</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">pin_drop</span> อ.เมืองอุดรธานี</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="px-3.5 py-2 rounded-xl bg-primary text-on-primary font-body-sm-medium text-body-sm-medium hover:bg-primary-hover transition-colors shadow-sm">
+                ตรวจทันที
+              </button>
+</div>
+</div>
+<!-- Urgent Item 2: Scam Report -->
+<div class="p-space-md rounded-xl bg-red-50/50 border border-red-200 hover:border-danger-scam transition-colors flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-error-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-danger-scam text-[22px]">gavel</span>
+</div>
+<div>
+<div class="flex items-center gap-2 flex-wrap mb-1">
+<span class="font-label-xs text-label-xs bg-danger-scam text-on-primary px-1.5 py-0.5 rounded font-medium">รายงานแจ้งสแกม</span>
+<span class="font-body-sm-medium text-body-sm-medium font-bold text-on-surface">ประกาศห้อง 402 ลุมพินีเพลส ยูดี-โพศรี</span>
+<span class="font-label-xs text-label-xs text-danger-scam bg-white px-1.5 py-0.5 rounded font-bold">แจ้งซ้ำ 2 ครั้ง</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  ผู้ใช้แจ้งราคาต่ำผิดปกติ (฿3,500/ด.) และรูปภาพซ้ำกับเจ้าของตัวจริงที่ประกาศไว้ ฿8,500/ด. เสี่ยงหลอกเงินมัดจำ
+                </p>
+<div class="flex items-center gap-3 text-label-xs font-label-xs text-text-muted mt-1.5">
+<span class="text-danger-scam font-semibold">User Flagged: ID #RP-UD-904</span>
+<span>•</span>
+<span>IP: 182.232.XX.XX (อุดรธานี)</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="px-3.5 py-2 rounded-xl bg-danger-scam text-on-primary font-body-sm-medium text-body-sm-medium hover:bg-error transition-colors shadow-sm">
+                ระงับและตรวจสอบ
+              </button>
+</div>
+</div>
+<!-- Urgent Item 3: Title Deed Review -->
+<div class="p-space-md rounded-xl bg-surface-card border border-border-subtle hover:border-primary transition-colors flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary text-[22px]">document_scanner</span>
+</div>
+<div>
+<div class="flex items-center gap-2 flex-wrap mb-1">
+<span class="font-label-xs text-label-xs bg-surface-container-high text-on-surface px-1.5 py-0.5 rounded font-medium">ประกาศรออนุมัติ</span>
+<span class="font-body-sm-medium text-body-sm-medium font-bold text-on-surface">ที่ดินเปล่า 120 ตร.ว. ซอยจินตคาม</span>
+<span class="font-label-xs text-label-xs text-text-muted bg-surface-container-low px-1.5 py-0.5 rounded">รอ 1 ชม. 12 นาที</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted">
+                  รอตรวจสอบโฉนด น.ส. 4 จ. เลขที่ 41209 ระวาง 5443 II 8012 กรมที่ดิน พร้อมพิกัด GPS แปลงที่ดิน
+                </p>
+<div class="flex items-center gap-3 text-label-xs font-label-xs text-text-muted mt-1.5">
+<span>ผู้ลงประกาศ: คุณกมลวรรณ (เจ้าของ)</span>
+<span>•</span>
+<span class="text-primary font-semibold">มูลค่า ฿2,800,000</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="px-3.5 py-2 rounded-xl bg-surface-card border border-border-subtle text-on-surface hover:bg-surface-container-low font-body-sm-medium text-body-sm-medium transition-colors">
+                ตรวจโฉนด
+              </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Health, Hot Zones, Activity Log (5 cols) -->
+<div class="xl:col-span-5 flex flex-col gap-space-xl">
+<!-- Section: System Health & Pilot Metrics -->
+<div class="rounded-xl bg-surface-card p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-md pb-space-sm border-b border-border-subtle">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">monitor_heart</span>
+<h2 class="font-title-md text-title-md font-bold text-on-surface">ดัชนีสุขภาพระบบศูนย์อุดรฯ</h2>
+</div>
+<span class="font-label-xs text-label-xs text-status-available font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-status-available"></span> Stable
+          </span>
+</div>
+<div class="grid grid-cols-2 gap-space-md">
+<!-- PostGIS Geocoding -->
+<div class="p-3 rounded-xl bg-surface-container-low">
+<div class="flex items-center justify-between text-text-muted font-label-xs text-label-xs mb-1">
+<span>PostGIS Accuracy</span>
+<span class="material-symbols-outlined text-[14px] text-status-available">verified</span>
+</div>
+<div class="font-price-xl text-price-xl font-bold text-on-surface">99.4%</div>
+<div class="text-label-xs font-label-xs text-text-muted mt-0.5">พิกัดหมุดแม่นยำระดับซอย</div>
+</div>
+<!-- e-Tax Invoice Automation -->
+<div class="p-3 rounded-xl bg-surface-container-low">
+<div class="flex items-center justify-between text-text-muted font-label-xs text-label-xs mb-1">
+<span>e-Tax Delivery</span>
+<span class="material-symbols-outlined text-[14px] text-status-available">receipt_long</span>
+</div>
+<div class="font-price-xl text-price-xl font-bold text-status-available">100%</div>
+<div class="text-label-xs font-label-xs text-text-muted mt-0.5">ออกใบเสร็จภาษีอัตโนมัติ</div>
+</div>
+<!-- KYC Average Time -->
+<div class="p-3 rounded-xl bg-surface-container-low">
+<div class="flex items-center justify-between text-text-muted font-label-xs text-label-xs mb-1">
+<span>Avg KYC Review</span>
+<span class="material-symbols-outlined text-[14px] text-chart-speed">timer</span>
+</div>
+<div class="font-price-xl text-price-xl font-bold text-on-surface">18.2 <span class="font-body-sm text-body-sm font-normal">นาที</span></div>
+<div class="text-label-xs font-label-xs text-status-available mt-0.5">เป้าหมาย &lt; 30 นาที (เกณฑ์ดี)</div>
+</div>
+<!-- Fraud Score -->
+<div class="p-3 rounded-xl bg-surface-container-low">
+<div class="flex items-center justify-between text-text-muted font-label-xs text-label-xs mb-1">
+<span>Escrow &amp; Fraud Guard</span>
+<span class="material-symbols-outlined text-[14px] text-primary">security</span>
+</div>
+<div class="font-price-xl text-price-xl font-bold text-primary">99.8%</div>
+<div class="text-label-xs font-label-xs text-text-muted mt-0.5">ปลอดภัย ไร้ข้อพิพาทโอนเงิน</div>
+</div>
+</div>
+</div>
+<!-- Section: Hot Zones & Demand Match Rate -->
+<div class="rounded-xl bg-surface-card p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-md pb-space-sm border-b border-border-subtle">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-chart-speed text-[20px]">local_fire_department</span>
+<h2 class="font-title-md text-title-md font-bold text-on-surface">ทำเลร้อนแรง &amp; Demand Match</h2>
+</div>
+<span class="font-label-xs text-label-xs text-text-muted">คำนวณจาก Search AI</span>
+</div>
+<div class="space-y-space-md">
+<!-- Zone item 1 -->
+<div>
+<div class="flex justify-between items-center mb-1">
+<span class="font-body-sm-medium text-body-sm-medium font-bold text-on-surface">1. ถ.โพศรี &amp; UD Town</span>
+<span class="font-label-xs text-label-xs font-bold text-primary">92% Match</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2 overflow-hidden mb-1">
+<div class="bg-primary h-2 rounded-full" style="width: 92%"></div>
+</div>
+<div class="text-label-xs font-label-xs text-text-muted flex justify-between">
+<span>ดีมานด์คอนโด/ปล่อยเช่าต่างชาติสูงมาก</span>
+<span class="text-status-available font-medium">ค้นหา +34% สัปดาห์นี้</span>
+</div>
+</div>
+<!-- Zone item 2 -->
+<div>
+<div class="flex justify-between items-center mb-1">
+<span class="font-body-sm-medium text-body-sm-medium font-bold text-on-surface">2. หนองประจักษ์ - ศาลากลาง</span>
+<span class="font-label-xs text-label-xs font-bold text-secondary">84% Match</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2 overflow-hidden mb-1">
+<div class="bg-secondary h-2 rounded-full" style="width: 84%"></div>
+</div>
+<div class="text-label-xs font-label-xs text-text-muted flex justify-between">
+<span>บ้านเดี่ยวพร้อมอยู่ &amp; ชุมชนข้าราชการเกษียณ</span>
+<span class="text-status-available font-medium">เสถียรต่อเนื่อง</span>
+</div>
+</div>
+<!-- Zone item 3 -->
+<div>
+<div class="flex justify-between items-center mb-1">
+<span class="font-body-sm-medium text-body-sm-medium font-bold text-on-surface">3. วงแหวนรอบเมือง (มิตรภาพ - สกลนคร)</span>
+<span class="font-label-xs text-label-xs font-bold text-chart-views">78% Match</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2 overflow-hidden mb-1">
+<div class="bg-chart-views h-2.5 rounded-full" style="width: 78%"></div>
+</div>
+<div class="text-label-xs font-label-xs text-text-muted flex justify-between">
+<span>ที่ดินจัดสรรเชิงพาณิชย์ &amp; คลังกระจายสินค้า</span>
+<span class="text-primary font-medium">รอการลงทุนจีน-ลาว</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Admin Activity Log -->
+<div class="rounded-xl bg-surface-card p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-md pb-space-sm border-b border-border-subtle">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-text-muted text-[20px]">history</span>
+<h2 class="font-title-md text-title-md font-bold text-on-surface">บันทึกการทำงานล่าสุด (Audit Log)</h2>
+</div>
+<button class="font-label-xs text-label-xs text-primary hover:underline font-semibold">ดูทั้งหมด</button>
+</div>
+<div class="space-y-3">
+<!-- Log 1 -->
+<div class="flex items-start gap-2.5">
+<span class="font-label-xs text-label-xs font-semibold text-text-muted shrink-0 w-14 mt-0.5">14:32 น.</span>
+<div class="w-2 h-2 rounded-full bg-status-available shrink-0 mt-1.5"></div>
+<div class="font-label-xs text-label-xs text-on-surface">
+<span class="font-semibold text-primary">Admin สมใจ</span> อนุมัติ KYC ตัวแทน รหัส <code class="bg-surface-container-low px-1 py-0.5 rounded text-text-muted">MN-AGT-4410</code> (ใบอนุญาตผ่านเกณฑ์)
+            </div>
+</div>
+<!-- Log 2 -->
+<div class="flex items-start gap-2.5">
+<span class="font-label-xs text-label-xs font-semibold text-text-muted shrink-0 w-14 mt-0.5">14:15 น.</span>
+<div class="w-2 h-2 rounded-full bg-chart-views shrink-0 mt-1.5"></div>
+<div class="font-label-xs text-label-xs text-on-surface">
+<span class="font-semibold text-secondary">ระบบอัตโนมัติ</span> ส่ง e-Tax Invoice ให้คำสั่งซื้อ <code class="bg-surface-container-low px-1 py-0.5 rounded text-text-muted">#MN-UD25-8841</code> (฿1,490) เรียบร้อย
+            </div>
+</div>
+<!-- Log 3 -->
+<div class="flex items-start gap-2.5">
+<span class="font-label-xs text-label-xs font-semibold text-text-muted shrink-0 w-14 mt-0.5">13:50 น.</span>
+<div class="w-2 h-2 rounded-full bg-status-reserved shrink-0 mt-1.5"></div>
+<div class="font-label-xs text-label-xs text-on-surface">
+<span class="font-semibold text-primary">Admin ชานนท์</span> ปรับสถานะทรัพย์ <code class="bg-surface-container-low px-1 py-0.5 rounded text-text-muted">UD-883921</code> เป็น Spotlight ประจำวัน
+            </div>
+</div>
+<!-- Log 4 -->
+<div class="flex items-start gap-2.5">
+<span class="font-label-xs text-label-xs font-semibold text-text-muted shrink-0 w-14 mt-0.5">12:20 น.</span>
+<div class="w-2 h-2 rounded-full bg-danger-scam shrink-0 mt-1.5"></div>
+<div class="font-label-xs text-label-xs text-on-surface">
+<span class="font-semibold text-danger-scam">Security Bot</span> ระงับบัญชีน่าสงสัย <code class="bg-surface-container-low px-1 py-0.5 rounded text-text-muted">USER-FAKE-09</code> สแกนพบภาพจากเว็บภายนอก
+            </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Access Compliance & Emergency Hotline Banner -->
+<div class="mt-space-xl p-space-lg rounded-2xl bg-gradient-to-r from-primary to-primary-hover text-on-primary shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-white/10 backdrop-blur flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[28px] text-primary-fixed">support_agent</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-0.5">
+<span class="font-title-md text-title-md font-bold">ศูนย์สนับสนุนฉุกเฉินและกำกับดูแล Udon Pilot Support</span>
+<span class="px-2 py-0.5 rounded bg-white/20 text-on-primary font-label-xs text-label-xs font-medium">PDPA &amp; BOT Compliant</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-primary/80">
+          กรณีพบเคสสแกมรุนแรง หรือระบบยืนยันตัวตนขัดข้อง ติดต่อทีมเฝ้าระวังเทคนิคเฉพาะกิจ โทร 042-219-XXX (สายตรงห้องควบคุม)
+        </p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="px-4 py-2.5 rounded-xl bg-surface-card text-primary font-body-sm-medium text-body-sm-medium hover:bg-surface-container-low transition-colors shadow-sm">
+        เปิดตั๋วความปลอดภัยด่วน (SOS Incident)
+      </button>
+<button class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-on-primary font-body-sm-medium text-body-sm-medium transition-colors">
+        คู่มือแอดมินฉบับสมบูรณ์
+      </button>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interaction for the refresh button
+  const refreshBtn = document.getElementById('refreshBtn');
+  const refreshIcon = document.getElementById('refreshIcon');
+  
+  if (refreshBtn && refreshIcon) {
+    refreshBtn.addEventListener('click', function() {
+      refreshIcon.classList.add('rotate-180');
+      setTimeout(() => {
+        refreshIcon.classList.remove('rotate-180');
+      }, 500);
+    });
+  }
+</script></main><footer class="w-full bg-surface-card mt-auto"><div class="w-full px-margin-desktop py-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex flex-wrap items-center gap-space-md text-text-muted font-label-xs text-label-xs"><span class="flex items-center gap-1.5 text-secondary font-semibold"><span class="material-symbols-outlined text-[16px]">verified_user</span>MapNest Security Stamp Level 4</span><span>•</span><span>Audit Log ID: AUD-UDON-2024-LIVE</span><span>•</span><span>Node: TH-NE-UDON-01</span></div><div class="flex items-center gap-space-lg text-text-muted font-label-xs text-label-xs"><span class="hover:text-on-surface transition-colors cursor-pointer">Privacy Compliance</span><span class="hover:text-on-surface transition-colors cursor-pointer">Data Residency Policy</span><span class="text-on-surface-variant font-medium">© 2024 MapNest Thailand. All rights reserved.</span></div></div></footer></body></html>

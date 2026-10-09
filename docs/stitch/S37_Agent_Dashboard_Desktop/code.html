@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+
+<html class="light" lang="th"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Sarabun:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-container-low": "#f2f3ff", "on-primary-container": "#a3faef", "error": "#ba1a1a", "tertiary-container": "#0165d8", "surface": "#faf8ff", "on-background": "#131b2e", "background": "#faf8ff", "surface-container-highest": "#dae2fd", "secondary": "#006c49", "on-tertiary-fixed": "#001a42", "chart-views": "#3B82F6", "secondary-fixed": "#6ffbbe", "status-available": "#10B981", "on-secondary": "#ffffff", "on-secondary-container": "#00714d", "canvas-background": "#F8FAFC", "surface-dim": "#d2d9f4", "on-primary": "#ffffff", "outline": "#6e7977", "primary-light": "#F0FDFA", "surface-container": "#eaedff", "status-sold": "#EF4444", "on-error": "#ffffff", "on-secondary-fixed": "#002113", "tertiary": "#004eaa", "inverse-primary": "#80d5cb", "on-error-container": "#93000a", "primary-container": "#0f766e", "border-subtle": "#E2E8F0", "on-tertiary-container": "#e4eaff", "on-surface-variant": "#3e4947", "primary": "#005c55", "on-surface": "#131b2e", "chart-speed": "#F97316", "error-container": "#ffdad6", "text-muted": "#64748B", "surface-container-high": "#e2e7ff", "surface-container-lowest": "#ffffff", "tertiary-fixed-dim": "#adc6ff", "primary-hover": "#115E59", "surface-tint": "#006a63", "on-tertiary": "#ffffff", "on-tertiary-fixed-variant": "#004395", "primary-fixed": "#9cf2e8", "secondary-fixed-dim": "#4edea3", "on-primary-fixed-variant": "#00504a", "danger-scam": "#DC2626", "surface-variant": "#dae2fd", "outline-variant": "#bdc9c6", "on-primary-fixed": "#00201d", "inverse-surface": "#283044", "secondary-container": "#6cf8bb", "surface-bright": "#faf8ff", "status-reserved": "#F59E0B", "tertiary-fixed": "#d8e2ff", "inverse-on-surface": "#eef0ff", "surface-card": "#FFFFFF", "on-secondary-fixed-variant": "#005236", "primary-fixed-dim": "#80d5cb" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin": "1rem", "space-xl": "1.5rem", "space-md": "0.75rem", "space-xs": "0.25rem", "space-lg": "1rem", "gutter": "1rem", "margin-tablet": "1.5rem", "space-sm": "0.5rem", "margin-desktop": "2rem", "gutter-desktop": "1.5rem" }, "fontFamily": { "headline-lg": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "price-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "label-xs": ["Plus Jakarta Sans"], "body-sm-medium": ["Plus Jakarta Sans"], "price-xl": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "display-lg": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "body-lg-bold": ["Plus Jakarta Sans"] }, "fontSize": { "headline-lg": ["24px", { "lineHeight": "34px", "fontWeight": "700" }], "title-md": ["18px", { "lineHeight": "26px", "fontWeight": "600" }], "price-sm": ["14px", { "lineHeight": "18px", "fontWeight": "700" }], "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "label-xs": ["12px", { "lineHeight": "18px", "fontWeight": "600" }], "body-sm-medium": ["14px", { "lineHeight": "22px", "fontWeight": "500" }], "price-xl": ["24px", { "lineHeight": "30px", "fontWeight": "800" }], "body-sm": ["14px", { "lineHeight": "22px", "fontWeight": "400" }], "display-lg": ["30px", { "lineHeight": "40px", "fontWeight": "700" }], "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }], "body-lg-bold": ["16px", { "lineHeight": "26px", "fontWeight": "600" }] } } } }</script></head><body class="bg-canvas-background font-body-sm text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-card/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[1320px] mx-auto px-margin-desktop flex items-center justify-between gap-gutter-desktop"><div class="flex items-center gap-space-xl"><a class="flex items-center gap-space-xs text-primary transition-transform hover:opacity-95" data-path="explore-properties" href="#"><div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-on-primary shadow-[0_2px_8px_rgba(15,118,110,0.25)]"><span class="material-symbols-outlined text-[24px]">location_on</span></div><div class="flex flex-col"><span class="font-headline-md text-headline-md tracking-tight leading-none text-primary-container font-bold">MapNest</span><span class="font-label-xs text-label-xs text-text-muted leading-tight tracking-wider uppercase">Udon Thani PropTech</span></div></a><nav class="hidden lg:flex items-center gap-space-sm" data-active-classes="bg-primary-light text-primary-container font-body-sm-medium rounded-lg px-space-md py-space-sm"><a class="text-on-surface-variant hover:text-on-surface px-space-md py-space-sm rounded-lg transition-colors font-body-sm-medium text-body-sm-medium" data-path="explore-properties" href="#">สำรวจ / ค้นหาทรัพย์</a><a class="text-on-surface-variant hover:text-on-surface px-space-md py-space-sm rounded-lg transition-colors font-body-sm-medium text-body-sm-medium" data-path="my-listings" href="#">จัดการประกาศของฉัน</a><a aria-current="page" class="transition-colors bg-primary-light text-primary-container font-body-sm-medium rounded-lg px-space-md py-space-sm" data-path="agent-hub" href="#">นายหน้า Agent Hub</a><a class="text-on-surface-variant hover:text-on-surface px-space-md py-space-sm rounded-lg transition-colors font-body-sm-medium text-body-sm-medium" data-path="packages" href="#">แพ็กเกจ</a></nav></div><div class="flex items-center gap-space-md"><div class="flex items-center bg-canvas-background p-1 rounded-lg"><button class="px-space-sm py-0.5 rounded text-label-xs font-label-xs bg-surface-card text-primary-container shadow-[0_1px_3px_rgba(15,23,42,0.05)]" type="button">TH</button><button class="px-space-sm py-0.5 rounded text-label-xs font-label-xs text-text-muted hover:text-on-surface transition-colors" type="button">EN</button></div><button aria-label="Notifications" class="relative w-10 h-10 rounded-xl bg-canvas-background hover:bg-surface-container transition-colors flex items-center justify-center text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-danger-scam"></span></button><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right hidden sm:flex"><span class="font-body-sm-medium text-body-sm-medium text-on-surface leading-snug">สมศักดิ์ สุขสวัสดิ์</span><span class="font-label-xs text-label-xs text-status-available flex items-center justify-end gap-1"><span class="w-1.5 h-1.5 rounded-full bg-status-available"></span>นายหน้ายืนยันแล้ว</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_1px_3px_rgba(15,23,42,0.1)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-20 bg-canvas-background min-h-[calc(100vh-280px)]"><div class="flex flex-col w-full">
+<!-- Container with Desktop 1320px bounding box -->
+<div class="w-full max-w-[1320px] mx-auto px-margin-desktop py-space-xl flex flex-col gap-space-xl">
+<!-- Section 1: Breadcrumbs, Agent Badge & Header -->
+<section class="flex flex-col gap-space-md">
+<!-- Breadcrumb Bar -->
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs text-text-muted font-body-sm text-body-sm">
+<a class="hover:text-primary-container transition-colors" href="#">หน้าแรก</a>
+<span class="material-symbols-outlined text-[16px] text-text-muted">chevron_right</span>
+<a class="hover:text-primary-container transition-colors" href="#">นายหน้า Agent Hub</a>
+<span class="material-symbols-outlined text-[16px] text-text-muted">chevron_right</span>
+<span class="text-on-surface font-body-sm-medium text-body-sm-medium">แดชบอร์ดสถิติผลงาน (Agent Dashboard)</span>
+</nav>
+<!-- Main Header Bar -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg bg-surface-card p-space-xl rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.05)]">
+<div class="flex items-start sm:items-center gap-space-lg">
+<div class="relative w-16 h-16 rounded-xl bg-primary-light flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary-container text-[36px]">finance_mode</span>
+<span class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-status-available flex items-center justify-center text-on-secondary shadow-sm" title="ยืนยันสถานะนายหน้าแล้ว">
+<span class="material-symbols-outlined text-[13px] font-bold">check</span>
+</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex flex-wrap items-center gap-space-sm">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">แดชบอร์ดผลงานตัวแทน</h1>
+<span class="font-label-xs text-label-xs bg-primary-light text-primary-container px-2.5 py-0.5 rounded-full font-semibold">Verified Agent L1</span>
+<span class="font-label-xs text-label-xs bg-surface-container text-text-muted px-2 py-0.5 rounded-md font-mono">MN-AGT-4409</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted">
+              ภาพรวมสถิติการปิดดีล คอมมิชชั่นสะสม ไปป์ไลน์ลูกค้า และประสิทธิภาพการทำงานในพื้นที่อุดรธานี
+            </p>
+</div>
+</div>
+<!-- Filter & Export Toolbar -->
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs lg:pt-0">
+<div class="relative">
+<select aria-label="ช่วงเวลาวิเคราะห์ข้อมูล" class="appearance-none bg-canvas-background hover:bg-surface-container font-body-sm-medium text-body-sm-medium text-on-surface pl-3.5 pr-9 py-2 rounded-xl focus:outline-none transition-colors shadow-sm cursor-pointer">
+<option selected="">ไตรมาสที่ 1 / 2568 (ม.ค. - มี.ค.)</option>
+<option>เดือนปัจจุบัน (มีนาคม 2568)</option>
+<option>ไตรมาสที่ 4 / 2567 (ต.ค. - ธ.ค.)</option>
+<option>สถิติสะสมทั้งปี (YTD 2568)</option>
+</select>
+<span class="material-symbols-outlined text-[18px] text-text-muted absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none">calendar_month</span>
+</div>
+<button class="flex items-center gap-1.5 bg-canvas-background hover:bg-surface-container text-on-surface px-4 py-2 rounded-xl font-body-sm-medium text-body-sm-medium transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary-container">file_download</span>
+<span>ส่งออกรายงาน (PDF/Excel)</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Section 2: Top 4 High-Impact KPI Metric Cards -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter-desktop">
+<!-- Metric Card 1: Gross Commission -->
+<div class="flex flex-col justify-between bg-surface-card p-space-lg rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.05)] hover:shadow-[0_4px_12px_rgba(15,23,42,0.08)] transition-all">
+<div class="flex items-center justify-between pb-space-sm">
+<span class="font-label-xs text-label-xs text-text-muted uppercase tracking-wider font-semibold">คอมมิชชั่นสะสมปีนี้ (YTD)</span>
+<div class="w-9 h-9 rounded-lg bg-primary-light text-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 my-1">
+<div class="flex items-baseline gap-1">
+<span class="font-price-xl text-price-xl text-on-surface">฿385,000</span>
+</div>
+<div class="flex items-center gap-1.5 text-status-available font-body-sm-medium text-body-sm-medium">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span>+24.5% <span class="text-text-muted font-body-sm text-body-sm">เทียบกับ Q4 ปีก่อน</span></span>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs bg-surface-container-low px-2.5 py-1.5 rounded-lg flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-text-muted">3 ดีลรอโอนในระบบ Escrow</span>
+<span class="font-label-xs text-label-xs text-primary-container font-bold">฿145,000</span>
+</div>
+</div>
+<!-- Metric Card 2: Closed Deals -->
+<div class="flex flex-col justify-between bg-surface-card p-space-lg rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.05)] hover:shadow-[0_4px_12px_rgba(15,23,42,0.08)] transition-all">
+<div class="flex items-center justify-between pb-space-sm">
+<span class="font-label-xs text-label-xs text-text-muted uppercase tracking-wider font-semibold">ทรัพย์ปิดการขายแล้ว (Closed Deals)</span>
+<div class="w-9 h-9 rounded-lg bg-primary-light text-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">task_alt</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 my-1">
+<div class="flex items-baseline gap-2">
+<span class="font-price-xl text-price-xl text-on-surface">7</span>
+<span class="font-body-sm text-body-sm text-text-muted">ยูนิต (ขาย 4 · เช่า 3)</span>
+</div>
+<div class="font-body-sm-medium text-body-sm-medium text-on-surface-variant">
+            มูลค่าซื้อขายรวม <span class="font-bold text-on-surface">฿18.4M</span>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs bg-surface-container-low px-2.5 py-1.5 rounded-lg flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-chart-speed">bolt</span>
+<span class="font-label-xs text-label-xs text-on-surface truncate">เฉลี่ย 32 วัน (เร็วกว่าตลาด 15 วัน)</span>
+</div>
+</div>
+<!-- Metric Card 3: Active Deal Pipeline -->
+<div class="flex flex-col justify-between bg-surface-card p-space-lg rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.05)] hover:shadow-[0_4px_12px_rgba(15,23,42,0.08)] transition-all">
+<div class="flex items-center justify-between pb-space-sm">
+<span class="font-label-xs text-label-xs text-text-muted uppercase tracking-wider font-semibold">ไปป์ไลน์ลูกค้าที่ดูแล (Active Deals)</span>
+<div class="w-9 h-9 rounded-lg bg-primary-light text-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 my-1">
+<div class="flex items-baseline gap-2">
+<span class="font-price-xl text-price-xl text-on-surface">18</span>
+<span class="font-body-sm text-body-sm text-text-muted">ดีลกำลังดำเนินการ</span>
+</div>
+<div class="text-text-muted font-body-sm text-body-sm">
+            นัดชม 5 ราย · ยื่นข้อเสนอ 10 ราย
+          </div>
+</div>
+<div class="mt-space-sm pt-space-xs bg-surface-container-low px-2.5 py-1.5 rounded-lg flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-text-muted">รออนุมัติสินเชื่อแบงก์</span>
+<span class="font-label-xs text-label-xs text-status-reserved font-bold">3 ราย (โอกาสสูง)</span>
+</div>
+</div>
+<!-- Metric Card 4: Co-Broke Success Rate -->
+<div class="flex flex-col justify-between bg-surface-card p-space-lg rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.05)] hover:shadow-[0_4px_12px_rgba(15,23,42,0.08)] transition-all">
+<div class="flex items-center justify-between pb-space-sm">
+<span class="font-label-xs text-label-xs text-text-muted uppercase tracking-wider font-semibold">ความสำเร็จ Co-Broke อุดรฯ</span>
+<div class="w-9 h-9 rounded-lg bg-primary-light text-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">handshake</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 my-1">
+<div class="flex items-baseline gap-2">
+<span class="font-price-xl text-price-xl text-on-surface">71.4%</span>
+<span class="font-label-xs text-label-xs text-status-available font-semibold">+8.2%</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted">
+            จากดีลทั้งหมดปิดร่วมกับเครือข่ายท้องถิ่น
+          </p>
+</div>
+<div class="mt-space-sm pt-space-xs bg-surface-container-low px-2.5 py-1.5 rounded-lg flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-text-muted">พันธมิตรในอุดรธานี</span>
+<span class="font-label-xs text-label-xs text-primary-container font-semibold">24 ตัวแทนที่เชื่อมโยง</span>
+</div>
+</div>
+</section>
+<!-- Section 3: Visual Analytics Section (2-Column Grid 7:5) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop">
+<!-- Left Column (7/12) -->
+<div class="lg:col-span-7 flex flex-col gap-gutter-desktop">
+<!-- Revenue & Target Chart Card -->
+<div class="bg-surface-card p-space-xl rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.05)] flex flex-col gap-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div>
+<h2 class="font-title-md text-title-md text-on-surface">แนวโน้มรายได้ค่าคอมมิชชั่นและเป้าหมายรายเดือน</h2>
+<span class="font-body-sm text-body-sm text-text-muted">Monthly Revenue &amp; Target Breakdown (Q1/2568)</span>
+</div>
+<!-- Toggle Pill -->
+<div class="flex items-center bg-canvas-background p-1 rounded-xl self-start sm:self-auto">
+<button class="px-3 py-1 rounded-lg font-label-xs text-label-xs font-semibold bg-surface-card text-primary-container shadow-sm" type="button">รายเดือน</button>
+<button class="px-3 py-1 rounded-lg font-label-xs text-label-xs text-text-muted hover:text-on-surface transition-colors" type="button">รายไตรมาส</button>
+</div>
+</div>
+<!-- Progress summary banner -->
+<div class="bg-primary-light p-space-md rounded-xl flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-body-sm-medium text-body-sm-medium text-primary-container">ความคืบหน้าเป้าหมายไตรมาส 1 (Target: ฿340,000)</span>
+<span class="font-label-xs text-label-xs font-bold text-primary-container bg-surface-card px-2 py-0.5 rounded-md shadow-sm">113.2% บรรลุเป้าหมาย</span>
+</div>
+<div class="w-full bg-surface-card h-2.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full w-[100%]" style="width: 100%;"></div>
+</div>
+</div>
+<!-- SVG Bar Visual Comparison -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<!-- Custom Data Chart SVG -->
+<div class="w-full h-56 flex flex-col justify-end">
+<svg class="w-full h-full text-text-muted overflow-visible" preserveaspectratio="none" viewbox="0 0 600 200">
+<!-- Grid Lines -->
+<line stroke="currentColor" stroke-dasharray="3 3" stroke-opacity="0.15" x1="40" x2="580" y1="20" y2="20"></line>
+<text fill="currentColor" font-size="11" text-anchor="end" x="32" y="24">฿200k</text>
+<line stroke="currentColor" stroke-dasharray="3 3" stroke-opacity="0.15" x1="40" x2="580" y1="70" y2="70"></line>
+<text fill="currentColor" font-size="11" text-anchor="end" x="32" y="74">฿150k</text>
+<line stroke="currentColor" stroke-dasharray="3 3" stroke-opacity="0.15" x1="40" x2="580" y1="120" y2="120"></line>
+<text fill="currentColor" font-size="11" text-anchor="end" x="32" y="124">฿100k</text>
+<line stroke="currentColor" stroke-opacity="0.2" x1="40" x2="580" y1="170" y2="170"></line>
+<text fill="currentColor" font-size="11" text-anchor="end" x="32" y="174">฿0</text>
+<!-- Month 1: มกราคม (Actual 95k / Target 110k) -->
+<!-- Target Bar -->
+<rect fill="#E2E8F0" height="110" rx="4" width="36" x="90" y="60"></rect>
+<!-- Actual Bar -->
+<rect fill="#0F766E" fill-opacity="0.85" height="95" rx="4" width="36" x="132" y="75"></rect>
+<!-- Month 2: กุมภาพันธ์ (Actual 120k / Target 110k) -->
+<!-- Target Bar -->
+<rect fill="#E2E8F0" height="110" rx="4" width="36" x="250" y="60"></rect>
+<!-- Actual Bar -->
+<rect fill="#0F766E" height="120" rx="4" width="36" x="292" y="50"></rect>
+<!-- Month 3: มีนาคม (Actual 170k / Target 120k) -->
+<!-- Target Bar -->
+<rect fill="#E2E8F0" height="120" rx="4" width="36" x="410" y="50"></rect>
+<!-- Actual Bar -->
+<rect fill="#0F766E" height="170" rx="4" width="36" x="452" y="0"></rect>
+<!-- Target benchmark Line across Q1 -->
+<line stroke="#F59E0B" stroke-dasharray="5 5" stroke-width="2" x1="70" x2="550" y1="70" y2="70"></line>
+</svg>
+</div>
+<!-- X-Axis Labels & Legend -->
+<div class="grid grid-cols-3 text-center pt-2 font-body-sm-medium text-body-sm-medium text-on-surface">
+<div class="flex flex-col items-center">
+<span>มกราคม 2568</span>
+<span class="font-label-xs text-label-xs text-text-muted">รับจริง ฿95,000</span>
+</div>
+<div class="flex flex-col items-center">
+<span>กุมภาพันธ์ 2568</span>
+<span class="font-label-xs text-label-xs text-text-muted">รับจริง ฿120,000</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="text-primary-container font-bold">มีนาคม 2568 (ปัจจุบัน)</span>
+<span class="font-label-xs text-label-xs text-status-available font-bold">รับจริง ฿170,000 🔥</span>
+</div>
+</div>
+<div class="flex items-center justify-center gap-space-lg pt-space-sm font-label-xs text-label-xs text-text-muted">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded bg-primary-container"></span>
+<span>คอมมิชชั่นที่ได้รับจริง</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded bg-surface-container-highest"></span>
+<span>เป้าหมายขั้นต่ำต่อเดือน</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-4 h-0.5 border-t-2 border-dashed border-status-reserved"></span>
+<span>เกณฑ์เป้าหมายเฉลี่ย (฿150,000/ด.)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Deal Pipeline Funnel (กรวยกระบวนการขาย) -->
+<div class="bg-surface-card p-space-xl rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.05)] flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-title-md text-title-md text-on-surface">กรวยกระบวนการขาย (Deal Pipeline Funnel)</h2>
+<span class="font-body-sm text-body-sm text-text-muted">ประสิทธิภาพการแปลงผู้สนใจสู่การปิดโอนกรรมสิทธิ์</span>
+</div>
+<span class="font-label-xs text-label-xs bg-surface-container text-on-surface px-2.5 py-1 rounded-lg">เฉลี่ยรวม 16.6% Lead-to-Close</span>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Stage 1 -->
+<div class="bg-canvas-background p-space-md rounded-xl flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-7 h-7 rounded-full bg-surface-card flex items-center justify-center text-text-muted font-bold font-label-xs text-label-xs shadow-sm">1</div>
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface">ส่งข้อเสนอ / จับคู่ดีมานด์ (Sent Offers)</span>
+<span class="font-label-xs text-label-xs text-text-muted">ความต้องการจากระบบ MapNest และคำขอเสนอทรัพย์</span>
+</div>
+</div>
+<div class="flex items-center gap-space-lg shrink-0">
+<span class="font-title-md text-title-md text-on-surface">42 <span class="font-body-sm text-body-sm text-text-muted">ราย</span></span>
+<span class="font-label-xs text-label-xs bg-surface-container px-2 py-0.5 rounded text-text-muted min-w-[70px] text-center">จุดเริ่มต้น</span>
+</div>
+</div>
+<!-- Stage 2 -->
+<div class="bg-canvas-background p-space-md rounded-xl flex items-center justify-between gap-space-md ml-3">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-7 h-7 rounded-full bg-surface-card flex items-center justify-center text-text-muted font-bold font-label-xs text-label-xs shadow-sm">2</div>
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface">เปิดห้องเข้าชมจริง (Viewings Completed)</span>
+<span class="font-label-xs text-label-xs text-text-muted">พาชมคอนโดและบ้านเดี่ยวในจังหวัดอุดรธานี</span>
+</div>
+</div>
+<div class="flex items-center gap-space-lg shrink-0">
+<span class="font-title-md text-title-md text-on-surface">19 <span class="font-body-sm text-body-sm text-text-muted">ครั้ง</span></span>
+<span class="font-label-xs text-label-xs bg-primary-light text-primary-container px-2 py-0.5 rounded font-semibold min-w-[70px] text-center">45.2%</span>
+</div>
+</div>
+<!-- Stage 3 -->
+<div class="bg-canvas-background p-space-md rounded-xl flex items-center justify-between gap-space-md ml-6">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-7 h-7 rounded-full bg-surface-card flex items-center justify-center text-text-muted font-bold font-label-xs text-label-xs shadow-sm">3</div>
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface">เจรจาต่อรอง &amp; วางเงินมัดจำ (Reserved &amp; Deposit)</span>
+<span class="font-label-xs text-label-xs text-text-muted">ทำสัญญาจะซื้อจะขายและวางมัดจำระบบ Escrow</span>
+</div>
+</div>
+<div class="flex items-center gap-space-lg shrink-0">
+<span class="font-title-md text-title-md text-on-surface">9 <span class="font-body-sm text-body-sm text-text-muted">ราย</span></span>
+<span class="font-label-xs text-label-xs bg-primary-light text-primary-container px-2 py-0.5 rounded font-semibold min-w-[70px] text-center">47.3%</span>
+</div>
+</div>
+<!-- Stage 4 -->
+<div class="bg-primary-light p-space-md rounded-xl flex items-center justify-between gap-space-md ml-9 shadow-sm">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-7 h-7 rounded-full bg-primary-container flex items-center justify-center text-on-primary font-bold font-label-xs text-label-xs shadow-sm">4</div>
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-primary-container font-bold">ตรวจสอบโฉนด &amp; โอนกรรมสิทธิ์สำเร็จ (Closed Won)</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">ปิดการขายและได้รับอนุมัติโอนกรรมสิทธิ์ ณ สนง.ที่ดิน</span>
+</div>
+</div>
+<div class="flex items-center gap-space-lg shrink-0">
+<span class="font-headline-md text-headline-md text-primary-container font-extrabold">7 <span class="font-body-sm text-body-sm text-primary-container">ยูนิต</span></span>
+<span class="font-label-xs text-label-xs bg-status-available text-on-secondary px-2 py-0.5 rounded font-bold min-w-[70px] text-center">77.7%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (5/12) -->
+<div class="lg:col-span-5 flex flex-col gap-gutter-desktop">
+<!-- Breakdown by Property Type & Zone in Udon Thani -->
+<div class="bg-surface-card p-space-xl rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.05)] flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-title-md text-title-md text-on-surface">สัดส่วนทรัพย์และโซนขายดี</h2>
+<span class="font-body-sm text-body-sm text-text-muted">ยอดขายจำแนกตามประเภทในอุดรธานี</span>
+</div>
+<span class="material-symbols-outlined text-text-muted text-[20px]">donut_large</span>
+</div>
+<!-- Distribution Bars -->
+<div class="flex flex-col gap-space-md">
+<!-- Category 1 -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<span class="text-on-surface font-body-sm-medium text-body-sm-medium">คอนโดมิเนียม (UD Town / โพศรี)</span>
+<span class="font-bold text-primary-container">55% (4 ดีล)</span>
+</div>
+<div class="w-full bg-canvas-background h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 55%;"></div>
+</div>
+</div>
+<!-- Category 2 -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<span class="text-on-surface font-body-sm-medium text-body-sm-medium">บ้านเดี่ยว (ศุภาลัย / กัลปพฤกษ์ / มิตรภาพ)</span>
+<span class="font-bold text-chart-views">30% (2 ดีล)</span>
+</div>
+<div class="w-full bg-canvas-background h-2 rounded-full overflow-hidden">
+<div class="bg-chart-views h-full rounded-full" style="width: 30%;"></div>
+</div>
+</div>
+<!-- Category 3 -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<span class="text-on-surface font-body-sm-medium text-body-sm-medium">ที่ดินเปล่า &amp; จัดสรร (วงแหวนรอบนอก)</span>
+<span class="font-bold text-chart-speed">15% (1 ดีล)</span>
+</div>
+<div class="w-full bg-canvas-background h-2 rounded-full overflow-hidden">
+<div class="bg-chart-speed h-full rounded-full" style="width: 15%;"></div>
+</div>
+</div>
+</div>
+<!-- Local Mini Map Location Insight -->
+<div class="bg-canvas-background p-space-md rounded-xl flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-card flex items-center justify-center text-primary-container shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[22px]">explore</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface">โซนทำเลทองที่มีดีมานด์สูงสุด</span>
+<span class="font-label-xs text-label-xs text-text-muted">ต.หมากแข้ง และ ถ.นิตโย มีอัตราค้นหาทรัพย์สูงกว่าค่าเฉลี่ย 3.4 เท่า</span>
+</div>
+</div>
+</div>
+<!-- Client Lead Sources -->
+<div class="bg-surface-card p-space-xl rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.05)] flex flex-col gap-space-lg">
+<div>
+<h2 class="font-title-md text-title-md text-on-surface">ที่มาของลูกค้าเป้าหมาย (Lead Sources)</h2>
+<span class="font-body-sm text-body-sm text-text-muted">ช่องทางที่สร้างลูกค้าพร้อมวางเงินมัดจำ</span>
+</div>
+<div class="grid grid-cols-3 gap-space-sm text-center">
+<div class="bg-canvas-background p-space-md rounded-xl flex flex-col items-center gap-1">
+<span class="font-price-xl text-price-xl text-primary-container font-extrabold">52%</span>
+<span class="font-label-xs text-label-xs text-on-surface font-medium">MapNest Demand Board</span>
+<span class="font-label-xs text-label-xs text-status-available font-semibold">แชทตรง 12 ราย</span>
+</div>
+<div class="bg-canvas-background p-space-md rounded-xl flex flex-col items-center gap-1">
+<span class="font-price-xl text-price-xl text-on-surface font-extrabold">26%</span>
+<span class="font-label-xs text-label-xs text-on-surface font-medium">Agent Microsite</span>
+<span class="font-label-xs text-label-xs text-text-muted">เข้าชม 894 ครั้ง</span>
+</div>
+<div class="bg-canvas-background p-space-md rounded-xl flex flex-col items-center gap-1">
+<span class="font-price-xl text-price-xl text-chart-views font-extrabold">22%</span>
+<span class="font-label-xs text-label-xs text-on-surface font-medium">เครือข่าย Co-Agent</span>
+<span class="font-label-xs text-label-xs text-text-muted">ส่งต่อ 5 ดีล</span>
+</div>
+</div>
+</div>
+<!-- Quick Action Box: เป้าหมายไตรมาสถัดไป (Q2/2568) -->
+<div class="bg-primary-container text-on-primary p-space-xl rounded-xl shadow-[0_4px_12px_rgba(15,118,110,0.18)] flex flex-col gap-space-md relative overflow-hidden">
+<div class="relative z-10 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs bg-white/20 text-on-primary px-2.5 py-0.5 rounded-full font-semibold uppercase tracking-wider">Target Q2/2568</span>
+<span class="material-symbols-outlined text-on-primary-container text-[22px]">flag</span>
+</div>
+<h3 class="font-headline-md text-headline-md font-bold mt-1">ตั้งเป้าคอมมิชชั่น ฿500,000</h3>
+<p class="font-body-sm text-body-sm text-on-primary/80">
+              เพื่อเลื่อนระดับเป็น Verified Agent Pro ปิดเพิ่มอีกเพียง 4 หลังในเขตเมืองอุดรธานี
+            </p>
+</div>
+<div class="relative z-10 pt-space-xs flex items-center justify-between">
+<a class="bg-surface-card hover:bg-canvas-background text-primary-container font-body-sm-medium text-body-sm-medium px-4 py-2 rounded-xl transition-colors shadow-sm inline-flex items-center gap-1.5" href="#">
+<span>วางแผนกลยุทธ์ Q2</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<span class="font-label-xs text-label-xs text-on-primary/70">ประเมินโอกาสสำเร็จ 88%</span>
+</div>
+<!-- Decorative subtle circle -->
+<div class="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-white/10 pointer-events-none"></div>
+</div>
+</div>
+</section>
+<!-- Section 4: Active Deals Table (ดีลสำคัญที่กำลังดำเนินการ) -->
+<section class="bg-surface-card rounded-xl p-space-xl shadow-[0_1px_3px_rgba(15,23,42,0.05)] flex flex-col gap-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-md text-headline-md text-on-surface">ดีลสำคัญที่กำลังดำเนินการ (Active Deals)</h2>
+<span class="font-label-xs text-label-xs bg-primary-light text-primary-container px-2 py-0.5 rounded-full font-bold">4 รายการเร่งด่วน</span>
+</div>
+<span class="font-body-sm text-body-sm text-text-muted">รายการทรัพย์ที่มีกำหนดการเซ็นสัญญา โอนกรรมสิทธิ์ หรือเข้าชมเร็วๆ นี้</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="text-text-muted hover:text-primary-container font-body-sm-medium text-body-sm-medium flex items-center gap-1 transition-colors" type="button">
+<span>ดูรายการทั้งหมด (18 ดีล)</span>
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Desktop Data Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm border-collapse min-w-[900px]">
+<thead>
+<tr class="bg-canvas-background text-text-muted font-body-sm-medium text-body-sm-medium">
+<th class="py-3 px-4 rounded-l-xl">รหัสดีล / ชื่อทรัพย์สิน</th>
+<th class="py-3 px-4">ลูกค้าผู้ซื้อ / ผู้เช่า</th>
+<th class="py-3 px-4">ราคาตกลง</th>
+<th class="py-3 px-4">ส่วนแบ่งคอมมิชชั่น</th>
+<th class="py-3 px-4">ขั้นตอนปัจจุบัน</th>
+<th class="py-3 px-4 rounded-r-xl text-right">การดำเนินการถัดไป (Action)</th>
+</tr>
+</thead>
+<tbody class="divide-y-0">
+<!-- Row 1 -->
+<tr class="hover:bg-canvas-background/60 transition-colors">
+<td class="py-4 px-4 align-middle">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary-container text-[20px]">apartment</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface truncate">ลุมพินี เพลส ยูดี-โพศรี (ห้อง 804)</span>
+<span class="font-label-xs text-label-xs text-text-muted font-mono">MN-UD-80412 · ตึก B ชั้น 8</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface">คุณสุทธิพงษ์ ว.</span>
+<span class="font-label-xs text-label-xs text-text-muted">โทร: 081-xxx-9921</span>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<span class="font-title-md text-title-md text-on-surface font-bold">฿1,420,000</span>
+</td>
+<td class="py-4 px-4 align-middle">
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-primary-container font-bold">฿21,300</span>
+<span class="font-label-xs text-label-xs text-text-muted">50% Co-Broke</span>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-status-reserved/10 text-status-reserved font-label-xs text-label-xs font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-status-reserved"></span>
+<span>ติดจอง (โอน 30 เม.ย.)</span>
+</span>
+</td>
+<td class="py-4 px-4 align-middle text-right">
+<button class="bg-primary-container hover:bg-primary-hover text-on-primary font-body-sm-medium text-body-sm-medium px-3.5 py-1.5 rounded-xl transition-colors shadow-sm inline-flex items-center gap-1" type="button">
+<span>ตามผลสินเชื่อ ธอส.</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-canvas-background/60 transition-colors">
+<td class="py-4 px-4 align-middle">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary-container text-[20px]">domain</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface truncate">เดอะ เบส เซ็นทรัล อุดร (ห้อง 512)</span>
+<span class="font-label-xs text-label-xs text-text-muted font-mono">MN-UD-9104 · สัญญาเช่า 1 ปี</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface">พญ. พรรณณิกา</span>
+<span class="font-label-xs text-label-xs text-text-muted">รพ.ศูนย์อุดรธานี</span>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<div class="flex items-baseline gap-1">
+<span class="font-title-md text-title-md text-on-surface font-bold">฿8,500</span>
+<span class="font-label-xs text-label-xs text-text-muted">/ด.</span>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-primary-container font-bold">฿8,500</span>
+<span class="font-label-xs text-label-xs text-text-muted">ค่าคอมมิชชั่น 1 เดือน</span>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-status-available/10 text-status-available font-label-xs text-label-xs font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-status-available"></span>
+<span>นัดทำสัญญา 1 เม.ย.</span>
+</span>
+</td>
+<td class="py-4 px-4 align-middle text-right">
+<button class="bg-canvas-background hover:bg-surface-container text-on-surface font-body-sm-medium text-body-sm-medium px-3.5 py-1.5 rounded-xl transition-colors shadow-sm inline-flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary-container">draw</span>
+<span>ส่งร่าง E-Sign</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-canvas-background/60 transition-colors">
+<td class="py-4 px-4 align-middle">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary-container text-[20px]">cottage</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface truncate">ศุภาลัย เบลล่า หนองวัวซอ</span>
+<span class="font-label-xs text-label-xs text-text-muted font-mono">MN-UD-3320 · บ้านเดี่ยว 65 ตร.ว.</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface">คุณชนาธิป ส.</span>
+<span class="font-label-xs text-label-xs text-text-muted">ข้าราชการบำนาญ</span>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<span class="font-title-md text-title-md text-on-surface font-bold">฿3,890,000</span>
+</td>
+<td class="py-4 px-4 align-middle">
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-primary-container font-bold">฿58,350</span>
+<span class="font-label-xs text-label-xs text-text-muted">50% Co-Broke</span>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-xs text-label-xs font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-text-muted"></span>
+<span>นัดชมรอบที่ 2 (เสาร์นี้)</span>
+</span>
+</td>
+<td class="py-4 px-4 align-middle text-right">
+<button class="bg-canvas-background hover:bg-surface-container text-on-surface font-body-sm-medium text-body-sm-medium px-3.5 py-1.5 rounded-xl transition-colors shadow-sm inline-flex items-center gap-1" type="button">
+<span>ยืนยันเวลากับเจ้าของ</span>
+<span class="material-symbols-outlined text-[16px]">call</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-canvas-background/60 transition-colors">
+<td class="py-4 px-4 align-middle">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary-container text-[20px]">landscape</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface truncate">ที่ดินเปล่า 150 ตร.ว. บ้านจาน</span>
+<span class="font-label-xs text-label-xs text-text-muted font-mono">MN-UD-4011 · โฉนด น.ส.4 จ</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-on-surface">นิติบุคคลนักลงทุน</span>
+<span class="font-label-xs text-label-xs text-text-muted">ผู้แทน บจก.อุดรแลนด์</span>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<span class="font-title-md text-title-md text-on-surface font-bold">฿2,800,000</span>
+</td>
+<td class="py-4 px-4 align-middle">
+<div class="flex flex-col">
+<span class="font-body-sm-medium text-body-sm-medium text-primary-container font-bold">฿84,000</span>
+<span class="font-label-xs text-label-xs text-text-muted">3% Direct Agent</span>
+</div>
+</td>
+<td class="py-4 px-4 align-middle">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-status-reserved/10 text-status-reserved font-label-xs text-label-xs font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-status-reserved"></span>
+<span>ยื่นข้อเสนอรอตอบรับ</span>
+</span>
+</td>
+<td class="py-4 px-4 align-middle text-right">
+<button class="bg-canvas-background hover:bg-surface-container text-on-surface font-body-sm-medium text-body-sm-medium px-3.5 py-1.5 rounded-xl transition-colors shadow-sm inline-flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px] text-chart-speed">schedule</span>
+<span>โทรติดตามใน 24 ชม.</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Section 5: Bottom Navigation / Link to Agent Tools & Microsite -->
+<section class="bg-surface-card rounded-xl p-space-xl shadow-[0_1px_3px_rgba(15,23,42,0.05)] relative overflow-hidden">
+<div class="flex flex-col md:flex-row items-center justify-between gap-space-xl">
+<div class="flex flex-col sm:flex-row items-center gap-space-lg text-center sm:text-left">
+<!-- Thumbnail preview of agent page -->
+<div class="w-24 h-24 rounded-xl bg-canvas-background overflow-hidden relative shrink-0 shadow-sm flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="A clean modern Thai real estate agent personal profile webpage displayed on a high-resolution tablet mockup with photo of agent and featured Udon Thani housing listings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCA303c6gtwhODNcMwK4QB11o-eUYgmv_5WbDc6bgfT5gLw_VK7tRsiGGulu-vAASnfuVOgJS1p7zEorl0KPms-UbHD-kwBvCh5qd7PKpymdKAjQVOXyFw4hVLSW59SBKsUdcl_vvKS18FyGEeS7fhQhboPznJ_8hGsSYsckvxJ-QPrCsGTJZ0-aA7NpOJZxN09PGLEk8EBK4a9-zJQ5orZcLFrte1P75eH9JzH8i0"/>
+<div class="absolute inset-0 bg-primary-container/10"></div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-center sm:justify-start gap-2">
+<span class="font-label-xs text-label-xs bg-primary-light text-primary-container px-2 py-0.5 rounded font-bold uppercase">S38 Tool</span>
+<h3 class="font-title-md text-title-md text-on-surface">จัดการหน้าเว็บส่วนตัวของคุณ (Customize S38 Agent Microsite)</h3>
+</div>
+<p class="font-body-sm text-body-sm text-text-muted max-w-xl">
+              ปรับแต่งโปรไฟล์ ใส่ลิงก์โซเชียล คิวอาร์โค้ด LINE Official และคัดเลือกทรัพย์เด่นเพื่อโปรโมตในนาม “นายสิรวิชญ์ พันธ์ทองแท้” ให้ผู้ซื้อในอุดรฯ มั่นใจสูงสุด
+            </p>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-space-sm shrink-0">
+<a class="bg-canvas-background hover:bg-surface-container text-on-surface px-4 py-2.5 rounded-xl font-body-sm-medium text-body-sm-medium transition-colors shadow-sm flex items-center gap-1.5" href="#">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+<span>ดูตัวอย่างหน้าเว็บ</span>
+</a>
+<a class="bg-primary-container hover:bg-primary-hover text-on-primary px-5 py-2.5 rounded-xl font-body-sm-medium text-body-sm-medium transition-colors shadow-sm flex items-center gap-1.5" href="#">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+<span>แก้ไขและตั้งค่า Microsite</span>
+</a>
+</div>
+</div>
+</section>
+</div>
+</div></main><footer class="w-full bg-surface-card shadow-[0_1px_8px_rgba(0,0,0,0.04)] mt-margin-desktop"><div class="max-w-[1320px] mx-auto px-margin-desktop py-space-xl"><div class="grid grid-cols-1 md:grid-cols-4 gap-gutter-desktop pb-space-xl"><div class="flex flex-col gap-space-sm md:col-span-1"><div class="flex items-center gap-space-xs text-primary-container"><div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-[18px]">location_on</span></div><span class="font-headline-md text-headline-md text-primary-container font-bold">MapNest</span></div><p class="font-body-sm text-body-sm text-text-muted leading-relaxed">ระบบบริหารจัดการและค้นหาอสังหาริมทรัพย์ยุคใหม่ประจำจังหวัดอุดรธานี ตรวจสอบโฉนดโปร่งใส ครบวงจรสำหรับผู้ซื้อ ผู้ขาย และนายหน้ามืออาชีพ</p></div><div class="flex flex-col gap-space-xs"><span class="font-title-md text-title-md text-on-surface mb-space-xs">หมวดหมู่ทรัพย์สิน</span><a class="font-body-sm text-body-sm text-text-muted hover:text-primary-container transition-colors" data-path="explore-properties" href="#">บ้านเดี่ยวและทาวน์โฮม อุดรธานี</a><a class="font-body-sm text-body-sm text-text-muted hover:text-primary-container transition-colors" data-path="explore-properties" href="#">ที่ดินจัดสรรรอบเมือง</a><a class="font-body-sm text-body-sm text-text-muted hover:text-primary-container transition-colors" data-path="explore-properties" href="#">คอนโดมิเนียมใจกลางเมือง</a><a class="font-body-sm text-body-sm text-text-muted hover:text-primary-container transition-colors" data-path="explore-properties" href="#">อาคารพาณิชย์และกิจการ</a></div><div class="flex flex-col gap-space-xs"><span class="font-title-md text-title-md text-on-surface mb-space-xs">นายหน้าและพาร์ทเนอร์</span><a class="font-body-sm text-body-sm text-text-muted hover:text-primary-container transition-colors" data-path="agent-hub" href="#">Agent Hub ศูนย์รวมนายหน้า</a><a class="font-body-sm text-body-sm text-text-muted hover:text-primary-container transition-colors" data-path="packages" href="#">แพ็กเกจดันประกาศ</a><a class="font-body-sm text-body-sm text-text-muted hover:text-primary-container transition-colors" data-path="my-listings" href="#">ระบบจัดการประกาศสำหรับผู้ขาย</a><a class="font-body-sm text-body-sm text-text-muted hover:text-primary-container transition-colors" data-path="explore-properties" href="#">แนวทางตรวจสอบการฉ้อโกง</a></div><div class="flex flex-col gap-space-xs"><span class="font-title-md text-title-md text-on-surface mb-space-xs">ติดต่อสาขาอุดรธานี</span><p class="font-body-sm text-body-sm text-text-muted leading-relaxed">ศูนย์ประสานงาน MapNest Udon Thani<br/>ถ.โพศรี ต.หมากแข้ง อ.เมือง จ.อุดรธานี 41000<br/>โทรศัพท์: 042-123-4567<br/>อีเมล: support-udon@mapnest.co.th</p></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md text-text-muted"><span class="font-label-xs text-label-xs">© 2025 MapNest Technologies (Thailand) Co., Ltd. สงวนลิขสิทธิ์ทั้งหมด</span><div class="flex items-center gap-space-lg"><a class="font-label-xs text-label-xs text-text-muted hover:text-on-surface transition-colors" data-path="explore-properties" href="#">นโยบายความเป็นส่วนตัว</a><a class="font-label-xs text-label-xs text-text-muted hover:text-on-surface transition-colors" data-path="explore-properties" href="#">ข้อกำหนดการใช้งาน</a><a class="font-label-xs text-label-xs text-text-muted hover:text-on-surface transition-colors" data-path="explore-properties" href="#">แผนผังเว็บไซต์</a></div></div></div></footer></body></html>
