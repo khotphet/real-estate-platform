@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
 
 /* MapNest design tokens — source: docs/DESIGN.md (NO purple anywhere) */
 :root {
@@ -49,4 +50,74 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+/* Leaflet custom map markers */
+.leaflet-container {
+  font-family: inherit;
+  z-index: 10;
+}
+.leaflet-pane {
+  z-index: 10 !important;
+}
+.map-price-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px 4px 5px;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.16);
+  font-size: 12px;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  user-select: none;
+}
+.map-price-pill:hover {
+  border-color: #0f766e;
+  box-shadow: 0 8px 20px rgba(15, 118, 110, 0.28);
+}
+.map-price-pill.selected {
+  background: #0f766e;
+  border-color: #0d9488;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(15, 118, 110, 0.45);
+}
+.map-price-pill.reserved {
+  border-color: #f59e0b;
+}
+.pill-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background-color: #e2e8f0;
+}
+.pill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: #f59e0b;
+  flex-shrink: 0;
+}
+.map-landmark-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 11px;
+  font-weight: 700;
+  color: #1e293b;
+  white-space: nowrap;
+  pointer-events: none;
 }

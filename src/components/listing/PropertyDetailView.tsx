@@ -118,7 +118,7 @@ export function PropertyDetailView({ listing }: PropertyDetailViewProps) {
             </button>
             <button
               onClick={() => setIsFav(!isFav)}
-              className={`flex items-center gap-2 px-3.5 py-2 bg-surface-card hover:bg-surface-container-low font-medium text-xs sm:text-sm rounded-xl border border-border-subtle shadow-sm transition-colors ${
+              className={`flex items-center gap-2 px-3.5 py-2 bg-surface-card hover:bg-surface-container-low font-medium text-xs sm:text-sm rounded-xl border border-border-subtle shadow-sm transition-colors cursor-pointer ${
                 isFav ? 'text-red-500' : 'text-on-surface'
               }`}
               type="button"
@@ -126,6 +126,14 @@ export function PropertyDetailView({ listing }: PropertyDetailViewProps) {
               <Heart className={`w-4 h-4 ${isFav ? 'fill-red-500 text-red-500' : 'text-text-muted'}`} />
               <span>{isFav ? 'บันทึกแล้ว' : 'บันทึก'}</span>
             </button>
+            <Link
+              href={`/compare?codes=${listing.code},UD-00102,UD-00104`}
+              className="flex items-center gap-1.5 px-3.5 py-2 bg-surface-card hover:bg-surface-container-low font-medium text-xs sm:text-sm text-on-surface rounded-xl border border-border-subtle shadow-sm transition-colors cursor-pointer"
+              title="เปรียบเทียบทรัพย์นี้กับทรัพย์อื่น"
+            >
+              <span className="material-symbols-outlined text-[18px] text-primary">compare_arrows</span>
+              <span>เปรียบเทียบ</span>
+            </Link>
           </div>
         </div>
       </div>

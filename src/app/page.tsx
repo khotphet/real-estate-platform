@@ -14,7 +14,7 @@ import { SearchViewMode } from '@/types/listing';
 
 export default function SearchPage() {
   const [activeType, setActiveType] = useState<string>('all');
-  const [viewMode, setViewMode] = useState<SearchViewMode>('list');
+  const [viewMode, setViewMode] = useState<SearchViewMode>('map');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false);
   const [sortOption, setSortOption] = useState<string>('newest');
