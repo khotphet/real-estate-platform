@@ -14,7 +14,7 @@ export default function AccountPage() {
   const [name, setName] = useState(user?.name || 'คุณสมหญิง บุญรักษา');
   const [phone, setPhone] = useState(user?.phone || '081-882-9901');
   const [email, setEmail] = useState('somying@udonpremierrealty.com');
-  const [role, setRole] = useState<'owner' | 'agent' | 'buyer'>(user?.role || 'agent');
+  const [role, setRole] = useState<'owner' | 'agent' | 'buyer' | 'admin'>(user?.role || 'agent');
 
   // KYC Form State (S31 KYC Upload)
   const [idNumber, setIdNumber] = useState('1-4199-00123-45-6');
@@ -26,7 +26,7 @@ export default function AccountPage() {
   const [isSaving, setIsSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
 
-  const handleRoleChange = (newRole: 'owner' | 'agent' | 'buyer') => {
+  const handleRoleChange = (newRole: 'owner' | 'agent' | 'buyer' | 'admin') => {
     setRole(newRole);
     if (user) {
       loginAs({ ...user, role: newRole });
