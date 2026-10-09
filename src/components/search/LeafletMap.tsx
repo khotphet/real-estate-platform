@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import L from 'leaflet';
 import type { Listing } from '@/types/listing';
 
 interface LeafletMapProps {
@@ -41,11 +42,8 @@ export default function LeafletMap({
   useEffect(() => {
     if (!containerRef.current || mapRef.current) return;
 
-    let isMounted = true;
-
-    async function initMap() {
-      const L = (await import('leaflet')).default;
-      if (!isMounted || !containerRef.current) return;
+    function initMap() {
+      if (!containerRef.current) return;
 
       // Clean container if re-initializing
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -114,7 +112,6 @@ export default function LeafletMap({
     initMap();
 
     return () => {
-      isMounted = false;
       if (mapRef.current) {
         mapRef.current.remove();
         mapRef.current = null;
@@ -127,8 +124,7 @@ export default function LeafletMap({
   useEffect(() => {
     if (!mapReady || !mapRef.current) return;
 
-    async function updateTile() {
-      const L = (await import('leaflet')).default;
+    function updateTile() {
       if (activeTileLayerRef.current) {
         mapRef.current.removeLayer(activeTileLayerRef.current);
       }
@@ -157,8 +153,7 @@ export default function LeafletMap({
   useEffect(() => {
     if (!mapReady || !mapRef.current || !markersGroupRef.current) return;
 
-    async function updateMarkers() {
-      const L = (await import('leaflet')).default;
+    function updateMarkers() {
       markersGroupRef.current.clearLayers();
 
       listings.forEach((item) => {
