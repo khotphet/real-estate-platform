@@ -47,27 +47,21 @@ export function Navbar({ onSearch }: NavbarProps) {
         <nav className="hidden lg:flex items-center gap-6">
           <Link
             href="/"
-            className="text-sm font-semibold text-primary border-b-2 border-primary py-1 transition-colors"
+            className="text-sm font-semibold text-primary hover:text-primary transition-colors py-1"
           >
             สำรวจ / ค้นหาทรัพย์
           </Link>
           <Link
-            href="#post"
-            className="text-sm font-medium text-muted hover:text-foreground py-1 transition-colors"
+            href="/my-listings"
+            className="text-sm font-medium text-muted hover:text-primary py-1 transition-colors"
+          >
+            จัดการประกาศของฉัน
+          </Link>
+          <Link
+            href="/post"
+            className="text-sm font-medium text-muted hover:text-primary py-1 transition-colors"
           >
             ลงประกาศฟรี
-          </Link>
-          <Link
-            href="#agent-hub"
-            className="text-sm font-medium text-muted hover:text-foreground py-1 transition-colors"
-          >
-            นายหน้า Agent Hub
-          </Link>
-          <Link
-            href="#packages"
-            className="text-sm font-medium text-muted hover:text-foreground py-1 transition-colors"
-          >
-            แพ็กเกจ
           </Link>
         </nav>
 
@@ -107,21 +101,22 @@ export function Navbar({ onSearch }: NavbarProps) {
 
           {/* Post Property Button */}
           <Link
-            href="#post"
-            className="hidden sm:inline-flex items-center gap-1 px-4 py-2 bg-primary hover:bg-[#115e59] text-white text-sm font-medium rounded-xl shadow-xs transition-colors"
+            href="/post"
+            className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 bg-primary hover:bg-[#115e59] text-white text-sm font-medium rounded-xl shadow-xs transition-colors"
           >
-            <span className="material-symbols-outlined text-[18px]">add</span>
-            <span>ลงประกาศ</span>
+            <span className="material-symbols-outlined text-[18px]">add_circle</span>
+            <span>ลงประกาศฟรี</span>
           </Link>
 
           {/* User Avatar */}
           <div className="flex items-center pl-1 border-l border-border">
-            <button
-              type="button"
+            <Link
+              href="/my-listings"
+              title="จัดการประกาศของฉัน"
               className="w-9 h-9 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold text-sm hover:ring-2 hover:ring-primary/30 transition-all"
             >
               <span className="material-symbols-outlined text-[20px]">person</span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>
