@@ -87,7 +87,7 @@ export function Navbar({ onSearch }: NavbarProps) {
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold tracking-tight text-primary leading-tight">MapNest</span>
-              <span className="text-[10px] text-muted font-medium">อุดรธานี Pilot</span>
+              <span className="text-[10px] text-muted font-medium">แพลตฟอร์มอสังหาฯ ทั่วไทย</span>
             </div>
           </Link>
 
@@ -100,7 +100,7 @@ export function Navbar({ onSearch }: NavbarProps) {
                 setSearchVal(e.target.value);
                 onSearch?.(e.target.value);
               }}
-              placeholder="ค้นหาทำเลในอุดรฯ..."
+              placeholder="ค้นหาทำเล, โครงการ, จังหวัดทั่วไทย..."
               className="w-full pl-9 pr-3 py-1.5 bg-background border border-border rounded-xl text-xs placeholder:text-muted focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
             />
           </div>

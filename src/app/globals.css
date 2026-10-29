@@ -64,6 +64,23 @@
   --font-sans: var(--font-jakarta), var(--font-sarabun), ui-sans-serif, system-ui, sans-serif;
 }
 
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined' !important;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -144,4 +161,171 @@ body {
   color: #1e293b;
   white-space: nowrap;
   pointer-events: none;
+}
+
+
+/* Leaflet POI markers */
+.leaflet-poi-marker {
+  background: transparent !important;
+  border: none !important;
+  overflow: visible !important;
+}
+.map-poi-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(4px);
+  border: 1.5px solid var(--poi-color, #10b981);
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-size: 11px;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.map-poi-badge:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+}
+.map-poi-badge .poi-icon {
+  font-size: 14px;
+  color: var(--poi-color, #10b981);
+}
+
+
+/* Proximity connectors & badges */
+.leaflet-proximity-badge {
+  background: transparent !important;
+  border: none !important;
+  overflow: visible !important;
+}
+.proximity-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 7px;
+  background: rgba(15, 118, 110, 0.95);
+  color: #ffffff;
+  border-radius: 9999px;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(15, 118, 110, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+}
+
+
+/* Real Brand & POI Badges */
+.map-brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+.map-brand-badge:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+}
+
+/* 7-Eleven: Iconic Green / Orange / Red */
+.brand-7eleven {
+  background: #008163;
+  color: #ffffff;
+  border: 1.5px solid #ffffff;
+}
+.brand-logo-7 {
+  background: #ffffff;
+  color: #ee3124;
+  font-weight: 900;
+  font-size: 11px;
+  width: 17px;
+  height: 17px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* CJ More: Green / Yellow */
+.brand-cj {
+  background: #15803d;
+  color: #ffffff;
+  border: 1.5px solid #fde047;
+}
+.brand-logo-cj {
+  background: #fde047;
+  color: #15803d;
+  font-weight: 900;
+  font-size: 10px;
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+/* Lotus: Teal Green */
+.brand-lotus {
+  background: #047857;
+  color: #ffffff;
+  border: 1.5px solid #ffffff;
+}
+.brand-logo-lotus {
+  background: #ffffff;
+  color: #047857;
+  font-weight: 900;
+  font-size: 10px;
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+/* Market: Vibrant Warm Orange */
+.brand-market {
+  background: #ea580c;
+  color: #ffffff;
+  border: 1.5px solid #ffffff;
+}
+
+/* Laundry / Otteri: Bright Blue */
+.brand-laundry {
+  background: #0284c7;
+  color: #ffffff;
+  border: 1.5px solid #ffffff;
+}
+
+/* EV Charger: Emerald Green */
+.brand-ev {
+  background: #059669;
+  color: #ffffff;
+  border: 1.5px solid #ffffff;
+}
+
+/* Pharmacy: Medical Teal */
+.brand-pharmacy {
+  background: #0d9488;
+  color: #ffffff;
+  border: 1.5px solid #ffffff;
+}
+
+/* Service Fallback */
+.brand-service {
+  background: #334155;
+  color: #ffffff;
+  border: 1.5px solid #ffffff;
+}
+
+.badge-emoji {
+  font-size: 13px;
+  line-height: 1;
 }

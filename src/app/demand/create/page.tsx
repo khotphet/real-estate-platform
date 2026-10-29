@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Navbar } from '@/components/layout/Navbar';
+import { THAILAND_PROVINCES } from '@/data/provinces';
 
 export default function CreateDemandPage() {
   const router = useRouter();
@@ -11,6 +12,7 @@ export default function CreateDemandPage() {
   const [propertyType, setPropertyType] = useState('detached_house');
   const [budgetMin, setBudgetMin] = useState('3,000,000');
   const [budgetMax, setBudgetMax] = useState('5,500,000');
+  const [targetProvince, setTargetProvince] = useState('อุดรธานี');
   const [targetZone, setTargetZone] = useState('รอบสวนสาธารณะหนองประจักษ์ / ถ.โพศรี');
   const [bedrooms, setBedrooms] = useState('3');
   const [bathrooms, setBathrooms] = useState('2');
@@ -55,7 +57,7 @@ export default function CreateDemandPage() {
             </span>
             <h2 className="text-2xl font-black text-foreground mt-3">ปักหมุดความต้องการสำเร็จ!</h2>
             <p className="text-sm text-muted max-w-md mx-auto mt-2 leading-relaxed">
-              ความต้องการของคุณถูกเผยแพร่บนกระดานความต้องการอุดรธานีแล้ว นายหน้าและเจ้าของทรัพย์ที่ตรงกับงบประมาณ {budgetMin} – {budgetMax} บาท จะเริ่มยื่นข้อเสนอผ่านระบบแชท
+              ความต้องการของคุณถูกเผยแพร่บนกระดานความต้องการแล้ว นายหน้าและเจ้าของทรัพย์ที่ตรงกับงบประมาณ {budgetMin} – {budgetMax} บาท จะเริ่มยื่นข้อเสนอผ่านระบบแชท
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -185,35 +187,36 @@ export default function CreateDemandPage() {
                 </div>
               </div>
 
-              {/* Target Zone in Udon */}
-              <div>
-                <label className="block text-xs font-bold text-foreground mb-2">
-                  ทำเลที่สนใจในจังหวัดอุดรธานี
-                </label>
-                <select
-                  value={targetZone}
-                  onChange={(e) => setTargetZone(e.target.value)}
-                  className="w-full px-3.5 py-2.5 bg-background border border-border rounded-xl text-sm font-medium focus:border-primary focus:outline-none"
-                >
-                  <option value="รอบสวนสาธารณะหนองประจักษ์ / ถ.โพศรี">
-                    รอบสวนสาธารณะหนองประจักษ์ / ถ.โพศรี
-                  </option>
-                  <option value="ใจกลางเมือง / เซ็นทรัลพลาซา / ยูดีทาวน์ (UD Town)">
-                    ใจกลางเมือง / เซ็นทรัลพลาซา / ยูดีทาวน์ (UD Town)
-                  </option>
-                  <option value="โซนสนามบินอุดรธานี / ถ.ทหาร / ค่ายประจักษ์">
-                    โซนสนามบินอุดรธานี / ถ.ทหาร / ค่ายประจักษ์
-                  </option>
-                  <option value="โซนหนองสำโรง / บ้านเลื่อม / ม.ราชภัฏอุดร">
-                    โซนหนองสำโรง / บ้านเลื่อม / ม.ราชภัฏอุดร
-                  </option>
-                  <option value="โซนถนนมิตรภาพ / หนองบัว / บิ๊กซีอุดรธานี">
-                    โซนถนนมิตรภาพ / หนองบัว / บิ๊กซีอุดรธานี
-                  </option>
-                  <option value="โซนรอบเมืองเลี่ยงเมือง (Ring Road) ทุกฝั่ง">
-                    โซนรอบเมืองเลี่ยงเมือง (Ring Road) ทุกฝั่ง
-                  </option>
-                </select>
+              {/* Target Zone & Province */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-foreground mb-2">
+                    จังหวัดที่สนใจ
+                  </label>
+                  <select
+                    value={targetProvince}
+                    onChange={(e) => setTargetProvince(e.target.value)}
+                    className="w-full px-3.5 py-2.5 bg-background border border-border rounded-xl text-sm font-medium focus:border-primary focus:outline-none"
+                  >
+                    {THAILAND_PROVINCES.map((p) => (
+                      <option key={p.nameTh} value={p.nameTh}>
+                        {p.nameTh} ({p.nameEn})
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-foreground mb-2">
+                    ทำเล / โซนที่สนใจ
+                  </label>
+                  <input
+                    type="text"
+                    value={targetZone}
+                    onChange={(e) => setTargetZone(e.target.value)}
+                    placeholder="เช่น ใกล้รถไฟฟ้า, ตัวเมือง, ริมหาด, นิมมาน"
+                    className="w-full px-3.5 py-2.5 bg-background border border-border rounded-xl text-sm font-medium focus:border-primary focus:outline-none"
+                  />
+                </div>
               </div>
 
               {/* Specs */}

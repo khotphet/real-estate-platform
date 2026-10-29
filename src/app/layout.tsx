@@ -16,7 +16,7 @@ const sarabun = Sarabun({
 
 export const metadata: Metadata = {
   title: "MapNest — ค้นหาบ้าน คอนโด ที่ดิน บนแผนที่",
-  description: "แพลตฟอร์มซื้อ-ขาย-เช่าอสังหาริมทรัพย์แบบแผนที่ เริ่มต้นที่อุดรธานี",
+  description: "แพลตฟอร์มซื้อ-ขาย-เช่าอสังหาริมทรัพย์แบบแผนที่ ทั่วประเทศไทย ทั้ง 77 จังหวัด",
 };
 
 export default function RootLayout({

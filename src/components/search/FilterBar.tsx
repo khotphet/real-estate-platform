@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { PropertyType, SearchViewMode } from '@/types/listing';
+import { THAILAND_PROVINCES } from '@/data/provinces';
 
 interface FilterBarProps {
   activeType: string;
@@ -9,6 +10,8 @@ interface FilterBarProps {
   activeView: SearchViewMode;
   onChangeView: (view: SearchViewMode) => void;
   onOpenFilterModal?: () => void;
+  selectedProvince: string;
+  onSelectProvince: (province: string) => void;
   counts: {
     all: number;
     condo: number;
@@ -24,6 +27,8 @@ export function FilterBar({
   activeView,
   onChangeView,
   onOpenFilterModal,
+  selectedProvince,
+  onSelectProvince,
   counts,
 }: FilterBarProps) {
   return (
@@ -31,6 +36,36 @@ export function FilterBar({
       <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col md:flex-row md:items-center justify-between gap-3">
         {/* Category Chips and Quick Filter Controls */}
         <div className="flex items-center flex-wrap gap-2">
+          {/* Province Selector Dropdown */}
+          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-primary text-xs font-bold transition-all shadow-2xs">
+            <span className="material-symbols-outlined text-[16px]">location_on</span>
+            <select
+              value={selectedProvince}
+              onChange={(e) => onSelectProvince(e.target.value)}
+              className="bg-transparent text-primary font-bold focus:outline-none cursor-pointer pr-1 text-xs"
+              aria-label="เลือกจังหวัด"
+            >
+              <option value="all" className="text-foreground font-semibold">📍 ทุกจังหวัด (ทั่วประเทศ)</option>
+              <optgroup label="จังหวัดยอดนิยม" className="text-muted font-bold">
+                <option value="กรุงเทพมหานคร" className="text-foreground">กรุงเทพมหานคร</option>
+                <option value="เชียงใหม่" className="text-foreground">เชียงใหม่</option>
+                <option value="ชลบุรี" className="text-foreground">ชลบุรี (พัทยา)</option>
+                <option value="ภูเก็ต" className="text-foreground">ภูเก็ต</option>
+                <option value="ขอนแก่น" className="text-foreground">ขอนแก่น</option>
+                <option value="อุดรธานี" className="text-foreground">อุดรธานี</option>
+              </optgroup>
+              <optgroup label="ทั้ง 77 จังหวัด" className="text-muted font-bold">
+                {THAILAND_PROVINCES.map((p) => (
+                  <option key={p.nameTh} value={p.nameTh} className="text-foreground">
+                    {p.nameTh}
+                  </option>
+                ))}
+              </optgroup>
+            </select>
+          </div>
+
+          <div className="h-5 w-px bg-border mx-1 hidden sm:block"></div>
+
           {/* All chip */}
           <button
             type="button"
@@ -137,7 +172,7 @@ export function FilterBar({
           <button
             type="button"
             onClick={onOpenFilterModal}
-            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-background border border-border text-xs font-medium text-muted hover:text-foreground hover:border-primary/50 transition-colors"
+            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-background border border-border text-xs font-medium text-muted hover:text-foreground hover:border-primary/50 transition-colors cursor-pointer"
           >
             <span className="material-symbols-outlined text-[16px]">payments</span>
             <span>ช่วงราคา</span>
@@ -148,7 +183,7 @@ export function FilterBar({
           <button
             type="button"
             onClick={onOpenFilterModal}
-            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-background border border-border text-xs font-medium text-muted hover:text-foreground hover:border-primary/50 transition-colors"
+            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-background border border-border text-xs font-medium text-muted hover:text-foreground hover:border-primary/50 transition-colors cursor-pointer"
           >
             <span className="material-symbols-outlined text-[16px]">bed</span>
             <span>ห้องนอน</span>
@@ -159,7 +194,7 @@ export function FilterBar({
           <button
             type="button"
             onClick={onOpenFilterModal}
-            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-background border border-border text-xs font-medium text-muted hover:text-foreground hover:border-primary/50 transition-colors"
+            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-background border border-border text-xs font-medium text-muted hover:text-foreground hover:border-primary/50 transition-colors cursor-pointer"
           >
             <span className="material-symbols-outlined text-[16px]">tune</span>
             <span>ตัวกรองเพิ่มเติม</span>
@@ -173,7 +208,7 @@ export function FilterBar({
             <button
               type="button"
               onClick={() => onChangeView('list')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${
                 activeView === 'list'
                   ? 'bg-primary text-white font-semibold shadow-xs'
                   : 'text-muted hover:text-foreground'
@@ -187,7 +222,7 @@ export function FilterBar({
             <button
               type="button"
               onClick={() => onChangeView('photo')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${
                 activeView === 'photo'
                   ? 'bg-primary text-white font-semibold shadow-xs'
                   : 'text-muted hover:text-foreground'
@@ -201,7 +236,7 @@ export function FilterBar({
             <button
               type="button"
               onClick={() => onChangeView('map')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all cursor-pointer ${
                 activeView === 'map'
                   ? 'bg-primary text-white font-semibold shadow-xs'
                   : 'text-muted hover:text-foreground'

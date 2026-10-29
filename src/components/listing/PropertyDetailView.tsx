@@ -27,6 +27,7 @@ import {
   Images,
 } from 'lucide-react';
 import { Listing } from '@/types/listing';
+import { POINTS_OF_INTEREST, PoiCategory } from '@/data/poi';
 import { MOCK_LISTINGS } from '@/data/mock-listings';
 import { LoanCalculatorModal } from './LoanCalculatorModal';
 import { PhotoGalleryModal } from './PhotoGalleryModal';
@@ -41,8 +42,46 @@ interface PropertyDetailViewProps {
 }
 
 export function PropertyDetailView({ listing }: PropertyDetailViewProps) {
-  const [copiedLink, setCopiedLink] = useState(false);
+    const [copiedLink, setCopiedLink] = useState(false);
   const [phoneRevealed, setPhoneRevealed] = useState(false);
+  const [selectedPoiTab, setSelectedPoiTab] = useState<'all' | 'convenience' | 'market' | 'service'>('all');
+
+  // Nearby Points of Interest calculated based on property GPS coordinates
+  const nearbyPois = useMemo(() => {
+    function getDistanceMeters(lat1: number, lon1: number, lat2: number, lon2: number) {
+      const R = 6371e3;
+      const phi1 = (lat1 * Math.PI) / 180;
+      const phi2 = (lat2 * Math.PI) / 180;
+      const deltaPhi = ((lat2 - lat1) * Math.PI) / 180;
+      const deltaLambda = ((lon2 - lon1) * Math.PI) / 180;
+      const a =
+        Math.sin(deltaPhi / 2) * Math.sin(deltaPhi / 2) +
+        Math.cos(phi1) * Math.cos(phi2) * Math.sin(deltaLambda / 2) * Math.sin(deltaLambda / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return Math.round(R * c);
+    }
+
+    return POINTS_OF_INTEREST.filter(
+      (poi) => !listing.location.province || poi.province === listing.location.province
+    )
+      .map((poi) => {
+        const dist = getDistanceMeters(
+          listing.location.lat,
+          listing.location.lng,
+          poi.lat,
+          poi.lng
+        );
+        const distFormatted = dist < 1000 ? `${dist} ม.` : `${(dist / 1000).toFixed(1)} กม.`;
+        const walkMinutes = Math.max(1, Math.round(dist / 80));
+        return { ...poi, distanceMeters: dist, distanceFormatted: distFormatted, walkMinutes };
+      })
+      .sort((a, b) => a.distanceMeters - b.distanceMeters);
+  }, [listing.location.lat, listing.location.lng, listing.location.province]);
+
+  const displayedPois = useMemo(() => {
+    if (selectedPoiTab === 'all') return nearbyPois.slice(0, 8);
+    return nearbyPois.filter((p) => p.category === selectedPoiTab).slice(0, 8);
+  }, [nearbyPois, selectedPoiTab]);
 
   // Modals state
   const [isLoanModalOpen, setIsLoanModalOpen] = useState(false);
@@ -438,15 +477,20 @@ export function PropertyDetailView({ listing }: PropertyDetailViewProps) {
                 ทำเลที่ตั้ง & สถานที่ใกล้เคียง (Location & Landmarks)
               </h2>
 
-              {/* Map Preview Canvas */}
-              <div className="relative w-full h-72 sm:h-80 rounded-xl overflow-hidden shadow-sm mb-6 bg-slate-100 border border-border-subtle">
-                <div
-                  className="w-full h-full bg-cover bg-center"
-                  style={{
-                    backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuDdR_PqzxHb2cfK6aLdUsXjGuKAiKUcfyRT8oGCHn6BpMU_pT2aEGqWjcRGssn8BPAIAEYqx5Pez2_y5w9IPBubjbpoginuQZ6kCWV_agGlPpsQ2jGmuiOpGXxoH2Da9kyG3C63S4cdmkdYvhSHmUEKiEvgjnhZ2UAbpuLYnQvoqCmH8z6valFu170os-fhWO9oEWJiVUVXL0a-qWT6ejpmuj2GVvQt3Q6hatnhWSg')`,
-                  }}
-                ></div>
-                <div className="absolute top-4 left-4 bg-surface-card/95 backdrop-blur-sm px-3.5 py-1.5 rounded-xl shadow-md flex items-center gap-2 border border-border-subtle">
+              {/* Map Preview Canvas with Real Google Maps */}
+              <div className="relative w-full h-80 sm:h-96 rounded-2xl overflow-hidden shadow-sm mb-6 bg-slate-100 border border-border-subtle">
+                <iframe
+                  title="Google Maps Location"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                  src={`https://maps.google.com/maps?q=${listing.location.lat},${listing.location.lng}&hl=th&z=16&output=embed`}
+                  className="w-full h-full"
+                ></iframe>
+                <div className="absolute top-4 left-4 bg-surface-card/95 backdrop-blur-sm px-3.5 py-1.5 rounded-xl shadow-md flex items-center gap-2 border border-border-subtle pointer-events-none">
                   <MapPin className="w-4 h-4 text-primary" />
                   <span className="text-xs font-semibold text-on-surface">
                     {listing.title} ({listing.location.lat.toFixed(4)}, {listing.location.lng.toFixed(4)})
@@ -456,42 +500,100 @@ export function PropertyDetailView({ listing }: PropertyDetailViewProps) {
                   href={`https://maps.google.com/?q=${listing.location.lat},${listing.location.lng}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="absolute bottom-4 right-4 bg-surface-card hover:bg-surface-container-low text-primary px-3.5 py-1.5 rounded-lg shadow-sm text-xs font-semibold flex items-center gap-1.5 border border-border-subtle transition-colors"
+                  className="absolute bottom-4 right-4 bg-surface-card hover:bg-surface-container-low text-primary px-3.5 py-1.5 rounded-lg shadow-md text-xs font-semibold flex items-center gap-1.5 border border-border-subtle transition-colors"
                 >
-                  <span>เปิดดูบน Google Maps</span>
+                  <span>เปิดเต็มจอบน Google Maps</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>
 
-              {/* Proximity List */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {(
-                  listing.landmarks || [
-                    { name: 'UD Town (ยูดี ทาวน์)', distance: '400 ม.' },
-                    { name: 'โรงพยาบาลเอกอุดร', distance: '650 ม.' },
-                    { name: 'เซ็นทรัล อุดรธานี', distance: '1.2 กม.' },
-                    { name: 'สวนสาธารณะหนองประจักษ์', distance: '2.5 กม.' },
-                    { name: 'ท่าอากาศยานนานาชาติอุดรธานี (UTH)', distance: '6.0 กม. (12 นาที)' },
-                  ]
-                ).map((lm, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center justify-between p-3.5 bg-canvas-background rounded-xl border border-border-subtle"
+              {/* POI Category Filter Tabs */}
+              <div className="flex items-center gap-1.5 flex-wrap mb-4">
+                {[
+                  { id: 'all', label: 'ทั้งหมด', icon: 'explore' },
+                  { id: 'convenience', label: 'ร้านสะดวกซื้อ (7-Eleven / CJ)', icon: 'storefront' },
+                  { id: 'market', label: 'ตลาด & ซูเปอร์มาร์เก็ต', icon: 'shopping_basket' },
+                  { id: 'service', label: 'ร้านบริการ & สะดวกซัก 24h', icon: 'local_laundry_service' },
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => setSelectedPoiTab(tab.id as any)}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all flex items-center gap-1.5 cursor-pointer ${
+                      selectedPoiTab === tab.id
+                        ? 'bg-primary text-white border-primary shadow-xs'
+                        : 'bg-surface-card hover:bg-slate-50 text-text-muted border-border-subtle'
+                    }`}
                   >
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-surface-card flex items-center justify-center text-primary shadow-xs">
-                        <MapPin className="w-4 h-4" />
-                      </div>
-                      <span className="text-xs sm:text-sm text-on-surface font-medium truncate max-w-[180px]">
-                        {lm.name}
-                      </span>
-                    </div>
-                    <span className="text-xs px-2.5 py-1 bg-surface-card rounded-md text-primary font-semibold border border-border-subtle">
-                      {lm.distance}
-                    </span>
-                  </div>
+                    <span className="material-symbols-outlined text-[15px]">{tab.icon}</span>
+                    <span>{tab.label}</span>
+                  </button>
                 ))}
               </div>
+
+              {/* Dynamic Nearby Places Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {displayedPois.length > 0 ? (
+                  displayedPois.map((poi) => (
+                    <div
+                      key={poi.id}
+                      className="flex items-center justify-between p-3.5 bg-canvas-background rounded-xl border border-border-subtle hover:border-primary/40 transition-all"
+                    >
+                      <div className="flex items-center gap-3 min-w-0">
+                        <div
+                          className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 shadow-xs"
+                          style={{ backgroundColor: `${poi.color}15`, color: poi.color }}
+                        >
+                          <span className="material-symbols-outlined text-[18px]">{poi.icon}</span>
+                        </div>
+                        <div className="min-w-0">
+                          <h4 className="text-xs sm:text-sm text-on-surface font-bold truncate">
+                            {poi.name}
+                          </h4>
+                          <p className="text-[11px] text-text-muted truncate">
+                            {poi.categoryLabel} • {poi.distanceDesc || poi.subType}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="text-right shrink-0 ml-2">
+                        <span className="text-xs px-2.5 py-1 bg-surface-card rounded-md text-primary font-bold border border-border-subtle block">
+                          {poi.distanceFormatted}
+                        </span>
+                        <span className="text-[10px] text-text-muted mt-0.5 block">
+                          ~เดิน {poi.walkMinutes} นาที
+                        </span>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <div className="col-span-2 text-center py-6 text-xs text-text-muted">
+                    ไม่พบสถานที่ในหมวดหมู่นี้ในระยะใกล้เคียง
+                  </div>
+                )}
+              </div>
+
+              {/* Major Landmarks from Listing */}
+              {listing.landmarks && listing.landmarks.length > 0 && (
+                <div className="mt-5 pt-4 border-t border-border-subtle">
+                  <h3 className="text-xs font-bold text-text-muted uppercase tracking-wider mb-3">
+                    การเดินทาง & สถานที่สำคัญหลัก
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {listing.landmarks.map((lm, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-center justify-between p-2.5 bg-surface-card rounded-xl border border-border-subtle text-xs"
+                      >
+                        <span className="text-on-surface font-semibold flex items-center gap-1.5 truncate">
+                          <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
+                          {lm.name}
+                        </span>
+                        <span className="text-primary font-bold ml-2 shrink-0">{lm.distance}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Inline Mortgage Calculator Preview Section */}

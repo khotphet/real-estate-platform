@@ -9,22 +9,47 @@ import { MapView } from '@/components/search/MapView';
 import { DemandBanner } from '@/components/search/DemandBanner';
 import { FilterModal } from '@/components/search/FilterModal';
 import { Footer } from '@/components/layout/Footer';
-import { MOCK_LISTINGS, getActiveSearchListings } from '@/data/mock-listings';
+import { MOCK_LISTINGS } from '@/data/mock-listings';
 import { SearchViewMode } from '@/types/listing';
+import { THAILAND_CENTER, getProvinceByName } from '@/data/provinces';
 
 export default function SearchPage() {
   const [activeType, setActiveType] = useState<string>('all');
   const [viewMode, setViewMode] = useState<SearchViewMode>('map');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [selectedProvince, setSelectedProvince] = useState<string>('all');
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false);
   const [sortOption, setSortOption] = useState<string>('newest');
 
-  // Filter listings based on current search & active category chip
-  // Rule O5: Sold items are hidden from search results (11 active listings)
+  // Province info for center/zoom and breadcrumb
+  const currentProvinceInfo = useMemo(() => {
+    if (selectedProvince === 'all') return null;
+    return getProvinceByName(selectedProvince);
+  }, [selectedProvince]);
+
+  const mapCenter = useMemo(() => {
+    if (currentProvinceInfo) {
+      return { lat: currentProvinceInfo.lat, lng: currentProvinceInfo.lng };
+    }
+    return { lat: THAILAND_CENTER.lat, lng: THAILAND_CENTER.lng };
+  }, [currentProvinceInfo]);
+
+  const mapZoom = useMemo(() => {
+    if (currentProvinceInfo) return currentProvinceInfo.zoom;
+    return 6;
+  }, [currentProvinceInfo]);
+
+  // Filter listings based on current province, search & active category chip
+  // Rule O5: Sold items are hidden from search results
   const filteredListings = useMemo(() => {
     return MOCK_LISTINGS.filter((item) => {
       // Hide sold items from public search feed
       if (item.status === 'sold') return false;
+
+      // Filter by Province
+      if (selectedProvince !== 'all' && item.location.province !== selectedProvince) {
+        return false;
+      }
 
       // Filter by property type chip
       if (activeType !== 'all' && item.propertyType !== activeType) {
@@ -38,25 +63,36 @@ export default function SearchPage() {
           item.title.toLowerCase().includes(q) ||
           item.location.address.toLowerCase().includes(q) ||
           item.location.subdistrict.toLowerCase().includes(q) ||
+          item.location.district.toLowerCase().includes(q) ||
+          item.location.province.toLowerCase().includes(q) ||
           (item.location.nearLandmark && item.location.nearLandmark.toLowerCase().includes(q));
         if (!matches) return false;
       }
 
       return true;
+    }).sort((a, b) => {
+      if (sortOption === 'price-asc') return a.price - b.price;
+      if (sortOption === 'price-desc') return b.price - a.price;
+      return 0; // default newest
     });
-  }, [activeType, searchQuery]);
+  }, [selectedProvince, activeType, searchQuery, sortOption]);
 
-  // Counts for the category chips (only available & reserved, sold hidden)
+  // Counts for the category chips in current province scope
   const counts = useMemo(() => {
-    const activeSearch = MOCK_LISTINGS.filter((l) => l.status !== 'sold');
+    const activeSearch = MOCK_LISTINGS.filter((l) => {
+      if (l.status === 'sold') return false;
+      if (selectedProvince !== 'all' && l.location.province !== selectedProvince) return false;
+      return true;
+    });
+
     return {
-      all: activeSearch.length, // 11
-      condo: activeSearch.filter((l) => l.propertyType === 'condo').length, // 3
-      house: activeSearch.filter((l) => l.propertyType === 'house').length, // 4
-      townhome: activeSearch.filter((l) => l.propertyType === 'townhome').length, // 2
-      land: activeSearch.filter((l) => l.propertyType === 'land').length, // 2
+      all: activeSearch.length,
+      condo: activeSearch.filter((l) => l.propertyType === 'condo').length,
+      house: activeSearch.filter((l) => l.propertyType === 'house').length,
+      townhome: activeSearch.filter((l) => l.propertyType === 'townhome').length,
+      land: activeSearch.filter((l) => l.propertyType === 'land').length,
     };
-  }, []);
+  }, [selectedProvince]);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -70,6 +106,8 @@ export default function SearchPage() {
         activeView={viewMode}
         onChangeView={setViewMode}
         onOpenFilterModal={() => setIsFilterOpen(true)}
+        selectedProvince={selectedProvince}
+        onSelectProvince={(prov) => setSelectedProvince(prov)}
         counts={counts}
       />
 
@@ -80,16 +118,31 @@ export default function SearchPage() {
           <div>
             {/* Breadcrumb */}
             <nav className="flex items-center gap-1.5 text-xs text-muted mb-1">
-              <span className="hover:text-foreground cursor-pointer">หน้าแรก</span>
+              <span
+                onClick={() => setSelectedProvince('all')}
+                className="hover:text-foreground cursor-pointer"
+              >
+                หน้าแรก
+              </span>
               <span>/</span>
-              <span className="hover:text-foreground cursor-pointer">ภาคอีสาน</span>
-              <span>/</span>
-              <span className="text-primary font-semibold">อุดรธานี</span>
+              {currentProvinceInfo ? (
+                <>
+                  <span className="text-muted">{currentProvinceInfo.region}</span>
+                  <span>/</span>
+                  <span className="text-primary font-semibold">{currentProvinceInfo.nameTh}</span>
+                </>
+              ) : (
+                <span className="text-primary font-semibold">ทั่วประเทศไทย (77 จังหวัด)</span>
+              )}
             </nav>
 
             {/* Results Title & Count */}
             <h1 className="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight flex items-baseline gap-2">
-              <span>อสังหาริมทรัพย์ในอุดรธานี</span>
+              <span>
+                {selectedProvince === 'all'
+                  ? 'อสังหาริมทรัพย์ทั่วประเทศไทย'
+                  : `อสังหาริมทรัพย์ใน${selectedProvince}`}
+              </span>
               <span className="text-sm font-semibold text-primary">
                 (พบ {filteredListings.length} รายการ)
               </span>
@@ -122,7 +175,7 @@ export default function SearchPage() {
             <div className="mt-8 flex justify-center">
               <button
                 type="button"
-                className="px-6 py-2.5 rounded-xl border border-border bg-surface hover:bg-background text-xs font-bold text-foreground transition-all shadow-2xs flex items-center gap-2"
+                className="px-6 py-2.5 rounded-xl border border-border bg-surface hover:bg-background text-xs font-bold text-foreground transition-all shadow-2xs flex items-center gap-2 cursor-pointer"
               >
                 <span className="material-symbols-outlined text-[16px]">expand_more</span>
                 <span>โหลดเพิ่มเติม (แสดงครบทั้ง {filteredListings.length} รายการ)</span>
@@ -140,7 +193,7 @@ export default function SearchPage() {
             <div className="mt-8 flex justify-center">
               <button
                 type="button"
-                className="px-6 py-2.5 rounded-xl border border-border bg-surface hover:bg-background text-xs font-bold text-foreground transition-all shadow-2xs flex items-center gap-2"
+                className="px-6 py-2.5 rounded-xl border border-border bg-surface hover:bg-background text-xs font-bold text-foreground transition-all shadow-2xs flex items-center gap-2 cursor-pointer"
               >
                 <span className="material-symbols-outlined text-[16px]">expand_more</span>
                 <span>โหลดเพิ่มเติม (แสดงครบทั้ง {filteredListings.length} รายการ)</span>
@@ -151,7 +204,12 @@ export default function SearchPage() {
 
         {viewMode === 'map' && (
           <div>
-            <MapView listings={filteredListings} />
+            <MapView
+              listings={filteredListings}
+              center={mapCenter}
+              zoom={mapZoom}
+              provinceName={selectedProvince}
+            />
           </div>
         )}
       </main>

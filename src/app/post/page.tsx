@@ -31,6 +31,7 @@ import {
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { PropertyType, DealType } from '@/types/listing';
+import { THAILAND_PROVINCES } from '@/data/provinces';
 
 export default function PostPropertyPage() {
   const router = useRouter();
@@ -119,6 +120,10 @@ export default function PostPropertyPage() {
     'เครื่องปรับอากาศครบ',
     'เครื่องทำน้ำอุ่น',
     'เฟอร์นิเจอร์บิวท์อิน',
+    'ใกล้ร้านสะดวกซื้อ 7-Eleven / CJ More',
+    'ใกล้ตลาดสด / ตลาดนัด',
+    'ใกล้ร้านสะดวกซัก 24 ชม.',
+    'ใกล้สถานีชาร์จรถไฟฟ้า EV',
     'ใกล้ห้างสรรพสินค้า',
     'ใกล้โรงพยาบาล',
   ];
@@ -239,7 +244,7 @@ export default function PostPropertyPage() {
               <div className="grid grid-cols-5 gap-2 text-left">
                 {[
                   { step: 1, title: 'ประเภท & ธุรกรรม', sub: 'ขาย/เช่า' },
-                  { step: 2, title: 'ที่ตั้ง & แผนที่', sub: 'ปักหมุดอุดรฯ' },
+                  { step: 2, title: 'ที่ตั้ง & แผนที่', sub: 'ปักหมุดทำเล' },
                   { step: 3, title: 'ราคา & สเปก', sub: 'ขนาด ตร.ม./ตร.ว.' },
                   { step: 4, title: 'รูปภาพ & โฉนด', sub: 'รูปจริง & เอกสาร' },
                   { step: 5, title: 'ตรวจสอบ & เผยแพร่', sub: 'เปิดแสดงผล' },
@@ -412,7 +417,7 @@ export default function PostPropertyPage() {
                       ขั้นตอนที่ 2: ที่ตั้งและการปักหมุดบนแผนที่
                     </h2>
                     <p className="text-sm text-text-muted mt-1">
-                      ระบุทำเลจริงในจังหวัดอุดรธานี เพื่อให้ผู้ซื้อค้นหาพบบนแผนที่ได้อย่างแม่นยำ
+                      ระบุทำเลจริงของอสังหาริมทรัพย์ เพื่อให้ผู้ซื้อค้นหาพบบนแผนที่ได้อย่างแม่นยำ (รองรับ 77 จังหวัด)
                     </p>
                   </div>
 
@@ -420,46 +425,78 @@ export default function PostPropertyPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div>
                       <label className="block text-xs font-semibold text-on-surface mb-1.5">
-                        จังหวัด
+                        จังหวัด <span className="text-red-500">*</span>
+                      </label>
+                      <select
+                        value={formData.province}
+                        onChange={(e) => {
+                          const pName = e.target.value;
+                          const pInfo = THAILAND_PROVINCES.find((p) => p.nameTh === pName);
+                          setFormData({
+                            ...formData,
+                            province: pName,
+                            lat: pInfo ? pInfo.lat : formData.lat,
+                            lng: pInfo ? pInfo.lng : formData.lng,
+                          });
+                        }}
+                        className="w-full px-3.5 py-2.5 text-sm bg-surface-card border border-border-subtle rounded-xl focus:outline-none focus:border-primary transition-all font-medium"
+                      >
+                        {THAILAND_PROVINCES.map((p) => (
+                          <option key={p.nameTh} value={p.nameTh}>
+                            {p.nameTh} ({p.nameEn})
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold text-on-surface mb-1.5">
+                        อำเภอ / เขต <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="text"
-                        disabled
-                        value="อุดรธานี (Udon Thani)"
-                        className="w-full px-3.5 py-2.5 text-sm bg-slate-100 text-text-muted border border-border-subtle rounded-xl cursor-not-allowed"
+                        placeholder="เช่น เมือง, วัฒนา, คลองหลวง"
+                        value={formData.district}
+                        onChange={(e) => setFormData({ ...formData, district: e.target.value })}
+                        className="w-full px-3.5 py-2.5 text-sm bg-surface-card border border-border-subtle rounded-xl focus:outline-none focus:border-primary transition-all font-medium"
                       />
                     </div>
                     <div>
                       <label className="block text-xs font-semibold text-on-surface mb-1.5">
-                        อำเภอ <span className="text-red-500">*</span>
+                        ตำบล / แขวง <span className="text-red-500">*</span>
                       </label>
-                      <select
-                        value={formData.district}
-                        onChange={(e) => setFormData({ ...formData, district: e.target.value })}
-                        className="w-full px-3.5 py-2.5 text-sm bg-surface-card border border-border-subtle rounded-xl focus:outline-none focus:border-primary transition-all"
-                      >
-                        <option value="เมืองอุดรธานี">เมืองอุดรธานี</option>
-                        <option value="กุมภวาปี">กุมภวาปี</option>
-                        <option value="หนองหาน">หนองหาน</option>
-                        <option value="บ้านผือ">บ้านผือ</option>
-                        <option value="เพ็ญ">เพ็ญ</option>
-                      </select>
+                      <input
+                        type="text"
+                        placeholder="เช่น หมากแข้ง, คลองเตยเหนือ"
+                        value={formData.subdistrict}
+                        onChange={(e) => setFormData({ ...formData, subdistrict: e.target.value })}
+                        className="w-full px-3.5 py-2.5 text-sm bg-surface-card border border-border-subtle rounded-xl focus:outline-none focus:border-primary transition-all font-medium"
+                      />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-semibold text-on-surface mb-1.5">
+                        พิกัด ละติจูด (Latitude)
+                      </label>
+                      <input
+                        type="number"
+                        step="any"
+                        value={formData.lat}
+                        onChange={(e) => setFormData({ ...formData, lat: parseFloat(e.target.value) || 0 })}
+                        className="w-full px-3.5 py-2.5 text-sm bg-surface-card border border-border-subtle rounded-xl focus:outline-none focus:border-primary transition-all font-mono"
+                      />
                     </div>
                     <div>
                       <label className="block text-xs font-semibold text-on-surface mb-1.5">
-                        ตำบล <span className="text-red-500">*</span>
+                        พิกัด ลองจิจูด (Longitude)
                       </label>
-                      <select
-                        value={formData.subdistrict}
-                        onChange={(e) => setFormData({ ...formData, subdistrict: e.target.value })}
-                        className="w-full px-3.5 py-2.5 text-sm bg-surface-card border border-border-subtle rounded-xl focus:outline-none focus:border-primary transition-all"
-                      >
-                        {subdistrictsUdon.map((sub) => (
-                          <option key={sub} value={sub}>
-                            {sub}
-                          </option>
-                        ))}
-                      </select>
+                      <input
+                        type="number"
+                        step="any"
+                        value={formData.lng}
+                        onChange={(e) => setFormData({ ...formData, lng: parseFloat(e.target.value) || 0 })}
+                        className="w-full px-3.5 py-2.5 text-sm bg-surface-card border border-border-subtle rounded-xl focus:outline-none focus:border-primary transition-all font-mono"
+                      />
                     </div>
                   </div>
 
@@ -482,7 +519,7 @@ export default function PostPropertyPage() {
                     <div className="flex items-center justify-between text-xs">
                       <span className="font-semibold text-on-surface flex items-center gap-1.5">
                         <MapPin className="w-4 h-4 text-primary" />
-                        ปักหมุดตำแหน่งบนแผนที่อุดรธานี (พิกัด: {formData.lat.toFixed(4)},{' '}
+                        ปักหมุดตำแหน่งบนแผนที่ (พิกัด: {formData.lat.toFixed(4)},{' '}
                         {formData.lng.toFixed(4)})
                       </span>
                       <span className="text-text-muted">คลิกเพื่อย้ายหมุด</span>
